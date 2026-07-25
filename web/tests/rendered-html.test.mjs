@@ -12,15 +12,17 @@ async function render() {
   );
 }
 
-test("server-renders the finished V0 product", async () => {
+test("server-renders the Chinese-first bilingual V0 product", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
   const html = await response.text();
+  assert.match(html, /<html lang="zh-CN">/i);
   assert.match(html, /Airports Under Stress/);
   assert.match(html, /611,735/);
-  assert.match(html, /Airport Pressure Board/i);
-  assert.match(html, /Aircraft Rotation Stories/i);
+  assert.match(html, /机场压力榜/);
+  assert.match(html, /飞机轮转故事/);
+  assert.match(html, />中文<\/button>/);
+  assert.match(html, />EN<\/button>/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|react-loading-skeleton/i);
 });
-

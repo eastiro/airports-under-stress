@@ -14,8 +14,8 @@
   --amber: #ffbc52;
   --red: #ff6b5f;
   --green: #82e6a7;
-  --display: "Arial Narrow", "Aptos Display", "Segoe UI", sans-serif;
-  --body: Inter, "Segoe UI", Arial, sans-serif;
+  --display: "Arial Narrow", "Aptos Display", "Segoe UI", "Microsoft YaHei UI", sans-serif;
+  --body: Inter, "Segoe UI", "Microsoft YaHei UI", "PingFang SC", Arial, sans-serif;
   --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
 }
 
@@ -139,13 +139,51 @@ button {
   color: var(--mint);
 }
 
+.header-tools {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-self: end;
+}
+
+.language-toggle {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  border: 1px solid var(--line);
+  background: rgba(11, 18, 20, 0.74);
+}
+
+.language-toggle button {
+  min-width: 42px;
+  min-height: 28px;
+  padding: 0 9px;
+  border: 0;
+  background: transparent;
+  color: var(--quiet);
+  cursor: pointer;
+  font: 700 9px/1 var(--mono);
+  letter-spacing: 0.05em;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.language-toggle button:hover {
+  color: var(--ink);
+}
+
+.language-toggle button.active {
+  background: var(--mint-soft);
+  color: var(--mint);
+  box-shadow: inset 0 0 0 1px rgba(102, 240, 210, 0.16);
+}
+
 .edition-badge {
   display: flex;
-  justify-self: end;
   border: 1px solid var(--line);
   font: 700 10px/1 var(--mono);
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .edition-badge span {
@@ -1270,6 +1308,7 @@ a:focus-visible {
 
   .site-header {
     grid-template-columns: 1fr auto;
+    column-gap: 20px;
   }
 
   .site-header nav {
@@ -1409,6 +1448,15 @@ a:focus-visible {
     display: none;
   }
 
+  .header-tools {
+    gap: 7px;
+  }
+
+  .language-toggle button {
+    min-width: 38px;
+    padding-inline: 7px;
+  }
+
   .hero h1 {
     font-size: 17vw;
   }
@@ -1484,4 +1532,3 @@ a:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
-
