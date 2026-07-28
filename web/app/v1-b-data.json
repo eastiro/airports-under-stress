@@ -1,0 +1,5035 @@
+{
+  "version": "v1_b_threshold_lab",
+  "thresholdMinutes": 15,
+  "availableThresholds": [
+    15,
+    30,
+    60
+  ],
+  "thresholdSensitivity": [
+    {
+      "threshold": 15,
+      "nEpisodes": 50526,
+      "nDeep2": 14811,
+      "nDeep3": 5833,
+      "maxDepth": 9,
+      "nAirportsExposed500": 55
+    },
+    {
+      "threshold": 30,
+      "nEpisodes": 31162,
+      "nDeep2": 8309,
+      "nDeep3": 2991,
+      "maxDepth": 8,
+      "nAirportsExposed500": 39
+    },
+    {
+      "threshold": 60,
+      "nEpisodes": 14777,
+      "nDeep2": 3335,
+      "nDeep3": 1099,
+      "maxDepth": 7,
+      "nAirportsExposed500": 19
+    }
+  ],
+  "episodeContinuity": {
+    "maxScheduledTurnMinutes": 180,
+    "maxDurationHours": 18,
+    "sensitivityAudit": "reports/V1_P01_CONTINUITY_AUDIT.md"
+  },
+  "thresholdStability": {
+    "15vs30Spearman": 0.8962,
+    "15vs30Top20Overlap": 20,
+    "15vs60Spearman": null,
+    "15vs60Top20Overlap": 3
+  },
+  "sourceSummary": {
+    "nEpisodes": 50526,
+    "nSteps": 89595
+  },
+  "selectionMethod": {
+    "targetCount": 12,
+    "categoryRequirements": {
+      "deepest": 3,
+      "high_delay_recovered": 2,
+      "high_pressure_day": 2,
+      "normal_day": 2,
+      "crosses_midnight": 1,
+      "censored": 2
+    },
+    "priorityOrder": [
+      "deepest",
+      "high_delay_recovered",
+      "high_pressure_day",
+      "normal_day",
+      "crosses_midnight",
+      "censored"
+    ],
+    "highPressureDate": "2026-05-18",
+    "normalPressureDate": "2026-05-04",
+    "diversityCaps": {
+      "maxPerTail": 1,
+      "maxPerCarrier": 2,
+      "maxPerStartAirport": 2
+    }
+  },
+  "inputHashes": {
+    "v1_p0_episodes.parquet": "af1157489de678410c40dfa544a8c708df79638c26297f15e260a142e6f2ca17",
+    "v1_p0_steps.parquet": "e52170d3de52f1a973700cc4414b9fc42a5b2cea27c563214c6ac0d91acdad12",
+    "p0_chain_links.parquet": "5db652d2f5af177cbe95739e5a644418bb9f7bcb6661bd41c193a29fb2403c92"
+  },
+  "episodes": [
+    {
+      "episodeId": "ep-N492HA-020520",
+      "selectionCategory": "deepest",
+      "selectionReasonKey": "highest_depth",
+      "selectionReasonParams": {
+        "depth": 9,
+        "startDate": "2026-05-22"
+      },
+      "tailNumber": "N492HA",
+      "carrier": "AS",
+      "depth": 9,
+      "initialArrivalDelay": 32,
+      "maxDepartureDelay": 128,
+      "cumulativeAmplificationMinutes": 114,
+      "durationMinutes": 811,
+      "airportsTouched": [
+        "LIH",
+        "HNL",
+        "KOA",
+        "HNL",
+        "ITO",
+        "HNL",
+        "OGG",
+        "LIH",
+        "KOA",
+        "HNL"
+      ],
+      "uniqueAirportsTouched": 5,
+      "outcome": "censored",
+      "terminationReason": "airport_discontinuity",
+      "observedStartUTC": "2026-05-22T17:12:00Z",
+      "endUTC": "2026-05-23T06:43:00Z",
+      "crossesMidnightUTC": true,
+      "steps": [
+        {
+          "stepIndex": 0,
+          "depthAfterStep": 1,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "turnAirport": {
+            "code": "LIH",
+            "cityEn": "Lihue"
+          },
+          "nextAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "previousFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1003"
+          },
+          "nextFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1014"
+          },
+          "prevArrivalDelay": 32,
+          "nextDepartureDelay": 34,
+          "nextArrivalDelay": 29,
+          "delayDelta": 2,
+          "plannedTurnMinutes": 30,
+          "actualTurnMinutes": 32,
+          "prevActualArrivalUTC": "2026-05-22T17:12:00Z",
+          "nextActualDepartureUTC": "2026-05-22T17:44:00Z",
+          "nextActualArrivalUTC": "2026-05-22T18:18:00Z",
+          "previousScheduledArrivalUTC": "2026-05-22T16:40:00Z",
+          "nextScheduledDepartureUTC": "2026-05-22T17:10:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 1,
+          "depthAfterStep": 2,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "LIH",
+            "cityEn": "Lihue"
+          },
+          "turnAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "nextAirport": {
+            "code": "KOA",
+            "cityEn": "Kailua-Kona"
+          },
+          "previousFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1014"
+          },
+          "nextFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1048"
+          },
+          "prevArrivalDelay": 29,
+          "nextDepartureDelay": 47,
+          "nextArrivalDelay": 50,
+          "delayDelta": 18,
+          "plannedTurnMinutes": 37,
+          "actualTurnMinutes": 55,
+          "prevActualArrivalUTC": "2026-05-22T18:18:00Z",
+          "nextActualDepartureUTC": "2026-05-22T19:13:00Z",
+          "nextActualArrivalUTC": "2026-05-22T20:02:00Z",
+          "previousScheduledArrivalUTC": "2026-05-22T17:49:00Z",
+          "nextScheduledDepartureUTC": "2026-05-22T18:26:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 2,
+          "depthAfterStep": 3,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "turnAirport": {
+            "code": "KOA",
+            "cityEn": "Kailua-Kona"
+          },
+          "nextAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "previousFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1048"
+          },
+          "nextFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1037"
+          },
+          "prevArrivalDelay": 50,
+          "nextDepartureDelay": 52,
+          "nextArrivalDelay": 46,
+          "delayDelta": 2,
+          "plannedTurnMinutes": 30,
+          "actualTurnMinutes": 32,
+          "prevActualArrivalUTC": "2026-05-22T20:02:00Z",
+          "nextActualDepartureUTC": "2026-05-22T20:34:00Z",
+          "nextActualArrivalUTC": "2026-05-22T21:19:00Z",
+          "previousScheduledArrivalUTC": "2026-05-22T19:12:00Z",
+          "nextScheduledDepartureUTC": "2026-05-22T19:42:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 3,
+          "depthAfterStep": 4,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "KOA",
+            "cityEn": "Kailua-Kona"
+          },
+          "turnAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "nextAirport": {
+            "code": "ITO",
+            "cityEn": "ITO"
+          },
+          "previousFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1037"
+          },
+          "nextFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1042"
+          },
+          "prevArrivalDelay": 46,
+          "nextDepartureDelay": 69,
+          "nextArrivalDelay": 74,
+          "delayDelta": 23,
+          "plannedTurnMinutes": 46,
+          "actualTurnMinutes": 69,
+          "prevActualArrivalUTC": "2026-05-22T21:19:00Z",
+          "nextActualDepartureUTC": "2026-05-22T22:28:00Z",
+          "nextActualArrivalUTC": "2026-05-22T23:29:00Z",
+          "previousScheduledArrivalUTC": "2026-05-22T20:33:00Z",
+          "nextScheduledDepartureUTC": "2026-05-22T21:19:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 4,
+          "depthAfterStep": 5,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "turnAirport": {
+            "code": "ITO",
+            "cityEn": "ITO"
+          },
+          "nextAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "previousFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1042"
+          },
+          "nextFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1041"
+          },
+          "prevArrivalDelay": 74,
+          "nextDepartureDelay": 84,
+          "nextArrivalDelay": 79,
+          "delayDelta": 10,
+          "plannedTurnMinutes": 30,
+          "actualTurnMinutes": 40,
+          "prevActualArrivalUTC": "2026-05-22T23:29:00Z",
+          "nextActualDepartureUTC": "2026-05-23T00:09:00Z",
+          "nextActualArrivalUTC": "2026-05-23T01:01:00Z",
+          "previousScheduledArrivalUTC": "2026-05-22T22:15:00Z",
+          "nextScheduledDepartureUTC": "2026-05-22T22:45:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 5,
+          "depthAfterStep": 6,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "ITO",
+            "cityEn": "ITO"
+          },
+          "turnAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "nextAirport": {
+            "code": "OGG",
+            "cityEn": "Kahului"
+          },
+          "previousFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1041"
+          },
+          "nextFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1126"
+          },
+          "prevArrivalDelay": 79,
+          "nextDepartureDelay": 83,
+          "nextArrivalDelay": 78,
+          "delayDelta": 4,
+          "plannedTurnMinutes": 39,
+          "actualTurnMinutes": 43,
+          "prevActualArrivalUTC": "2026-05-23T01:01:00Z",
+          "nextActualDepartureUTC": "2026-05-23T01:44:00Z",
+          "nextActualArrivalUTC": "2026-05-23T02:25:00Z",
+          "previousScheduledArrivalUTC": "2026-05-22T23:42:00Z",
+          "nextScheduledDepartureUTC": "2026-05-23T00:21:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 6,
+          "depthAfterStep": 7,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "turnAirport": {
+            "code": "OGG",
+            "cityEn": "Kahului"
+          },
+          "nextAirport": {
+            "code": "LIH",
+            "cityEn": "Lihue"
+          },
+          "previousFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1126"
+          },
+          "nextFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1269"
+          },
+          "prevArrivalDelay": 78,
+          "nextDepartureDelay": 73,
+          "nextArrivalDelay": 74,
+          "delayDelta": -5,
+          "plannedTurnMinutes": 36,
+          "actualTurnMinutes": 31,
+          "prevActualArrivalUTC": "2026-05-23T02:25:00Z",
+          "nextActualDepartureUTC": "2026-05-23T02:56:00Z",
+          "nextActualArrivalUTC": "2026-05-23T03:45:00Z",
+          "previousScheduledArrivalUTC": "2026-05-23T01:07:00Z",
+          "nextScheduledDepartureUTC": "2026-05-23T01:43:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 7,
+          "depthAfterStep": 8,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "propagated",
+          "prevAirport": {
+            "code": "OGG",
+            "cityEn": "Kahului"
+          },
+          "turnAirport": {
+            "code": "LIH",
+            "cityEn": "Lihue"
+          },
+          "nextAirport": {
+            "code": "KOA",
+            "cityEn": "Kailua-Kona"
+          },
+          "previousFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1269"
+          },
+          "nextFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1120"
+          },
+          "prevArrivalDelay": 74,
+          "nextDepartureDelay": 74,
+          "nextArrivalDelay": 73,
+          "delayDelta": 0,
+          "plannedTurnMinutes": 30,
+          "actualTurnMinutes": 30,
+          "prevActualArrivalUTC": "2026-05-23T03:45:00Z",
+          "nextActualDepartureUTC": "2026-05-23T04:15:00Z",
+          "nextActualArrivalUTC": "2026-05-23T05:07:00Z",
+          "previousScheduledArrivalUTC": "2026-05-23T02:31:00Z",
+          "nextScheduledDepartureUTC": "2026-05-23T03:01:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 8,
+          "depthAfterStep": 9,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "LIH",
+            "cityEn": "Lihue"
+          },
+          "turnAirport": {
+            "code": "KOA",
+            "cityEn": "Kailua-Kona"
+          },
+          "nextAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "previousFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1120"
+          },
+          "nextFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1157"
+          },
+          "prevArrivalDelay": 73,
+          "nextDepartureDelay": 128,
+          "nextArrivalDelay": 128,
+          "delayDelta": 55,
+          "plannedTurnMinutes": 41,
+          "actualTurnMinutes": 96,
+          "prevActualArrivalUTC": "2026-05-23T05:07:00Z",
+          "nextActualDepartureUTC": "2026-05-23T06:43:00Z",
+          "nextActualArrivalUTC": "2026-05-23T07:32:00Z",
+          "previousScheduledArrivalUTC": "2026-05-23T03:54:00Z",
+          "nextScheduledDepartureUTC": "2026-05-23T04:35:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        }
+      ],
+      "thresholdViews": {
+        "15": {
+          "threshold": 15,
+          "qualifies": true,
+          "depth": 9,
+          "observationCount": 9,
+          "maxDepartureDelay": 128,
+          "cumulativeAmplificationMinutes": 114,
+          "durationMinutes": 811,
+          "uniqueAirportsTouched": 5,
+          "outcome": "censored",
+          "terminationReason": "airport_discontinuity",
+          "endUTC": "2026-05-23T06:43:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 4
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 5
+            },
+            {
+              "sourceStepIndex": 5,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 6
+            },
+            {
+              "sourceStepIndex": 6,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 7
+            },
+            {
+              "sourceStepIndex": 7,
+              "phase": "departure",
+              "stateKey": "propagated",
+              "depthAfterStep": 8
+            },
+            {
+              "sourceStepIndex": 8,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 9
+            }
+          ]
+        },
+        "30": {
+          "threshold": 30,
+          "qualifies": true,
+          "depth": 1,
+          "observationCount": 2,
+          "maxDepartureDelay": 34,
+          "cumulativeAmplificationMinutes": 2,
+          "durationMinutes": 66,
+          "uniqueAirportsTouched": 2,
+          "outcome": "recovered",
+          "terminationReason": "recovered_en_route",
+          "endUTC": "2026-05-22T18:18:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 0,
+              "phase": "arrival",
+              "stateKey": "recovered_en_route",
+              "depthAfterStep": 1
+            }
+          ]
+        },
+        "60": {
+          "threshold": 60,
+          "qualifies": false,
+          "depth": 0,
+          "observationCount": 0,
+          "maxDepartureDelay": null,
+          "cumulativeAmplificationMinutes": 0,
+          "durationMinutes": 0,
+          "uniqueAirportsTouched": 0,
+          "outcome": "not_qualified",
+          "terminationReason": "initial_delay_below_threshold",
+          "endUTC": "2026-05-22T17:12:00Z",
+          "steps": []
+        }
+      }
+    },
+    {
+      "episodeId": "ep-N479HA-019958",
+      "selectionCategory": "deepest",
+      "selectionReasonKey": "highest_depth",
+      "selectionReasonParams": {
+        "depth": 8,
+        "startDate": "2026-05-22"
+      },
+      "tailNumber": "N479HA",
+      "carrier": "AS",
+      "depth": 8,
+      "initialArrivalDelay": 16,
+      "maxDepartureDelay": 87,
+      "cumulativeAmplificationMinutes": 26,
+      "durationMinutes": 774,
+      "airportsTouched": [
+        "ITO",
+        "OGG",
+        "HNL",
+        "LIH",
+        "HNL",
+        "ITO",
+        "HNL",
+        "KOA",
+        "HNL"
+      ],
+      "uniqueAirportsTouched": 5,
+      "outcome": "censored",
+      "terminationReason": "scheduled_turn_break",
+      "observedStartUTC": "2026-05-22T18:22:00Z",
+      "endUTC": "2026-05-23T07:16:00Z",
+      "crossesMidnightUTC": true,
+      "steps": [
+        {
+          "stepIndex": 0,
+          "depthAfterStep": 1,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "turnAirport": {
+            "code": "ITO",
+            "cityEn": "ITO"
+          },
+          "nextAirport": {
+            "code": "OGG",
+            "cityEn": "Kahului"
+          },
+          "previousFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1012"
+          },
+          "nextFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1019"
+          },
+          "prevArrivalDelay": 16,
+          "nextDepartureDelay": 17,
+          "nextArrivalDelay": 20,
+          "delayDelta": 1,
+          "plannedTurnMinutes": 30,
+          "actualTurnMinutes": 31,
+          "prevActualArrivalUTC": "2026-05-22T18:22:00Z",
+          "nextActualDepartureUTC": "2026-05-22T18:53:00Z",
+          "nextActualArrivalUTC": "2026-05-22T19:37:00Z",
+          "previousScheduledArrivalUTC": "2026-05-22T18:06:00Z",
+          "nextScheduledDepartureUTC": "2026-05-22T18:36:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 1,
+          "depthAfterStep": 2,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "ITO",
+            "cityEn": "ITO"
+          },
+          "turnAirport": {
+            "code": "OGG",
+            "cityEn": "Kahului"
+          },
+          "nextAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "previousFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1019"
+          },
+          "nextFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1065"
+          },
+          "prevArrivalDelay": 20,
+          "nextDepartureDelay": 22,
+          "nextArrivalDelay": 27,
+          "delayDelta": 2,
+          "plannedTurnMinutes": 30,
+          "actualTurnMinutes": 32,
+          "prevActualArrivalUTC": "2026-05-22T19:37:00Z",
+          "nextActualDepartureUTC": "2026-05-22T20:09:00Z",
+          "nextActualArrivalUTC": "2026-05-22T20:58:00Z",
+          "previousScheduledArrivalUTC": "2026-05-22T19:17:00Z",
+          "nextScheduledDepartureUTC": "2026-05-22T19:47:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 2,
+          "depthAfterStep": 3,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "OGG",
+            "cityEn": "Kahului"
+          },
+          "turnAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "nextAirport": {
+            "code": "LIH",
+            "cityEn": "Lihue"
+          },
+          "previousFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1065"
+          },
+          "nextFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1063"
+          },
+          "prevArrivalDelay": 27,
+          "nextDepartureDelay": 39,
+          "nextArrivalDelay": 74,
+          "delayDelta": 12,
+          "plannedTurnMinutes": 54,
+          "actualTurnMinutes": 66,
+          "prevActualArrivalUTC": "2026-05-22T20:58:00Z",
+          "nextActualDepartureUTC": "2026-05-22T22:04:00Z",
+          "nextActualArrivalUTC": "2026-05-22T23:24:00Z",
+          "previousScheduledArrivalUTC": "2026-05-22T20:31:00Z",
+          "nextScheduledDepartureUTC": "2026-05-22T21:25:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 3,
+          "depthAfterStep": 4,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "turnAirport": {
+            "code": "LIH",
+            "cityEn": "Lihue"
+          },
+          "nextAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "previousFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1063"
+          },
+          "nextFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1074"
+          },
+          "prevArrivalDelay": 74,
+          "nextDepartureDelay": 72,
+          "nextArrivalDelay": 76,
+          "delayDelta": -2,
+          "plannedTurnMinutes": 45,
+          "actualTurnMinutes": 43,
+          "prevActualArrivalUTC": "2026-05-22T23:24:00Z",
+          "nextActualDepartureUTC": "2026-05-23T00:07:00Z",
+          "nextActualArrivalUTC": "2026-05-23T00:51:00Z",
+          "previousScheduledArrivalUTC": "2026-05-22T22:10:00Z",
+          "nextScheduledDepartureUTC": "2026-05-22T22:55:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 4,
+          "depthAfterStep": 5,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "LIH",
+            "cityEn": "Lihue"
+          },
+          "turnAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "nextAirport": {
+            "code": "ITO",
+            "cityEn": "ITO"
+          },
+          "previousFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1074"
+          },
+          "nextFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1072"
+          },
+          "prevArrivalDelay": 76,
+          "nextDepartureDelay": 87,
+          "nextArrivalDelay": 83,
+          "delayDelta": 11,
+          "plannedTurnMinutes": 42,
+          "actualTurnMinutes": 53,
+          "prevActualArrivalUTC": "2026-05-23T00:51:00Z",
+          "nextActualDepartureUTC": "2026-05-23T01:44:00Z",
+          "nextActualArrivalUTC": "2026-05-23T02:37:00Z",
+          "previousScheduledArrivalUTC": "2026-05-22T23:35:00Z",
+          "nextScheduledDepartureUTC": "2026-05-23T00:17:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 5,
+          "depthAfterStep": 6,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "propagated",
+          "prevAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "turnAirport": {
+            "code": "ITO",
+            "cityEn": "ITO"
+          },
+          "nextAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "previousFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1072"
+          },
+          "nextFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1071"
+          },
+          "prevArrivalDelay": 83,
+          "nextDepartureDelay": 83,
+          "nextArrivalDelay": 86,
+          "delayDelta": 0,
+          "plannedTurnMinutes": 30,
+          "actualTurnMinutes": 30,
+          "prevActualArrivalUTC": "2026-05-23T02:37:00Z",
+          "nextActualDepartureUTC": "2026-05-23T03:07:00Z",
+          "nextActualArrivalUTC": "2026-05-23T04:06:00Z",
+          "previousScheduledArrivalUTC": "2026-05-23T01:14:00Z",
+          "nextScheduledDepartureUTC": "2026-05-23T01:44:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 6,
+          "depthAfterStep": 7,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "ITO",
+            "cityEn": "ITO"
+          },
+          "turnAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "nextAirport": {
+            "code": "KOA",
+            "cityEn": "Kailua-Kona"
+          },
+          "previousFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1071"
+          },
+          "nextFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1158"
+          },
+          "prevArrivalDelay": 86,
+          "nextDepartureDelay": 74,
+          "nextArrivalDelay": 105,
+          "delayDelta": -12,
+          "plannedTurnMinutes": 50,
+          "actualTurnMinutes": 38,
+          "prevActualArrivalUTC": "2026-05-23T04:06:00Z",
+          "nextActualDepartureUTC": "2026-05-23T04:44:00Z",
+          "nextActualArrivalUTC": "2026-05-23T06:02:00Z",
+          "previousScheduledArrivalUTC": "2026-05-23T02:40:00Z",
+          "nextScheduledDepartureUTC": "2026-05-23T03:30:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 7,
+          "depthAfterStep": 8,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "turnAirport": {
+            "code": "KOA",
+            "cityEn": "Kailua-Kona"
+          },
+          "nextAirport": {
+            "code": "HNL",
+            "cityEn": "Honolulu"
+          },
+          "previousFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1158"
+          },
+          "nextFlight": {
+            "carrierCode": "AS",
+            "carrierNameEn": "Alaska Airlines",
+            "flightNumber": "1167"
+          },
+          "prevArrivalDelay": 105,
+          "nextDepartureDelay": 73,
+          "nextArrivalDelay": 71,
+          "delayDelta": -32,
+          "plannedTurnMinutes": 58,
+          "actualTurnMinutes": 26,
+          "prevActualArrivalUTC": "2026-05-23T06:02:00Z",
+          "nextActualDepartureUTC": "2026-05-23T06:28:00Z",
+          "nextActualArrivalUTC": "2026-05-23T07:16:00Z",
+          "previousScheduledArrivalUTC": "2026-05-23T04:17:00Z",
+          "nextScheduledDepartureUTC": "2026-05-23T05:15:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        }
+      ],
+      "thresholdViews": {
+        "15": {
+          "threshold": 15,
+          "qualifies": true,
+          "depth": 8,
+          "observationCount": 8,
+          "maxDepartureDelay": 87,
+          "cumulativeAmplificationMinutes": 26,
+          "durationMinutes": 774,
+          "uniqueAirportsTouched": 5,
+          "outcome": "censored",
+          "terminationReason": "scheduled_turn_break",
+          "endUTC": "2026-05-23T07:16:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 4
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 5
+            },
+            {
+              "sourceStepIndex": 5,
+              "phase": "departure",
+              "stateKey": "propagated",
+              "depthAfterStep": 6
+            },
+            {
+              "sourceStepIndex": 6,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 7
+            },
+            {
+              "sourceStepIndex": 7,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 8
+            }
+          ]
+        },
+        "30": {
+          "threshold": 30,
+          "qualifies": false,
+          "depth": 0,
+          "observationCount": 0,
+          "maxDepartureDelay": null,
+          "cumulativeAmplificationMinutes": 0,
+          "durationMinutes": 0,
+          "uniqueAirportsTouched": 0,
+          "outcome": "not_qualified",
+          "terminationReason": "initial_delay_below_threshold",
+          "endUTC": "2026-05-22T18:22:00Z",
+          "steps": []
+        },
+        "60": {
+          "threshold": 60,
+          "qualifies": false,
+          "depth": 0,
+          "observationCount": 0,
+          "maxDepartureDelay": null,
+          "cumulativeAmplificationMinutes": 0,
+          "durationMinutes": 0,
+          "uniqueAirportsTouched": 0,
+          "outcome": "not_qualified",
+          "terminationReason": "initial_delay_below_threshold",
+          "endUTC": "2026-05-22T18:22:00Z",
+          "steps": []
+        }
+      }
+    },
+    {
+      "episodeId": "ep-N961SW-048714",
+      "selectionCategory": "deepest",
+      "selectionReasonKey": "highest_depth",
+      "selectionReasonParams": {
+        "depth": 7,
+        "startDate": "2026-05-29"
+      },
+      "tailNumber": "N961SW",
+      "carrier": "OO",
+      "depth": 7,
+      "initialArrivalDelay": 123,
+      "maxDepartureDelay": 208,
+      "cumulativeAmplificationMinutes": 169,
+      "durationMinutes": 875,
+      "airportsTouched": [
+        "SFO",
+        "MRY",
+        "SFO",
+        "MRY",
+        "SFO",
+        "SMF",
+        "SFO",
+        "FAT"
+      ],
+      "uniqueAirportsTouched": 4,
+      "outcome": "censored",
+      "terminationReason": "scheduled_turn_break",
+      "observedStartUTC": "2026-05-29T17:59:00Z",
+      "endUTC": "2026-05-30T08:34:00Z",
+      "crossesMidnightUTC": true,
+      "steps": [
+        {
+          "stepIndex": 0,
+          "depthAfterStep": 1,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "MRY",
+            "cityEn": "MRY"
+          },
+          "turnAirport": {
+            "code": "SFO",
+            "cityEn": "San Francisco"
+          },
+          "nextAirport": {
+            "code": "MRY",
+            "cityEn": "MRY"
+          },
+          "previousFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "5502"
+          },
+          "nextFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "5479"
+          },
+          "prevArrivalDelay": 123,
+          "nextDepartureDelay": 80,
+          "nextArrivalDelay": 77,
+          "delayDelta": -43,
+          "plannedTurnMinutes": 69,
+          "actualTurnMinutes": 26,
+          "prevActualArrivalUTC": "2026-05-29T17:59:00Z",
+          "nextActualDepartureUTC": "2026-05-29T18:25:00Z",
+          "nextActualArrivalUTC": "2026-05-29T19:27:00Z",
+          "previousScheduledArrivalUTC": "2026-05-29T15:56:00Z",
+          "nextScheduledDepartureUTC": "2026-05-29T17:05:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 1,
+          "depthAfterStep": 2,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "SFO",
+            "cityEn": "San Francisco"
+          },
+          "turnAirport": {
+            "code": "MRY",
+            "cityEn": "MRY"
+          },
+          "nextAirport": {
+            "code": "SFO",
+            "cityEn": "San Francisco"
+          },
+          "previousFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "5479"
+          },
+          "nextFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "5557"
+          },
+          "prevArrivalDelay": 77,
+          "nextDepartureDelay": 52,
+          "nextArrivalDelay": 81,
+          "delayDelta": -25,
+          "plannedTurnMinutes": 50,
+          "actualTurnMinutes": 25,
+          "prevActualArrivalUTC": "2026-05-29T19:27:00Z",
+          "nextActualDepartureUTC": "2026-05-29T19:52:00Z",
+          "nextActualArrivalUTC": "2026-05-29T21:17:00Z",
+          "previousScheduledArrivalUTC": "2026-05-29T18:10:00Z",
+          "nextScheduledDepartureUTC": "2026-05-29T19:00:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 2,
+          "depthAfterStep": 3,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "MRY",
+            "cityEn": "MRY"
+          },
+          "turnAirport": {
+            "code": "SFO",
+            "cityEn": "San Francisco"
+          },
+          "nextAirport": {
+            "code": "MRY",
+            "cityEn": "MRY"
+          },
+          "previousFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "5557"
+          },
+          "nextFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "5738"
+          },
+          "prevArrivalDelay": 81,
+          "nextDepartureDelay": 53,
+          "nextArrivalDelay": 70,
+          "delayDelta": -28,
+          "plannedTurnMinutes": 54,
+          "actualTurnMinutes": 26,
+          "prevActualArrivalUTC": "2026-05-29T21:17:00Z",
+          "nextActualDepartureUTC": "2026-05-29T21:43:00Z",
+          "nextActualArrivalUTC": "2026-05-29T23:05:00Z",
+          "previousScheduledArrivalUTC": "2026-05-29T19:56:00Z",
+          "nextScheduledDepartureUTC": "2026-05-29T20:50:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 3,
+          "depthAfterStep": 4,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "SFO",
+            "cityEn": "San Francisco"
+          },
+          "turnAirport": {
+            "code": "MRY",
+            "cityEn": "MRY"
+          },
+          "nextAirport": {
+            "code": "SFO",
+            "cityEn": "San Francisco"
+          },
+          "previousFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "5738"
+          },
+          "nextFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "4729"
+          },
+          "prevArrivalDelay": 70,
+          "nextDepartureDelay": 84,
+          "nextArrivalDelay": 81,
+          "delayDelta": 14,
+          "plannedTurnMinutes": 35,
+          "actualTurnMinutes": 49,
+          "prevActualArrivalUTC": "2026-05-29T23:05:00Z",
+          "nextActualDepartureUTC": "2026-05-29T23:54:00Z",
+          "nextActualArrivalUTC": "2026-05-30T00:49:00Z",
+          "previousScheduledArrivalUTC": "2026-05-29T21:55:00Z",
+          "nextScheduledDepartureUTC": "2026-05-29T22:30:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 4,
+          "depthAfterStep": 5,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "MRY",
+            "cityEn": "MRY"
+          },
+          "turnAirport": {
+            "code": "SFO",
+            "cityEn": "San Francisco"
+          },
+          "nextAirport": {
+            "code": "SMF",
+            "cityEn": "Sacramento"
+          },
+          "previousFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "4729"
+          },
+          "nextFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "5796"
+          },
+          "prevArrivalDelay": 81,
+          "nextDepartureDelay": 68,
+          "nextArrivalDelay": 53,
+          "delayDelta": -13,
+          "plannedTurnMinutes": 40,
+          "actualTurnMinutes": 27,
+          "prevActualArrivalUTC": "2026-05-30T00:49:00Z",
+          "nextActualDepartureUTC": "2026-05-30T01:16:00Z",
+          "nextActualArrivalUTC": "2026-05-30T02:09:00Z",
+          "previousScheduledArrivalUTC": "2026-05-29T23:28:00Z",
+          "nextScheduledDepartureUTC": "2026-05-30T00:08:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 5,
+          "depthAfterStep": 6,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "SFO",
+            "cityEn": "San Francisco"
+          },
+          "turnAirport": {
+            "code": "SMF",
+            "cityEn": "Sacramento"
+          },
+          "nextAirport": {
+            "code": "SFO",
+            "cityEn": "San Francisco"
+          },
+          "previousFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "5796"
+          },
+          "nextFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "5961"
+          },
+          "prevArrivalDelay": 53,
+          "nextDepartureDelay": 208,
+          "nextArrivalDelay": 207,
+          "delayDelta": 155,
+          "plannedTurnMinutes": 48,
+          "actualTurnMinutes": 203,
+          "prevActualArrivalUTC": "2026-05-30T02:09:00Z",
+          "nextActualDepartureUTC": "2026-05-30T05:32:00Z",
+          "nextActualArrivalUTC": "2026-05-30T06:38:00Z",
+          "previousScheduledArrivalUTC": "2026-05-30T01:16:00Z",
+          "nextScheduledDepartureUTC": "2026-05-30T02:04:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 6,
+          "depthAfterStep": 7,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "SMF",
+            "cityEn": "Sacramento"
+          },
+          "turnAirport": {
+            "code": "SFO",
+            "cityEn": "San Francisco"
+          },
+          "nextAirport": {
+            "code": "FAT",
+            "cityEn": "Fresno"
+          },
+          "previousFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "5961"
+          },
+          "nextFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "5271"
+          },
+          "prevArrivalDelay": 207,
+          "nextDepartureDelay": 193,
+          "nextArrivalDelay": 201,
+          "delayDelta": -14,
+          "plannedTurnMinutes": 44,
+          "actualTurnMinutes": 30,
+          "prevActualArrivalUTC": "2026-05-30T06:38:00Z",
+          "nextActualDepartureUTC": "2026-05-30T07:08:00Z",
+          "nextActualArrivalUTC": "2026-05-30T08:34:00Z",
+          "previousScheduledArrivalUTC": "2026-05-30T03:11:00Z",
+          "nextScheduledDepartureUTC": "2026-05-30T03:55:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        }
+      ],
+      "thresholdViews": {
+        "15": {
+          "threshold": 15,
+          "qualifies": true,
+          "depth": 7,
+          "observationCount": 7,
+          "maxDepartureDelay": 208,
+          "cumulativeAmplificationMinutes": 169,
+          "durationMinutes": 875,
+          "uniqueAirportsTouched": 4,
+          "outcome": "censored",
+          "terminationReason": "scheduled_turn_break",
+          "endUTC": "2026-05-30T08:34:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 4
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 5
+            },
+            {
+              "sourceStepIndex": 5,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 6
+            },
+            {
+              "sourceStepIndex": 6,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 7
+            }
+          ]
+        },
+        "30": {
+          "threshold": 30,
+          "qualifies": true,
+          "depth": 7,
+          "observationCount": 7,
+          "maxDepartureDelay": 208,
+          "cumulativeAmplificationMinutes": 169,
+          "durationMinutes": 875,
+          "uniqueAirportsTouched": 4,
+          "outcome": "censored",
+          "terminationReason": "scheduled_turn_break",
+          "endUTC": "2026-05-30T08:34:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 4
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 5
+            },
+            {
+              "sourceStepIndex": 5,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 6
+            },
+            {
+              "sourceStepIndex": 6,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 7
+            }
+          ]
+        },
+        "60": {
+          "threshold": 60,
+          "qualifies": true,
+          "depth": 1,
+          "observationCount": 2,
+          "maxDepartureDelay": 80,
+          "cumulativeAmplificationMinutes": 0,
+          "durationMinutes": 113,
+          "uniqueAirportsTouched": 2,
+          "outcome": "recovered",
+          "terminationReason": "recovered",
+          "endUTC": "2026-05-29T19:52:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "recovered",
+              "depthAfterStep": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "episodeId": "ep-N615FR-025225",
+      "selectionCategory": "high_delay_recovered",
+      "selectionReasonKey": "largest_initial_delay_recovered",
+      "selectionReasonParams": {
+        "depth": 2,
+        "startDate": "2026-05-26"
+      },
+      "tailNumber": "N615FR",
+      "carrier": "F9",
+      "depth": 2,
+      "initialArrivalDelay": 271,
+      "maxDepartureDelay": 165,
+      "cumulativeAmplificationMinutes": 0,
+      "durationMinutes": 747,
+      "airportsTouched": [
+        "MCO",
+        "LAS",
+        "CLT"
+      ],
+      "uniqueAirportsTouched": 3,
+      "outcome": "recovered",
+      "terminationReason": "recovered",
+      "observedStartUTC": "2026-05-26T00:17:00Z",
+      "endUTC": "2026-05-26T12:44:00Z",
+      "crossesMidnightUTC": false,
+      "steps": [
+        {
+          "stepIndex": 0,
+          "depthAfterStep": 1,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "LAS",
+            "cityEn": "Las Vegas"
+          },
+          "turnAirport": {
+            "code": "MCO",
+            "cityEn": "Orlando"
+          },
+          "nextAirport": {
+            "code": "LAS",
+            "cityEn": "Las Vegas"
+          },
+          "previousFlight": {
+            "carrierCode": "F9",
+            "carrierNameEn": "Frontier Airlines",
+            "flightNumber": "1728"
+          },
+          "nextFlight": {
+            "carrierCode": "F9",
+            "carrierNameEn": "Frontier Airlines",
+            "flightNumber": "3913"
+          },
+          "prevArrivalDelay": 271,
+          "nextDepartureDelay": 165,
+          "nextArrivalDelay": 111,
+          "delayDelta": -106,
+          "plannedTurnMinutes": 167,
+          "actualTurnMinutes": 61,
+          "prevActualArrivalUTC": "2026-05-26T00:17:00Z",
+          "nextActualDepartureUTC": "2026-05-26T01:18:00Z",
+          "nextActualArrivalUTC": "2026-05-26T05:38:00Z",
+          "previousScheduledArrivalUTC": "2026-05-25T19:46:00Z",
+          "nextScheduledDepartureUTC": "2026-05-25T22:33:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 1,
+          "depthAfterStep": 2,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "MCO",
+            "cityEn": "Orlando"
+          },
+          "turnAirport": {
+            "code": "LAS",
+            "cityEn": "Las Vegas"
+          },
+          "nextAirport": {
+            "code": "CLT",
+            "cityEn": "Charlotte"
+          },
+          "previousFlight": {
+            "carrierCode": "F9",
+            "carrierNameEn": "Frontier Airlines",
+            "flightNumber": "3913"
+          },
+          "nextFlight": {
+            "carrierCode": "F9",
+            "carrierNameEn": "Frontier Airlines",
+            "flightNumber": "2988"
+          },
+          "prevArrivalDelay": 111,
+          "nextDepartureDelay": 20,
+          "nextArrivalDelay": 21,
+          "delayDelta": -91,
+          "plannedTurnMinutes": 162,
+          "actualTurnMinutes": 71,
+          "prevActualArrivalUTC": "2026-05-26T05:38:00Z",
+          "nextActualDepartureUTC": "2026-05-26T06:49:00Z",
+          "nextActualArrivalUTC": "2026-05-26T11:20:00Z",
+          "previousScheduledArrivalUTC": "2026-05-26T03:47:00Z",
+          "nextScheduledDepartureUTC": "2026-05-26T06:29:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 2,
+          "depthAfterStep": 2,
+          "stepType": "recovered",
+          "relation": "recovered",
+          "stateKey": "recovered",
+          "prevAirport": {
+            "code": "LAS",
+            "cityEn": "Las Vegas"
+          },
+          "turnAirport": {
+            "code": "CLT",
+            "cityEn": "Charlotte"
+          },
+          "nextAirport": {
+            "code": "LAS",
+            "cityEn": "Las Vegas"
+          },
+          "previousFlight": {
+            "carrierCode": "F9",
+            "carrierNameEn": "Frontier Airlines",
+            "flightNumber": "2988"
+          },
+          "nextFlight": {
+            "carrierCode": "F9",
+            "carrierNameEn": "Frontier Airlines",
+            "flightNumber": "2987"
+          },
+          "prevArrivalDelay": 21,
+          "nextDepartureDelay": -11,
+          "nextArrivalDelay": -36,
+          "delayDelta": -32,
+          "plannedTurnMinutes": 116,
+          "actualTurnMinutes": 84,
+          "prevActualArrivalUTC": "2026-05-26T11:20:00Z",
+          "nextActualDepartureUTC": "2026-05-26T12:44:00Z",
+          "nextActualArrivalUTC": "2026-05-26T17:06:00Z",
+          "previousScheduledArrivalUTC": "2026-05-26T10:59:00Z",
+          "nextScheduledDepartureUTC": "2026-05-26T12:55:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        }
+      ],
+      "thresholdViews": {
+        "15": {
+          "threshold": 15,
+          "qualifies": true,
+          "depth": 2,
+          "observationCount": 3,
+          "maxDepartureDelay": 165,
+          "cumulativeAmplificationMinutes": 0,
+          "durationMinutes": 747,
+          "uniqueAirportsTouched": 3,
+          "outcome": "recovered",
+          "terminationReason": "recovered",
+          "endUTC": "2026-05-26T12:44:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "recovered",
+              "depthAfterStep": 2
+            }
+          ]
+        },
+        "30": {
+          "threshold": 30,
+          "qualifies": true,
+          "depth": 1,
+          "observationCount": 2,
+          "maxDepartureDelay": 165,
+          "cumulativeAmplificationMinutes": 0,
+          "durationMinutes": 392,
+          "uniqueAirportsTouched": 3,
+          "outcome": "recovered",
+          "terminationReason": "recovered",
+          "endUTC": "2026-05-26T06:49:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "recovered",
+              "depthAfterStep": 1
+            }
+          ]
+        },
+        "60": {
+          "threshold": 60,
+          "qualifies": true,
+          "depth": 1,
+          "observationCount": 2,
+          "maxDepartureDelay": 165,
+          "cumulativeAmplificationMinutes": 0,
+          "durationMinutes": 392,
+          "uniqueAirportsTouched": 3,
+          "outcome": "recovered",
+          "terminationReason": "recovered",
+          "endUTC": "2026-05-26T06:49:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "recovered",
+              "depthAfterStep": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "episodeId": "ep-N800SK-033009",
+      "selectionCategory": "high_delay_recovered",
+      "selectionReasonKey": "largest_initial_delay_recovered",
+      "selectionReasonParams": {
+        "depth": 4,
+        "startDate": "2026-05-03"
+      },
+      "tailNumber": "N800SK",
+      "carrier": "OO",
+      "depth": 4,
+      "initialArrivalDelay": 268,
+      "maxDepartureDelay": 172,
+      "cumulativeAmplificationMinutes": 0,
+      "durationMinutes": 442,
+      "airportsTouched": [
+        "MSP",
+        "CID",
+        "MSP",
+        "FSD",
+        "MSP"
+      ],
+      "uniqueAirportsTouched": 3,
+      "outcome": "recovered",
+      "terminationReason": "recovered",
+      "observedStartUTC": "2026-05-03T17:39:00Z",
+      "endUTC": "2026-05-04T01:01:00Z",
+      "crossesMidnightUTC": true,
+      "steps": [
+        {
+          "stepIndex": 0,
+          "depthAfterStep": 1,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "ORD",
+            "cityEn": "Chicago"
+          },
+          "turnAirport": {
+            "code": "MSP",
+            "cityEn": "Minneapolis"
+          },
+          "nextAirport": {
+            "code": "CID",
+            "cityEn": "CID"
+          },
+          "previousFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "3849"
+          },
+          "nextFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "3965"
+          },
+          "prevArrivalDelay": 268,
+          "nextDepartureDelay": 172,
+          "nextArrivalDelay": 173,
+          "delayDelta": -96,
+          "plannedTurnMinutes": 143,
+          "actualTurnMinutes": 47,
+          "prevActualArrivalUTC": "2026-05-03T17:39:00Z",
+          "nextActualDepartureUTC": "2026-05-03T18:26:00Z",
+          "nextActualArrivalUTC": "2026-05-03T19:44:00Z",
+          "previousScheduledArrivalUTC": "2026-05-03T13:11:00Z",
+          "nextScheduledDepartureUTC": "2026-05-03T15:34:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 1,
+          "depthAfterStep": 2,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "MSP",
+            "cityEn": "Minneapolis"
+          },
+          "turnAirport": {
+            "code": "CID",
+            "cityEn": "CID"
+          },
+          "nextAirport": {
+            "code": "MSP",
+            "cityEn": "Minneapolis"
+          },
+          "previousFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "3965"
+          },
+          "nextFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "3965"
+          },
+          "prevArrivalDelay": 173,
+          "nextDepartureDelay": 167,
+          "nextArrivalDelay": 151,
+          "delayDelta": -6,
+          "plannedTurnMinutes": 43,
+          "actualTurnMinutes": 37,
+          "prevActualArrivalUTC": "2026-05-03T19:44:00Z",
+          "nextActualDepartureUTC": "2026-05-03T20:21:00Z",
+          "nextActualArrivalUTC": "2026-05-03T21:19:00Z",
+          "previousScheduledArrivalUTC": "2026-05-03T16:51:00Z",
+          "nextScheduledDepartureUTC": "2026-05-03T17:34:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 2,
+          "depthAfterStep": 3,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "CID",
+            "cityEn": "CID"
+          },
+          "turnAirport": {
+            "code": "MSP",
+            "cityEn": "Minneapolis"
+          },
+          "nextAirport": {
+            "code": "FSD",
+            "cityEn": "FSD"
+          },
+          "previousFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "3965"
+          },
+          "nextFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "3981"
+          },
+          "prevArrivalDelay": 151,
+          "nextDepartureDelay": 150,
+          "nextArrivalDelay": 136,
+          "delayDelta": -1,
+          "plannedTurnMinutes": 42,
+          "actualTurnMinutes": 41,
+          "prevActualArrivalUTC": "2026-05-03T21:19:00Z",
+          "nextActualDepartureUTC": "2026-05-03T22:00:00Z",
+          "nextActualArrivalUTC": "2026-05-03T22:53:00Z",
+          "previousScheduledArrivalUTC": "2026-05-03T18:48:00Z",
+          "nextScheduledDepartureUTC": "2026-05-03T19:30:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 3,
+          "depthAfterStep": 4,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "MSP",
+            "cityEn": "Minneapolis"
+          },
+          "turnAirport": {
+            "code": "FSD",
+            "cityEn": "FSD"
+          },
+          "nextAirport": {
+            "code": "MSP",
+            "cityEn": "Minneapolis"
+          },
+          "previousFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "3981"
+          },
+          "nextFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "3981"
+          },
+          "prevArrivalDelay": 136,
+          "nextDepartureDelay": 122,
+          "nextArrivalDelay": 102,
+          "delayDelta": -14,
+          "plannedTurnMinutes": 40,
+          "actualTurnMinutes": 26,
+          "prevActualArrivalUTC": "2026-05-03T22:53:00Z",
+          "nextActualDepartureUTC": "2026-05-03T23:19:00Z",
+          "nextActualArrivalUTC": "2026-05-04T00:12:00Z",
+          "previousScheduledArrivalUTC": "2026-05-03T20:37:00Z",
+          "nextScheduledDepartureUTC": "2026-05-03T21:17:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 4,
+          "depthAfterStep": 4,
+          "stepType": "recovered",
+          "relation": "recovered",
+          "stateKey": "recovered",
+          "prevAirport": {
+            "code": "FSD",
+            "cityEn": "FSD"
+          },
+          "turnAirport": {
+            "code": "MSP",
+            "cityEn": "Minneapolis"
+          },
+          "nextAirport": {
+            "code": "ORD",
+            "cityEn": "Chicago"
+          },
+          "previousFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "3981"
+          },
+          "nextFlight": {
+            "carrierCode": "OO",
+            "carrierNameEn": "SkyWest Airlines",
+            "flightNumber": "3879"
+          },
+          "prevArrivalDelay": 102,
+          "nextDepartureDelay": 1,
+          "nextArrivalDelay": 6,
+          "delayDelta": -101,
+          "plannedTurnMinutes": 150,
+          "actualTurnMinutes": 49,
+          "prevActualArrivalUTC": "2026-05-04T00:12:00Z",
+          "nextActualDepartureUTC": "2026-05-04T01:01:00Z",
+          "nextActualArrivalUTC": "2026-05-04T02:44:00Z",
+          "previousScheduledArrivalUTC": "2026-05-03T22:30:00Z",
+          "nextScheduledDepartureUTC": "2026-05-04T01:00:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        }
+      ],
+      "thresholdViews": {
+        "15": {
+          "threshold": 15,
+          "qualifies": true,
+          "depth": 4,
+          "observationCount": 5,
+          "maxDepartureDelay": 172,
+          "cumulativeAmplificationMinutes": 0,
+          "durationMinutes": 442,
+          "uniqueAirportsTouched": 4,
+          "outcome": "recovered",
+          "terminationReason": "recovered",
+          "endUTC": "2026-05-04T01:01:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 4
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "departure",
+              "stateKey": "recovered",
+              "depthAfterStep": 4
+            }
+          ]
+        },
+        "30": {
+          "threshold": 30,
+          "qualifies": true,
+          "depth": 4,
+          "observationCount": 5,
+          "maxDepartureDelay": 172,
+          "cumulativeAmplificationMinutes": 0,
+          "durationMinutes": 442,
+          "uniqueAirportsTouched": 4,
+          "outcome": "recovered",
+          "terminationReason": "recovered",
+          "endUTC": "2026-05-04T01:01:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 4
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "departure",
+              "stateKey": "recovered",
+              "depthAfterStep": 4
+            }
+          ]
+        },
+        "60": {
+          "threshold": 60,
+          "qualifies": true,
+          "depth": 4,
+          "observationCount": 5,
+          "maxDepartureDelay": 172,
+          "cumulativeAmplificationMinutes": 0,
+          "durationMinutes": 442,
+          "uniqueAirportsTouched": 4,
+          "outcome": "recovered",
+          "terminationReason": "recovered",
+          "endUTC": "2026-05-04T01:01:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 4
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "departure",
+              "stateKey": "recovered",
+              "depthAfterStep": 4
+            }
+          ]
+        }
+      }
+    },
+    {
+      "episodeId": "ep-N936WN-046939",
+      "selectionCategory": "high_pressure_day",
+      "selectionReasonKey": "starts_on_high_pressure_day",
+      "selectionReasonParams": {
+        "depth": 6,
+        "startDate": "2026-05-18"
+      },
+      "tailNumber": "N936WN",
+      "carrier": "WN",
+      "depth": 6,
+      "initialArrivalDelay": 155,
+      "maxDepartureDelay": 122,
+      "cumulativeAmplificationMinutes": 54,
+      "durationMinutes": 982,
+      "airportsTouched": [
+        "ATL",
+        "DCA",
+        "CMH",
+        "LAS",
+        "BUR",
+        "SMF",
+        "EUG"
+      ],
+      "uniqueAirportsTouched": 7,
+      "outcome": "censored",
+      "terminationReason": "scheduled_turn_break",
+      "observedStartUTC": "2026-05-18T13:05:00Z",
+      "endUTC": "2026-05-19T05:27:00Z",
+      "crossesMidnightUTC": true,
+      "steps": [
+        {
+          "stepIndex": 0,
+          "depthAfterStep": 1,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "LAS",
+            "cityEn": "Las Vegas"
+          },
+          "turnAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "nextAirport": {
+            "code": "DCA",
+            "cityEn": "Washington"
+          },
+          "previousFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "3941"
+          },
+          "nextFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "225"
+          },
+          "prevArrivalDelay": 155,
+          "nextDepartureDelay": 81,
+          "nextArrivalDelay": 79,
+          "delayDelta": -74,
+          "plannedTurnMinutes": 165,
+          "actualTurnMinutes": 91,
+          "prevActualArrivalUTC": "2026-05-18T13:05:00Z",
+          "nextActualDepartureUTC": "2026-05-18T14:36:00Z",
+          "nextActualArrivalUTC": "2026-05-18T16:24:00Z",
+          "previousScheduledArrivalUTC": "2026-05-18T10:30:00Z",
+          "nextScheduledDepartureUTC": "2026-05-18T13:15:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 1,
+          "depthAfterStep": 2,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "turnAirport": {
+            "code": "DCA",
+            "cityEn": "Washington"
+          },
+          "nextAirport": {
+            "code": "CMH",
+            "cityEn": "Columbus"
+          },
+          "previousFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "225"
+          },
+          "nextFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "1315"
+          },
+          "prevArrivalDelay": 79,
+          "nextDepartureDelay": 96,
+          "nextArrivalDelay": 83,
+          "delayDelta": 17,
+          "plannedTurnMinutes": 35,
+          "actualTurnMinutes": 52,
+          "prevActualArrivalUTC": "2026-05-18T16:24:00Z",
+          "nextActualDepartureUTC": "2026-05-18T17:16:00Z",
+          "nextActualArrivalUTC": "2026-05-18T18:28:00Z",
+          "previousScheduledArrivalUTC": "2026-05-18T15:05:00Z",
+          "nextScheduledDepartureUTC": "2026-05-18T15:40:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 2,
+          "depthAfterStep": 3,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "DCA",
+            "cityEn": "Washington"
+          },
+          "turnAirport": {
+            "code": "CMH",
+            "cityEn": "Columbus"
+          },
+          "nextAirport": {
+            "code": "LAS",
+            "cityEn": "Las Vegas"
+          },
+          "previousFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "1315"
+          },
+          "nextFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "1315"
+          },
+          "prevArrivalDelay": 83,
+          "nextDepartureDelay": 107,
+          "nextArrivalDelay": 109,
+          "delayDelta": 24,
+          "plannedTurnMinutes": 35,
+          "actualTurnMinutes": 59,
+          "prevActualArrivalUTC": "2026-05-18T18:28:00Z",
+          "nextActualDepartureUTC": "2026-05-18T19:27:00Z",
+          "nextActualArrivalUTC": "2026-05-18T23:54:00Z",
+          "previousScheduledArrivalUTC": "2026-05-18T17:05:00Z",
+          "nextScheduledDepartureUTC": "2026-05-18T17:40:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 3,
+          "depthAfterStep": 4,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "CMH",
+            "cityEn": "Columbus"
+          },
+          "turnAirport": {
+            "code": "LAS",
+            "cityEn": "Las Vegas"
+          },
+          "nextAirport": {
+            "code": "BUR",
+            "cityEn": "Burbank"
+          },
+          "previousFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "1315"
+          },
+          "nextFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "1315"
+          },
+          "prevArrivalDelay": 109,
+          "nextDepartureDelay": 122,
+          "nextArrivalDelay": 105,
+          "delayDelta": 13,
+          "plannedTurnMinutes": 40,
+          "actualTurnMinutes": 53,
+          "prevActualArrivalUTC": "2026-05-18T23:54:00Z",
+          "nextActualDepartureUTC": "2026-05-19T00:47:00Z",
+          "nextActualArrivalUTC": "2026-05-19T01:45:00Z",
+          "previousScheduledArrivalUTC": "2026-05-18T22:05:00Z",
+          "nextScheduledDepartureUTC": "2026-05-18T22:45:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 4,
+          "depthAfterStep": 5,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "LAS",
+            "cityEn": "Las Vegas"
+          },
+          "turnAirport": {
+            "code": "BUR",
+            "cityEn": "Burbank"
+          },
+          "nextAirport": {
+            "code": "SMF",
+            "cityEn": "Sacramento"
+          },
+          "previousFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "1315"
+          },
+          "nextFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "554"
+          },
+          "prevArrivalDelay": 105,
+          "nextDepartureDelay": 56,
+          "nextArrivalDelay": 56,
+          "delayDelta": -49,
+          "plannedTurnMinutes": 80,
+          "actualTurnMinutes": 31,
+          "prevActualArrivalUTC": "2026-05-19T01:45:00Z",
+          "nextActualDepartureUTC": "2026-05-19T02:16:00Z",
+          "nextActualArrivalUTC": "2026-05-19T03:41:00Z",
+          "previousScheduledArrivalUTC": "2026-05-19T00:00:00Z",
+          "nextScheduledDepartureUTC": "2026-05-19T01:20:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 5,
+          "depthAfterStep": 6,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "BUR",
+            "cityEn": "Burbank"
+          },
+          "turnAirport": {
+            "code": "SMF",
+            "cityEn": "Sacramento"
+          },
+          "nextAirport": {
+            "code": "EUG",
+            "cityEn": "EUG"
+          },
+          "previousFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "554"
+          },
+          "nextFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "2769"
+          },
+          "prevArrivalDelay": 56,
+          "nextDepartureDelay": 46,
+          "nextArrivalDelay": 37,
+          "delayDelta": -10,
+          "plannedTurnMinutes": 45,
+          "actualTurnMinutes": 35,
+          "prevActualArrivalUTC": "2026-05-19T03:41:00Z",
+          "nextActualDepartureUTC": "2026-05-19T04:16:00Z",
+          "nextActualArrivalUTC": "2026-05-19T05:27:00Z",
+          "previousScheduledArrivalUTC": "2026-05-19T02:45:00Z",
+          "nextScheduledDepartureUTC": "2026-05-19T03:30:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        }
+      ],
+      "thresholdViews": {
+        "15": {
+          "threshold": 15,
+          "qualifies": true,
+          "depth": 6,
+          "observationCount": 6,
+          "maxDepartureDelay": 122,
+          "cumulativeAmplificationMinutes": 54,
+          "durationMinutes": 982,
+          "uniqueAirportsTouched": 7,
+          "outcome": "censored",
+          "terminationReason": "scheduled_turn_break",
+          "endUTC": "2026-05-19T05:27:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 4
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 5
+            },
+            {
+              "sourceStepIndex": 5,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 6
+            }
+          ]
+        },
+        "30": {
+          "threshold": 30,
+          "qualifies": true,
+          "depth": 6,
+          "observationCount": 6,
+          "maxDepartureDelay": 122,
+          "cumulativeAmplificationMinutes": 54,
+          "durationMinutes": 982,
+          "uniqueAirportsTouched": 7,
+          "outcome": "censored",
+          "terminationReason": "scheduled_turn_break",
+          "endUTC": "2026-05-19T05:27:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 4
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 5
+            },
+            {
+              "sourceStepIndex": 5,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 6
+            }
+          ]
+        },
+        "60": {
+          "threshold": 60,
+          "qualifies": true,
+          "depth": 4,
+          "observationCount": 5,
+          "maxDepartureDelay": 122,
+          "cumulativeAmplificationMinutes": 54,
+          "durationMinutes": 791,
+          "uniqueAirportsTouched": 6,
+          "outcome": "recovered",
+          "terminationReason": "recovered",
+          "endUTC": "2026-05-19T02:16:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 4
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "departure",
+              "stateKey": "recovered",
+              "depthAfterStep": 4
+            }
+          ]
+        }
+      }
+    },
+    {
+      "episodeId": "ep-N927WN-046366",
+      "selectionCategory": "high_pressure_day",
+      "selectionReasonKey": "starts_on_high_pressure_day",
+      "selectionReasonParams": {
+        "depth": 6,
+        "startDate": "2026-05-18"
+      },
+      "tailNumber": "N927WN",
+      "carrier": "WN",
+      "depth": 6,
+      "initialArrivalDelay": 115,
+      "maxDepartureDelay": 98,
+      "cumulativeAmplificationMinutes": 37,
+      "durationMinutes": 730,
+      "airportsTouched": [
+        "BUF",
+        "BWI",
+        "ORF",
+        "BNA",
+        "ATL",
+        "MDW",
+        "DTW"
+      ],
+      "uniqueAirportsTouched": 7,
+      "outcome": "censored",
+      "terminationReason": "scheduled_turn_break",
+      "observedStartUTC": "2026-05-18T14:30:00Z",
+      "endUTC": "2026-05-19T02:40:00Z",
+      "crossesMidnightUTC": true,
+      "steps": [
+        {
+          "stepIndex": 0,
+          "depthAfterStep": 1,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "TPA",
+            "cityEn": "Tampa"
+          },
+          "turnAirport": {
+            "code": "BUF",
+            "cityEn": "Buffalo"
+          },
+          "nextAirport": {
+            "code": "BWI",
+            "cityEn": "Baltimore"
+          },
+          "previousFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "920"
+          },
+          "nextFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "920"
+          },
+          "prevArrivalDelay": 115,
+          "nextDepartureDelay": 98,
+          "nextArrivalDelay": 88,
+          "delayDelta": -17,
+          "plannedTurnMinutes": 45,
+          "actualTurnMinutes": 28,
+          "prevActualArrivalUTC": "2026-05-18T14:30:00Z",
+          "nextActualDepartureUTC": "2026-05-18T14:58:00Z",
+          "nextActualArrivalUTC": "2026-05-18T15:58:00Z",
+          "previousScheduledArrivalUTC": "2026-05-18T12:35:00Z",
+          "nextScheduledDepartureUTC": "2026-05-18T13:20:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 1,
+          "depthAfterStep": 2,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "BUF",
+            "cityEn": "Buffalo"
+          },
+          "turnAirport": {
+            "code": "BWI",
+            "cityEn": "Baltimore"
+          },
+          "nextAirport": {
+            "code": "ORF",
+            "cityEn": "Norfolk"
+          },
+          "previousFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "920"
+          },
+          "nextFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "3463"
+          },
+          "prevArrivalDelay": 88,
+          "nextDepartureDelay": 75,
+          "nextArrivalDelay": 64,
+          "delayDelta": -13,
+          "plannedTurnMinutes": 50,
+          "actualTurnMinutes": 37,
+          "prevActualArrivalUTC": "2026-05-18T15:58:00Z",
+          "nextActualDepartureUTC": "2026-05-18T16:35:00Z",
+          "nextActualArrivalUTC": "2026-05-18T17:19:00Z",
+          "previousScheduledArrivalUTC": "2026-05-18T14:30:00Z",
+          "nextScheduledDepartureUTC": "2026-05-18T15:20:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 2,
+          "depthAfterStep": 3,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "BWI",
+            "cityEn": "Baltimore"
+          },
+          "turnAirport": {
+            "code": "ORF",
+            "cityEn": "Norfolk"
+          },
+          "nextAirport": {
+            "code": "BNA",
+            "cityEn": "Nashville"
+          },
+          "previousFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "3463"
+          },
+          "nextFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "3463"
+          },
+          "prevArrivalDelay": 64,
+          "nextDepartureDelay": 62,
+          "nextArrivalDelay": 49,
+          "delayDelta": -2,
+          "plannedTurnMinutes": 45,
+          "actualTurnMinutes": 43,
+          "prevActualArrivalUTC": "2026-05-18T17:19:00Z",
+          "nextActualDepartureUTC": "2026-05-18T18:02:00Z",
+          "nextActualArrivalUTC": "2026-05-18T19:44:00Z",
+          "previousScheduledArrivalUTC": "2026-05-18T16:15:00Z",
+          "nextScheduledDepartureUTC": "2026-05-18T17:00:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 3,
+          "depthAfterStep": 4,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "ORF",
+            "cityEn": "Norfolk"
+          },
+          "turnAirport": {
+            "code": "BNA",
+            "cityEn": "Nashville"
+          },
+          "nextAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "previousFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "3463"
+          },
+          "nextFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "799"
+          },
+          "prevArrivalDelay": 49,
+          "nextDepartureDelay": 53,
+          "nextArrivalDelay": 40,
+          "delayDelta": 4,
+          "plannedTurnMinutes": 40,
+          "actualTurnMinutes": 44,
+          "prevActualArrivalUTC": "2026-05-18T19:44:00Z",
+          "nextActualDepartureUTC": "2026-05-18T20:28:00Z",
+          "nextActualArrivalUTC": "2026-05-18T21:25:00Z",
+          "previousScheduledArrivalUTC": "2026-05-18T18:55:00Z",
+          "nextScheduledDepartureUTC": "2026-05-18T19:35:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 4,
+          "depthAfterStep": 5,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "BNA",
+            "cityEn": "Nashville"
+          },
+          "turnAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "nextAirport": {
+            "code": "MDW",
+            "cityEn": "Chicago"
+          },
+          "previousFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "799"
+          },
+          "nextFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "258"
+          },
+          "prevArrivalDelay": 40,
+          "nextDepartureDelay": 57,
+          "nextArrivalDelay": 81,
+          "delayDelta": 17,
+          "plannedTurnMinutes": 35,
+          "actualTurnMinutes": 52,
+          "prevActualArrivalUTC": "2026-05-18T21:25:00Z",
+          "nextActualDepartureUTC": "2026-05-18T22:17:00Z",
+          "nextActualArrivalUTC": "2026-05-19T00:36:00Z",
+          "previousScheduledArrivalUTC": "2026-05-18T20:45:00Z",
+          "nextScheduledDepartureUTC": "2026-05-18T21:20:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 5,
+          "depthAfterStep": 6,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "turnAirport": {
+            "code": "MDW",
+            "cityEn": "Chicago"
+          },
+          "nextAirport": {
+            "code": "DTW",
+            "cityEn": "Detroit"
+          },
+          "previousFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "258"
+          },
+          "nextFlight": {
+            "carrierCode": "WN",
+            "carrierNameEn": "Southwest Airlines",
+            "flightNumber": "3269"
+          },
+          "prevArrivalDelay": 81,
+          "nextDepartureDelay": 97,
+          "nextArrivalDelay": 90,
+          "delayDelta": 16,
+          "plannedTurnMinutes": 50,
+          "actualTurnMinutes": 66,
+          "prevActualArrivalUTC": "2026-05-19T00:36:00Z",
+          "nextActualDepartureUTC": "2026-05-19T01:42:00Z",
+          "nextActualArrivalUTC": "2026-05-19T02:40:00Z",
+          "previousScheduledArrivalUTC": "2026-05-18T23:15:00Z",
+          "nextScheduledDepartureUTC": "2026-05-19T00:05:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        }
+      ],
+      "thresholdViews": {
+        "15": {
+          "threshold": 15,
+          "qualifies": true,
+          "depth": 6,
+          "observationCount": 6,
+          "maxDepartureDelay": 98,
+          "cumulativeAmplificationMinutes": 37,
+          "durationMinutes": 730,
+          "uniqueAirportsTouched": 8,
+          "outcome": "censored",
+          "terminationReason": "scheduled_turn_break",
+          "endUTC": "2026-05-19T02:40:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 4
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 5
+            },
+            {
+              "sourceStepIndex": 5,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 6
+            }
+          ]
+        },
+        "30": {
+          "threshold": 30,
+          "qualifies": true,
+          "depth": 6,
+          "observationCount": 6,
+          "maxDepartureDelay": 98,
+          "cumulativeAmplificationMinutes": 37,
+          "durationMinutes": 730,
+          "uniqueAirportsTouched": 8,
+          "outcome": "censored",
+          "terminationReason": "scheduled_turn_break",
+          "endUTC": "2026-05-19T02:40:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 4
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 5
+            },
+            {
+              "sourceStepIndex": 5,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 6
+            }
+          ]
+        },
+        "60": {
+          "threshold": 60,
+          "qualifies": true,
+          "depth": 3,
+          "observationCount": 4,
+          "maxDepartureDelay": 98,
+          "cumulativeAmplificationMinutes": 0,
+          "durationMinutes": 314,
+          "uniqueAirportsTouched": 5,
+          "outcome": "recovered",
+          "terminationReason": "recovered_en_route",
+          "endUTC": "2026-05-18T19:44:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "arrival",
+              "stateKey": "recovered_en_route",
+              "depthAfterStep": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "episodeId": "ep-N959AT-048524",
+      "selectionCategory": "normal_day",
+      "selectionReasonKey": "starts_on_typical_pressure_day",
+      "selectionReasonParams": {
+        "depth": 5,
+        "startDate": "2026-05-04"
+      },
+      "tailNumber": "N959AT",
+      "carrier": "DL",
+      "depth": 5,
+      "initialArrivalDelay": 95,
+      "maxDepartureDelay": 103,
+      "cumulativeAmplificationMinutes": 4,
+      "durationMinutes": 560,
+      "airportsTouched": [
+        "ECP",
+        "ATL",
+        "MEM",
+        "ATL",
+        "CAE",
+        "ATL"
+      ],
+      "uniqueAirportsTouched": 4,
+      "outcome": "recovered",
+      "terminationReason": "recovered_en_route",
+      "observedStartUTC": "2026-05-04T15:10:00Z",
+      "endUTC": "2026-05-05T00:30:00Z",
+      "crossesMidnightUTC": true,
+      "steps": [
+        {
+          "stepIndex": 0,
+          "depthAfterStep": 1,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "turnAirport": {
+            "code": "ECP",
+            "cityEn": "Panama City"
+          },
+          "nextAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "previousFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "3048"
+          },
+          "nextFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "3048"
+          },
+          "prevArrivalDelay": 95,
+          "nextDepartureDelay": 97,
+          "nextArrivalDelay": 104,
+          "delayDelta": 2,
+          "plannedTurnMinutes": 46,
+          "actualTurnMinutes": 48,
+          "prevActualArrivalUTC": "2026-05-04T15:10:00Z",
+          "nextActualDepartureUTC": "2026-05-04T15:58:00Z",
+          "nextActualArrivalUTC": "2026-05-04T17:13:00Z",
+          "previousScheduledArrivalUTC": "2026-05-04T13:35:00Z",
+          "nextScheduledDepartureUTC": "2026-05-04T14:21:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 1,
+          "depthAfterStep": 2,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "ECP",
+            "cityEn": "Panama City"
+          },
+          "turnAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "nextAirport": {
+            "code": "MEM",
+            "cityEn": "Memphis"
+          },
+          "previousFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "3048"
+          },
+          "nextFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "2778"
+          },
+          "prevArrivalDelay": 104,
+          "nextDepartureDelay": 97,
+          "nextArrivalDelay": 101,
+          "delayDelta": -7,
+          "plannedTurnMinutes": 51,
+          "actualTurnMinutes": 44,
+          "prevActualArrivalUTC": "2026-05-04T17:13:00Z",
+          "nextActualDepartureUTC": "2026-05-04T17:57:00Z",
+          "nextActualArrivalUTC": "2026-05-04T19:20:00Z",
+          "previousScheduledArrivalUTC": "2026-05-04T15:29:00Z",
+          "nextScheduledDepartureUTC": "2026-05-04T16:20:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 2,
+          "depthAfterStep": 3,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "turnAirport": {
+            "code": "MEM",
+            "cityEn": "Memphis"
+          },
+          "nextAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "previousFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "2778"
+          },
+          "nextFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "2778"
+          },
+          "prevArrivalDelay": 101,
+          "nextDepartureDelay": 103,
+          "nextArrivalDelay": 89,
+          "delayDelta": 2,
+          "plannedTurnMinutes": 46,
+          "actualTurnMinutes": 48,
+          "prevActualArrivalUTC": "2026-05-04T19:20:00Z",
+          "nextActualDepartureUTC": "2026-05-04T20:08:00Z",
+          "nextActualArrivalUTC": "2026-05-04T21:13:00Z",
+          "previousScheduledArrivalUTC": "2026-05-04T17:39:00Z",
+          "nextScheduledDepartureUTC": "2026-05-04T18:25:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 3,
+          "depthAfterStep": 4,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "MEM",
+            "cityEn": "Memphis"
+          },
+          "turnAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "nextAirport": {
+            "code": "CAE",
+            "cityEn": "CAE"
+          },
+          "previousFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "2778"
+          },
+          "nextFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "2193"
+          },
+          "prevArrivalDelay": 89,
+          "nextDepartureDelay": 26,
+          "nextArrivalDelay": 24,
+          "delayDelta": -63,
+          "plannedTurnMinutes": 103,
+          "actualTurnMinutes": 40,
+          "prevActualArrivalUTC": "2026-05-04T21:13:00Z",
+          "nextActualDepartureUTC": "2026-05-04T21:53:00Z",
+          "nextActualArrivalUTC": "2026-05-04T22:51:00Z",
+          "previousScheduledArrivalUTC": "2026-05-04T19:44:00Z",
+          "nextScheduledDepartureUTC": "2026-05-04T21:27:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 4,
+          "depthAfterStep": 5,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "turnAirport": {
+            "code": "CAE",
+            "cityEn": "CAE"
+          },
+          "nextAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "previousFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "2193"
+          },
+          "nextFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "2193"
+          },
+          "prevArrivalDelay": 24,
+          "nextDepartureDelay": 18,
+          "nextArrivalDelay": 1,
+          "delayDelta": -6,
+          "plannedTurnMinutes": 45,
+          "actualTurnMinutes": 39,
+          "prevActualArrivalUTC": "2026-05-04T22:51:00Z",
+          "nextActualDepartureUTC": "2026-05-04T23:30:00Z",
+          "nextActualArrivalUTC": "2026-05-05T00:30:00Z",
+          "previousScheduledArrivalUTC": "2026-05-04T22:27:00Z",
+          "nextScheduledDepartureUTC": "2026-05-04T23:12:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 5,
+          "depthAfterStep": 5,
+          "stepType": "recovered_en_route",
+          "relation": "recovered",
+          "stateKey": "recovered_en_route",
+          "prevAirport": {
+            "code": "CAE",
+            "cityEn": "CAE"
+          },
+          "turnAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "nextAirport": null,
+          "previousFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "2193"
+          },
+          "nextFlight": null,
+          "prevArrivalDelay": 18,
+          "nextDepartureDelay": 1,
+          "nextArrivalDelay": 1,
+          "delayDelta": -17,
+          "plannedTurnMinutes": 0,
+          "actualTurnMinutes": 0,
+          "prevActualArrivalUTC": "2026-05-04T23:30:00Z",
+          "nextActualDepartureUTC": "2026-05-05T00:30:00Z",
+          "nextActualArrivalUTC": "2026-05-05T00:30:00Z",
+          "previousScheduledArrivalUTC": "2026-05-05T00:29:00Z",
+          "nextScheduledDepartureUTC": null,
+          "sourceLinkMatch": "prior_delayed_flight"
+        }
+      ],
+      "thresholdViews": {
+        "15": {
+          "threshold": 15,
+          "qualifies": true,
+          "depth": 5,
+          "observationCount": 6,
+          "maxDepartureDelay": 103,
+          "cumulativeAmplificationMinutes": 4,
+          "durationMinutes": 560,
+          "uniqueAirportsTouched": 4,
+          "outcome": "recovered",
+          "terminationReason": "recovered_en_route",
+          "endUTC": "2026-05-05T00:30:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 4
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 5
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "arrival",
+              "stateKey": "recovered_en_route",
+              "depthAfterStep": 5
+            }
+          ]
+        },
+        "30": {
+          "threshold": 30,
+          "qualifies": true,
+          "depth": 3,
+          "observationCount": 4,
+          "maxDepartureDelay": 103,
+          "cumulativeAmplificationMinutes": 4,
+          "durationMinutes": 403,
+          "uniqueAirportsTouched": 4,
+          "outcome": "recovered",
+          "terminationReason": "recovered",
+          "endUTC": "2026-05-04T21:53:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "recovered",
+              "depthAfterStep": 3
+            }
+          ]
+        },
+        "60": {
+          "threshold": 60,
+          "qualifies": true,
+          "depth": 3,
+          "observationCount": 4,
+          "maxDepartureDelay": 103,
+          "cumulativeAmplificationMinutes": 4,
+          "durationMinutes": 403,
+          "uniqueAirportsTouched": 4,
+          "outcome": "recovered",
+          "terminationReason": "recovered",
+          "endUTC": "2026-05-04T21:53:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "recovered",
+              "depthAfterStep": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "episodeId": "ep-N526EA-021585",
+      "selectionCategory": "normal_day",
+      "selectionReasonKey": "starts_on_typical_pressure_day",
+      "selectionReasonParams": {
+        "depth": 5,
+        "startDate": "2026-05-04"
+      },
+      "tailNumber": "N526EA",
+      "carrier": "OH",
+      "depth": 5,
+      "initialArrivalDelay": 42,
+      "maxDepartureDelay": 70,
+      "cumulativeAmplificationMinutes": 41,
+      "durationMinutes": 694,
+      "airportsTouched": [
+        "DCA",
+        "BUF",
+        "DCA",
+        "CVG",
+        "DCA",
+        "CRW"
+      ],
+      "uniqueAirportsTouched": 4,
+      "outcome": "recovered",
+      "terminationReason": "recovered_en_route",
+      "observedStartUTC": "2026-05-04T14:29:00Z",
+      "endUTC": "2026-05-05T02:03:00Z",
+      "crossesMidnightUTC": true,
+      "steps": [
+        {
+          "stepIndex": 0,
+          "depthAfterStep": 1,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "BTR",
+            "cityEn": "BTR"
+          },
+          "turnAirport": {
+            "code": "DCA",
+            "cityEn": "Washington"
+          },
+          "nextAirport": {
+            "code": "BUF",
+            "cityEn": "Buffalo"
+          },
+          "previousFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5494"
+          },
+          "nextFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5129"
+          },
+          "prevArrivalDelay": 42,
+          "nextDepartureDelay": 52,
+          "nextArrivalDelay": 54,
+          "delayDelta": 10,
+          "plannedTurnMinutes": 44,
+          "actualTurnMinutes": 54,
+          "prevActualArrivalUTC": "2026-05-04T14:29:00Z",
+          "nextActualDepartureUTC": "2026-05-04T15:23:00Z",
+          "nextActualArrivalUTC": "2026-05-04T16:52:00Z",
+          "previousScheduledArrivalUTC": "2026-05-04T13:47:00Z",
+          "nextScheduledDepartureUTC": "2026-05-04T14:31:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 1,
+          "depthAfterStep": 2,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "DCA",
+            "cityEn": "Washington"
+          },
+          "turnAirport": {
+            "code": "BUF",
+            "cityEn": "Buffalo"
+          },
+          "nextAirport": {
+            "code": "DCA",
+            "cityEn": "Washington"
+          },
+          "previousFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5129"
+          },
+          "nextFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5129"
+          },
+          "prevArrivalDelay": 54,
+          "nextDepartureDelay": 60,
+          "nextArrivalDelay": 76,
+          "delayDelta": 6,
+          "plannedTurnMinutes": 30,
+          "actualTurnMinutes": 36,
+          "prevActualArrivalUTC": "2026-05-04T16:52:00Z",
+          "nextActualDepartureUTC": "2026-05-04T17:28:00Z",
+          "nextActualArrivalUTC": "2026-05-04T19:15:00Z",
+          "previousScheduledArrivalUTC": "2026-05-04T15:58:00Z",
+          "nextScheduledDepartureUTC": "2026-05-04T16:28:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 2,
+          "depthAfterStep": 3,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "BUF",
+            "cityEn": "Buffalo"
+          },
+          "turnAirport": {
+            "code": "DCA",
+            "cityEn": "Washington"
+          },
+          "nextAirport": {
+            "code": "CVG",
+            "cityEn": "Covington"
+          },
+          "previousFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5129"
+          },
+          "nextFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5185"
+          },
+          "prevArrivalDelay": 76,
+          "nextDepartureDelay": 59,
+          "nextArrivalDelay": 45,
+          "delayDelta": -17,
+          "plannedTurnMinutes": 81,
+          "actualTurnMinutes": 64,
+          "prevActualArrivalUTC": "2026-05-04T19:15:00Z",
+          "nextActualDepartureUTC": "2026-05-04T20:19:00Z",
+          "nextActualArrivalUTC": "2026-05-04T21:55:00Z",
+          "previousScheduledArrivalUTC": "2026-05-04T17:59:00Z",
+          "nextScheduledDepartureUTC": "2026-05-04T19:20:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 3,
+          "depthAfterStep": 4,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "DCA",
+            "cityEn": "Washington"
+          },
+          "turnAirport": {
+            "code": "CVG",
+            "cityEn": "Covington"
+          },
+          "nextAirport": {
+            "code": "DCA",
+            "cityEn": "Washington"
+          },
+          "previousFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5185"
+          },
+          "nextFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5185"
+          },
+          "prevArrivalDelay": 45,
+          "nextDepartureDelay": 70,
+          "nextArrivalDelay": 62,
+          "delayDelta": 25,
+          "plannedTurnMinutes": 30,
+          "actualTurnMinutes": 55,
+          "prevActualArrivalUTC": "2026-05-04T21:55:00Z",
+          "nextActualDepartureUTC": "2026-05-04T22:50:00Z",
+          "nextActualArrivalUTC": "2026-05-05T00:26:00Z",
+          "previousScheduledArrivalUTC": "2026-05-04T21:10:00Z",
+          "nextScheduledDepartureUTC": "2026-05-04T21:40:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 4,
+          "depthAfterStep": 5,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "CVG",
+            "cityEn": "Covington"
+          },
+          "turnAirport": {
+            "code": "DCA",
+            "cityEn": "Washington"
+          },
+          "nextAirport": {
+            "code": "CRW",
+            "cityEn": "CRW"
+          },
+          "previousFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5185"
+          },
+          "nextFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5164"
+          },
+          "prevArrivalDelay": 62,
+          "nextDepartureDelay": 19,
+          "nextArrivalDelay": 3,
+          "delayDelta": -43,
+          "plannedTurnMinutes": 76,
+          "actualTurnMinutes": 33,
+          "prevActualArrivalUTC": "2026-05-05T00:26:00Z",
+          "nextActualDepartureUTC": "2026-05-05T00:59:00Z",
+          "nextActualArrivalUTC": "2026-05-05T02:03:00Z",
+          "previousScheduledArrivalUTC": "2026-05-04T23:24:00Z",
+          "nextScheduledDepartureUTC": "2026-05-05T00:40:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 5,
+          "depthAfterStep": 5,
+          "stepType": "recovered_en_route",
+          "relation": "recovered",
+          "stateKey": "recovered_en_route",
+          "prevAirport": {
+            "code": "DCA",
+            "cityEn": "Washington"
+          },
+          "turnAirport": {
+            "code": "CRW",
+            "cityEn": "CRW"
+          },
+          "nextAirport": null,
+          "previousFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5164"
+          },
+          "nextFlight": null,
+          "prevArrivalDelay": 19,
+          "nextDepartureDelay": 3,
+          "nextArrivalDelay": 3,
+          "delayDelta": -16,
+          "plannedTurnMinutes": 0,
+          "actualTurnMinutes": 0,
+          "prevActualArrivalUTC": "2026-05-05T00:59:00Z",
+          "nextActualDepartureUTC": "2026-05-05T02:03:00Z",
+          "nextActualArrivalUTC": "2026-05-05T02:03:00Z",
+          "previousScheduledArrivalUTC": "2026-05-05T02:00:00Z",
+          "nextScheduledDepartureUTC": null,
+          "sourceLinkMatch": "prior_delayed_flight"
+        }
+      ],
+      "thresholdViews": {
+        "15": {
+          "threshold": 15,
+          "qualifies": true,
+          "depth": 5,
+          "observationCount": 6,
+          "maxDepartureDelay": 70,
+          "cumulativeAmplificationMinutes": 41,
+          "durationMinutes": 694,
+          "uniqueAirportsTouched": 5,
+          "outcome": "recovered",
+          "terminationReason": "recovered_en_route",
+          "endUTC": "2026-05-05T02:03:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 4
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 5
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "arrival",
+              "stateKey": "recovered_en_route",
+              "depthAfterStep": 5
+            }
+          ]
+        },
+        "30": {
+          "threshold": 30,
+          "qualifies": true,
+          "depth": 4,
+          "observationCount": 5,
+          "maxDepartureDelay": 70,
+          "cumulativeAmplificationMinutes": 41,
+          "durationMinutes": 630,
+          "uniqueAirportsTouched": 5,
+          "outcome": "recovered",
+          "terminationReason": "recovered",
+          "endUTC": "2026-05-05T00:59:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 4
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "departure",
+              "stateKey": "recovered",
+              "depthAfterStep": 4
+            }
+          ]
+        },
+        "60": {
+          "threshold": 60,
+          "qualifies": false,
+          "depth": 0,
+          "observationCount": 0,
+          "maxDepartureDelay": null,
+          "cumulativeAmplificationMinutes": 0,
+          "durationMinutes": 0,
+          "uniqueAirportsTouched": 0,
+          "outcome": "not_qualified",
+          "terminationReason": "initial_delay_below_threshold",
+          "endUTC": "2026-05-04T14:29:00Z",
+          "steps": []
+        }
+      }
+    },
+    {
+      "episodeId": "ep-N985AT-050019",
+      "selectionCategory": "crosses_midnight",
+      "selectionReasonKey": "crosses_utc_midnight",
+      "selectionReasonParams": {
+        "depth": 7,
+        "startDate": "2026-05-26"
+      },
+      "tailNumber": "N985AT",
+      "carrier": "DL",
+      "depth": 7,
+      "initialArrivalDelay": 41,
+      "maxDepartureDelay": 92,
+      "cumulativeAmplificationMinutes": 54,
+      "durationMinutes": 895,
+      "airportsTouched": [
+        "ATL",
+        "AVL",
+        "ATL",
+        "SAV",
+        "ATL",
+        "BHM",
+        "ATL",
+        "DSM"
+      ],
+      "uniqueAirportsTouched": 5,
+      "outcome": "censored",
+      "terminationReason": "scheduled_turn_break",
+      "observedStartUTC": "2026-05-26T13:59:00Z",
+      "endUTC": "2026-05-27T04:54:00Z",
+      "crossesMidnightUTC": true,
+      "steps": [
+        {
+          "stepIndex": 0,
+          "depthAfterStep": 1,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "HSV",
+            "cityEn": "HSV"
+          },
+          "turnAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "nextAirport": {
+            "code": "AVL",
+            "cityEn": "AVL"
+          },
+          "previousFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "3009"
+          },
+          "nextFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "1182"
+          },
+          "prevArrivalDelay": 41,
+          "nextDepartureDelay": 36,
+          "nextArrivalDelay": 36,
+          "delayDelta": -5,
+          "plannedTurnMinutes": 47,
+          "actualTurnMinutes": 42,
+          "prevActualArrivalUTC": "2026-05-26T13:59:00Z",
+          "nextActualDepartureUTC": "2026-05-26T14:41:00Z",
+          "nextActualArrivalUTC": "2026-05-26T15:42:00Z",
+          "previousScheduledArrivalUTC": "2026-05-26T13:18:00Z",
+          "nextScheduledDepartureUTC": "2026-05-26T14:05:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 1,
+          "depthAfterStep": 2,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "turnAirport": {
+            "code": "AVL",
+            "cityEn": "AVL"
+          },
+          "nextAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "previousFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "1182"
+          },
+          "nextFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "1182"
+          },
+          "prevArrivalDelay": 36,
+          "nextDepartureDelay": 30,
+          "nextArrivalDelay": 22,
+          "delayDelta": -6,
+          "plannedTurnMinutes": 49,
+          "actualTurnMinutes": 43,
+          "prevActualArrivalUTC": "2026-05-26T15:42:00Z",
+          "nextActualDepartureUTC": "2026-05-26T16:25:00Z",
+          "nextActualArrivalUTC": "2026-05-26T17:21:00Z",
+          "previousScheduledArrivalUTC": "2026-05-26T15:06:00Z",
+          "nextScheduledDepartureUTC": "2026-05-26T15:55:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 2,
+          "depthAfterStep": 3,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "AVL",
+            "cityEn": "AVL"
+          },
+          "turnAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "nextAirport": {
+            "code": "SAV",
+            "cityEn": "Savannah"
+          },
+          "previousFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "1182"
+          },
+          "nextFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "1067"
+          },
+          "prevArrivalDelay": 22,
+          "nextDepartureDelay": 15,
+          "nextArrivalDelay": 25,
+          "delayDelta": -7,
+          "plannedTurnMinutes": 47,
+          "actualTurnMinutes": 40,
+          "prevActualArrivalUTC": "2026-05-26T17:21:00Z",
+          "nextActualDepartureUTC": "2026-05-26T18:01:00Z",
+          "nextActualArrivalUTC": "2026-05-26T19:11:00Z",
+          "previousScheduledArrivalUTC": "2026-05-26T16:59:00Z",
+          "nextScheduledDepartureUTC": "2026-05-26T17:46:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 3,
+          "depthAfterStep": 4,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "turnAirport": {
+            "code": "SAV",
+            "cityEn": "Savannah"
+          },
+          "nextAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "previousFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "1067"
+          },
+          "nextFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "1067"
+          },
+          "prevArrivalDelay": 25,
+          "nextDepartureDelay": 19,
+          "nextArrivalDelay": 23,
+          "delayDelta": -6,
+          "plannedTurnMinutes": 45,
+          "actualTurnMinutes": 39,
+          "prevActualArrivalUTC": "2026-05-26T19:11:00Z",
+          "nextActualDepartureUTC": "2026-05-26T19:50:00Z",
+          "nextActualArrivalUTC": "2026-05-26T21:06:00Z",
+          "previousScheduledArrivalUTC": "2026-05-26T18:46:00Z",
+          "nextScheduledDepartureUTC": "2026-05-26T19:31:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 4,
+          "depthAfterStep": 5,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "SAV",
+            "cityEn": "Savannah"
+          },
+          "turnAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "nextAirport": {
+            "code": "BHM",
+            "cityEn": "Birmingham"
+          },
+          "previousFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "1067"
+          },
+          "nextFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "1132"
+          },
+          "prevArrivalDelay": 23,
+          "nextDepartureDelay": 22,
+          "nextArrivalDelay": 97,
+          "delayDelta": -1,
+          "plannedTurnMinutes": 57,
+          "actualTurnMinutes": 56,
+          "prevActualArrivalUTC": "2026-05-26T21:06:00Z",
+          "nextActualDepartureUTC": "2026-05-26T22:02:00Z",
+          "nextActualArrivalUTC": "2026-05-27T00:10:00Z",
+          "previousScheduledArrivalUTC": "2026-05-26T20:43:00Z",
+          "nextScheduledDepartureUTC": "2026-05-26T21:40:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 5,
+          "depthAfterStep": 6,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "turnAirport": {
+            "code": "BHM",
+            "cityEn": "Birmingham"
+          },
+          "nextAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "previousFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "1132"
+          },
+          "nextFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "1132"
+          },
+          "prevArrivalDelay": 97,
+          "nextDepartureDelay": 67,
+          "nextArrivalDelay": 38,
+          "delayDelta": -30,
+          "plannedTurnMinutes": 67,
+          "actualTurnMinutes": 37,
+          "prevActualArrivalUTC": "2026-05-27T00:10:00Z",
+          "nextActualDepartureUTC": "2026-05-27T00:47:00Z",
+          "nextActualArrivalUTC": "2026-05-27T01:32:00Z",
+          "previousScheduledArrivalUTC": "2026-05-26T22:33:00Z",
+          "nextScheduledDepartureUTC": "2026-05-26T23:40:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 6,
+          "depthAfterStep": 7,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "BHM",
+            "cityEn": "Birmingham"
+          },
+          "turnAirport": {
+            "code": "ATL",
+            "cityEn": "Atlanta"
+          },
+          "nextAirport": {
+            "code": "DSM",
+            "cityEn": "Des Moines"
+          },
+          "previousFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "1132"
+          },
+          "nextFlight": {
+            "carrierCode": "DL",
+            "carrierNameEn": "Delta Air Lines",
+            "flightNumber": "2306"
+          },
+          "prevArrivalDelay": 38,
+          "nextDepartureDelay": 92,
+          "nextArrivalDelay": 82,
+          "delayDelta": 54,
+          "plannedTurnMinutes": 26,
+          "actualTurnMinutes": 80,
+          "prevActualArrivalUTC": "2026-05-27T01:32:00Z",
+          "nextActualDepartureUTC": "2026-05-27T02:52:00Z",
+          "nextActualArrivalUTC": "2026-05-27T04:54:00Z",
+          "previousScheduledArrivalUTC": "2026-05-27T00:54:00Z",
+          "nextScheduledDepartureUTC": "2026-05-27T01:20:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        }
+      ],
+      "thresholdViews": {
+        "15": {
+          "threshold": 15,
+          "qualifies": true,
+          "depth": 7,
+          "observationCount": 7,
+          "maxDepartureDelay": 92,
+          "cumulativeAmplificationMinutes": 54,
+          "durationMinutes": 895,
+          "uniqueAirportsTouched": 6,
+          "outcome": "censored",
+          "terminationReason": "scheduled_turn_break",
+          "endUTC": "2026-05-27T04:54:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 4
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 5
+            },
+            {
+              "sourceStepIndex": 5,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 6
+            },
+            {
+              "sourceStepIndex": 6,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 7
+            }
+          ]
+        },
+        "30": {
+          "threshold": 30,
+          "qualifies": true,
+          "depth": 2,
+          "observationCount": 3,
+          "maxDepartureDelay": 36,
+          "cumulativeAmplificationMinutes": 0,
+          "durationMinutes": 202,
+          "uniqueAirportsTouched": 3,
+          "outcome": "recovered",
+          "terminationReason": "recovered_en_route",
+          "endUTC": "2026-05-26T17:21:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "arrival",
+              "stateKey": "recovered_en_route",
+              "depthAfterStep": 2
+            }
+          ]
+        },
+        "60": {
+          "threshold": 60,
+          "qualifies": false,
+          "depth": 0,
+          "observationCount": 0,
+          "maxDepartureDelay": null,
+          "cumulativeAmplificationMinutes": 0,
+          "durationMinutes": 0,
+          "uniqueAirportsTouched": 0,
+          "outcome": "not_qualified",
+          "terminationReason": "initial_delay_below_threshold",
+          "endUTC": "2026-05-26T13:59:00Z",
+          "steps": []
+        }
+      }
+    },
+    {
+      "episodeId": "ep-N776MS-031747",
+      "selectionCategory": "censored",
+      "selectionReasonKey": "observation_censored",
+      "selectionReasonParams": {
+        "depth": 6,
+        "startDate": "2026-05-24"
+      },
+      "tailNumber": "N776MS",
+      "carrier": "MQ",
+      "depth": 6,
+      "initialArrivalDelay": 120,
+      "maxDepartureDelay": 122,
+      "cumulativeAmplificationMinutes": 5,
+      "durationMinutes": 622,
+      "airportsTouched": [
+        "ORD",
+        "CWA",
+        "ORD",
+        "STL",
+        "ORD",
+        "CID",
+        "ORD"
+      ],
+      "uniqueAirportsTouched": 4,
+      "outcome": "censored",
+      "terminationReason": "airport_discontinuity",
+      "observedStartUTC": "2026-05-24T14:17:00Z",
+      "endUTC": "2026-05-25T00:39:00Z",
+      "crossesMidnightUTC": true,
+      "steps": [
+        {
+          "stepIndex": 0,
+          "depthAfterStep": 1,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "SPI",
+            "cityEn": "SPI"
+          },
+          "turnAirport": {
+            "code": "ORD",
+            "cityEn": "Chicago"
+          },
+          "nextAirport": {
+            "code": "CWA",
+            "cityEn": "CWA"
+          },
+          "previousFlight": {
+            "carrierCode": "MQ",
+            "carrierNameEn": "Envoy Air",
+            "flightNumber": "4328"
+          },
+          "nextFlight": {
+            "carrierCode": "MQ",
+            "carrierNameEn": "Envoy Air",
+            "flightNumber": "3491"
+          },
+          "prevArrivalDelay": 120,
+          "nextDepartureDelay": 122,
+          "nextArrivalDelay": 124,
+          "delayDelta": 2,
+          "plannedTurnMinutes": 45,
+          "actualTurnMinutes": 47,
+          "prevActualArrivalUTC": "2026-05-24T14:17:00Z",
+          "nextActualDepartureUTC": "2026-05-24T15:04:00Z",
+          "nextActualArrivalUTC": "2026-05-24T16:27:00Z",
+          "previousScheduledArrivalUTC": "2026-05-24T12:17:00Z",
+          "nextScheduledDepartureUTC": "2026-05-24T13:02:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 1,
+          "depthAfterStep": 2,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "ORD",
+            "cityEn": "Chicago"
+          },
+          "turnAirport": {
+            "code": "CWA",
+            "cityEn": "CWA"
+          },
+          "nextAirport": {
+            "code": "ORD",
+            "cityEn": "Chicago"
+          },
+          "previousFlight": {
+            "carrierCode": "MQ",
+            "carrierNameEn": "Envoy Air",
+            "flightNumber": "3491"
+          },
+          "nextFlight": {
+            "carrierCode": "MQ",
+            "carrierNameEn": "Envoy Air",
+            "flightNumber": "3491"
+          },
+          "prevArrivalDelay": 124,
+          "nextDepartureDelay": 119,
+          "nextArrivalDelay": 109,
+          "delayDelta": -5,
+          "plannedTurnMinutes": 30,
+          "actualTurnMinutes": 25,
+          "prevActualArrivalUTC": "2026-05-24T16:27:00Z",
+          "nextActualDepartureUTC": "2026-05-24T16:52:00Z",
+          "nextActualArrivalUTC": "2026-05-24T18:11:00Z",
+          "previousScheduledArrivalUTC": "2026-05-24T14:23:00Z",
+          "nextScheduledDepartureUTC": "2026-05-24T14:53:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 2,
+          "depthAfterStep": 3,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "CWA",
+            "cityEn": "CWA"
+          },
+          "turnAirport": {
+            "code": "ORD",
+            "cityEn": "Chicago"
+          },
+          "nextAirport": {
+            "code": "STL",
+            "cityEn": "St Louis"
+          },
+          "previousFlight": {
+            "carrierCode": "MQ",
+            "carrierNameEn": "Envoy Air",
+            "flightNumber": "3491"
+          },
+          "nextFlight": {
+            "carrierCode": "MQ",
+            "carrierNameEn": "Envoy Air",
+            "flightNumber": "3815"
+          },
+          "prevArrivalDelay": 109,
+          "nextDepartureDelay": 68,
+          "nextArrivalDelay": 55,
+          "delayDelta": -41,
+          "plannedTurnMinutes": 75,
+          "actualTurnMinutes": 34,
+          "prevActualArrivalUTC": "2026-05-24T18:11:00Z",
+          "nextActualDepartureUTC": "2026-05-24T18:45:00Z",
+          "nextActualArrivalUTC": "2026-05-24T19:58:00Z",
+          "previousScheduledArrivalUTC": "2026-05-24T16:22:00Z",
+          "nextScheduledDepartureUTC": "2026-05-24T17:37:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 3,
+          "depthAfterStep": 4,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "ORD",
+            "cityEn": "Chicago"
+          },
+          "turnAirport": {
+            "code": "STL",
+            "cityEn": "St Louis"
+          },
+          "nextAirport": {
+            "code": "ORD",
+            "cityEn": "Chicago"
+          },
+          "previousFlight": {
+            "carrierCode": "MQ",
+            "carrierNameEn": "Envoy Air",
+            "flightNumber": "3815"
+          },
+          "nextFlight": {
+            "carrierCode": "MQ",
+            "carrierNameEn": "Envoy Air",
+            "flightNumber": "3815"
+          },
+          "prevArrivalDelay": 55,
+          "nextDepartureDelay": 57,
+          "nextArrivalDelay": 71,
+          "delayDelta": 2,
+          "plannedTurnMinutes": 30,
+          "actualTurnMinutes": 32,
+          "prevActualArrivalUTC": "2026-05-24T19:58:00Z",
+          "nextActualDepartureUTC": "2026-05-24T20:30:00Z",
+          "nextActualArrivalUTC": "2026-05-24T22:13:00Z",
+          "previousScheduledArrivalUTC": "2026-05-24T19:03:00Z",
+          "nextScheduledDepartureUTC": "2026-05-24T19:33:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 4,
+          "depthAfterStep": 5,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "STL",
+            "cityEn": "St Louis"
+          },
+          "turnAirport": {
+            "code": "ORD",
+            "cityEn": "Chicago"
+          },
+          "nextAirport": {
+            "code": "CID",
+            "cityEn": "CID"
+          },
+          "previousFlight": {
+            "carrierCode": "MQ",
+            "carrierNameEn": "Envoy Air",
+            "flightNumber": "3815"
+          },
+          "nextFlight": {
+            "carrierCode": "MQ",
+            "carrierNameEn": "Envoy Air",
+            "flightNumber": "3458"
+          },
+          "prevArrivalDelay": 71,
+          "nextDepartureDelay": 72,
+          "nextArrivalDelay": 68,
+          "delayDelta": 1,
+          "plannedTurnMinutes": 45,
+          "actualTurnMinutes": 46,
+          "prevActualArrivalUTC": "2026-05-24T22:13:00Z",
+          "nextActualDepartureUTC": "2026-05-24T22:59:00Z",
+          "nextActualArrivalUTC": "2026-05-25T00:17:00Z",
+          "previousScheduledArrivalUTC": "2026-05-24T21:02:00Z",
+          "nextScheduledDepartureUTC": "2026-05-24T21:47:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 5,
+          "depthAfterStep": 6,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "ORD",
+            "cityEn": "Chicago"
+          },
+          "turnAirport": {
+            "code": "CID",
+            "cityEn": "CID"
+          },
+          "nextAirport": {
+            "code": "ORD",
+            "cityEn": "Chicago"
+          },
+          "previousFlight": {
+            "carrierCode": "MQ",
+            "carrierNameEn": "Envoy Air",
+            "flightNumber": "3458"
+          },
+          "nextFlight": {
+            "carrierCode": "MQ",
+            "carrierNameEn": "Envoy Air",
+            "flightNumber": "3458"
+          },
+          "prevArrivalDelay": 68,
+          "nextDepartureDelay": 60,
+          "nextArrivalDelay": 50,
+          "delayDelta": -8,
+          "plannedTurnMinutes": 30,
+          "actualTurnMinutes": 22,
+          "prevActualArrivalUTC": "2026-05-25T00:17:00Z",
+          "nextActualDepartureUTC": "2026-05-25T00:39:00Z",
+          "nextActualArrivalUTC": "2026-05-25T02:01:00Z",
+          "previousScheduledArrivalUTC": "2026-05-24T23:09:00Z",
+          "nextScheduledDepartureUTC": "2026-05-24T23:39:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        }
+      ],
+      "thresholdViews": {
+        "15": {
+          "threshold": 15,
+          "qualifies": true,
+          "depth": 6,
+          "observationCount": 6,
+          "maxDepartureDelay": 122,
+          "cumulativeAmplificationMinutes": 5,
+          "durationMinutes": 622,
+          "uniqueAirportsTouched": 5,
+          "outcome": "censored",
+          "terminationReason": "airport_discontinuity",
+          "endUTC": "2026-05-25T00:39:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 4
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 5
+            },
+            {
+              "sourceStepIndex": 5,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 6
+            }
+          ]
+        },
+        "30": {
+          "threshold": 30,
+          "qualifies": true,
+          "depth": 6,
+          "observationCount": 6,
+          "maxDepartureDelay": 122,
+          "cumulativeAmplificationMinutes": 5,
+          "durationMinutes": 622,
+          "uniqueAirportsTouched": 5,
+          "outcome": "censored",
+          "terminationReason": "airport_discontinuity",
+          "endUTC": "2026-05-25T00:39:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 4
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 5
+            },
+            {
+              "sourceStepIndex": 5,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 6
+            }
+          ]
+        },
+        "60": {
+          "threshold": 60,
+          "qualifies": true,
+          "depth": 3,
+          "observationCount": 4,
+          "maxDepartureDelay": 122,
+          "cumulativeAmplificationMinutes": 2,
+          "durationMinutes": 341,
+          "uniqueAirportsTouched": 4,
+          "outcome": "recovered",
+          "terminationReason": "recovered_en_route",
+          "endUTC": "2026-05-24T19:58:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "arrival",
+              "stateKey": "recovered_en_route",
+              "depthAfterStep": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "episodeId": "ep-N564NN-022962",
+      "selectionCategory": "censored",
+      "selectionReasonKey": "observation_censored",
+      "selectionReasonParams": {
+        "depth": 6,
+        "startDate": "2026-05-27"
+      },
+      "tailNumber": "N564NN",
+      "carrier": "OH",
+      "depth": 6,
+      "initialArrivalDelay": 98,
+      "maxDepartureDelay": 99,
+      "cumulativeAmplificationMinutes": 26,
+      "durationMinutes": 864,
+      "airportsTouched": [
+        "DCA",
+        "RDU",
+        "DCA",
+        "CLT",
+        "PNS",
+        "CLT",
+        "MHT"
+      ],
+      "uniqueAirportsTouched": 5,
+      "outcome": "censored",
+      "terminationReason": "scheduled_turn_break",
+      "observedStartUTC": "2026-05-27T13:28:00Z",
+      "endUTC": "2026-05-28T03:52:00Z",
+      "crossesMidnightUTC": true,
+      "steps": [
+        {
+          "stepIndex": 0,
+          "depthAfterStep": 1,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "CVG",
+            "cityEn": "Covington"
+          },
+          "turnAirport": {
+            "code": "DCA",
+            "cityEn": "Washington"
+          },
+          "nextAirport": {
+            "code": "RDU",
+            "cityEn": "Raleigh/Durham"
+          },
+          "previousFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5445"
+          },
+          "nextFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5581"
+          },
+          "prevArrivalDelay": 98,
+          "nextDepartureDelay": 84,
+          "nextArrivalDelay": 61,
+          "delayDelta": -14,
+          "plannedTurnMinutes": 43,
+          "actualTurnMinutes": 29,
+          "prevActualArrivalUTC": "2026-05-27T13:28:00Z",
+          "nextActualDepartureUTC": "2026-05-27T13:57:00Z",
+          "nextActualArrivalUTC": "2026-05-27T15:06:00Z",
+          "previousScheduledArrivalUTC": "2026-05-27T11:50:00Z",
+          "nextScheduledDepartureUTC": "2026-05-27T12:33:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 1,
+          "depthAfterStep": 2,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "DCA",
+            "cityEn": "Washington"
+          },
+          "turnAirport": {
+            "code": "RDU",
+            "cityEn": "Raleigh/Durham"
+          },
+          "nextAirport": {
+            "code": "DCA",
+            "cityEn": "Washington"
+          },
+          "previousFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5581"
+          },
+          "nextFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5581"
+          },
+          "prevArrivalDelay": 61,
+          "nextDepartureDelay": 86,
+          "nextArrivalDelay": 75,
+          "delayDelta": 25,
+          "plannedTurnMinutes": 30,
+          "actualTurnMinutes": 55,
+          "prevActualArrivalUTC": "2026-05-27T15:06:00Z",
+          "nextActualDepartureUTC": "2026-05-27T16:01:00Z",
+          "nextActualArrivalUTC": "2026-05-27T17:11:00Z",
+          "previousScheduledArrivalUTC": "2026-05-27T14:05:00Z",
+          "nextScheduledDepartureUTC": "2026-05-27T14:35:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 2,
+          "depthAfterStep": 3,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "RDU",
+            "cityEn": "Raleigh/Durham"
+          },
+          "turnAirport": {
+            "code": "DCA",
+            "cityEn": "Washington"
+          },
+          "nextAirport": {
+            "code": "CLT",
+            "cityEn": "Charlotte"
+          },
+          "previousFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5581"
+          },
+          "nextFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5022"
+          },
+          "prevArrivalDelay": 75,
+          "nextDepartureDelay": 53,
+          "nextArrivalDelay": 101,
+          "delayDelta": -22,
+          "plannedTurnMinutes": 56,
+          "actualTurnMinutes": 34,
+          "prevActualArrivalUTC": "2026-05-27T17:11:00Z",
+          "nextActualDepartureUTC": "2026-05-27T17:45:00Z",
+          "nextActualArrivalUTC": "2026-05-27T20:11:00Z",
+          "previousScheduledArrivalUTC": "2026-05-27T15:56:00Z",
+          "nextScheduledDepartureUTC": "2026-05-27T16:52:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 3,
+          "depthAfterStep": 4,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "DCA",
+            "cityEn": "Washington"
+          },
+          "turnAirport": {
+            "code": "CLT",
+            "cityEn": "Charlotte"
+          },
+          "nextAirport": {
+            "code": "PNS",
+            "cityEn": "Pensacola"
+          },
+          "previousFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5022"
+          },
+          "nextFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5604"
+          },
+          "prevArrivalDelay": 101,
+          "nextDepartureDelay": 99,
+          "nextArrivalDelay": 96,
+          "delayDelta": -2,
+          "plannedTurnMinutes": 45,
+          "actualTurnMinutes": 43,
+          "prevActualArrivalUTC": "2026-05-27T20:11:00Z",
+          "nextActualDepartureUTC": "2026-05-27T20:54:00Z",
+          "nextActualArrivalUTC": "2026-05-27T22:45:00Z",
+          "previousScheduledArrivalUTC": "2026-05-27T18:30:00Z",
+          "nextScheduledDepartureUTC": "2026-05-27T19:15:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 4,
+          "depthAfterStep": 5,
+          "stepType": "delayed",
+          "relation": "persisted_or_amplified",
+          "stateKey": "amplified",
+          "prevAirport": {
+            "code": "CLT",
+            "cityEn": "Charlotte"
+          },
+          "turnAirport": {
+            "code": "PNS",
+            "cityEn": "Pensacola"
+          },
+          "nextAirport": {
+            "code": "CLT",
+            "cityEn": "Charlotte"
+          },
+          "previousFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5604"
+          },
+          "nextFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5604"
+          },
+          "prevArrivalDelay": 96,
+          "nextDepartureDelay": 97,
+          "nextArrivalDelay": 78,
+          "delayDelta": 1,
+          "plannedTurnMinutes": 32,
+          "actualTurnMinutes": 33,
+          "prevActualArrivalUTC": "2026-05-27T22:45:00Z",
+          "nextActualDepartureUTC": "2026-05-27T23:18:00Z",
+          "nextActualArrivalUTC": "2026-05-28T00:55:00Z",
+          "previousScheduledArrivalUTC": "2026-05-27T21:09:00Z",
+          "nextScheduledDepartureUTC": "2026-05-27T21:41:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        },
+        {
+          "stepIndex": 5,
+          "depthAfterStep": 6,
+          "stepType": "delayed",
+          "relation": "caught_up",
+          "stateKey": "caught_up",
+          "prevAirport": {
+            "code": "PNS",
+            "cityEn": "Pensacola"
+          },
+          "turnAirport": {
+            "code": "CLT",
+            "cityEn": "Charlotte"
+          },
+          "nextAirport": {
+            "code": "MHT",
+            "cityEn": "MHT"
+          },
+          "previousFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5604"
+          },
+          "nextFlight": {
+            "carrierCode": "OH",
+            "carrierNameEn": "PSA Airlines",
+            "flightNumber": "5033"
+          },
+          "prevArrivalDelay": 78,
+          "nextDepartureDelay": 67,
+          "nextArrivalDelay": 56,
+          "delayDelta": -11,
+          "plannedTurnMinutes": 56,
+          "actualTurnMinutes": 45,
+          "prevActualArrivalUTC": "2026-05-28T00:55:00Z",
+          "nextActualDepartureUTC": "2026-05-28T01:40:00Z",
+          "nextActualArrivalUTC": "2026-05-28T03:52:00Z",
+          "previousScheduledArrivalUTC": "2026-05-27T23:37:00Z",
+          "nextScheduledDepartureUTC": "2026-05-28T00:33:00Z",
+          "sourceLinkMatch": "six_key_exact"
+        }
+      ],
+      "thresholdViews": {
+        "15": {
+          "threshold": 15,
+          "qualifies": true,
+          "depth": 6,
+          "observationCount": 6,
+          "maxDepartureDelay": 99,
+          "cumulativeAmplificationMinutes": 26,
+          "durationMinutes": 864,
+          "uniqueAirportsTouched": 6,
+          "outcome": "censored",
+          "terminationReason": "scheduled_turn_break",
+          "endUTC": "2026-05-28T03:52:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 4
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 5
+            },
+            {
+              "sourceStepIndex": 5,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 6
+            }
+          ]
+        },
+        "30": {
+          "threshold": 30,
+          "qualifies": true,
+          "depth": 6,
+          "observationCount": 6,
+          "maxDepartureDelay": 99,
+          "cumulativeAmplificationMinutes": 26,
+          "durationMinutes": 864,
+          "uniqueAirportsTouched": 6,
+          "outcome": "censored",
+          "terminationReason": "scheduled_turn_break",
+          "endUTC": "2026-05-28T03:52:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 3
+            },
+            {
+              "sourceStepIndex": 3,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 4
+            },
+            {
+              "sourceStepIndex": 4,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 5
+            },
+            {
+              "sourceStepIndex": 5,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 6
+            }
+          ]
+        },
+        "60": {
+          "threshold": 60,
+          "qualifies": true,
+          "depth": 2,
+          "observationCount": 3,
+          "maxDepartureDelay": 86,
+          "cumulativeAmplificationMinutes": 25,
+          "durationMinutes": 257,
+          "uniqueAirportsTouched": 4,
+          "outcome": "recovered",
+          "terminationReason": "recovered",
+          "endUTC": "2026-05-27T17:45:00Z",
+          "steps": [
+            {
+              "sourceStepIndex": 0,
+              "phase": "departure",
+              "stateKey": "caught_up",
+              "depthAfterStep": 1
+            },
+            {
+              "sourceStepIndex": 1,
+              "phase": "departure",
+              "stateKey": "amplified",
+              "depthAfterStep": 2
+            },
+            {
+              "sourceStepIndex": 2,
+              "phase": "departure",
+              "stateKey": "recovered",
+              "depthAfterStep": 2
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "disclaimerKey": "descriptive_not_causal"
+}

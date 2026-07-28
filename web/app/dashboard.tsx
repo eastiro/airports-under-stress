@@ -1,7 +1,13 @@
 "use client";
 
-import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useState, Fragment, type CSSProperties } from "react";
 import rawData from "./v0-data.json";
+import v1aData from "./v1-a-data.json";
+import v1bData from "./v1-b-data.json";
+import NetworkHero from "./NetworkHero";
+import MechanismSection, { type V1AData as MechanismData } from "./MechanismSection";
+import EpisodeExplorer, { type V1BData } from "./EpisodeExplorer";
+import { AIRPORT_ZH, AIRLINE_ZH } from "./airport-names-zh";
 
 type Airport = {
   code: string;
@@ -17,6 +23,11 @@ type Airport = {
   recoveryRate: number;
   chainLinks: number;
   pressureScore: number;
+  rankPressure: number;
+  rankDelay: number;
+  rankCancel: number;
+  rankPropagation: number;
+  rankFlights: number;
 };
 
 type Airline = {
@@ -45,36 +56,58 @@ type StoryLeg = {
   flight: string;
   origin: string;
   dest: string;
-  scheduled: string;
-  depDelay: number | null;
+  status: "late" | "on-time";
+  depDelay: number;
   arrDelay: number;
-  turn?: number;
-  status: "propagated" | "recovered" | "delayed" | "on-time";
+  scheduledDepUTC: string;
+  actualDepUTC: string;
+  scheduledArrUTC: string;
+  actualArrUTC: string;
+};
+
+type StoryConnector = {
+  hub: string;
+  planGap: number;
+  actualTurn: number;
+  prevArrDelay: number;
+  nextDepDelay: number;
+  delayDelta: number;
+  relation: "propagated" | "caught_up" | "recovered_full" | "delayed" | "on-time";
 };
 
 type Story = {
   id: string;
   type: string;
   title: string;
+  titleZh: string;
   summary: string;
+  summaryZh: string;
   tail: string;
   date: string;
   edges: number;
+  legCount: number;
   propagated: number;
   recovered: number;
+  maxDelay: number;
   legs: StoryLeg[];
+  connectors: StoryConnector[];
 };
 
 type SiteData = {
   meta: {
     period: string;
     records: number;
-    airports: number;
-    airlines: number;
+    rawAirports: number;
+    eligibleAirports: number;
+    mapAirports: number;
+    rankedAirportsShown: number;
+    rawAirlines: number;
+    comparableAirlines: number;
     tails: number;
     chainLinks: number;
     source: string;
     coverage: string;
+    airlineThreshold: string;
   };
   national: {
     delayRate: number;
@@ -84,6 +117,10 @@ type SiteData = {
     peakDay: string;
   };
   daily: DailyPoint[];
+  mapAirportCodes: string[];
+  network: {
+    routes: { origin: string; dest: string; flights: number; delayRate: number }[];
+  };
   airports: Airport[];
   airlines: Airline[];
   stories: Story[];
@@ -99,6 +136,9 @@ type AirportSortKey =
 type Language = "zh" | "en";
 
 const data = rawData as SiteData;
+const AIRPORT_CITY_EN: Record<string, string> = Object.fromEntries(
+  data.airports.map((airport) => [airport.code, airport.city]),
+);
 
 const sortOptions: Array<{ key: AirportSortKey; zh: string; en: string }> = [
   { key: "pressureScore", zh: "压力指数", en: "Pressure" },
@@ -123,17 +163,30 @@ const storyLabels: Record<Language, Record<string, string>> = {
   },
 };
 
-const statusLabels: Record<Language, Record<StoryLeg["status"], string>> = {
+const statusLabels: Record<Language, Record<string, string>> = {
   zh: {
-    propagated: "已传播",
-    recovered: "已恢复",
-    delayed: "延误",
+    late: "晚点",
     "on-time": "准点",
   },
   en: {
-    propagated: "propagated",
-    recovered: "recovered",
-    delayed: "delayed",
+    late: "late",
+    "on-time": "on time",
+  },
+};
+
+const relationLabels: Record<Language, Record<string, string>> = {
+  zh: {
+    propagated: "延误延续",
+    caught_up: "略有追回",
+    recovered_full: "恢复准点",
+    delayed: "延误加重",
+    "on-time": "全程准点",
+  },
+  en: {
+    propagated: "continued",
+    caught_up: "eased",
+    recovered_full: "recovered",
+    delayed: "worsened",
     "on-time": "on time",
   },
 };
@@ -168,7 +221,7 @@ const ui = {
     metricTails: "观测到的独立飞机数量",
     airportSection: "01 / 机场压力榜",
     airportTitle: "哪些机场感受到了更大压力？",
-    airportIntro: "只比较月出发量至少 1,000 班、有效轮转链至少 500 条的机场。压力指数由延误率、取消率和传播率的样本内百分位构成。",
+    airportIntro: "只比较月出发量至少 1,000 班、有效轮转链至少 500 条的 97 个机场。榜单显示当前排序的前 12 名。压力指数由延误率、取消率和传播率的样本内百分位构成（满分 100）。",
     sortAria: "机场排序方式",
     rankBy: "排序依据",
     rankedAirports: "机场排名",
@@ -189,7 +242,7 @@ const ui = {
     pressureNote: "压力指数只反映符合条件机场之间的相对位置，不是安全评级，也不代表因果关系。",
     carrierSection: "02 / 航司对比",
     carrierTitle: "规模不等于韧性。",
-    carrierIntro: "每家航司面对不同的航线结构和运营约束。这里展示描述性差异，不把排名解释成运营能力的因果结论。",
+    carrierIntro: "比较月计划航班至少 10,000 班的报告航司（共 12 家）。这里展示描述性差异，不把排名解释成运营能力的因果结论。",
     flightUnit: "班航班",
     carrierDelay: "延误",
     carrierPropagate: "传播",
@@ -206,7 +259,21 @@ const ui = {
     arrival: "到达",
     turn: "分钟周转",
     nextLeg: "下一航段",
-    methodSection: "04 / 方法与边界",
+    planned: "计划",
+    depDelay: "起飞延误",
+    arrDelay: "到达延误",
+    planTurn: "计划过站",
+    actualTurn: "实际过站",
+    improve: "追回",
+    worsen: "加重",
+    maxDelay: "最大延误",
+    guideTitle: "怎么读这张图",
+    guideActual: "实心 = 实际起飞 / 到达时刻",
+    guidePlanned: "浅色 = 计划时刻",
+    guideTurn: "过站时间 = 飞机实际停场分钟（不是计划）",
+    guideThreshold: "15 分钟是描述传播 / 恢复的统一门槛",
+    guideCausal: "衔接关系只描述相邻两段都晚点的连续性，不构成因果",
+    methodSection: "07 / 方法与边界",
     methodTitleFirst: "证据在前。",
     methodTitleSecond: "结论在后。",
     methodOneTitle: "统一到 UTC 时间线",
@@ -293,7 +360,21 @@ const ui = {
     arrival: "ARR",
     turn: "m turn",
     nextLeg: "next leg",
-    methodSection: "04 / Method & boundary",
+    planned: "sched",
+    depDelay: "dep delay",
+    arrDelay: "arr delay",
+    planTurn: "plan turn",
+    actualTurn: "actual turn",
+    improve: "recovered",
+    worsen: "worse",
+    maxDelay: "max delay",
+    guideTitle: "How to read this",
+    guideActual: "solid = actual departure / arrival",
+    guidePlanned: "muted = scheduled time",
+    guideTurn: "turn time = actual minutes on the ground, not the plan",
+    guideThreshold: "15 min is the shared threshold for propagation / recovery",
+    guideCausal: "link labels describe continuity of two late legs, not causation",
+    methodSection: "07 / Method & boundary",
     methodTitleFirst: "Evidence first.",
     methodTitleSecond: "Claims second.",
     methodOneTitle: "One UTC timeline",
@@ -331,6 +412,24 @@ function barStyle(value: number, max: number): CSSProperties {
   return { "--value": `${Math.max(4, (value / max) * 100)}%` } as CSSProperties;
 }
 
+function formatSortValue(key: AirportSortKey, value: number, language: Language) {
+  if (key === "flights") return new Intl.NumberFormat(language === "zh" ? "zh-CN" : "en-US").format(value) + (language === "zh" ? " 班" : "");
+  if (key === "pressureScore") return `${value.toFixed(1)} / 100`;
+  return percent(value);
+}
+function rankKey(sort: AirportSortKey): keyof Airport {
+  const map: Record<AirportSortKey, keyof Airport> = {
+    pressureScore: "rankPressure",
+    delayRate: "rankDelay",
+    cancelRate: "rankCancel",
+    propagationRate: "rankPropagation",
+    flights: "rankFlights",
+  };
+  return map[sort];
+}
+function sortLabel(key: AirportSortKey, language: Language) {
+  return sortOptions.find((o) => o.key === key)?.[language] ?? key;
+}
 export default function Dashboard() {
   const [language, setLanguage] = useState<Language>("zh");
   const [airportSort, setAirportSort] = useState<AirportSortKey>("pressureScore");
@@ -341,35 +440,17 @@ export default function Dashboard() {
     () => [...data.airports].sort((a, b) => b[airportSort] - a[airportSort]).slice(0, 12),
     [airportSort],
   );
+  const cityOf = (code: string) => language === "zh" ? (AIRPORT_ZH[code]?.city ?? AIRPORT_CITY_EN[code] ?? code) : (AIRPORT_CITY_EN[code] ?? code);
   const selectedAirport =
     data.airports.find((airport) => airport.code === selectedAirportCode) ?? sortedAirports[0];
   const activeStory =
     data.stories.find((story) => story.id === activeStoryId) ?? data.stories[0];
-  const dailyMax = Math.max(...data.daily.map((point) => point.delayRate));
-  const peakPoint = data.daily.find((point) => point.date === data.national.peakDay) ?? data.daily[0];
   const airlineDelayMax = Math.max(...data.airlines.map((airline) => airline.delayRate));
   const text = ui[language];
   const integer = (value: number) =>
     new Intl.NumberFormat(language === "zh" ? "zh-CN" : "en-US").format(value);
-  const storyTitle = (story: Story) => {
-    if (language === "en") return story.title;
-    return {
-      cascade: "延误沿轮转链持续传递",
-      recovery: "计划缓冲切断了传播链",
-      "tight-turn": "紧周转没有留下余量",
-      mixed: "先传播，然后恢复",
-    }[story.type] ?? story.title;
-  };
-  const storySummary = (story: Story) => {
-    if (language === "en") return story.summary;
-    if (story.type === "cascade") return `${story.propagated} 个后续航段的起飞延误超过了 15 分钟。`;
-    if (story.type === "recovery") return `${story.recovered} 次晚到在下一次起飞前被吸收。`;
-    if (story.type === "tight-turn") {
-      const tightestTurn = Math.min(...story.legs.map((leg) => leg.turn ?? Infinity));
-      return `这条轮转链最短的计划周转时间只有 ${tightestTurn} 分钟。`;
-    }
-    return "同一架飞机的轮转说明，网络压力并不是单向级联：延误可以传播，也可能在后续航段恢复。";
-  };
+  const storyTitle = (story: Story) => (language === "zh" ? story.titleZh : story.title);
+  const storySummary = (story: Story) => (language === "zh" ? story.summaryZh : story.summary);
 
   useEffect(() => {
     document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
@@ -390,6 +471,8 @@ export default function Dashboard() {
           <a href="#pressure-board">{text.airports}</a>
           <a href="#carriers">{text.carriers}</a>
           <a href="#rotations">{text.rotations}</a>
+          <a href="#mechanism">{language === "zh" ? "传播机制" : "Mechanism"}</a>
+          <a href="#episodes">{language === "zh" ? "连续延误案例" : "Episodes"}</a>
           <a href="#method">{text.method}</a>
         </nav>
         <div className="header-tools">
@@ -412,77 +495,13 @@ export default function Dashboard() {
             </button>
           </div>
           <div className="edition-badge">
-            <span>V0</span>
+            <span>V1</span>
             <span>{text.period}</span>
           </div>
         </div>
       </header>
 
-      <section className="hero section-shell" aria-labelledby="hero-title">
-        <div className="hero-copy">
-          <div className="eyebrow">
-            <span className="live-dot" />
-            {text.eyebrow}
-          </div>
-          <h1 id="hero-title">
-            <span>Airports</span>
-            <span className="outlined">Under Stress</span>
-          </h1>
-          <p className="hero-deck">
-            {text.heroDeckBefore} <strong>549,388</strong> {text.heroDeckAfter}
-          </p>
-          <div className="hero-actions">
-            <a className="primary-action" href="#pressure-board">
-              {text.explore} <span aria-hidden="true">↘</span>
-            </a>
-            <a className="text-action" href="#method">
-              {text.boundary}
-            </a>
-          </div>
-        </div>
-
-        <div className="pulse-panel" aria-label={text.pulseAria}>
-          <div className="panel-topline">
-            <div>
-              <span className="panel-kicker">{text.pulseKicker}</span>
-              <h2>{text.pulseTitle}</h2>
-            </div>
-            <div className="peak-readout">
-              <span>{text.peak} / {language === "zh" ? `5 月 ${peakPoint.day} 日` : `May ${peakPoint.day}`}</span>
-              <strong>{percent(peakPoint.delayRate)}</strong>
-            </div>
-          </div>
-          <div className="pulse-chart">
-            <div className="pulse-baseline" aria-hidden="true">
-              <span>{text.month} {percent(data.national.delayRate)}</span>
-            </div>
-            {data.daily.map((point) => (
-              <div
-                className={`pulse-column ${point.date === data.national.peakDay ? "is-peak" : ""}`}
-                key={point.date}
-                title={language === "zh"
-                  ? `5 月 ${point.day} 日：${percent(point.delayRate)} 航班延误`
-                  : `May ${point.day}: ${percent(point.delayRate)} delayed`}
-              >
-                <div
-                  className="pulse-fill"
-                  style={{ height: `${Math.max(8, (point.delayRate / dailyMax) * 100)}%` }}
-                />
-                <span>{point.day % 5 === 0 || point.day === 1 ? point.day : ""}</span>
-              </div>
-            ))}
-          </div>
-          <div className="pulse-legend">
-            <span>
-              <i className="legend-mark legend-delay" /> {text.delayedLegend}
-            </span>
-            <span>
-              <i className="legend-mark legend-peak" /> {text.peakDay}
-            </span>
-            <span>{text.reportedFlights}</span>
-          </div>
-        </div>
-      </section>
+      <NetworkHero language={language} data={data} />
 
       <section className="metric-ribbon section-shell" aria-label={text.nationalSummary}>
         <article>
@@ -533,13 +552,36 @@ export default function Dashboard() {
           </div>
         </div>
 
+        <div className="airport-selector-rail">
+          <p className="airport-scope-note">
+            {language === "zh"
+              ? "榜单按单个机场计算，不合并纽约、芝加哥、休斯顿等都会区的多个机场。"
+              : "Ranked per individual airport; metro-area airports (NYC, Chicago, Houston, etc.) are not merged."}
+          </p>
+          <label className="airport-selector">
+            <span>{language === "zh" ? "查看其他机场" : "Find another airport"}</span>
+            <select
+              value={selectedAirportCode}
+              onChange={(e) => setSelectedAirportCode(e.target.value)}
+              aria-label={language === "zh" ? "选择 97 个合格机场中的任意一个" : "Select any of the 97 eligible airports"}
+            >
+              {[...data.airports]
+                .sort((a, b) => a[airportSort] < b[airportSort] ? 1 : -1)
+                .map((airport) => (
+                  <option key={airport.code} value={airport.code}>
+                    {airport.code} · {cityOf(airport.code)} — {formatSortValue(airportSort, airport[airportSort] as number, language)}
+                  </option>
+                ))}
+            </select>
+          </label>
+        </div>
+
         <div className="airport-layout">
           <div className="airport-table" role="list" aria-label={text.rankedAirports}>
             <div className="airport-table-head" aria-hidden="true">
               <span>{text.rankAirport}</span>
               <span>{text.relativeSignal}</span>
-              <span>{text.delay}</span>
-              <span>{text.propagation}</span>
+              <span>{sortOptions.find((o) => o.key === airportSort)?.[language] ?? ""}</span>
             </div>
             {sortedAirports.map((airport, index) => {
               const sortValue =
@@ -562,22 +604,21 @@ export default function Dashboard() {
                   key={airport.code}
                   onClick={() => setSelectedAirportCode(airport.code)}
                   aria-label={language === "zh"
-                    ? `${airport.code}，${airport.city}：${percent(airport.delayRate)} 航班延误`
-                    : `${airport.code}, ${airport.city}: ${percent(airport.delayRate)} delayed`}
+                    ? `${airport.code}，${airport.city}：${formatSortValue(airportSort, sortValue as number, language)}`
+                    : `${airport.code}, ${airport.city}: ${formatSortValue(airportSort, sortValue as number, language)}`}
                 >
                   <span className="airport-identity">
                     <i>{String(index + 1).padStart(2, "0")}</i>
                     <strong>{airport.code}</strong>
-                    <small>{airport.city}</small>
+                    <small>{language === "zh" ? (AIRPORT_ZH[airport.code]?.city ?? airport.city) : airport.city}</small>
                   </span>
                   <span className="signal-track" style={barStyle(Number(sortValue), Number(maxValue))}>
                     <i />
                   </span>
-                  <span className="row-value">{percent(airport.delayRate)}</span>
-                  <span className="row-value">{percent(airport.propagationRate)}</span>
-                </button>
-              );
-            })}
+                    <span className="row-value">{formatSortValue(airportSort, sortValue as number, language)}</span>
+                  </button>
+                );
+              })}
           </div>
 
           <aside className="airport-focus" aria-live="polite">
@@ -586,11 +627,26 @@ export default function Dashboard() {
                 <span>{text.selectedAirport}</span>
                 <h3>{selectedAirport.code}</h3>
               </div>
-              <strong>{selectedAirport.pressureScore.toFixed(1)}</strong>
+              <div className="focus-score">
+                <strong>{formatSortValue(airportSort, selectedAirport[airportSort] as number, language)}</strong>
+                <small>
+                  {language === "zh"
+                    ? `按${sortLabel(airportSort, "zh")}排序，第 ${selectedAirport[rankKey(airportSort)]} 名 / 97`
+                    : `#${selectedAirport[rankKey(airportSort)]} of 97 (by ${sortLabel(airportSort, "en")})`}
+                </small>
+              </div>
             </div>
-            <p className="airport-name">{selectedAirport.name}</p>
+            <p className="airport-name">
+              {language === "zh" ? (AIRPORT_ZH[selectedAirport.code]?.name ?? selectedAirport.name) : selectedAirport.name}
+              {language === "zh" && <small>{selectedAirport.name}</small>}
+            </p>
             <p className="airport-location">
-              {selectedAirport.city}, {selectedAirport.region}
+              {language === "zh"
+                ? (AIRPORT_ZH[selectedAirport.code]?.city ?? selectedAirport.city)
+                : selectedAirport.city}
+              {language === "zh"
+                ? `，${AIRPORT_ZH[selectedAirport.code]?.region ?? selectedAirport.region}`
+                : `, ${selectedAirport.region}`}
             </p>
             <div className="focus-grid">
               <div>
@@ -650,7 +706,8 @@ export default function Dashboard() {
               </div>
               <div className="carrier-name">
                 <strong>{airline.code}</strong>
-                <h3>{airline.name}</h3>
+                <h3>{language === "zh" ? (AIRLINE_ZH[airline.code] ?? airline.name) : airline.name}</h3>
+                {language === "zh" && <small>{airline.name} · {airline.code}</small>}
               </div>
               <div className="carrier-bar">
                 <span style={{ width: percent(airline.delayRate / airlineDelayMax, 2) }} />
@@ -719,48 +776,89 @@ export default function Dashboard() {
                 <dt>{text.chain}</dt>
                 <dd>{activeStory.legs.length} {text.legs}</dd>
               </div>
+              <div>
+                <dt>{text.maxDelay}</dt>
+                <dd>{delayLabel(activeStory.maxDelay, language)}</dd>
+              </div>
             </dl>
           </div>
 
-          <div className="rotation-track">
-            {activeStory.legs.map((leg, index) => (
-              <article className={`rotation-leg status-${leg.status}`} key={`${leg.flight}-${index}`}>
-                <div className="leg-sequence">
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <i />
-                </div>
-                <div className="leg-card">
-                  <div className="leg-topline">
-                    <span>{leg.flight}</span>
-                    <span>{leg.scheduled}</span>
-                  </div>
-                  <div className="leg-route">
-                    <strong>{leg.origin}</strong>
-                    <span aria-hidden="true">→</span>
-                    <strong>{leg.dest}</strong>
-                  </div>
-                  <div className="leg-delays">
-                    <span>
-                      {text.departure} <strong>{delayLabel(leg.depDelay, language)}</strong>
-                    </span>
-                    <span>
-                      {text.arrival} <strong>{delayLabel(leg.arrDelay, language)}</strong>
-                    </span>
-                  </div>
-                  <span className="leg-status">{statusLabels[language][leg.status]}</span>
-                </div>
-                {index < activeStory.legs.length - 1 && (
-                  <div className="turn-label">
-                    {activeStory.legs[index + 1].turn
-                      ? `${activeStory.legs[index + 1].turn}${text.turn}`
-                      : text.nextLeg}
-                  </div>
-                )}
-              </article>
-            ))}
+          <div className="rotation-panel">
+            <div className="rotation-track">
+              {activeStory.legs.map((leg, index) => (
+                <Fragment key={`${leg.flight}-${index}`}>
+                  <article className={`rotation-leg status-${leg.status}`}>
+                    <div className="leg-sequence">
+                      <span>{String(index + 1).padStart(2, "0")}</span>
+                      <i />
+                    </div>
+                    <div className="leg-card">
+                      <div className="leg-topline">
+                        <span>{leg.flight}</span>
+                        <span className="leg-status">{statusLabels[language][leg.status]}</span>
+                      </div>
+                      <div className="leg-route" aria-label={`${leg.origin} ${cityOf(leg.origin)} → ${leg.dest} ${cityOf(leg.dest)}`}>
+                        <strong>{leg.origin}<small>{cityOf(leg.origin)}</small></strong>
+                        <span aria-hidden="true">→</span>
+                        <strong>{leg.dest}<small>{cityOf(leg.dest)}</small></strong>
+                      </div>
+                      <div className="leg-times">
+                        <div className="leg-time">
+                          <span className="leg-time-label">{text.departure}</span>
+                          <b>{leg.actualDepUTC}</b>
+                          <small>{text.planned} {leg.scheduledDepUTC}</small>
+                        </div>
+                        <div className="leg-time">
+                          <span className="leg-time-label">{text.arrival}</span>
+                          <b>{leg.actualArrUTC}</b>
+                          <small>{text.planned} {leg.scheduledArrUTC}</small>
+                        </div>
+                      </div>
+                      <div className="leg-delays">
+                        <span>
+                          {text.depDelay} <strong className={leg.depDelay >= 15 ? "is-bad" : "is-ok"}>{delayLabel(leg.depDelay, language)}</strong>
+                        </span>
+                        <span>
+                          {text.arrDelay} <strong className={leg.arrDelay >= 15 ? "is-bad" : "is-ok"}>{delayLabel(leg.arrDelay, language)}</strong>
+                        </span>
+                      </div>
+                    </div>
+                  </article>
+
+                  {index < activeStory.connectors.length && (
+                    <article
+                      className={`rotation-connector rel-${activeStory.connectors[index].relation}`}
+                      aria-label={`${activeStory.connectors[index].hub} ${cityOf(activeStory.connectors[index].hub)} · ${relationLabels[language][activeStory.connectors[index].relation]}`}
+                    >
+                      <span className="connector-hub">{activeStory.connectors[index].hub}<small>{cityOf(activeStory.connectors[index].hub)}</small></span>
+                      <span className="connector-relation">{relationLabels[language][activeStory.connectors[index].relation]}</span>
+                      <span className="connector-turn">{text.planTurn} <b>{Math.round(activeStory.connectors[index].planGap)}′</b></span>
+                      <span className="connector-turn">{text.actualTurn} <b>{Math.round(activeStory.connectors[index].actualTurn)}′</b></span>
+                      <span className={`connector-delta ${activeStory.connectors[index].delayDelta <= 0 ? "is-good" : "is-bad"}`}>
+                        {activeStory.connectors[index].delayDelta <= 0 ? text.improve : text.worsen} {Math.abs(Math.round(activeStory.connectors[index].delayDelta))}′
+                      </span>
+                    </article>
+                  )}
+                </Fragment>
+              ))}
+            </div>
+
+            <div className="rotation-guide" aria-label={text.guideTitle}>
+              <strong>{text.guideTitle}</strong>
+              <ul>
+                <li><i className="guide-chip guide-actual" aria-hidden="true" /> {text.guideActual}</li>
+                <li><i className="guide-chip guide-planned" aria-hidden="true" /> {text.guidePlanned}</li>
+                <li><i className="guide-chip guide-turn" aria-hidden="true" /> {text.guideTurn}</li>
+                <li>{text.guideThreshold}</li>
+                <li>{text.guideCausal}</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
+
+      <MechanismSection language={language} data={v1aData as MechanismData} airportCitiesEn={AIRPORT_CITY_EN} />
+      <EpisodeExplorer language={language} data={v1bData as V1BData} />
 
       <section className="method-section section-shell" id="method">
         <div className="method-title">

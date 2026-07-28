@@ -2,12 +2,17 @@
   "meta": {
     "period": "May 2026",
     "records": 611735,
-    "airports": 347,
-    "airlines": 13,
+    "rawAirports": 347,
+    "eligibleAirports": 97,
+    "mapAirports": 52,
+    "rankedAirportsShown": 12,
+    "rawAirlines": 13,
+    "comparableAirlines": 12,
     "tails": 5721,
     "chainLinks": 549388,
     "source": "U.S. DOT Bureau of Transportation Statistics",
-    "coverage": "Reporting carriers' scheduled domestic passenger flights"
+    "coverage": "Reporting carriers' scheduled domestic passenger flights",
+    "airlineThreshold": "Monthly flights ≥ 10,000"
   },
   "national": {
     "delayRate": 0.2218,
@@ -297,6 +302,497 @@
       "propagationRate": 0.585
     }
   ],
+  "network": {
+    "selection": "Coverage-first selection: every target map node has ≥1 real operated pair, then highest-volume pairs fill to 72 total. All pairs exist in real operated contiguous-U.S. flights with ≥200 monthly flights.",
+    "routes": [
+      {
+        "origin": "ATL",
+        "dest": "MCO",
+        "flights": 1434,
+        "delayRate": 0.2462
+      },
+      {
+        "origin": "AUS",
+        "dest": "DEN",
+        "flights": 927,
+        "delayRate": 0.2503
+      },
+      {
+        "origin": "BNA",
+        "dest": "ORD",
+        "flights": 977,
+        "delayRate": 0.2149
+      },
+      {
+        "origin": "BOS",
+        "dest": "DCA",
+        "flights": 1573,
+        "delayRate": 0.2015
+      },
+      {
+        "origin": "BUR",
+        "dest": "LAS",
+        "flights": 587,
+        "delayRate": 0.2794
+      },
+      {
+        "origin": "ATL",
+        "dest": "BWI",
+        "flights": 964,
+        "delayRate": 0.25
+      },
+      {
+        "origin": "CLT",
+        "dest": "ORD",
+        "flights": 813,
+        "delayRate": 0.2312
+      },
+      {
+        "origin": "CRW",
+        "dest": "ORD",
+        "flights": 208,
+        "delayRate": 0.3125
+      },
+      {
+        "origin": "DAL",
+        "dest": "HOU",
+        "flights": 680,
+        "delayRate": 0.3235
+      },
+      {
+        "origin": "DFW",
+        "dest": "ORD",
+        "flights": 1223,
+        "delayRate": 0.2886
+      },
+      {
+        "origin": "DLH",
+        "dest": "ORD",
+        "flights": 267,
+        "delayRate": 0.191
+      },
+      {
+        "origin": "DTW",
+        "dest": "ORD",
+        "flights": 1179,
+        "delayRate": 0.1968
+      },
+      {
+        "origin": "ATL",
+        "dest": "ECP",
+        "flights": 455,
+        "delayRate": 0.1495
+      },
+      {
+        "origin": "EWR",
+        "dest": "ORD",
+        "flights": 1094,
+        "delayRate": 0.1883
+      },
+      {
+        "origin": "ATL",
+        "dest": "FLL",
+        "flights": 1106,
+        "delayRate": 0.2505
+      },
+      {
+        "origin": "IAH",
+        "dest": "ORD",
+        "flights": 1069,
+        "delayRate": 0.217
+      },
+      {
+        "origin": "DEN",
+        "dest": "ICT",
+        "flights": 417,
+        "delayRate": 0.1823
+      },
+      {
+        "origin": "JFK",
+        "dest": "LAX",
+        "flights": 1717,
+        "delayRate": 0.1741
+      },
+      {
+        "origin": "LGA",
+        "dest": "ORD",
+        "flights": 1949,
+        "delayRate": 0.2329
+      },
+      {
+        "origin": "MCI",
+        "dest": "ORD",
+        "flights": 814,
+        "delayRate": 0.2101
+      },
+      {
+        "origin": "ATL",
+        "dest": "MDW",
+        "flights": 591,
+        "delayRate": 0.3147
+      },
+      {
+        "origin": "ATL",
+        "dest": "MIA",
+        "flights": 1097,
+        "delayRate": 0.268
+      },
+      {
+        "origin": "MSP",
+        "dest": "ORD",
+        "flights": 1129,
+        "delayRate": 0.1887
+      },
+      {
+        "origin": "ATL",
+        "dest": "MSY",
+        "flights": 689,
+        "delayRate": 0.193
+      },
+      {
+        "origin": "OAK",
+        "dest": "SAN",
+        "flights": 672,
+        "delayRate": 0.3348
+      },
+      {
+        "origin": "PDX",
+        "dest": "SEA",
+        "flights": 781,
+        "delayRate": 0.105
+      },
+      {
+        "origin": "ATL",
+        "dest": "PHL",
+        "flights": 1025,
+        "delayRate": 0.198
+      },
+      {
+        "origin": "DEN",
+        "dest": "PHX",
+        "flights": 1526,
+        "delayRate": 0.2667
+      },
+      {
+        "origin": "ATL",
+        "dest": "PNS",
+        "flights": 522,
+        "delayRate": 0.1552
+      },
+      {
+        "origin": "PSP",
+        "dest": "SFO",
+        "flights": 419,
+        "delayRate": 0.4797
+      },
+      {
+        "origin": "ATL",
+        "dest": "SAV",
+        "flights": 572,
+        "delayRate": 0.1573
+      },
+      {
+        "origin": "ORD",
+        "dest": "SBN",
+        "flights": 499,
+        "delayRate": 0.2625
+      },
+      {
+        "origin": "DEN",
+        "dest": "SLC",
+        "flights": 1322,
+        "delayRate": 0.1899
+      },
+      {
+        "origin": "LAX",
+        "dest": "SMF",
+        "flights": 1050,
+        "delayRate": 0.199
+      },
+      {
+        "origin": "PHX",
+        "dest": "SNA",
+        "flights": 804,
+        "delayRate": 0.199
+      },
+      {
+        "origin": "ATL",
+        "dest": "STL",
+        "flights": 651,
+        "delayRate": 0.2104
+      },
+      {
+        "origin": "ATL",
+        "dest": "TPA",
+        "flights": 1122,
+        "delayRate": 0.2772
+      },
+      {
+        "origin": "DFW",
+        "dest": "TUL",
+        "flights": 461,
+        "delayRate": 0.2777
+      },
+      {
+        "origin": "ATL",
+        "dest": "VPS",
+        "flights": 461,
+        "delayRate": 0.1974
+      },
+      {
+        "origin": "LAX",
+        "dest": "SFO",
+        "flights": 2026,
+        "delayRate": 0.3781
+      },
+      {
+        "origin": "BOS",
+        "dest": "ORD",
+        "flights": 1464,
+        "delayRate": 0.2104
+      },
+      {
+        "origin": "DEN",
+        "dest": "LAX",
+        "flights": 1373,
+        "delayRate": 0.2112
+      },
+      {
+        "origin": "LAX",
+        "dest": "SEA",
+        "flights": 1351,
+        "delayRate": 0.1621
+      },
+      {
+        "origin": "ATL",
+        "dest": "LGA",
+        "flights": 1327,
+        "delayRate": 0.2585
+      },
+      {
+        "origin": "BOS",
+        "dest": "LGA",
+        "flights": 1304,
+        "delayRate": 0.2086
+      },
+      {
+        "origin": "LAS",
+        "dest": "LAX",
+        "flights": 1293,
+        "delayRate": 0.273
+      },
+      {
+        "origin": "LAX",
+        "dest": "PHX",
+        "flights": 1284,
+        "delayRate": 0.2025
+      },
+      {
+        "origin": "DEN",
+        "dest": "LAS",
+        "flights": 1266,
+        "delayRate": 0.2599
+      },
+      {
+        "origin": "PHX",
+        "dest": "SEA",
+        "flights": 1241,
+        "delayRate": 0.1708
+      },
+      {
+        "origin": "DCA",
+        "dest": "ORD",
+        "flights": 1200,
+        "delayRate": 0.23
+      },
+      {
+        "origin": "LAX",
+        "dest": "ORD",
+        "flights": 1190,
+        "delayRate": 0.2471
+      },
+      {
+        "origin": "ATL",
+        "dest": "ORD",
+        "flights": 1175,
+        "delayRate": 0.2289
+      },
+      {
+        "origin": "JFK",
+        "dest": "SFO",
+        "flights": 1173,
+        "delayRate": 0.2353
+      },
+      {
+        "origin": "SEA",
+        "dest": "SFO",
+        "flights": 1171,
+        "delayRate": 0.415
+      },
+      {
+        "origin": "DEN",
+        "dest": "ORD",
+        "flights": 1163,
+        "delayRate": 0.2081
+      },
+      {
+        "origin": "ATL",
+        "dest": "DCA",
+        "flights": 1122,
+        "delayRate": 0.2558
+      },
+      {
+        "origin": "ORD",
+        "dest": "SEA",
+        "flights": 1119,
+        "delayRate": 0.2189
+      },
+      {
+        "origin": "IND",
+        "dest": "ORD",
+        "flights": 1117,
+        "delayRate": 0.1665
+      },
+      {
+        "origin": "ORD",
+        "dest": "SFO",
+        "flights": 1112,
+        "delayRate": 0.3408
+      },
+      {
+        "origin": "PHX",
+        "dest": "SAN",
+        "flights": 1100,
+        "delayRate": 0.29
+      },
+      {
+        "origin": "DEN",
+        "dest": "SEA",
+        "flights": 1091,
+        "delayRate": 0.2163
+      },
+      {
+        "origin": "LAS",
+        "dest": "PHX",
+        "flights": 1090,
+        "delayRate": 0.2826
+      },
+      {
+        "origin": "ATL",
+        "dest": "DFW",
+        "flights": 1078,
+        "delayRate": 0.2904
+      },
+      {
+        "origin": "DEN",
+        "dest": "MSP",
+        "flights": 1064,
+        "delayRate": 0.235
+      },
+      {
+        "origin": "LAS",
+        "dest": "SFO",
+        "flights": 1061,
+        "delayRate": 0.4515
+      },
+      {
+        "origin": "SAN",
+        "dest": "SFO",
+        "flights": 1046,
+        "delayRate": 0.4694
+      },
+      {
+        "origin": "DFW",
+        "dest": "LGA",
+        "flights": 1040,
+        "delayRate": 0.2673
+      },
+      {
+        "origin": "DEN",
+        "dest": "DFW",
+        "flights": 1038,
+        "delayRate": 0.2563
+      },
+      {
+        "origin": "DEN",
+        "dest": "SAN",
+        "flights": 1027,
+        "delayRate": 0.2327
+      },
+      {
+        "origin": "ATL",
+        "dest": "EWR",
+        "flights": 1025,
+        "delayRate": 0.1941
+      },
+      {
+        "origin": "MKE",
+        "dest": "ORD",
+        "flights": 1023,
+        "delayRate": 0.2326
+      },
+      {
+        "origin": "DFW",
+        "dest": "LAX",
+        "flights": 1018,
+        "delayRate": 0.2672
+      }
+    ]
+  },
+  "mapAirportCodes": [
+    "ATL",
+    "AUS",
+    "BNA",
+    "BOS",
+    "BUR",
+    "BWI",
+    "CLT",
+    "CRW",
+    "DAL",
+    "DCA",
+    "DEC",
+    "DEN",
+    "DFW",
+    "DLH",
+    "DTW",
+    "ECP",
+    "EWR",
+    "FLL",
+    "HOU",
+    "IAH",
+    "ICT",
+    "IND",
+    "JFK",
+    "LAS",
+    "LAX",
+    "LGA",
+    "MCI",
+    "MCO",
+    "MDW",
+    "MIA",
+    "MKE",
+    "MSP",
+    "MSY",
+    "OAK",
+    "ORD",
+    "PDX",
+    "PHL",
+    "PHX",
+    "PNS",
+    "PSP",
+    "SAN",
+    "SAV",
+    "SBN",
+    "SEA",
+    "SFO",
+    "SLC",
+    "SMF",
+    "SNA",
+    "STL",
+    "TPA",
+    "TUL",
+    "VPS"
+  ],
   "airports": [
     {
       "code": "DAL",
@@ -311,7 +807,12 @@
       "propagationRate": 0.7672,
       "recoveryRate": 0.2328,
       "chainLinks": 5647,
-      "pressureScore": 99.6
+      "pressureScore": 99.6,
+      "rankPressure": 1,
+      "rankDelay": 1,
+      "rankCancel": 3,
+      "rankPropagation": 1,
+      "rankFlights": 30
     },
     {
       "code": "ECP",
@@ -326,7 +827,12 @@
       "propagationRate": 0.6798,
       "recoveryRate": 0.3202,
       "chainLinks": 941,
-      "pressureScore": 88.8
+      "pressureScore": 88.8,
+      "rankPressure": 2,
+      "rankDelay": 18,
+      "rankCancel": 5,
+      "rankPropagation": 8,
+      "rankFlights": 96
     },
     {
       "code": "HOU",
@@ -341,7 +847,12 @@
       "propagationRate": 0.6924,
       "recoveryRate": 0.3076,
       "chainLinks": 4025,
-      "pressureScore": 87.4
+      "pressureScore": 87.4,
+      "rankPressure": 3,
+      "rankDelay": 2,
+      "rankCancel": 50,
+      "rankPropagation": 6,
+      "rankFlights": 37
     },
     {
       "code": "DFW",
@@ -356,7 +867,12 @@
       "propagationRate": 0.5861,
       "recoveryRate": 0.4139,
       "chainLinks": 23267,
-      "pressureScore": 85.2
+      "pressureScore": 85.2,
+      "rankPressure": 4,
+      "rankDelay": 8,
+      "rankCancel": 1,
+      "rankPropagation": 33,
+      "rankFlights": 3
     },
     {
       "code": "BNA",
@@ -371,7 +887,12 @@
       "propagationRate": 0.7328,
       "recoveryRate": 0.2672,
       "chainLinks": 9338,
-      "pressureScore": 83.6
+      "pressureScore": 83.6,
+      "rankPressure": 5,
+      "rankDelay": 3,
+      "rankCancel": 74,
+      "rankPropagation": 2,
+      "rankFlights": 20
     },
     {
       "code": "LAS",
@@ -386,7 +907,12 @@
       "propagationRate": 0.6979,
       "recoveryRate": 0.3021,
       "chainLinks": 13528,
-      "pressureScore": 83.6
+      "pressureScore": 83.6,
+      "rankPressure": 5,
+      "rankDelay": 6,
+      "rankCancel": 64,
+      "rankPropagation": 4,
+      "rankFlights": 8
     },
     {
       "code": "PNS",
@@ -401,7 +927,12 @@
       "propagationRate": 0.6277,
       "recoveryRate": 0.3723,
       "chainLinks": 1191,
-      "pressureScore": 83.0
+      "pressureScore": 83.0,
+      "rankPressure": 7,
+      "rankDelay": 22,
+      "rankCancel": 9,
+      "rankPropagation": 16,
+      "rankFlights": 82
     },
     {
       "code": "MSY",
@@ -416,7 +947,12 @@
       "propagationRate": 0.6295,
       "recoveryRate": 0.3705,
       "chainLinks": 3939,
-      "pressureScore": 82.7
+      "pressureScore": 82.7,
+      "rankPressure": 8,
+      "rankDelay": 7,
+      "rankCancel": 47,
+      "rankPropagation": 15,
+      "rankFlights": 40
     },
     {
       "code": "STL",
@@ -431,7 +967,12 @@
       "propagationRate": 0.6459,
       "recoveryRate": 0.3541,
       "chainLinks": 5043,
-      "pressureScore": 82.2
+      "pressureScore": 82.2,
+      "rankPressure": 9,
+      "rankDelay": 11,
+      "rankCancel": 45,
+      "rankPropagation": 12,
+      "rankFlights": 33
     },
     {
       "code": "VPS",
@@ -446,7 +987,12 @@
       "propagationRate": 0.6667,
       "recoveryRate": 0.3333,
       "chainLinks": 1014,
-      "pressureScore": 82.0
+      "pressureScore": 82.0,
+      "rankPressure": 10,
+      "rankDelay": 17,
+      "rankCancel": 38,
+      "rankPropagation": 9,
+      "rankFlights": 94
     },
     {
       "code": "BUR",
@@ -461,7 +1007,12 @@
       "propagationRate": 0.6926,
       "recoveryRate": 0.3074,
       "chainLinks": 2337,
-      "pressureScore": 79.9
+      "pressureScore": 79.9,
+      "rankPressure": 11,
+      "rankDelay": 30,
+      "rankCancel": 26,
+      "rankPropagation": 5,
+      "rankFlights": 54
     },
     {
       "code": "AUS",
@@ -476,7 +1027,12 @@
       "propagationRate": 0.5993,
       "recoveryRate": 0.4007,
       "chainLinks": 7268,
-      "pressureScore": 78.8
+      "pressureScore": 78.8,
+      "rankPressure": 12,
+      "rankDelay": 9,
+      "rankCancel": 38,
+      "rankPropagation": 28,
+      "rankFlights": 26
     },
     {
       "code": "OAK",
@@ -491,7 +1047,12 @@
       "propagationRate": 0.644,
       "recoveryRate": 0.356,
       "chainLinks": 2557,
-      "pressureScore": 76.6
+      "pressureScore": 76.6,
+      "rankPressure": 13,
+      "rankDelay": 12,
+      "rankCancel": 68,
+      "rankPropagation": 13,
+      "rankFlights": 52
     },
     {
       "code": "ICT",
@@ -506,7 +1067,12 @@
       "propagationRate": 0.6261,
       "recoveryRate": 0.3739,
       "chainLinks": 932,
-      "pressureScore": 76.1
+      "pressureScore": 76.1,
+      "rankPressure": 14,
+      "rankDelay": 36,
+      "rankCancel": 9,
+      "rankPropagation": 17,
+      "rankFlights": 97
     },
     {
       "code": "SFO",
@@ -521,7 +1087,12 @@
       "propagationRate": 0.5774,
       "recoveryRate": 0.4226,
       "chainLinks": 11513,
-      "pressureScore": 75.3
+      "pressureScore": 75.3,
+      "rankPressure": 15,
+      "rankDelay": 4,
+      "rankCancel": 50,
+      "rankPropagation": 37,
+      "rankFlights": 10
     },
     {
       "code": "SAN",
@@ -536,7 +1107,12 @@
       "propagationRate": 0.6248,
       "recoveryRate": 0.3752,
       "chainLinks": 8364,
-      "pressureScore": 74.5
+      "pressureScore": 74.5,
+      "rankPressure": 16,
+      "rankDelay": 14,
+      "rankCancel": 65,
+      "rankPropagation": 18,
+      "rankFlights": 23
     },
     {
       "code": "MDW",
@@ -551,7 +1127,12 @@
       "propagationRate": 0.6238,
       "recoveryRate": 0.3762,
       "chainLinks": 5844,
-      "pressureScore": 73.3
+      "pressureScore": 73.3,
+      "rankPressure": 17,
+      "rankDelay": 5,
+      "rankCancel": 90,
+      "rankPropagation": 19,
+      "rankFlights": 29
     },
     {
       "code": "BWI",
@@ -566,7 +1147,12 @@
       "propagationRate": 0.6506,
       "recoveryRate": 0.3494,
       "chainLinks": 7645,
-      "pressureScore": 73.1
+      "pressureScore": 73.1,
+      "rankPressure": 18,
+      "rankDelay": 10,
+      "rankCancel": 93,
+      "rankPropagation": 11,
+      "rankFlights": 25
     },
     {
       "code": "TPA",
@@ -581,7 +1167,12 @@
       "propagationRate": 0.6049,
       "recoveryRate": 0.3951,
       "chainLinks": 5912,
-      "pressureScore": 72.6
+      "pressureScore": 72.6,
+      "rankPressure": 19,
+      "rankDelay": 13,
+      "rankCancel": 63,
+      "rankPropagation": 26,
+      "rankFlights": 27
     },
     {
       "code": "ATL",
@@ -596,7 +1187,12 @@
       "propagationRate": 0.59,
       "recoveryRate": 0.41,
       "chainLinks": 24567,
-      "pressureScore": 71.3
+      "pressureScore": 71.3,
+      "rankPressure": 20,
+      "rankDelay": 33,
+      "rankCancel": 15,
+      "rankPropagation": 31,
+      "rankFlights": 2
     },
     {
       "code": "DCA",
@@ -611,7 +1207,12 @@
       "propagationRate": 0.5463,
       "recoveryRate": 0.4537,
       "chainLinks": 11084,
-      "pressureScore": 71.0
+      "pressureScore": 71.0,
+      "rankPressure": 21,
+      "rankDelay": 24,
+      "rankCancel": 6,
+      "rankPropagation": 49,
+      "rankFlights": 13
     },
     {
       "code": "LGA",
@@ -626,7 +1227,12 @@
       "propagationRate": 0.5759,
       "recoveryRate": 0.4241,
       "chainLinks": 10226,
-      "pressureScore": 70.7
+      "pressureScore": 70.7,
+      "rankPressure": 22,
+      "rankDelay": 35,
+      "rankCancel": 2,
+      "rankPropagation": 38,
+      "rankFlights": 14
     },
     {
       "code": "MCO",
@@ -641,7 +1247,12 @@
       "propagationRate": 0.6017,
       "recoveryRate": 0.3983,
       "chainLinks": 11567,
-      "pressureScore": 69.7
+      "pressureScore": 69.7,
+      "rankPressure": 23,
+      "rankDelay": 19,
+      "rankCancel": 60,
+      "rankPropagation": 27,
+      "rankFlights": 11
     },
     {
       "code": "FLL",
@@ -656,7 +1267,12 @@
       "propagationRate": 0.5981,
       "recoveryRate": 0.4019,
       "chainLinks": 5642,
-      "pressureScore": 67.1
+      "pressureScore": 67.1,
+      "rankPressure": 24,
+      "rankDelay": 15,
+      "rankCancel": 79,
+      "rankPropagation": 29,
+      "rankFlights": 28
     },
     {
       "code": "PSP",
@@ -671,7 +1287,12 @@
       "propagationRate": 0.59,
       "recoveryRate": 0.41,
       "chainLinks": 1123,
-      "pressureScore": 66.3
+      "pressureScore": 66.3,
+      "rankPressure": 25,
+      "rankDelay": 29,
+      "rankCancel": 48,
+      "rankPropagation": 31,
+      "rankFlights": 87
     },
     {
       "code": "PHX",
@@ -686,7 +1307,12 @@
       "propagationRate": 0.612,
       "recoveryRate": 0.388,
       "chainLinks": 15652,
-      "pressureScore": 66.1
+      "pressureScore": 66.1,
+      "rankPressure": 26,
+      "rankDelay": 16,
+      "rankCancel": 91,
+      "rankPropagation": 24,
+      "rankFlights": 5
     },
     {
       "code": "MCI",
@@ -701,7 +1327,12 @@
       "propagationRate": 0.5373,
       "recoveryRate": 0.4627,
       "chainLinks": 4093,
-      "pressureScore": 65.9
+      "pressureScore": 65.9,
+      "rankPressure": 27,
+      "rankDelay": 26,
+      "rankCancel": 21,
+      "rankPropagation": 52,
+      "rankFlights": 38
     },
     {
       "code": "SAV",
@@ -716,7 +1347,12 @@
       "propagationRate": 0.6375,
       "recoveryRate": 0.3625,
       "chainLinks": 1651,
-      "pressureScore": 65.4
+      "pressureScore": 65.4,
+      "rankPressure": 28,
+      "rankDelay": 54,
+      "rankCancel": 27,
+      "rankPropagation": 14,
+      "rankFlights": 67
     },
     {
       "code": "SNA",
@@ -731,7 +1367,12 @@
       "propagationRate": 0.6515,
       "recoveryRate": 0.3485,
       "chainLinks": 3607,
-      "pressureScore": 65.1
+      "pressureScore": 65.1,
+      "rankPressure": 29,
+      "rankDelay": 46,
+      "rankCancel": 53,
+      "rankPropagation": 10,
+      "rankFlights": 42
     },
     {
       "code": "TUL",
@@ -746,7 +1387,52 @@
       "propagationRate": 0.56,
       "recoveryRate": 0.44,
       "chainLinks": 1497,
-      "pressureScore": 64.7
+      "pressureScore": 64.7,
+      "rankPressure": 30,
+      "rankDelay": 37,
+      "rankCancel": 16,
+      "rankPropagation": 44,
+      "rankFlights": 72
+    },
+    {
+      "code": "OKC",
+      "city": "Oklahoma City",
+      "region": "Oklahoma",
+      "name": "Okc Will Rogers International Airport",
+      "flights": 2102,
+      "delayRate": 0.2239,
+      "cancelRate": 0.0119,
+      "avgDelay": 11.7,
+      "p90Delay": 42.0,
+      "propagationRate": 0.5357,
+      "recoveryRate": 0.4643,
+      "chainLinks": 1920,
+      "pressureScore": 64.2,
+      "rankPressure": 31,
+      "rankDelay": 32,
+      "rankCancel": 14,
+      "rankPropagation": 53,
+      "rankFlights": 62
+    },
+    {
+      "code": "BHM",
+      "city": "Birmingham",
+      "region": "Alabama",
+      "name": "Birmingham-Shuttlesworth International Airport",
+      "flights": 1550,
+      "delayRate": 0.2082,
+      "cancelRate": 0.0116,
+      "avgDelay": 12.3,
+      "p90Delay": 42.0,
+      "propagationRate": 0.5613,
+      "recoveryRate": 0.4387,
+      "chainLinks": 1465,
+      "pressureScore": 63.9,
+      "rankPressure": 32,
+      "rankDelay": 39,
+      "rankCancel": 17,
+      "rankPropagation": 42,
+      "rankFlights": 74
     },
     {
       "code": "DEN",
@@ -761,7 +1447,32 @@
       "propagationRate": 0.6198,
       "recoveryRate": 0.3802,
       "chainLinks": 24751,
-      "pressureScore": 63.9
+      "pressureScore": 63.9,
+      "rankPressure": 32,
+      "rankDelay": 23,
+      "rankCancel": 93,
+      "rankPropagation": 20,
+      "rankFlights": 4
+    },
+    {
+      "code": "MEM",
+      "city": "Memphis",
+      "region": "Tennessee",
+      "name": "Frederick W Smith International Airport",
+      "flights": 2228,
+      "delayRate": 0.2214,
+      "cancelRate": 0.0108,
+      "avgDelay": 15.5,
+      "p90Delay": 47.0,
+      "propagationRate": 0.5549,
+      "recoveryRate": 0.4451,
+      "chainLinks": 2084,
+      "pressureScore": 63.7,
+      "rankPressure": 34,
+      "rankDelay": 34,
+      "rankCancel": 23,
+      "rankPropagation": 46,
+      "rankFlights": 57
     },
     {
       "code": "ORD",
@@ -776,7 +1487,92 @@
       "propagationRate": 0.5274,
       "recoveryRate": 0.4726,
       "chainLinks": 29171,
-      "pressureScore": 62.8
+      "pressureScore": 62.8,
+      "rankPressure": 35,
+      "rankDelay": 27,
+      "rankCancel": 28,
+      "rankPropagation": 55,
+      "rankFlights": 1
+    },
+    {
+      "code": "ELP",
+      "city": "El Paso",
+      "region": "Texas",
+      "name": "El Paso International Airport",
+      "flights": 1357,
+      "delayRate": 0.2349,
+      "cancelRate": 0.0088,
+      "avgDelay": 15.5,
+      "p90Delay": 43.0,
+      "propagationRate": 0.5393,
+      "recoveryRate": 0.4607,
+      "chainLinks": 1291,
+      "pressureScore": 62.5,
+      "rankPressure": 36,
+      "rankDelay": 25,
+      "rankCancel": 41,
+      "rankPropagation": 51,
+      "rankFlights": 80
+    },
+    {
+      "code": "LIH",
+      "city": "Lihue",
+      "region": "Hawaii",
+      "name": "Lihue Airport",
+      "flights": 1372,
+      "delayRate": 0.1658,
+      "cancelRate": 0.0153,
+      "avgDelay": 7.1,
+      "p90Delay": 26.0,
+      "propagationRate": 0.6884,
+      "recoveryRate": 0.3116,
+      "chainLinks": 1337,
+      "pressureScore": 62.0,
+      "rankPressure": 37,
+      "rankDelay": 77,
+      "rankCancel": 4,
+      "rankPropagation": 7,
+      "rankFlights": 78
+    },
+    {
+      "code": "SAT",
+      "city": "San Antonio",
+      "region": "Texas",
+      "name": "San Antonio International Airport",
+      "flights": 3485,
+      "delayRate": 0.2264,
+      "cancelRate": 0.0138,
+      "avgDelay": 14.8,
+      "p90Delay": 39.0,
+      "propagationRate": 0.5041,
+      "recoveryRate": 0.4959,
+      "chainLinks": 3289,
+      "pressureScore": 61.8,
+      "rankPressure": 38,
+      "rankDelay": 31,
+      "rankCancel": 7,
+      "rankPropagation": 65,
+      "rankFlights": 46
+    },
+    {
+      "code": "MYR",
+      "city": "Myrtle Beach",
+      "region": "South Carolina",
+      "name": "Myrtle Beach International Airport",
+      "flights": 1132,
+      "delayRate": 0.1811,
+      "cancelRate": 0.0097,
+      "avgDelay": 9.6,
+      "p90Delay": 34.0,
+      "propagationRate": 0.702,
+      "recoveryRate": 0.298,
+      "chainLinks": 1094,
+      "pressureScore": 61.6,
+      "rankPressure": 39,
+      "rankDelay": 68,
+      "rankCancel": 33,
+      "rankPropagation": 3,
+      "rankFlights": 91
     },
     {
       "code": "IAH",
@@ -791,7 +1587,92 @@
       "propagationRate": 0.5753,
       "recoveryRate": 0.4247,
       "chainLinks": 8192,
-      "pressureScore": 60.8
+      "pressureScore": 60.8,
+      "rankPressure": 40,
+      "rankDelay": 19,
+      "rankCancel": 83,
+      "rankPropagation": 39,
+      "rankFlights": 19
+    },
+    {
+      "code": "XNA",
+      "city": "Fayetteville/Springdale/Rogers",
+      "region": "Arkansas",
+      "name": "Northwest Arkansas Ntl Airport",
+      "flights": 1319,
+      "delayRate": 0.1805,
+      "cancelRate": 0.0129,
+      "avgDelay": 15.8,
+      "p90Delay": 41.0,
+      "propagationRate": 0.6126,
+      "recoveryRate": 0.3874,
+      "chainLinks": 1169,
+      "pressureScore": 58.7,
+      "rankPressure": 41,
+      "rankDelay": 69,
+      "rankCancel": 9,
+      "rankPropagation": 23,
+      "rankFlights": 83
+    },
+    {
+      "code": "SMF",
+      "city": "Sacramento",
+      "region": "California",
+      "name": "Sacramento International Airport",
+      "flights": 4945,
+      "delayRate": 0.2062,
+      "cancelRate": 0.0036,
+      "avgDelay": 9.1,
+      "p90Delay": 35.0,
+      "propagationRate": 0.6052,
+      "recoveryRate": 0.3948,
+      "chainLinks": 4702,
+      "pressureScore": 54.6,
+      "rankPressure": 42,
+      "rankDelay": 41,
+      "rankCancel": 89,
+      "rankPropagation": 25,
+      "rankFlights": 35
+    },
+    {
+      "code": "LIT",
+      "city": "Little Rock",
+      "region": "Arkansas",
+      "name": "Bill And Hillary Clinton Ntl/Adams Field",
+      "flights": 1215,
+      "delayRate": 0.2028,
+      "cancelRate": 0.0099,
+      "avgDelay": 14.1,
+      "p90Delay": 42.0,
+      "propagationRate": 0.5231,
+      "recoveryRate": 0.4769,
+      "chainLinks": 1137,
+      "pressureScore": 54.3,
+      "rankPressure": 43,
+      "rankDelay": 43,
+      "rankCancel": 30,
+      "rankPropagation": 57,
+      "rankFlights": 87
+    },
+    {
+      "code": "PBI",
+      "city": "West Palm Beach",
+      "region": "Florida",
+      "name": "Palm Beach International Airport",
+      "flights": 2545,
+      "delayRate": 0.1865,
+      "cancelRate": 0.0098,
+      "avgDelay": 11.7,
+      "p90Delay": 36.0,
+      "propagationRate": 0.5741,
+      "recoveryRate": 0.4259,
+      "chainLinks": 2339,
+      "pressureScore": 52.7,
+      "rankPressure": 44,
+      "rankDelay": 59,
+      "rankCancel": 31,
+      "rankPropagation": 40,
+      "rankFlights": 53
     },
     {
       "code": "CLT",
@@ -806,7 +1687,12 @@
       "propagationRate": 0.5545,
       "recoveryRate": 0.4455,
       "chainLinks": 14109,
-      "pressureScore": 52.2
+      "pressureScore": 52.2,
+      "rankPressure": 45,
+      "rankDelay": 28,
+      "rankCancel": 91,
+      "rankPropagation": 47,
+      "rankFlights": 7
     },
     {
       "code": "MIA",
@@ -821,7 +1707,32 @@
       "propagationRate": 0.5051,
       "recoveryRate": 0.4949,
       "chainLinks": 7396,
-      "pressureScore": 50.9
+      "pressureScore": 50.9,
+      "rankPressure": 46,
+      "rankDelay": 21,
+      "rankCancel": 84,
+      "rankPropagation": 64,
+      "rankFlights": 21
+    },
+    {
+      "code": "RNO",
+      "city": "Reno",
+      "region": "Nevada",
+      "name": "Reno/Tahoe International Airport",
+      "flights": 1708,
+      "delayRate": 0.2011,
+      "cancelRate": 0.007,
+      "avgDelay": 10.4,
+      "p90Delay": 40.0,
+      "propagationRate": 0.5521,
+      "recoveryRate": 0.4479,
+      "chainLinks": 1582,
+      "pressureScore": 50.7,
+      "rankPressure": 47,
+      "rankDelay": 44,
+      "rankCancel": 60,
+      "rankPropagation": 48,
+      "rankFlights": 70
     },
     {
       "code": "DTW",
@@ -836,7 +1747,192 @@
       "propagationRate": 0.5181,
       "recoveryRate": 0.4819,
       "chainLinks": 9006,
-      "pressureScore": 50.7
+      "pressureScore": 50.7,
+      "rankPressure": 47,
+      "rankDelay": 58,
+      "rankCancel": 12,
+      "rankPropagation": 58,
+      "rankFlights": 18
+    },
+    {
+      "code": "ONT",
+      "city": "Ontario",
+      "region": "California",
+      "name": "Ontario International Airport",
+      "flights": 2298,
+      "delayRate": 0.2082,
+      "cancelRate": 0.007,
+      "avgDelay": 9.3,
+      "p90Delay": 40.0,
+      "propagationRate": 0.5298,
+      "recoveryRate": 0.4702,
+      "chainLinks": 2211,
+      "pressureScore": 50.6,
+      "rankPressure": 49,
+      "rankDelay": 39,
+      "rankCancel": 60,
+      "rankPropagation": 54,
+      "rankFlights": 56
+    },
+    {
+      "code": "TYS",
+      "city": "Knoxville",
+      "region": "Tennessee",
+      "name": "Mc Ghee Tyson Airport",
+      "flights": 1308,
+      "delayRate": 0.1949,
+      "cancelRate": 0.0115,
+      "avgDelay": 11.8,
+      "p90Delay": 48.0,
+      "propagationRate": 0.4885,
+      "recoveryRate": 0.5115,
+      "chainLinks": 1176,
+      "pressureScore": 48.4,
+      "rankPressure": 50,
+      "rankDelay": 49,
+      "rankCancel": 19,
+      "rankPropagation": 72,
+      "rankFlights": 84
+    },
+    {
+      "code": "JAX",
+      "city": "Jacksonville",
+      "region": "Florida",
+      "name": "Jacksonville International Airport",
+      "flights": 2744,
+      "delayRate": 0.1995,
+      "cancelRate": 0.0098,
+      "avgDelay": 14.5,
+      "p90Delay": 40.0,
+      "propagationRate": 0.4967,
+      "recoveryRate": 0.5033,
+      "chainLinks": 2570,
+      "pressureScore": 48.4,
+      "rankPressure": 50,
+      "rankDelay": 45,
+      "rankCancel": 31,
+      "rankPropagation": 70,
+      "rankFlights": 50
+    },
+    {
+      "code": "ABQ",
+      "city": "Albuquerque",
+      "region": "New Mexico",
+      "name": "Albuquerque International Sunport Airport",
+      "flights": 2151,
+      "delayRate": 0.2096,
+      "cancelRate": 0.0065,
+      "avgDelay": 11.6,
+      "p90Delay": 40.0,
+      "propagationRate": 0.5167,
+      "recoveryRate": 0.4833,
+      "chainLinks": 2004,
+      "pressureScore": 48.3,
+      "rankPressure": 52,
+      "rankDelay": 38,
+      "rankCancel": 67,
+      "rankPropagation": 59,
+      "rankFlights": 61
+    },
+    {
+      "code": "CHS",
+      "city": "Charleston",
+      "region": "South Carolina",
+      "name": "Charleston Afb/International Airport",
+      "flights": 2200,
+      "delayRate": 0.1841,
+      "cancelRate": 0.0073,
+      "avgDelay": 12.5,
+      "p90Delay": 39.0,
+      "propagationRate": 0.5831,
+      "recoveryRate": 0.4169,
+      "chainLinks": 2101,
+      "pressureScore": 46.9,
+      "rankPressure": 53,
+      "rankDelay": 64,
+      "rankCancel": 57,
+      "rankPropagation": 35,
+      "rankFlights": 59
+    },
+    {
+      "code": "SRQ",
+      "city": "Sarasota/Bradenton",
+      "region": "Florida",
+      "name": "Sarasota/Bradenton International Airport",
+      "flights": 1513,
+      "delayRate": 0.1927,
+      "cancelRate": 0.0053,
+      "avgDelay": 13.1,
+      "p90Delay": 36.6,
+      "propagationRate": 0.5843,
+      "recoveryRate": 0.4157,
+      "chainLinks": 1386,
+      "pressureScore": 46.8,
+      "rankPressure": 54,
+      "rankDelay": 55,
+      "rankCancel": 79,
+      "rankPropagation": 34,
+      "rankFlights": 76
+    },
+    {
+      "code": "LGB",
+      "city": "Long Beach",
+      "region": "California",
+      "name": "Long Beach (Daugherty Field) Airport",
+      "flights": 1184,
+      "delayRate": 0.186,
+      "cancelRate": 0.0008,
+      "avgDelay": 5.9,
+      "p90Delay": 30.8,
+      "propagationRate": 0.618,
+      "recoveryRate": 0.382,
+      "chainLinks": 1111,
+      "pressureScore": 45.6,
+      "rankPressure": 55,
+      "rankDelay": 60,
+      "rankCancel": 97,
+      "rankPropagation": 21,
+      "rankFlights": 90
+    },
+    {
+      "code": "SJC",
+      "city": "San Jose",
+      "region": "California",
+      "name": "Norman Y Mineta San Jose International Airport",
+      "flights": 3686,
+      "delayRate": 0.1931,
+      "cancelRate": 0.0038,
+      "avgDelay": 6.6,
+      "p90Delay": 32.0,
+      "propagationRate": 0.5807,
+      "recoveryRate": 0.4193,
+      "chainLinks": 3510,
+      "pressureScore": 45.3,
+      "rankPressure": 56,
+      "rankDelay": 53,
+      "rankCancel": 88,
+      "rankPropagation": 36,
+      "rankFlights": 45
+    },
+    {
+      "code": "COS",
+      "city": "Colorado Springs",
+      "region": "Colorado",
+      "name": "City Of Colorado Springs Municipal Airport",
+      "flights": 1119,
+      "delayRate": 0.1948,
+      "cancelRate": 0.0089,
+      "avgDelay": 12.3,
+      "p90Delay": 40.2,
+      "propagationRate": 0.4917,
+      "recoveryRate": 0.5083,
+      "chainLinks": 1000,
+      "pressureScore": 44.0,
+      "rankPressure": 57,
+      "rankDelay": 50,
+      "rankCancel": 40,
+      "rankPropagation": 71,
+      "rankFlights": 92
     },
     {
       "code": "LAX",
@@ -851,7 +1947,72 @@
       "propagationRate": 0.5089,
       "recoveryRate": 0.4911,
       "chainLinks": 14232,
-      "pressureScore": 42.9
+      "pressureScore": 42.9,
+      "rankPressure": 58,
+      "rankDelay": 42,
+      "rankCancel": 76,
+      "rankPropagation": 63,
+      "rankFlights": 6
+    },
+    {
+      "code": "RDU",
+      "city": "Raleigh/Durham",
+      "region": "North Carolina",
+      "name": "Raleigh-Durham International Airport",
+      "flights": 4884,
+      "delayRate": 0.1817,
+      "cancelRate": 0.0086,
+      "avgDelay": 9.9,
+      "p90Delay": 34.0,
+      "propagationRate": 0.5433,
+      "recoveryRate": 0.4567,
+      "chainLinks": 4651,
+      "pressureScore": 42.8,
+      "rankPressure": 59,
+      "rankDelay": 67,
+      "rankCancel": 44,
+      "rankPropagation": 50,
+      "rankFlights": 36
+    },
+    {
+      "code": "SDF",
+      "city": "Louisville",
+      "region": "Kentucky",
+      "name": "Louisville Muhammad Ali International Airport",
+      "flights": 2304,
+      "delayRate": 0.1686,
+      "cancelRate": 0.0087,
+      "avgDelay": 9.0,
+      "p90Delay": 35.0,
+      "propagationRate": 0.5675,
+      "recoveryRate": 0.4325,
+      "chainLinks": 2140,
+      "pressureScore": 42.1,
+      "rankPressure": 60,
+      "rankDelay": 76,
+      "rankCancel": 43,
+      "rankPropagation": 41,
+      "rankFlights": 55
+    },
+    {
+      "code": "IND",
+      "city": "Indianapolis",
+      "region": "Indiana",
+      "name": "Indianapolis International Airport",
+      "flights": 4324,
+      "delayRate": 0.1848,
+      "cancelRate": 0.0088,
+      "avgDelay": 8.6,
+      "p90Delay": 32.0,
+      "propagationRate": 0.5147,
+      "recoveryRate": 0.4853,
+      "chainLinks": 4004,
+      "pressureScore": 41.7,
+      "rankPressure": 61,
+      "rankDelay": 62,
+      "rankCancel": 41,
+      "rankPropagation": 61,
+      "rankFlights": 39
     },
     {
       "code": "PHL",
@@ -866,7 +2027,212 @@
       "propagationRate": 0.469,
       "recoveryRate": 0.531,
       "chainLinks": 7944,
-      "pressureScore": 41.6
+      "pressureScore": 41.6,
+      "rankPressure": 62,
+      "rankDelay": 56,
+      "rankCancel": 22,
+      "rankPropagation": 80,
+      "rankFlights": 22
+    },
+    {
+      "code": "RSW",
+      "city": "Fort Myers",
+      "region": "Florida",
+      "name": "Southwest Florida International Airport",
+      "flights": 2802,
+      "delayRate": 0.1855,
+      "cancelRate": 0.0054,
+      "avgDelay": 11.1,
+      "p90Delay": 34.0,
+      "propagationRate": 0.5602,
+      "recoveryRate": 0.4398,
+      "chainLinks": 2572,
+      "pressureScore": 41.3,
+      "rankPressure": 63,
+      "rankDelay": 61,
+      "rankCancel": 76,
+      "rankPropagation": 43,
+      "rankFlights": 49
+    },
+    {
+      "code": "DSM",
+      "city": "Des Moines",
+      "region": "Iowa",
+      "name": "Des Moines International Airport",
+      "flights": 1382,
+      "delayRate": 0.1742,
+      "cancelRate": 0.0116,
+      "avgDelay": 11.4,
+      "p90Delay": 36.0,
+      "propagationRate": 0.5,
+      "recoveryRate": 0.5,
+      "chainLinks": 1258,
+      "pressureScore": 39.4,
+      "rankPressure": 64,
+      "rankDelay": 73,
+      "rankCancel": 17,
+      "rankPropagation": 67,
+      "rankFlights": 77
+    },
+    {
+      "code": "RIC",
+      "city": "Richmond",
+      "region": "Virginia",
+      "name": "Richmond International Airport",
+      "flights": 1623,
+      "delayRate": 0.1845,
+      "cancelRate": 0.008,
+      "avgDelay": 9.9,
+      "p90Delay": 36.0,
+      "propagationRate": 0.512,
+      "recoveryRate": 0.488,
+      "chainLinks": 1548,
+      "pressureScore": 39.3,
+      "rankPressure": 65,
+      "rankDelay": 63,
+      "rankCancel": 49,
+      "rankPropagation": 62,
+      "rankFlights": 73
+    },
+    {
+      "code": "OGG",
+      "city": "Kahului",
+      "region": "Hawaii",
+      "name": "Kahului Airport",
+      "flights": 2178,
+      "delayRate": 0.1305,
+      "cancelRate": 0.0078,
+      "avgDelay": 3.7,
+      "p90Delay": 19.0,
+      "propagationRate": 0.614,
+      "recoveryRate": 0.386,
+      "chainLinks": 2092,
+      "pressureScore": 38.5,
+      "rankPressure": 66,
+      "rankDelay": 94,
+      "rankCancel": 53,
+      "rankPropagation": 22,
+      "rankFlights": 60
+    },
+    {
+      "code": "KOA",
+      "city": "Kailua-Kona",
+      "region": "Hawaii",
+      "name": "Ellison Onizuka Kona International At Keahole Airport",
+      "flights": 1353,
+      "delayRate": 0.1261,
+      "cancelRate": 0.0096,
+      "avgDelay": 2.9,
+      "p90Delay": 19.0,
+      "propagationRate": 0.592,
+      "recoveryRate": 0.408,
+      "chainLinks": 1263,
+      "pressureScore": 38.1,
+      "rankPressure": 67,
+      "rankDelay": 97,
+      "rankCancel": 34,
+      "rankPropagation": 30,
+      "rankFlights": 81
+    },
+    {
+      "code": "BOI",
+      "city": "Boise",
+      "region": "Idaho",
+      "name": "Boise Air Trml/Gowen Field",
+      "flights": 2040,
+      "delayRate": 0.1951,
+      "cancelRate": 0.0025,
+      "avgDelay": 10.4,
+      "p90Delay": 38.0,
+      "propagationRate": 0.5163,
+      "recoveryRate": 0.4837,
+      "chainLinks": 1927,
+      "pressureScore": 37.5,
+      "rankPressure": 68,
+      "rankDelay": 48,
+      "rankCancel": 95,
+      "rankPropagation": 60,
+      "rankFlights": 63
+    },
+    {
+      "code": "OMA",
+      "city": "Omaha",
+      "region": "Nebraska",
+      "name": "Eppley Airfield",
+      "flights": 2223,
+      "delayRate": 0.1932,
+      "cancelRate": 0.0058,
+      "avgDelay": 11.2,
+      "p90Delay": 35.0,
+      "propagationRate": 0.499,
+      "recoveryRate": 0.501,
+      "chainLinks": 2075,
+      "pressureScore": 37.3,
+      "rankPressure": 69,
+      "rankDelay": 52,
+      "rankCancel": 73,
+      "rankPropagation": 68,
+      "rankFlights": 58
+    },
+    {
+      "code": "TUS",
+      "city": "Tucson",
+      "region": "Arizona",
+      "name": "Tucson International Airport",
+      "flights": 1691,
+      "delayRate": 0.1938,
+      "cancelRate": 0.0053,
+      "avgDelay": 12.1,
+      "p90Delay": 44.9,
+      "propagationRate": 0.5028,
+      "recoveryRate": 0.4972,
+      "chainLinks": 1578,
+      "pressureScore": 37.1,
+      "rankPressure": 70,
+      "rankDelay": 51,
+      "rankCancel": 79,
+      "rankPropagation": 66,
+      "rankFlights": 71
+    },
+    {
+      "code": "PVD",
+      "city": "Providence",
+      "region": "Rhode Island",
+      "name": "Rhode Island Tf Green International Airport",
+      "flights": 1366,
+      "delayRate": 0.1789,
+      "cancelRate": 0.0059,
+      "avgDelay": 6.9,
+      "p90Delay": 33.3,
+      "propagationRate": 0.5585,
+      "recoveryRate": 0.4415,
+      "chainLinks": 1249,
+      "pressureScore": 37.0,
+      "rankPressure": 71,
+      "rankDelay": 71,
+      "rankCancel": 72,
+      "rankPropagation": 45,
+      "rankFlights": 79
+    },
+    {
+      "code": "CMH",
+      "city": "Columbus",
+      "region": "Ohio",
+      "name": "John Glenn Columbus International Airport",
+      "flights": 3860,
+      "delayRate": 0.1621,
+      "cancelRate": 0.0122,
+      "avgDelay": 7.8,
+      "p90Delay": 31.0,
+      "propagationRate": 0.4758,
+      "recoveryRate": 0.5242,
+      "chainLinks": 3458,
+      "pressureScore": 34.6,
+      "rankPressure": 72,
+      "rankDelay": 79,
+      "rankCancel": 13,
+      "rankPropagation": 75,
+      "rankFlights": 41
     },
     {
       "code": "SEA",
@@ -881,7 +2247,12 @@
       "propagationRate": 0.4761,
       "recoveryRate": 0.5239,
       "chainLinks": 13311,
-      "pressureScore": 34.6
+      "pressureScore": 34.6,
+      "rankPressure": 72,
+      "rankDelay": 47,
+      "rankCancel": 87,
+      "rankPropagation": 74,
+      "rankFlights": 9
     },
     {
       "code": "BOS",
@@ -896,7 +2267,172 @@
       "propagationRate": 0.5254,
       "recoveryRate": 0.4746,
       "chainLinks": 11491,
-      "pressureScore": 33.8
+      "pressureScore": 33.8,
+      "rankPressure": 74,
+      "rankDelay": 70,
+      "rankCancel": 70,
+      "rankPropagation": 56,
+      "rankFlights": 12
+    },
+    {
+      "code": "ORF",
+      "city": "Norfolk",
+      "region": "Virginia",
+      "name": "Norfolk International Airport",
+      "flights": 1790,
+      "delayRate": 0.1763,
+      "cancelRate": 0.0084,
+      "avgDelay": 11.4,
+      "p90Delay": 37.6,
+      "propagationRate": 0.4746,
+      "recoveryRate": 0.5254,
+      "chainLinks": 1661,
+      "pressureScore": 30.8,
+      "rankPressure": 75,
+      "rankDelay": 72,
+      "rankCancel": 45,
+      "rankPropagation": 76,
+      "rankFlights": 68
+    },
+    {
+      "code": "MSN",
+      "city": "Madison",
+      "region": "Wisconsin",
+      "name": "Dane County Regional/Truax Field",
+      "flights": 1305,
+      "delayRate": 0.1545,
+      "cancelRate": 0.013,
+      "avgDelay": 11.0,
+      "p90Delay": 40.0,
+      "propagationRate": 0.4686,
+      "recoveryRate": 0.5314,
+      "chainLinks": 1195,
+      "pressureScore": 30.7,
+      "rankPressure": 76,
+      "rankDelay": 85,
+      "rankCancel": 8,
+      "rankPropagation": 81,
+      "rankFlights": 85
+    },
+    {
+      "code": "BUF",
+      "city": "Buffalo",
+      "region": "New York",
+      "name": "Buffalo Niagara International Airport",
+      "flights": 1936,
+      "delayRate": 0.1837,
+      "cancelRate": 0.0072,
+      "avgDelay": 9.2,
+      "p90Delay": 33.9,
+      "propagationRate": 0.4712,
+      "recoveryRate": 0.5288,
+      "chainLinks": 1815,
+      "pressureScore": 30.6,
+      "rankPressure": 77,
+      "rankDelay": 65,
+      "rankCancel": 59,
+      "rankPropagation": 78,
+      "rankFlights": 65
+    },
+    {
+      "code": "GSP",
+      "city": "Greer",
+      "region": "South Carolina",
+      "name": "Greenville Spartanburg International Airport",
+      "flights": 1302,
+      "delayRate": 0.1731,
+      "cancelRate": 0.0108,
+      "avgDelay": 8.4,
+      "p90Delay": 31.0,
+      "propagationRate": 0.4474,
+      "recoveryRate": 0.5526,
+      "chainLinks": 1176,
+      "pressureScore": 29.3,
+      "rankPressure": 78,
+      "rankDelay": 74,
+      "rankCancel": 23,
+      "rankPropagation": 90,
+      "rankFlights": 86
+    },
+    {
+      "code": "HNL",
+      "city": "Honolulu",
+      "region": "Hawaii",
+      "name": "Daniel K Inouye International Airport",
+      "flights": 4953,
+      "delayRate": 0.1615,
+      "cancelRate": 0.0113,
+      "avgDelay": 7.3,
+      "p90Delay": 23.0,
+      "propagationRate": 0.4608,
+      "recoveryRate": 0.5392,
+      "chainLinks": 4359,
+      "pressureScore": 29.1,
+      "rankPressure": 79,
+      "rankDelay": 80,
+      "rankCancel": 20,
+      "rankPropagation": 85,
+      "rankFlights": 34
+    },
+    {
+      "code": "FAT",
+      "city": "Fresno",
+      "region": "California",
+      "name": "Fresno Yosemite International Airport",
+      "flights": 1117,
+      "delayRate": 0.1892,
+      "cancelRate": 0.0063,
+      "avgDelay": 14.7,
+      "p90Delay": 47.0,
+      "propagationRate": 0.4527,
+      "recoveryRate": 0.5473,
+      "chainLinks": 996,
+      "pressureScore": 28.7,
+      "rankPressure": 80,
+      "rankDelay": 57,
+      "rankCancel": 68,
+      "rankPropagation": 88,
+      "rankFlights": 93
+    },
+    {
+      "code": "MKE",
+      "city": "Milwaukee",
+      "region": "Wisconsin",
+      "name": "General Mitchell International Airport",
+      "flights": 2735,
+      "delayRate": 0.182,
+      "cancelRate": 0.0073,
+      "avgDelay": 8.5,
+      "p90Delay": 33.6,
+      "propagationRate": 0.4556,
+      "recoveryRate": 0.5444,
+      "chainLinks": 2540,
+      "pressureScore": 27.2,
+      "rankPressure": 81,
+      "rankDelay": 66,
+      "rankCancel": 57,
+      "rankPropagation": 87,
+      "rankFlights": 51
+    },
+    {
+      "code": "PIT",
+      "city": "Pittsburgh",
+      "region": "Pennsylvania",
+      "name": "Pittsburgh International Airport",
+      "flights": 3778,
+      "delayRate": 0.159,
+      "cancelRate": 0.0079,
+      "avgDelay": 7.8,
+      "p90Delay": 29.0,
+      "propagationRate": 0.4985,
+      "recoveryRate": 0.5015,
+      "chainLinks": 3476,
+      "pressureScore": 27.1,
+      "rankPressure": 82,
+      "rankDelay": 83,
+      "rankCancel": 50,
+      "rankPropagation": 69,
+      "rankFlights": 43
     },
     {
       "code": "JFK",
@@ -911,7 +2447,72 @@
       "propagationRate": 0.4372,
       "recoveryRate": 0.5628,
       "chainLinks": 6298,
-      "pressureScore": 25.3
+      "pressureScore": 25.3,
+      "rankPressure": 83,
+      "rankDelay": 81,
+      "rankCancel": 23,
+      "rankPropagation": 92,
+      "rankFlights": 24
+    },
+    {
+      "code": "CLE",
+      "city": "Cleveland",
+      "region": "Ohio",
+      "name": "Cleveland-Hopkins International Airport",
+      "flights": 3745,
+      "delayRate": 0.148,
+      "cancelRate": 0.0096,
+      "avgDelay": 8.3,
+      "p90Delay": 29.2,
+      "propagationRate": 0.4705,
+      "recoveryRate": 0.5295,
+      "chainLinks": 3349,
+      "pressureScore": 25.1,
+      "rankPressure": 84,
+      "rankDelay": 87,
+      "rankCancel": 34,
+      "rankPropagation": 79,
+      "rankFlights": 44
+    },
+    {
+      "code": "CVG",
+      "city": "Covington",
+      "region": "Kentucky",
+      "name": "Cincinnati/Northern Kentucky International Airport",
+      "flights": 3064,
+      "delayRate": 0.1586,
+      "cancelRate": 0.0101,
+      "avgDelay": 8.3,
+      "p90Delay": 32.0,
+      "propagationRate": 0.4473,
+      "recoveryRate": 0.5527,
+      "chainLinks": 2830,
+      "pressureScore": 23.4,
+      "rankPressure": 85,
+      "rankDelay": 84,
+      "rankCancel": 28,
+      "rankPropagation": 91,
+      "rankFlights": 47
+    },
+    {
+      "code": "GRR",
+      "city": "Grand Rapids",
+      "region": "Michigan",
+      "name": "Gerald R Ford International Airport",
+      "flights": 1726,
+      "delayRate": 0.1524,
+      "cancelRate": 0.0075,
+      "avgDelay": 10.2,
+      "p90Delay": 34.0,
+      "propagationRate": 0.4849,
+      "recoveryRate": 0.5151,
+      "chainLinks": 1612,
+      "pressureScore": 23.2,
+      "rankPressure": 86,
+      "rankDelay": 86,
+      "rankCancel": 56,
+      "rankPropagation": 73,
+      "rankFlights": 69
     },
     {
       "code": "MSP",
@@ -926,7 +2527,92 @@
       "propagationRate": 0.464,
       "recoveryRate": 0.536,
       "chainLinks": 9257,
-      "pressureScore": 18.7
+      "pressureScore": 18.7,
+      "rankPressure": 87,
+      "rankDelay": 78,
+      "rankCancel": 76,
+      "rankPropagation": 84,
+      "rankFlights": 15
+    },
+    {
+      "code": "PDX",
+      "city": "Portland",
+      "region": "Oregon",
+      "name": "Portland International Airport",
+      "flights": 5535,
+      "delayRate": 0.1597,
+      "cancelRate": 0.0042,
+      "avgDelay": 7.6,
+      "p90Delay": 29.0,
+      "propagationRate": 0.4724,
+      "recoveryRate": 0.5276,
+      "chainLinks": 5042,
+      "pressureScore": 17.6,
+      "rankPressure": 88,
+      "rankDelay": 82,
+      "rankCancel": 85,
+      "rankPropagation": 77,
+      "rankFlights": 31
+    },
+    {
+      "code": "PWM",
+      "city": "Portland",
+      "region": "Maine",
+      "name": "Portland International Jetport Airport",
+      "flights": 1056,
+      "delayRate": 0.1348,
+      "cancelRate": 0.0095,
+      "avgDelay": 4.8,
+      "p90Delay": 27.5,
+      "propagationRate": 0.4118,
+      "recoveryRate": 0.5882,
+      "chainLinks": 1019,
+      "pressureScore": 17.1,
+      "rankPressure": 89,
+      "rankDelay": 91,
+      "rankCancel": 36,
+      "rankPropagation": 95,
+      "rankFlights": 95
+    },
+    {
+      "code": "SJU",
+      "city": "San Juan",
+      "region": "Puerto Rico",
+      "name": "Luis Munoz Marin International Airport",
+      "flights": 2875,
+      "delayRate": 0.1687,
+      "cancelRate": 0.0021,
+      "avgDelay": 8.1,
+      "p90Delay": 28.0,
+      "propagationRate": 0.4678,
+      "recoveryRate": 0.5322,
+      "chainLinks": 2593,
+      "pressureScore": 16.9,
+      "rankPressure": 90,
+      "rankDelay": 75,
+      "rankCancel": 96,
+      "rankPropagation": 82,
+      "rankFlights": 48
+    },
+    {
+      "code": "ALB",
+      "city": "Albany",
+      "region": "New York",
+      "name": "Albany International Airport",
+      "flights": 1186,
+      "delayRate": 0.1453,
+      "cancelRate": 0.0076,
+      "avgDelay": 6.4,
+      "p90Delay": 26.4,
+      "propagationRate": 0.4475,
+      "recoveryRate": 0.5525,
+      "chainLinks": 1134,
+      "pressureScore": 16.3,
+      "rankPressure": 91,
+      "rankDelay": 89,
+      "rankCancel": 55,
+      "rankPropagation": 89,
+      "rankFlights": 89
     },
     {
       "code": "EWR",
@@ -941,7 +2627,12 @@
       "propagationRate": 0.3685,
       "recoveryRate": 0.6315,
       "chainLinks": 8199,
-      "pressureScore": 14.3
+      "pressureScore": 14.3,
+      "rankPressure": 92,
+      "rankDelay": 95,
+      "rankCancel": 37,
+      "rankPropagation": 97,
+      "rankFlights": 16
     },
     {
       "code": "SLC",
@@ -956,7 +2647,92 @@
       "propagationRate": 0.4652,
       "recoveryRate": 0.5348,
       "chainLinks": 9270,
-      "pressureScore": 12.6
+      "pressureScore": 12.6,
+      "rankPressure": 93,
+      "rankDelay": 88,
+      "rankCancel": 85,
+      "rankPropagation": 83,
+      "rankFlights": 17
+    },
+    {
+      "code": "BDL",
+      "city": "Windsor Locks",
+      "region": "Connecticut",
+      "name": "Bradley International Airport",
+      "flights": 1981,
+      "delayRate": 0.1397,
+      "cancelRate": 0.0066,
+      "avgDelay": 6.2,
+      "p90Delay": 24.0,
+      "propagationRate": 0.4164,
+      "recoveryRate": 0.5836,
+      "chainLinks": 1862,
+      "pressureScore": 12.2,
+      "rankPressure": 94,
+      "rankDelay": 90,
+      "rankCancel": 65,
+      "rankPropagation": 93,
+      "rankFlights": 64
+    },
+    {
+      "code": "IAD",
+      "city": "Washington",
+      "region": "District of Columbia",
+      "name": "Washington Dulles International Airport",
+      "flights": 5474,
+      "delayRate": 0.1334,
+      "cancelRate": 0.0057,
+      "avgDelay": 8.8,
+      "p90Delay": 25.0,
+      "propagationRate": 0.4564,
+      "recoveryRate": 0.5436,
+      "chainLinks": 4696,
+      "pressureScore": 11.7,
+      "rankPressure": 95,
+      "rankDelay": 92,
+      "rankCancel": 74,
+      "rankPropagation": 86,
+      "rankFlights": 32
+    },
+    {
+      "code": "ANC",
+      "city": "Anchorage",
+      "region": "Alaska",
+      "name": "Ted Stevens Anchorage International Airport",
+      "flights": 1818,
+      "delayRate": 0.1334,
+      "cancelRate": 0.0061,
+      "avgDelay": 4.0,
+      "p90Delay": 20.0,
+      "propagationRate": 0.3816,
+      "recoveryRate": 0.6184,
+      "chainLinks": 1614,
+      "pressureScore": 8.9,
+      "rankPressure": 96,
+      "rankDelay": 92,
+      "rankCancel": 70,
+      "rankPropagation": 96,
+      "rankFlights": 66
+    },
+    {
+      "code": "GEG",
+      "city": "Spokane",
+      "region": "Washington",
+      "name": "Spokane International Airport",
+      "flights": 1542,
+      "delayRate": 0.1271,
+      "cancelRate": 0.0052,
+      "avgDelay": 3.7,
+      "p90Delay": 21.0,
+      "propagationRate": 0.4161,
+      "recoveryRate": 0.5839,
+      "chainLinks": 1453,
+      "pressureScore": 5.7,
+      "rankPressure": 97,
+      "rankDelay": 96,
+      "rankCancel": 82,
+      "rankPropagation": 94,
+      "rankFlights": 75
     }
   ],
   "airlines": [
@@ -1091,265 +2867,382 @@
       "propagationRate": 0.7322,
       "recoveryRate": 0.2678,
       "chainLinks": 8902
-    },
-    {
-      "code": "NK",
-      "name": "Spirit Airlines",
-      "flights": 354,
-      "delayRate": 0.3092,
-      "cancelRate": 0.1412,
-      "avgDelay": 18.6,
-      "propagationRate": 0.7705,
-      "recoveryRate": 0.2295,
-      "chainLinks": 214
     }
   ],
   "stories": [
     {
       "id": "story-1",
       "type": "cascade",
-      "title": "Delay carried through the rotation",
-      "summary": "4 downstream departures crossed the 15-minute threshold.",
+      "title": "Delay continued across the rotation",
+      "titleZh": "连续 3 班仍在晚点",
+      "summary": "3 downstream departures stayed past the 15-minute threshold.",
+      "summaryZh": "有 3 个后续航段的起飞延误仍超过 15 分钟。",
       "tail": "N402SY",
       "date": "2026-05-18",
-      "edges": 4,
-      "propagated": 4,
+      "edges": 3,
+      "legCount": 4,
+      "propagated": 3,
       "recovered": 0,
+      "maxDelay": 252,
       "legs": [
-        {
-          "flight": "OO 3305",
-          "origin": "SAN",
-          "dest": "SFO",
-          "scheduled": "16:01Z",
-          "depDelay": null,
-          "arrDelay": 107.0,
-          "status": "delayed"
-        },
         {
           "flight": "OO 3404",
           "origin": "SFO",
           "dest": "SNA",
-          "scheduled": "18:40Z",
+          "status": "late",
           "depDelay": 88.0,
           "arrDelay": 102.0,
-          "turn": 51.0,
-          "status": "propagated"
+          "scheduledDepUTC": "18:40Z",
+          "actualDepUTC": "20:08Z",
+          "scheduledArrUTC": "20:23Z",
+          "actualArrUTC": "22:05Z"
         },
         {
           "flight": "OO 3404",
           "origin": "SNA",
           "dest": "SFO",
-          "scheduled": "21:00Z",
+          "status": "late",
           "depDelay": 97.0,
           "arrDelay": 97.0,
-          "turn": 37.0,
-          "status": "propagated"
+          "scheduledDepUTC": "21:00Z",
+          "actualDepUTC": "22:37Z",
+          "scheduledArrUTC": "22:34Z",
+          "actualArrUTC": "00:11Z · 次日"
         },
         {
           "flight": "OO 3356",
           "origin": "SFO",
           "dest": "PSP",
-          "scheduled": "22:41Z",
+          "status": "late",
           "depDelay": 240.0,
           "arrDelay": 223.0,
-          "turn": 7.0,
-          "status": "propagated"
+          "scheduledDepUTC": "22:41Z",
+          "actualDepUTC": "02:41Z · 次日",
+          "scheduledArrUTC": "00:20Z · 次日",
+          "actualArrUTC": "04:03Z · 次日"
         },
         {
           "flight": "OO 3254",
           "origin": "PSP",
           "dest": "SFO",
-          "scheduled": "01:00Z",
+          "status": "late",
           "depDelay": 215.0,
           "arrDelay": 252.0,
-          "turn": 40.0,
-          "status": "propagated"
+          "scheduledDepUTC": "01:00Z · 次日",
+          "actualDepUTC": "04:35Z · 次日",
+          "scheduledArrUTC": "02:40Z · 次日",
+          "actualArrUTC": "06:52Z · 次日"
+        }
+      ],
+      "connectors": [
+        {
+          "hub": "SNA",
+          "planGap": 37.0,
+          "actualTurn": 32.0,
+          "prevArrDelay": 102.0,
+          "nextDepDelay": 97.0,
+          "delayDelta": -5.0,
+          "relation": "caught_up"
+        },
+        {
+          "hub": "SFO",
+          "planGap": 7.0,
+          "actualTurn": 150.0,
+          "prevArrDelay": 97.0,
+          "nextDepDelay": 240.0,
+          "delayDelta": 143.0,
+          "relation": "propagated"
+        },
+        {
+          "hub": "PSP",
+          "planGap": 40.0,
+          "actualTurn": 32.0,
+          "prevArrDelay": 223.0,
+          "nextDepDelay": 215.0,
+          "delayDelta": -8.0,
+          "relation": "caught_up"
         }
       ]
     },
     {
       "id": "story-2",
       "type": "recovery",
-      "title": "Schedule buffer broke the chain",
-      "summary": "4 delayed arrivals were absorbed before the next departure.",
+      "title": "The next flight recovered",
+      "titleZh": "晚到后被下一班追回",
+      "summary": "3 late arrivals were absorbed before the next departure.",
+      "summaryZh": "有 3 次晚到在下一次起飞前被吸收。",
       "tail": "N982SW",
-      "date": "2026-05-14",
-      "edges": 4,
+      "date": "2026-05-15",
+      "edges": 3,
+      "legCount": 4,
       "propagated": 0,
-      "recovered": 4,
+      "recovered": 3,
+      "maxDelay": 35,
       "legs": [
-        {
-          "flight": "OO 5790",
-          "origin": "ORD",
-          "dest": "CRW",
-          "scheduled": "23:20Z",
-          "depDelay": null,
-          "arrDelay": 52.0,
-          "status": "delayed"
-        },
         {
           "flight": "OO 5801",
           "origin": "CRW",
           "dest": "ORD",
-          "scheduled": "10:45Z",
+          "status": "late",
           "depDelay": -5.0,
           "arrDelay": 15.0,
-          "turn": 576.0,
-          "status": "recovered"
+          "scheduledDepUTC": "10:45Z",
+          "actualDepUTC": "10:40Z",
+          "scheduledArrUTC": "12:47Z",
+          "actualArrUTC": "13:02Z"
         },
         {
           "flight": "OO 5819",
           "origin": "ORD",
           "dest": "DLH",
-          "scheduled": "13:45Z",
+          "status": "late",
           "depDelay": -2.0,
           "arrDelay": 17.0,
-          "turn": 58.0,
-          "status": "recovered"
+          "scheduledDepUTC": "13:45Z",
+          "actualDepUTC": "13:43Z",
+          "scheduledArrUTC": "15:34Z",
+          "actualArrUTC": "15:51Z"
         },
         {
           "flight": "OO 5754",
           "origin": "DLH",
           "dest": "ORD",
-          "scheduled": "16:14Z",
+          "status": "late",
           "depDelay": 14.0,
           "arrDelay": 35.0,
-          "turn": 40.0,
-          "status": "recovered"
+          "scheduledDepUTC": "16:14Z",
+          "actualDepUTC": "16:28Z",
+          "scheduledArrUTC": "18:10Z",
+          "actualArrUTC": "18:45Z"
         },
         {
           "flight": "OO 5496",
           "origin": "ORD",
           "dest": "SBN",
-          "scheduled": "19:03Z",
+          "status": "on-time",
           "depDelay": 11.0,
           "arrDelay": 0.0,
-          "turn": 53.0,
-          "status": "recovered"
+          "scheduledDepUTC": "19:03Z",
+          "actualDepUTC": "19:14Z",
+          "scheduledArrUTC": "20:09Z",
+          "actualArrUTC": "20:09Z"
+        }
+      ],
+      "connectors": [
+        {
+          "hub": "ORD",
+          "planGap": 58.0,
+          "actualTurn": 41.0,
+          "prevArrDelay": 15.0,
+          "nextDepDelay": -2.0,
+          "delayDelta": -17.0,
+          "relation": "recovered_full"
+        },
+        {
+          "hub": "DLH",
+          "planGap": 40.0,
+          "actualTurn": 37.0,
+          "prevArrDelay": 17.0,
+          "nextDepDelay": 14.0,
+          "delayDelta": -3.0,
+          "relation": "recovered_full"
+        },
+        {
+          "hub": "ORD",
+          "planGap": 53.0,
+          "actualTurn": 29.0,
+          "prevArrDelay": 35.0,
+          "nextDepDelay": 11.0,
+          "delayDelta": -24.0,
+          "relation": "recovered_full"
         }
       ]
     },
     {
       "id": "story-3",
       "type": "tight-turn",
-      "title": "A short turn left no room",
-      "summary": "The tightest scheduled turn was only 0 minutes.",
-      "tail": "N210WN",
-      "date": "2026-05-03",
-      "edges": 4,
-      "propagated": 4,
+      "title": "Only 15 minutes on the ground",
+      "titleZh": "实际地面只停了 15 分钟",
+      "summary": "The tightest real ground turn was only 15 minutes.",
+      "summaryZh": "这条轮转链最短的实际地面周转只有 15 分钟。",
+      "tail": "N699BR",
+      "date": "2026-05-24",
+      "edges": 3,
+      "legCount": 4,
+      "propagated": 3,
       "recovered": 0,
+      "maxDelay": 166,
       "legs": [
         {
-          "flight": "WN 3062",
-          "origin": "SAN",
-          "dest": "SFO",
-          "scheduled": "20:50Z",
-          "depDelay": null,
-          "arrDelay": 31.0,
-          "status": "delayed"
+          "flight": "OO 5725",
+          "origin": "ORD",
+          "dest": "SBN",
+          "status": "late",
+          "depDelay": 162.0,
+          "arrDelay": 166.0,
+          "scheduledDepUTC": "18:00Z",
+          "actualDepUTC": "20:42Z",
+          "scheduledArrUTC": "19:02Z",
+          "actualArrUTC": "21:48Z"
         },
         {
-          "flight": "WN 4091",
-          "origin": "SFO",
-          "dest": "LAS",
-          "scheduled": "23:05Z",
-          "depDelay": 53.0,
-          "arrDelay": 59.0,
-          "turn": 35.0,
-          "status": "propagated"
+          "flight": "OO 5352",
+          "origin": "SBN",
+          "dest": "ORD",
+          "status": "late",
+          "depDelay": 155.0,
+          "arrDelay": 163.0,
+          "scheduledDepUTC": "19:44Z",
+          "actualDepUTC": "22:19Z",
+          "scheduledArrUTC": "20:58Z",
+          "actualArrUTC": "23:41Z"
         },
         {
-          "flight": "WN 3316",
-          "origin": "LAS",
-          "dest": "BUR",
-          "scheduled": "00:45Z",
-          "depDelay": 104.0,
-          "arrDelay": 101.0,
-          "turn": 0.0,
-          "status": "propagated"
+          "flight": "OO 5032",
+          "origin": "ORD",
+          "dest": "DEC",
+          "status": "late",
+          "depDelay": 137.0,
+          "arrDelay": 122.0,
+          "scheduledDepUTC": "21:45Z",
+          "actualDepUTC": "00:02Z · 次日",
+          "scheduledArrUTC": "22:56Z",
+          "actualArrUTC": "00:58Z · 次日"
         },
         {
-          "flight": "WN 968",
-          "origin": "BUR",
-          "dest": "LAS",
-          "scheduled": "02:40Z",
-          "depDelay": 84.0,
-          "arrDelay": 77.0,
-          "turn": 40.0,
-          "status": "propagated"
+          "flight": "OO 6077",
+          "origin": "DEC",
+          "dest": "ORD",
+          "status": "late",
+          "depDelay": 68.0,
+          "arrDelay": 57.0,
+          "scheduledDepUTC": "00:05Z · 次日",
+          "actualDepUTC": "01:13Z · 次日",
+          "scheduledArrUTC": "01:13Z · 次日",
+          "actualArrUTC": "02:10Z · 次日"
+        }
+      ],
+      "connectors": [
+        {
+          "hub": "SBN",
+          "planGap": 42.0,
+          "actualTurn": 31.0,
+          "prevArrDelay": 166.0,
+          "nextDepDelay": 155.0,
+          "delayDelta": -11.0,
+          "relation": "caught_up"
         },
         {
-          "flight": "WN 2932",
-          "origin": "LAS",
-          "dest": "LAX",
-          "scheduled": "04:30Z",
-          "depDelay": 149.0,
-          "arrDelay": 155.0,
-          "turn": 40.0,
-          "status": "propagated"
+          "hub": "ORD",
+          "planGap": 47.0,
+          "actualTurn": 21.0,
+          "prevArrDelay": 163.0,
+          "nextDepDelay": 137.0,
+          "delayDelta": -26.0,
+          "relation": "caught_up"
+        },
+        {
+          "hub": "DEC",
+          "planGap": 69.0,
+          "actualTurn": 15.0,
+          "prevArrDelay": 122.0,
+          "nextDepDelay": 68.0,
+          "delayDelta": -54.0,
+          "relation": "caught_up"
         }
       ]
     },
     {
       "id": "story-4",
       "type": "mixed",
-      "title": "Propagation, then recovery",
+      "title": "Delay spread, then recovered",
+      "titleZh": "先传递，后来追回",
       "summary": "The same aircraft shows why network stress is not a one-way cascade.",
+      "summaryZh": "同一架飞机的轮转说明，网络压力并不是单向级联：延误可以传播，也可能在后续航段恢复。",
       "tail": "N8902Q",
       "date": "2026-05-18",
-      "edges": 4,
-      "propagated": 3,
+      "edges": 3,
+      "legCount": 4,
+      "propagated": 2,
       "recovered": 1,
+      "maxDelay": 228,
       "legs": [
-        {
-          "flight": "WN 2066",
-          "origin": "SFO",
-          "dest": "SAN",
-          "scheduled": "20:25Z",
-          "depDelay": null,
-          "arrDelay": 146.0,
-          "status": "delayed"
-        },
         {
           "flight": "WN 3254",
           "origin": "SAN",
           "dest": "LAS",
-          "scheduled": "22:50Z",
+          "status": "late",
           "depDelay": 240.0,
           "arrDelay": 228.0,
-          "turn": 45.0,
-          "status": "propagated"
+          "scheduledDepUTC": "22:50Z",
+          "actualDepUTC": "02:50Z · 次日",
+          "scheduledArrUTC": "00:15Z · 次日",
+          "actualArrUTC": "04:03Z · 次日"
         },
         {
           "flight": "WN 3254",
           "origin": "LAS",
           "dest": "PDX",
-          "scheduled": "01:00Z",
+          "status": "late",
           "depDelay": 236.0,
           "arrDelay": 227.0,
-          "turn": 45.0,
-          "status": "propagated"
+          "scheduledDepUTC": "01:00Z · 次日",
+          "actualDepUTC": "04:56Z · 次日",
+          "scheduledArrUTC": "03:20Z · 次日",
+          "actualArrUTC": "07:07Z · 次日"
         },
         {
           "flight": "WN 3718",
           "origin": "PDX",
           "dest": "SMF",
-          "scheduled": "04:00Z",
+          "status": "late",
           "depDelay": 220.0,
           "arrDelay": 222.0,
-          "turn": 40.0,
-          "status": "propagated"
+          "scheduledDepUTC": "04:00Z · 次日",
+          "actualDepUTC": "07:40Z · 次日",
+          "scheduledArrUTC": "05:30Z · 次日",
+          "actualArrUTC": "09:12Z · 次日"
         },
         {
           "flight": "WN 236",
           "origin": "SMF",
           "dest": "DEN",
-          "scheduled": "13:35Z",
+          "status": "on-time",
           "depDelay": 2.0,
           "arrDelay": -9.0,
-          "turn": 485.0,
-          "status": "recovered"
+          "scheduledDepUTC": "13:35Z · 次日",
+          "actualDepUTC": "13:37Z · 次日",
+          "scheduledArrUTC": "15:55Z · 次日",
+          "actualArrUTC": "15:46Z · 次日"
+        }
+      ],
+      "connectors": [
+        {
+          "hub": "LAS",
+          "planGap": 45.0,
+          "actualTurn": 53.0,
+          "prevArrDelay": 228.0,
+          "nextDepDelay": 236.0,
+          "delayDelta": 8.0,
+          "relation": "propagated"
+        },
+        {
+          "hub": "PDX",
+          "planGap": 40.0,
+          "actualTurn": 33.0,
+          "prevArrDelay": 227.0,
+          "nextDepDelay": 220.0,
+          "delayDelta": -7.0,
+          "relation": "caught_up"
+        },
+        {
+          "hub": "SMF",
+          "planGap": 485.0,
+          "actualTurn": 265.0,
+          "prevArrDelay": 222.0,
+          "nextDepDelay": 2.0,
+          "delayDelta": -220.0,
+          "relation": "recovered_full"
         }
       ]
     }
