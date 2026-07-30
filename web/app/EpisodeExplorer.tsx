@@ -44,29 +44,29 @@ export type V1BData = {
 
 const copy = {
   zh: {
-    section: "06 / 连续延误案例", title: "同一架飞机，延误状态能延续多久？",
-    intro: "案例跟随同一机尾号上的连续延误状态，不把整条链解释为同一原因造成。每个 episode 最长观察 18 小时，计划停场超过 180 分钟即中断；再用 15、30、60 分钟三种门槛检查结论是否稳定。",
-    lab: "定义敏感性实验室", labIntro: "15 分钟是主分析基线；30 与 60 分钟检查延误门槛。180 分钟停场与 18 小时总时长是所有档位共同使用的连续运营边界。", threshold: "延误门槛",
+    section: "07 / 连续延误案例", title: "同一架飞机，延误状态能延续多久？",
+    intro: "案例跟随同一架飞机的一串连续航班，看晚点是继续、加重，还是被追回。单个案例最多跟踪 18 小时；如果两班之间计划停场超过 180 分钟，就不再把它们算作同一段连续运行。",
+    lab: "换一种晚点标准，结论会变吗？", labIntro: "主页面把晚 15 分钟算作晚点；切换到 30 或 60 分钟，可以检查只有更严重的晚点是否仍会连续出现。这三个按钮改变的是“多晚才算晚点”，不是观察时长。", threshold: "多晚才算晚点",
     thresholdNames: { 15: "标准", 30: "严格", 60: "极端" },
-    episodes: "全国 episodes", deep3: "深度 ≥3", maxDepth: "最大深度", airports500: "暴露 ≥500 的机场",
+    episodes: "全国连续延误段", deep3: "至少连续 3 次", maxDepth: "最长连续晚点次数", airports500: "晚到衔接 ≥500 次的机场", detailsSummary: "查看研究细节", weatherDetails: "查看这一步的天气",
     baseline: "主分析基线：观察达到 15 分钟的连续晚点状态。",
-    comparison30: "相较 15 分钟，episode 减少 {episodes}，深度 ≥3 减少 {deep}; 链路排序仍较稳定（Spearman 0.896，Top 20 重合 20/20）。",
-    comparison60: "相较 15 分钟，episode 减少 {episodes}，深度 ≥3 减少 {deep}; Top 20 仅重合 3/20，极端门槛明显改变了观察对象。",
-    play: "播放", pause: "暂停", previous: "上一个观察点", next: "下一个观察点", restart: "重新开始", step: "观察点", timeline: "观察序列", current: "当前观察", why: "为何值得看", summary: "Episode 总结",
-    recoveredRule: "当前门槛下：{depth} 个仍达到门槛的传播航段 + 1 个恢复判定 = {observations} 个观察点。最后的恢复判定不计入传播深度。",
-    censoredRule: "当前门槛下已观察到 {depth} 个仍达到门槛的传播航段；记录在恢复出现前中断，因此共有 {observations} 个观察点。",
-    arrival: "上一航段到达延误", departure: "下一航段起飞延误", nextArrival: "下一航段到达延误", delta: "延误变化", turn: "计划 / 实际周转", time: "观察时刻", depth: "连续深度", observed: "观察点数量", maxDeparture: "最大起飞延误", amplification: "累计放大", duration: "持续时间", airports: "经过机场", outcome: "最终结局", recovered: "已恢复", censored: "观察中断", notQualified: "不构成 episode", finalRecovery: "含最终恢复观察点", boundary: "观察可能因长停场、18 小时时长上限、链断裂或样本结束而停止，不能据此判断之后是否恢复。", disclaimer: "所有时间为 UTC。这里只描述同一机尾号上的连续延误状态，不声称它们由最初一次延误造成；天气、空管与机场拥堵尚未控制。",
-    noEpisodeTitle: "这条冲击在当前门槛下不会开始。", noEpisodeBody: "案例起始到达延误为 {delay} 分钟，低于 {threshold} 分钟门槛，因此不构成该定义下的 episode。原始航班记录没有消失，只是分类发生变化。",
+    comparison30: "相较 15 分钟标准，连续延误段减少 {episodes}，至少连续 3 次的情况减少 {deep}；最常传播的航线排序仍较稳定。",
+    comparison60: "相较 15 分钟标准，连续延误段减少 {episodes}，至少连续 3 次的情况减少 {deep}；只有最严重的晚点被保留下来，观察对象明显改变。",
+    play: "播放", pause: "暂停", previous: "上一步", next: "下一步", restart: "重新开始", step: "步骤", timeline: "延误变化过程", current: "当前这一步", why: "为何值得看", summary: "整段旅程总结",
+    recoveredRule: "按当前晚点标准，这架飞机连续 {depth} 次仍然晚点，第 {observations} 步终于恢复。最后这次恢复只用于说明结局，不计入连续晚点次数。",
+    censoredRule: "按当前晚点标准，已经连续观察到 {depth} 次晚点；随后观察因边界停止，尚不知道后来是否恢复。页面共有 {observations} 个步骤。",
+    arrival: "上一班到达晚了", departure: "下一班起飞晚了", nextArrival: "下一班到达晚了", delta: "延误增加 / 减少", turn: "计划 / 实际停场", time: "这一段发生在", depth: "连续晚点次数", observed: "页面展示步骤", maxDeparture: "最严重起飞延误", amplification: "相比开始最多增加", duration: "跟踪时长", airports: "经过机场", outcome: "记录结束时", recovered: "延误已追回", censored: "未观察到最终结果", notQualified: "不属于连续延误段", finalRecovery: "含最后一次恢复判断", boundary: "观察可能因为计划停场超过 180 分钟、达到 18 小时上限、航班衔接断开或样本结束而停止；这不代表飞机后来没有恢复。", disclaimer: "所有时间为 UTC。这里只描述同一架飞机上的连续晚点现象，不声称最初一次延误造成了后面全部晚点。",
+    noEpisodeTitle: "按当前标准，这里还不能算连续延误的开始。", noEpisodeBody: "第一班到达只晚了 {delay} 分钟，没有达到“晚 {threshold} 分钟才算晚点”的标准。航班记录仍然存在，只是不进入这组连续延误案例。",
     categories: { deepest: "最深延续", high_delay_recovered: "大延误后恢复", high_pressure_day: "高压力日", normal_day: "普通日", crosses_midnight: "跨 UTC 午夜", censored: "观察中断" },
     states: { propagated: "延误继续传递", amplified: "延误正在放大", caught_up: "延误正在追回", recovered: "起飞前恢复", recovered_en_route: "在途恢复" },
     endings: { recovered: "在下一次起飞前恢复", recovered_en_route: "该延误航段在途中恢复", scheduled_turn_break: "计划停场超过 180 分钟，连续观察在此结束", duration_limit: "达到 18 小时观察上限", airport_discontinuity: "飞机轮转链在此断开", end_of_sequence: "样本记录在此结束", initial_delay_below_threshold: "起始延误未达到当前门槛" },
   },
   en: {
-    section: "06 / Continuous-delay cases", title: "How long does a late state persist on one aircraft?",
+    section: "07 / Continuous-delay cases", title: "How long does a late state persist on one aircraft?",
     intro: "Cases follow a continuous late state on one tail; they do not attribute the whole chain to one cause. Episodes are observed for at most 18 hours and stop at planned turns over 180 minutes, then are reclassified at 15, 30, and 60 minutes.",
     lab: "Definition sensitivity lab", labIntro: "15 minutes is the primary delay baseline; 30 and 60 test threshold sensitivity. Every view shares the 180-minute planned-turn and 18-hour continuity limits.", threshold: "Delay threshold",
     thresholdNames: { 15: "Standard", 30: "Strict", 60: "Extreme" },
-    episodes: "National episodes", deep3: "Depth ≥3", maxDepth: "Maximum depth", airports500: "Airports with ≥500 exposures",
+    episodes: "National episodes", deep3: "Depth ≥3", maxDepth: "Maximum depth", airports500: "Airports with ≥500 exposures", detailsSummary: "View research details", weatherDetails: "Weather at this step",
     baseline: "Primary baseline: observes continuous late states reaching 15 minutes.",
     comparison30: "Versus 15 minutes, episodes fall {episodes} and depth ≥3 falls {deep}; link ranks remain fairly stable (Spearman 0.896, Top 20 overlap 20/20).",
     comparison60: "Versus 15 minutes, episodes fall {episodes} and depth ≥3 falls {deep}; Top 20 overlap drops to 3/20, so the extreme threshold changes what is observed.",
@@ -110,11 +110,44 @@ function durationText(minutes: number, language: Language) {
   return `${hours} h (${minutes} min)`;
 }
 
-export default function EpisodeExplorer({ language, data }: { language: Language; data: V1BData }) {
+const WEATHER_FLAG_ZH: Record<string, string> = {
+  low_visibility: "低能见度", low_ceiling: "低云底", strong_wind: "强风",
+  precipitation: "降水", thunderstorm: "雷暴", fog: "雾 / 轻雾",
+};
+function weatherFlag(flag: string, language: Language) {
+  return language === "zh" ? (WEATHER_FLAG_ZH[flag] ?? flag) : flag.replaceAll("_", " ");
+}
+function weatherMissing(reason: string | undefined, language: Language) {
+  const zh: Record<string, string> = {
+    unmapped_station: "机场无可用气象站映射",
+    missing_event_time: "事件时刻缺失",
+    no_complete_report_within_tolerance: "容差内没有完整 METAR/SPECI",
+  };
+  const en: Record<string, string> = {
+    unmapped_station: "no mapped weather station",
+    missing_event_time: "event time is missing",
+    no_complete_report_within_tolerance: "no complete METAR/SPECI within tolerance",
+  };
+  return (language === "zh" ? zh : en)[reason ?? ""] ?? (language === "zh" ? "天气不可用" : "weather unavailable");
+}
+function weatherNumber(value: number | null | undefined, unit: string) {
+  return value === null || value === undefined ? "—" : `${new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 }).format(value)} ${unit}`;
+}
+
+type EpisodeWeatherData = { episodeWeather?: Array<{ episodeId: string; steps: Array<{ stepIndex: number; weatherAtScheduledDeparture: Record<string, WeatherNote>; weatherAtActualArrival: Record<string, WeatherNote> }> }> };
+type WeatherNote = {
+  available: boolean; airport?: string; eventUTC?: string; observedUTC?: string;
+  ageMinutes?: number; adverse?: boolean; flags?: string[]; reason?: string;
+  reportType?: string; statusKey?: string;
+  values?: { visibilityKm: number | null; ceilingFt: number | null; windSpeedMps: number | null; windGustMps: number | null };
+};
+
+export default function EpisodeExplorer({ language, data, weather }: { language: Language; data: V1BData; weather?: EpisodeWeatherData }) {
   const t = copy[language];
   const defaultEpisode = [...data.episodes].sort((a, b) => b.depth - a.depth || a.episodeId.localeCompare(b.episodeId))[0];
   const [id, setId] = useState(defaultEpisode.episodeId);
   const [threshold, setThreshold] = useState<Threshold>(15);
+  const [weatherTolerance, setWeatherTolerance] = useState<60 | 90>(90);
   const [index, setIndex] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -125,6 +158,8 @@ export default function EpisodeExplorer({ language, data }: { language: Language
   const view = episode.thresholdViews[String(threshold)];
   const viewStep = view.steps[index];
   const step = viewStep ? episode.steps.find(item => item.stepIndex === viewStep.sourceStepIndex) ?? null : null;
+  const stepWeather = weather?.episodeWeather?.find(item => item.episodeId === episode.episodeId)?.steps.find(item => item.stepIndex === (step?.stepIndex ?? -1));
+  const weatherNote = stepWeather ? (viewStep?.phase === "arrival" ? stepWeather.weatherAtActualArrival[String(weatherTolerance)] : stepWeather.weatherAtScheduledDeparture[String(weatherTolerance)]) : null;
   const sensitivity = data.thresholdSensitivity.find(item => item.threshold === threshold) ?? data.thresholdSensitivity[0];
   const baseline = data.thresholdSensitivity.find(item => item.threshold === 15) ?? data.thresholdSensitivity[0];
   const stop = () => { if (timer.current) clearInterval(timer.current); timer.current = null; setPlaying(false); };
@@ -169,8 +204,8 @@ export default function EpisodeExplorer({ language, data }: { language: Language
     state = t.states[viewStep.stateKey as keyof typeof t.states] ?? t.states.propagated;
     if (viewStep.stateKey === "amplified") explanation = language === "zh" ? `上一航段晚到 ${step.prevArrivalDelay} 分钟；下一航段以 ${step.nextDepartureDelay} 分钟延误起飞，观察到延误增加 ${step.delayDelta} 分钟。` : `The prior flight arrived ${step.prevArrivalDelay} minutes late; the next departed ${step.nextDepartureDelay} minutes late, an observed increase of ${step.delayDelta} minutes.`;
     else if (viewStep.stateKey === "caught_up") explanation = language === "zh" ? `下一航段仍超过 ${threshold} 分钟门槛，但从 ${step.prevArrivalDelay} 分钟回落到 ${step.nextDepartureDelay} 分钟，延误正在被追回。` : `The next flight remains above ${threshold} minutes but falls from ${step.prevArrivalDelay} to ${step.nextDepartureDelay} minutes, so delay is being recovered.`;
-    else if (viewStep.stateKey === "recovered") explanation = language === "zh" ? `下一航段以 ${step.nextDepartureDelay} 分钟延误起飞，已低于 ${threshold} 分钟门槛，episode 在起飞前结束。` : `The next flight departed ${step.nextDepartureDelay} minutes late, below the ${threshold}-minute threshold, ending the episode before departure.`;
-    else if (viewStep.stateKey === "recovered_en_route") explanation = language === "zh" ? `该航段起飞时仍超过 ${threshold} 分钟门槛，但到达延误降至 ${step.nextArrivalDelay} 分钟，episode 在途中恢复。` : `The flight departed above ${threshold} minutes but arrived only ${step.nextArrivalDelay} minutes late, so the episode recovered en route.`;
+    else if (viewStep.stateKey === "recovered") explanation = language === "zh" ? `下一班只晚 ${step.nextDepartureDelay} 分钟起飞，已经低于 ${threshold} 分钟标准，因此在起飞前记为恢复。` : `The next flight departed ${step.nextDepartureDelay} minutes late, below the ${threshold}-minute threshold, ending the episode before departure.`;
+    else if (viewStep.stateKey === "recovered_en_route") explanation = language === "zh" ? `这班飞机起飞时仍超过 ${threshold} 分钟标准，但到达时只晚 ${step.nextArrivalDelay} 分钟，因此记为途中追回。` : `The flight departed above ${threshold} minutes but arrived only ${step.nextArrivalDelay} minutes late, so the episode recovered en route.`;
     else explanation = language === "zh" ? `下一航段以 ${step.nextDepartureDelay} 分钟延误起飞，仍高于 ${threshold} 分钟门槛。` : `The next flight departed ${step.nextDepartureDelay} minutes late, remaining above the ${threshold}-minute threshold.`;
   }
 
@@ -184,10 +219,16 @@ export default function EpisodeExplorer({ language, data }: { language: Language
         </div>
       </div>
       <div className="threshold-national">
-        <div className="threshold-metrics"><div><small>{t.episodes}</small><strong>{sensitivity.nEpisodes.toLocaleString(language === "zh" ? "zh-CN" : "en-US")}</strong></div><div><small>{t.deep3}</small><strong>{sensitivity.nDeep3.toLocaleString(language === "zh" ? "zh-CN" : "en-US")}</strong></div><div><small>{t.maxDepth}</small><strong>{sensitivity.maxDepth}</strong></div><div><small>{t.airports500}</small><strong>{sensitivity.nAirportsExposed500}</strong></div></div>
+        <div className="threshold-metrics"><div><small>{t.episodes}</small><strong>{sensitivity.nEpisodes.toLocaleString(language === "zh" ? "zh-CN" : "en-US")}</strong></div><div><small>{t.deep3}</small><strong>{sensitivity.nDeep3.toLocaleString(language === "zh" ? "zh-CN" : "en-US")}</strong></div><div><small>{t.maxDepth}</small><strong>{sensitivity.maxDepth}</strong></div></div>
         <div className="threshold-volume" aria-label={`${t.episodes}: ${sensitivity.nEpisodes}`}><i style={{ width: `${(sensitivity.nEpisodes / baseline.nEpisodes) * 100}%` }} /></div>
         <p>{comparison}</p>
       </div>
+      <details className="clarity-details episode-details">
+        <summary>{t.detailsSummary}</summary>
+        <div className="clarity-details-inner">
+          <div className="threshold-metrics threshold-metrics-extra"><div><small>{t.airports500}</small><strong>{sensitivity.nAirportsExposed500}</strong></div></div>
+        </div>
+      </details>
     </div>
 
     <div className="episode-selector" role="list" aria-label={t.why}>
@@ -215,6 +256,23 @@ export default function EpisodeExplorer({ language, data }: { language: Language
       {step && viewStep && <div className="episode-stage"><article className="episode-detail"><span>{t.current} · {state}</span><h3>{viewStep.phase === "arrival" ? <>{airportLabel(step.turnAirport, language)} <i>→</i> {airportLabel(step.nextAirport, language)}</> : <>{airportLabel(step.prevAirport, language)} <i>→</i> {airportLabel(step.turnAirport, language)} {step.nextAirport && <><i>→</i> {airportLabel(step.nextAirport, language)}</>}</>}</h3>
         <div className="episode-flight-line"><b>{flightLabel(viewStep.phase === "arrival" ? step.nextFlight : step.previousFlight)}</b><span>{airlineName(viewStep.phase === "arrival" ? step.nextFlight : step.previousFlight, language)}</span>{viewStep.phase !== "arrival" && step.nextFlight && <><i>→</i><b>{flightLabel(step.nextFlight)}</b><span>{airlineName(step.nextFlight, language)}</span></>}</div>
         <p className="episode-explanation">{explanation}</p>
+        <details className="episode-weather-note clarity-details">
+          <summary>{t.weatherDetails}</summary>
+          <div className="clarity-details-inner">
+          <div className="episode-weather-head">
+            <div><span>{language === "zh" ? "当前观察点天气" : "Weather at this observation"}</span><small>{viewStep.phase === "arrival" ? (language === "zh" ? "实际到达前报告" : "report before actual arrival") : (language === "zh" ? "计划起飞前报告" : "report before scheduled departure")}</small></div>
+            <div className="episode-weather-tolerance" role="radiogroup" aria-label={language === "zh" ? "案例天气报告匹配范围" : "Case weather-report matching window"}>
+              {([60, 90] as const).map(value => <button type="button" role="radio" aria-checked={weatherTolerance === value} className={weatherTolerance === value ? "is-active" : ""} key={value} onClick={() => setWeatherTolerance(value)}>{value} min</button>)}
+            </div>
+          </div>
+          <p className="episode-weather-help">{language === "zh" ? "60 / 90 分钟表示：只从当前航班事件发生前这段时间内，寻找最近的天气报告；它不代表观察这场延误 60 或 90 分钟。" : "60 / 90 minutes limits the search to reports issued within that period before this flight event; it is not the length of delay observation."}</p>
+          {weatherNote?.available ? <div className="episode-weather-body">
+            <div className={`episode-weather-status ${weatherNote.adverse ? "is-adverse" : "is-clear"}`}><strong>{weatherNote.adverse ? (language === "zh" ? "触发恶劣天气条件" : "Candidate adverse") : (language === "zh" ? "未触发恶劣天气条件" : "Non-adverse")}</strong><span>{weatherNote.airport} · {weatherNote.reportType === "METAR_OR_SPECI" ? "METAR/SPECI" : weatherNote.reportType} · {language === "zh" ? `报告早于事件 ${weatherNote.ageMinutes} 分钟` : `${weatherNote.ageMinutes} min before event`}</span></div>
+            <div className="episode-weather-values"><span>{language === "zh" ? "能见度" : "Visibility"}<b>{weatherNumber(weatherNote.values?.visibilityKm, "km")}</b></span><span>{language === "zh" ? "云底" : "Ceiling"}<b>{weatherNumber(weatherNote.values?.ceilingFt, "ft")}</b></span><span>{language === "zh" ? "风速" : "Wind"}<b>{weatherNumber(weatherNote.values?.windSpeedMps, "m/s")}</b></span><span>{language === "zh" ? "阵风" : "Gust"}<b>{weatherNumber(weatherNote.values?.windGustMps, "m/s")}</b></span></div>
+            <p>{language === "zh" ? "报告 UTC" : "Report UTC"}: {weatherNote.observedUTC} {weatherNote.flags?.length ? ` · ${weatherNote.flags.map(flag => weatherFlag(flag, language)).join(" / ")}` : ` · ${language === "zh" ? "未触发候选天气标签" : "no candidate-weather flag"}`}</p>
+          </div> : <div className="episode-weather-unavailable"><strong>unavailable</strong><span>{weatherMissing(weatherNote?.reason, language)} · {weatherTolerance} min</span></div>}
+          </div>
+        </details>
         <div className="episode-step-metrics"><div><span>{t.arrival}</span><strong>{step.prevArrivalDelay} min</strong></div><div><span>{t.turn}</span><strong>{step.plannedTurnMinutes} / {step.actualTurnMinutes} min</strong></div><div><span>{t.departure}</span><strong>{step.nextDepartureDelay} min</strong></div><div><span>{viewStep.phase === "arrival" ? t.nextArrival : t.delta}</span><strong>{viewStep.phase === "arrival" ? `${step.nextArrivalDelay} min` : `${step.delayDelta > 0 ? "+" : ""}${step.delayDelta} min`}</strong></div></div>
         <p className="episode-time">{t.time} · {utc(step.prevActualArrivalUTC, language)} → {utc(viewStep.phase === "arrival" ? step.nextActualArrivalUTC : step.nextActualDepartureUTC, language)}</p>
       </article><aside className="episode-summary"><span>{t.summary} · {threshold} MIN</span><div className="episode-summary-grid"><div><small>{t.depth}</small><strong>{view.depth}</strong></div><div><small>{t.observed}</small><strong>{view.observationCount}</strong></div><div><small>{t.arrival}</small><strong>{episode.initialArrivalDelay} min</strong></div><div><small>{t.maxDeparture}</small><strong>{view.maxDepartureDelay} min</strong></div><div><small>{t.amplification}</small><strong>+{view.cumulativeAmplificationMinutes} min</strong></div><div><small>{t.duration}</small><strong>{durationText(view.durationMinutes, language)}</strong></div><div><small>{t.airports}</small><strong>{view.uniqueAirportsTouched}</strong></div><div><small>{t.outcome}</small><strong>{view.outcome === "censored" ? t.censored : t.recovered}</strong></div></div>

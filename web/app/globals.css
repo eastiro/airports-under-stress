@@ -1888,7 +1888,75 @@ a:focus-visible {
 .link-list-more { display: block; margin: 14px auto 0; padding: 9px 18px; border: 1px solid var(--line-bright); border-radius: 3px; background: transparent; color: var(--muted); cursor: pointer; font: 700 11px/1 var(--mono); }
 .link-list-more:hover, .link-list-more:focus-visible { border-color: var(--mint); color: var(--mint); outline: none; }
 
+.weather-stratification{margin-top:24px;border-top:1px solid var(--line);padding-top:20px}.weather-stratification-heading{display:flex;justify-content:space-between;gap:24px;align-items:end}.weather-stratification-heading h3{margin:4px 0}.weather-stratification-heading p{max-width:620px;color:var(--muted);font-size:12px}.weather-tolerance-toggle{display:flex;gap:6px;margin:14px 0}.weather-tolerance-toggle button{background:transparent;border:1px solid var(--line);color:var(--muted);padding:6px 10px}.weather-tolerance-toggle button.active{border-color:var(--mint);color:var(--mint)}.weather-national-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.weather-national-grid>div,.weather-category-row>div{border:1px solid var(--line);padding:10px}.weather-national-grid small,.weather-national-grid span,.weather-category-row span{display:block;color:var(--muted);font-size:11px}.weather-national-grid strong{display:block;font-size:20px;margin:3px 0}.weather-category-row{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:8px}.weather-category-row strong{text-transform:capitalize;font-size:11px}.weather-airport-strip{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}.weather-airport-strip button,.weather-insufficient{font-size:11px;padding:5px 7px;border:1px solid var(--line);background:transparent;color:var(--muted)}.weather-airport-strip button.is-selected{border-color:var(--mint);color:var(--mint)}.weather-airport-strip button span{margin-left:5px}.weather-scope-note{color:var(--muted);font-size:11px}.episode-weather-note{display:flex;gap:10px;align-items:center;margin:12px 0;padding:8px 10px;border-left:2px solid var(--mint);background:rgba(102,240,210,.05);font-size:12px}.episode-weather-note span{color:var(--muted)}
 .mechanism-disclaimer { color: var(--quiet); font: 600 11px/1.55 var(--body); margin-top: 20px; padding: 10px 14px; border-left: 2px solid var(--line); }
+
+/* V2-A weather stratification: desktop-first, readable and tied to one airport state. */
+.weather-toolbar { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin: 16px 0; }
+.weather-reading-guide, .weather-category-help, .episode-weather-help { margin: 10px 0 0; max-width: 920px; color: var(--muted); font-size: 12px; line-height: 1.65; }
+.weather-reading-guide { padding: 10px 12px; border-left: 2px solid var(--mint); background: rgba(102,240,210,.045); }
+.weather-category-help { margin: 12px 0 8px; }
+.weather-airport-select { display: grid; gap: 6px; min-width: 260px; color: var(--muted); font-size: 12px; }
+.weather-airport-select select { min-height: 38px; border: 1px solid var(--line-bright); border-radius: 3px; padding: 0 12px; background: var(--surface); color: var(--ink); font: 700 12px/1 var(--mono); }
+.weather-national-grid small, .weather-national-grid span, .weather-national-grid em { font-size: 12px; line-height: 1.5; }
+.weather-national-grid em { display: block; margin-top: 5px; color: var(--mint); font-style: normal; }
+.weather-category-row strong { font-size: 12px; text-transform: none; }
+.weather-category-row span { margin-top: 5px; font-size: 11px; }
+.weather-selected-airport { margin-top: 12px; border: 1px solid var(--line-bright); background: rgba(11,18,20,.72); padding: 16px; }
+.weather-selected-airport.is-insufficient { border-color: rgba(255,188,82,.55); }
+.weather-selected-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.weather-selected-heading > div { display: flex; align-items: baseline; gap: 10px; }
+.weather-selected-heading strong { color: var(--mint); font: 800 22px/1 var(--mono); }
+.weather-selected-heading span, .weather-selected-heading small { font-size: 12px; color: var(--muted); }
+.weather-selected-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; padding-top: 14px; }
+.weather-selected-grid > div { display: grid; gap: 5px; }
+.weather-selected-grid span { color: var(--muted); font-size: 12px; }
+.weather-selected-grid strong { font: 800 22px/1.1 var(--mono); }
+.weather-selected-grid small { color: var(--quiet); font-size: 11px; line-height: 1.5; }
+.weather-airport-browser { display: flex; gap: 7px; overflow-x: auto; margin-top: 12px; padding: 2px 0 10px; scrollbar-color: var(--line-bright) transparent; }
+.weather-airport-browser button { flex: 0 0 116px; display: grid; justify-items: start; gap: 4px; min-height: 54px; border: 1px solid var(--line); border-radius: 3px; padding: 8px 10px; background: transparent; color: var(--muted); cursor: pointer; }
+.weather-airport-browser button b { color: var(--ink); font: 800 13px/1 var(--mono); }
+.weather-airport-browser button span { font-size: 11px; white-space: nowrap; }
+.weather-airport-browser button.is-selected { border-color: var(--mint); background: rgba(102,240,210,.06); color: var(--mint); }
+.weather-scope-note { font-size: 12px; line-height: 1.6; }
+.weather-adjusted-block { margin-top: 14px; padding: 18px; border: 1px solid var(--line-bright); background: linear-gradient(135deg, rgba(102,240,210,.055), rgba(11,18,20,.78) 55%); }
+.weather-adjusted-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; }
+.weather-adjusted-heading h4 { margin: 5px 0 0; font-size: clamp(19px, 2vw, 27px); }
+.weather-adjusted-heading p { max-width: 620px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+.weather-adjusted-flow { display: grid; grid-template-columns: minmax(0,1fr) 24px minmax(0,1fr) 24px minmax(0,1.15fr); align-items: stretch; gap: 8px; margin-top: 16px; }
+.weather-adjusted-flow > i { display: grid; place-items: center; color: var(--quiet); font-style: normal; }
+.weather-adjusted-flow article { display: grid; align-content: start; gap: 7px; min-height: 154px; padding: 15px; border: 1px solid var(--line); background: rgba(6,12,14,.48); }
+.weather-adjusted-flow article.is-primary { border-color: rgba(102,240,210,.58); box-shadow: inset 0 2px 0 rgba(102,240,210,.72); }
+.weather-adjusted-flow small { color: var(--muted); font-size: 13px; font-weight: 750; }
+.weather-adjusted-flow strong { color: var(--ink); font: 850 clamp(24px, 2.4vw, 36px)/1 var(--mono); letter-spacing: -.04em; }
+.weather-adjusted-flow article.is-primary strong { color: var(--mint); }
+.weather-adjusted-flow span { color: var(--muted); font-size: 13px; line-height: 1.5; }
+.weather-adjusted-flow em { margin-top: auto; color: var(--mint); font-size: 13px; font-style: normal; }
+.weather-estimate-help { margin: 10px 0 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.weather-adjusted-boundary { margin: 12px 0 0; padding: 10px 12px; border-left: 2px solid var(--amber); background: rgba(255,188,82,.045); color: var(--muted); font-size: 13px; line-height: 1.65; }
+.episode-weather-note { margin: 14px 0; border: 1px solid var(--line); border-left: 3px solid var(--mint); background: rgba(102,240,210,.03); }
+.episode-weather-note > summary { padding: 12px 14px; }
+.episode-weather-note > .clarity-details-inner { padding: 4px 14px 14px; }
+.episode-weather-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.episode-weather-help { margin: 10px 0 12px; }
+.episode-weather-head > div:first-child { display: grid; gap: 3px; }
+.episode-weather-head span { color: var(--ink); font-size: 12px; font-weight: 800; }
+.episode-weather-head small { color: var(--muted); font-size: 11px; }
+.episode-weather-tolerance { display: flex; gap: 5px; }
+.episode-weather-tolerance button { min-height: 30px; border: 1px solid var(--line); background: transparent; color: var(--muted); padding: 0 9px; font: 700 11px/1 var(--mono); }
+.episode-weather-tolerance button.is-active { border-color: var(--mint); color: var(--mint); }
+.episode-weather-body { display: grid; gap: 10px; margin-top: 12px; }
+.episode-weather-status { display: flex; align-items: baseline; gap: 10px; }
+.episode-weather-status strong { font-size: 14px; }
+.episode-weather-status.is-adverse strong { color: var(--amber); }
+.episode-weather-status.is-clear strong { color: var(--green); }
+.episode-weather-status span { color: var(--muted); font-size: 11px; }
+.episode-weather-values { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 7px; }
+.episode-weather-values span { display: grid; gap: 4px; border: 1px solid var(--line); padding: 8px; color: var(--muted); font-size: 11px; }
+.episode-weather-values b { color: var(--ink); font: 700 12px/1.2 var(--mono); }
+.episode-weather-body p { margin: 0; color: var(--quiet); font-size: 11px; line-height: 1.5; overflow-wrap: anywhere; }
+.episode-weather-unavailable { display: flex; gap: 10px; margin-top: 12px; color: var(--muted); font-size: 12px; }
+.episode-weather-unavailable strong { color: var(--amber); }
 
 @media (max-width: 520px) {
   .mechanism-stats { gap: 14px; }
@@ -1981,6 +2049,110 @@ a:focus-visible {
 .episode-count-rule { background: rgba(102,240,210,.055); border-left: 2px solid var(--mint); color: var(--muted); font: 500 13px/1.55 var(--body); margin: 0 0 12px; padding: 8px 11px; }
 .episode-censor-note { border-left: 2px solid #ffcf7b; padding-left: 10px; }
 .episode-censor-note strong { color: #ffcf7b; }
+
+/* V3-A scheduled-congestion section */
+.congestion-toolbar { display: flex; align-items: end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin: 8px 0 28px; }
+.congestion-window-toggle { display: flex; gap: 6px; }
+.congestion-window-toggle button { background: transparent; border: 1px solid var(--line); color: var(--muted); padding: 8px 14px; font: 700 12px/1 var(--mono); cursor: pointer; }
+.congestion-window-toggle button.is-active { border-color: var(--mint); color: var(--mint); }
+.congestion-window-toggle button:focus-visible { outline: 2px solid var(--mint); outline-offset: 2px; }
+.congestion-window-help { max-width: 720px; margin: 6px 0 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
+
+.congestion-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.congestion-grid > div { border: 1px solid var(--line); padding: 14px 16px; background: rgba(7,17,19,.62); }
+.congestion-grid small { display: block; color: var(--muted); font-size: 12px; }
+.congestion-grid strong { display: block; margin: 6px 0 4px; color: var(--ink); font: 800 26px/1 var(--mono); }
+.congestion-grid span { display: block; color: var(--quiet); font-size: 12px; }
+.congestion-grid > div.is-highlight { border-color: rgba(102,240,210,.5); }
+.congestion-grid > div.is-highlight strong { color: var(--mint); }
+
+.congestion-bars { display: grid; gap: 10px; margin: 22px 0; }
+.congestion-bar-row { display: grid; grid-template-columns: 150px 1fr 64px; align-items: center; gap: 12px; }
+.congestion-bar-row > span:first-child { color: var(--muted); font-size: 12px; }
+.congestion-bar-track { height: 14px; border: 1px solid var(--line); border-radius: 2px; overflow: hidden; background: var(--surface); }
+.congestion-bar-track i { display: block; height: 100%; background: linear-gradient(90deg, var(--mint-soft), var(--mint)); }
+.congestion-bar-row.is-low .congestion-bar-track i { background: linear-gradient(90deg, rgba(95,109,106,.4), rgba(130,230,167,.7)); }
+.congestion-bar-row > strong { font: 800 14px/1 var(--mono); color: var(--ink); text-align: right; }
+
+.congestion-conclusion { max-width: 860px; margin: 18px 0 22px; color: var(--ink); font-size: 15px; line-height: 1.85; }
+.congestion-conclusion b, .congestion-conclusion strong { color: var(--mint); font-weight: 800; }
+
+.congestion-bars-note { max-width: 860px; margin: 0 0 10px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+
+.congestion-details { margin: 28px 0 8px; border: 1px solid var(--line); border-radius: 4px; background: rgba(7,17,19,.45); }
+.congestion-details > summary { cursor: pointer; list-style: none; padding: 14px 16px; font: 700 14px/1.4 var(--mono); color: var(--mint); }
+.congestion-details > summary:focus-visible { outline: 2px solid var(--mint); outline-offset: 2px; }
+.congestion-details > summary::-webkit-details-marker { display: none; }
+.congestion-details > summary::before { content: "\25B8"; margin-right: 6px; }
+.congestion-details[open] > summary::before { content: "\25BE"; }
+
+/* Site-wide clarity details (readability refactor): one shared visual language. */
+.clarity-details { margin: 28px 0 8px; border: 1px solid var(--line); border-radius: 4px; background: rgba(7,17,19,.45); }
+.clarity-details > summary { cursor: pointer; list-style: none; padding: 14px 16px; font: 700 14px/1.4 var(--mono); color: var(--mint); }
+.clarity-details > summary:focus-visible { outline: 2px solid var(--mint); outline-offset: 2px; }
+.clarity-details > summary::-webkit-details-marker { display: none; }
+.clarity-details > summary::before { content: "\25B8"; margin-right: 6px; }
+.clarity-details[open] > summary::before { content: "\25BE"; }
+.clarity-details-inner { padding: 4px 16px 16px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.clarity-details-inner > p { margin: 10px 0; font-size: 13px; line-height: 1.7; }
+
+/* Closed-state guard: block author display rules (grid/flex) on inner content
+   so collapsed details never leak visible rectangles. Open state is untouched. */
+.clarity-details:not([open]) > .clarity-details-inner,
+.congestion-details:not([open]) > .congestion-detail-inner,
+.episode-weather-note:not([open]) > .clarity-details-inner {
+  display: none !important;
+}
+
+.congestion-detail-inner { padding: 0 16px 18px; }
+.congestion-detail-group { margin-top: 18px; }
+.congestion-detail-group h3 { margin: 0 0 10px; font-size: 15px; color: var(--ink); }
+.congestion-detail-group p { margin: 8px 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.congestion-detail-list { display: grid; gap: 8px; margin: 0 0 8px; padding: 0; }
+.congestion-detail-list li { list-style: none; padding: 10px 12px; border: 1px solid var(--line); border-left: 2px solid var(--mint); background: rgba(7,17,19,.5); color: var(--muted); font-size: 13px; line-height: 1.7; }
+
+.congestion-boundary { margin-top: 8px; padding: 14px 16px; border: 1px solid var(--line); border-left: 3px solid var(--amber); background: rgba(255,188,82,.045); color: var(--muted); font-size: 13px; line-height: 1.7; }
+.congestion-boundary strong { color: var(--amber); }
+
+/* V3-B airport scheduled-congestion explorer: reuses the chapter-06 visual language. */
+.airport-explorer { margin-top: 36px; border-top: 1px solid var(--line); padding-top: 28px; }
+.section-kicker,
+.airport-explorer .section-kicker { display: inline-block; color: var(--mint); font: 700 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; }
+.airport-explorer-subtitle { font-size: 19px; color: var(--ink); margin: 4px 0 0; }
+.airport-explorer-transition { max-width: 860px; margin: 14px 0 20px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+.airport-explorer-grid { margin-top: 6px; }
+.airport-explorer-explanation { max-width: 860px; margin: 18px 0 8px; color: var(--ink); font-size: 15px; line-height: 1.85; }
+.airport-explorer-band { margin: 26px 0 8px; padding: 16px; border: 1px solid var(--line); border-radius: 4px; background: rgba(7,17,19,.45); }
+.airport-explorer-band-title { display: block; color: var(--mint); font: 700 12px/1.3 var(--mono); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 12px; }
+.airport-explorer-band-rows { display: grid; gap: 10px; }
+.airport-explorer-band-row { display: grid; grid-template-columns: 120px 1fr 64px; align-items: center; gap: 12px; }
+.airport-explorer-band-row.is-primary { background: rgba(102,240,210,.05); border: 1px solid rgba(102,240,210,.35); border-radius: 3px; padding: 4px 8px; }
+.airport-explorer-band-window { color: var(--muted); font-size: 12px; }
+.airport-explorer-band-row.is-primary .airport-explorer-band-window { color: var(--mint); }
+.airport-explorer-band-track { display: flex; flex-direction: column; gap: 4px; }
+.airport-explorer-band-track i { display: block; height: 9px; border-radius: 2px; }
+.airport-explorer-band-track i.is-low { background: linear-gradient(90deg, rgba(95,109,106,.4), rgba(130,230,167,.7)); }
+.airport-explorer-band-track i.is-high { background: linear-gradient(90deg, var(--mint-soft), var(--mint)); }
+.airport-explorer-band-gap { font: 800 14px/1 var(--mono); color: var(--ink); text-align: right; }
+.airport-explorer-band-gap em { color: var(--muted); font-style: normal; font-size: 12px; }
+.airport-explorer-band-note { margin: 12px 0 4px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.airport-explorer-band-direction { margin: 6px 0 0; color: var(--quiet); font-size: 13px; line-height: 1.7; }
+.airport-explorer-details { margin-top: 28px; }
+.airport-explorer-details .clarity-details-inner h4 { margin: 18px 0 10px; font-size: 15px; color: var(--ink); }
+.airport-explorer-detail-table { display: grid; gap: 6px; margin: 0 0 8px; }
+.airport-explorer-detail-head,
+.airport-explorer-detail-row { display: grid; grid-template-columns: 92px 126px 64px 94px 90px 1fr; gap: 10px; align-items: center; }
+.airport-explorer-detail-head { color: var(--quiet); font: 600 12px/1.3 var(--body); border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+.airport-explorer-detail-row { color: var(--muted); font-size: 13px; line-height: 1.6; padding: 8px 10px; border: 1px solid var(--line); border-left: 2px solid var(--mint); background: rgba(7,17,19,.5); }
+.airport-explorer-detail-row span:first-child { color: var(--ink); font-weight: 700; }
+.airport-explorer-detail-window { margin-top: 8px; }
+.airport-explorer-detail-window + .airport-explorer-detail-window { margin-top: 4px; }
+
+@media (max-width: 760px) {
+  .congestion-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .congestion-bar-row { grid-template-columns: 110px 1fr 56px; }
+  .congestion-detail-inner { padding: 0 12px 16px; }
+}
 .episode-controls { align-items: center; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 0; }
 .episode-controls button { border: 1px solid var(--line); border-radius: 3px; background: rgba(7,17,19,.68); color: var(--muted); cursor: pointer; font: 700 12px/1.35 var(--mono); padding: 10px 12px; }
 .episode-controls button:hover { border-color: var(--mint); color: var(--mint); }

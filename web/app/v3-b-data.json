@@ -1,0 +1,3124 @@
+{
+  "airportThreshold": 100,
+  "airports": {
+    "ATL": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 11.06893428,
+          "high": {
+            "n": 1037,
+            "propagated": 627,
+            "rate": 0.6046287367405979,
+            "wilsonLower": 0.5745369049427012,
+            "wilsonUpper": 0.6339482569049715
+          },
+          "low": {
+            "n": 1320,
+            "propagated": 652,
+            "rate": 0.49393939393939396,
+            "wilsonLower": 0.4670249997329996,
+            "wilsonUpper": 0.5208889608901606
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 15.44852216,
+          "high": {
+            "n": 964,
+            "propagated": 597,
+            "rate": 0.6192946058091287,
+            "wilsonLower": 0.5882267685582128,
+            "wilsonUpper": 0.649415458796103
+          },
+          "low": {
+            "n": 1364,
+            "propagated": 634,
+            "rate": 0.46480938416422285,
+            "wilsonLower": 0.4384765236996957,
+            "wilsonUpper": 0.4913399039418761
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 15.24269992,
+          "high": {
+            "n": 955,
+            "propagated": 582,
+            "rate": 0.6094240837696335,
+            "wilsonLower": 0.5781018741296575,
+            "wilsonUpper": 0.6398695100625269
+          },
+          "low": {
+            "n": 1372,
+            "propagated": 627,
+            "rate": 0.45699708454810495,
+            "wilsonLower": 0.43079470822478516,
+            "wilsonUpper": 0.48343959599428965
+          }
+        }
+      }
+    },
+    "AUS": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 59.83772032,
+          "high": {
+            "n": 477,
+            "propagated": 414,
+            "rate": 0.8679245283018868,
+            "wilsonLower": 0.8345806416551342,
+            "wilsonUpper": 0.8953896917284685
+          },
+          "low": {
+            "n": 486,
+            "propagated": 131,
+            "rate": 0.26954732510288065,
+            "wilsonLower": 0.2320183630246032,
+            "wilsonUpper": 0.3106908218220904
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 67.61627498,
+          "high": {
+            "n": 418,
+            "propagated": 371,
+            "rate": 0.8875598086124402,
+            "wilsonLower": 0.8536784121179738,
+            "wilsonUpper": 0.9143826525905044
+          },
+          "low": {
+            "n": 544,
+            "propagated": 115,
+            "rate": 0.2113970588235294,
+            "wilsonLower": 0.17917088558280425,
+            "wilsonUpper": 0.247670593928569
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 70.32777575,
+          "high": {
+            "n": 415,
+            "propagated": 375,
+            "rate": 0.9036144578313253,
+            "wilsonLower": 0.8714080973713074,
+            "wilsonUpper": 0.9284172134831594
+          },
+          "low": {
+            "n": 594,
+            "propagated": 119,
+            "rate": 0.20033670033670034,
+            "wilsonLower": 0.17012044405746762,
+            "wilsonUpper": 0.23440395827781402
+          }
+        }
+      }
+    },
+    "BNA": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 28.44192635,
+          "high": {
+            "n": 840,
+            "propagated": 672,
+            "rate": 0.8,
+            "wilsonLower": 0.7716113315538025,
+            "wilsonUpper": 0.8256572604686403
+          },
+          "low": {
+            "n": 706,
+            "propagated": 364,
+            "rate": 0.5155807365439093,
+            "wilsonLower": 0.4787320084159945,
+            "wilsonUpper": 0.5522608276977907
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 36.49408128,
+          "high": {
+            "n": 830,
+            "propagated": 730,
+            "rate": 0.8795180722891566,
+            "wilsonLower": 0.8556058040280519,
+            "wilsonUpper": 0.8999335054361379
+          },
+          "low": {
+            "n": 686,
+            "propagated": 353,
+            "rate": 0.5145772594752187,
+            "wilsonLower": 0.4772002929369848,
+            "wilsonUpper": 0.5517918758349396
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 33.80938787,
+          "high": {
+            "n": 791,
+            "propagated": 691,
+            "rate": 0.8735777496839444,
+            "wilsonLower": 0.8485987048976006,
+            "wilsonUpper": 0.894945801294699
+          },
+          "low": {
+            "n": 775,
+            "propagated": 415,
+            "rate": 0.535483870967742,
+            "wilsonLower": 0.5002818842214607,
+            "wilsonUpper": 0.5703358254254807
+          }
+        }
+      }
+    },
+    "BOS": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 5.4274223,
+          "high": {
+            "n": 625,
+            "propagated": 315,
+            "rate": 0.504,
+            "wilsonLower": 0.46489744152571305,
+            "wilsonUpper": 0.5430536881745723
+          },
+          "low": {
+            "n": 547,
+            "propagated": 246,
+            "rate": 0.44972577696526506,
+            "wilsonLower": 0.4085318616606361,
+            "wilsonUpper": 0.4916208971426855
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 19.64241148,
+          "high": {
+            "n": 587,
+            "propagated": 363,
+            "rate": 0.6183986371379898,
+            "wilsonLower": 0.578451441312607,
+            "wilsonUpper": 0.6568062541738284
+          },
+          "low": {
+            "n": 628,
+            "propagated": 265,
+            "rate": 0.42197452229299365,
+            "wilsonLower": 0.38393712071694547,
+            "wilsonUpper": 0.4609606797804879
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 31.97577063,
+          "high": {
+            "n": 575,
+            "propagated": 369,
+            "rate": 0.6417391304347826,
+            "wilsonLower": 0.6017258120371021,
+            "wilsonUpper": 0.6798711563833855
+          },
+          "low": {
+            "n": 646,
+            "propagated": 208,
+            "rate": 0.3219814241486068,
+            "wilsonLower": 0.287094688368707,
+            "wilsonUpper": 0.35897283028823646
+          }
+        }
+      }
+    },
+    "BWI": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 13.10540663,
+          "high": {
+            "n": 372,
+            "propagated": 273,
+            "rate": 0.7338709677419355,
+            "wilsonLower": 0.6867378604992278,
+            "wilsonUpper": 0.7762233054827605
+          },
+          "low": {
+            "n": 355,
+            "propagated": 214,
+            "rate": 0.6028169014084507,
+            "wilsonLower": 0.5510769531962878,
+            "wilsonUpper": 0.652355504803156
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 18.35898483,
+          "high": {
+            "n": 337,
+            "propagated": 249,
+            "rate": 0.7388724035608308,
+            "wilsonLower": 0.689470650647097,
+            "wilsonUpper": 0.7828897263946438
+          },
+          "low": {
+            "n": 407,
+            "propagated": 226,
+            "rate": 0.5552825552825553,
+            "wilsonLower": 0.5067110270861085,
+            "wilsonUpper": 0.6028202751567834
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 22.12440231,
+          "high": {
+            "n": 333,
+            "propagated": 258,
+            "rate": 0.7747747747747747,
+            "wilsonLower": 0.7269212876066691,
+            "wilsonUpper": 0.816361005020539
+          },
+          "low": {
+            "n": 439,
+            "propagated": 243,
+            "rate": 0.5535307517084282,
+            "wilsonLower": 0.5067630418789018,
+            "wilsonUpper": 0.599369749132046
+          }
+        }
+      }
+    },
+    "CLE": {
+      "direction60": "higher",
+      "directionLabel": "mixed",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": -0.45537862,
+          "high": {
+            "n": 172,
+            "propagated": 67,
+            "rate": 0.38953488372093026,
+            "wilsonLower": 0.3198316697547466,
+            "wilsonUpper": 0.4640645726055454
+          },
+          "low": {
+            "n": 203,
+            "propagated": 80,
+            "rate": 0.39408866995073893,
+            "wilsonLower": 0.3294332701134699,
+            "wilsonUpper": 0.4626780394607115
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 9.10547786,
+          "high": {
+            "n": 156,
+            "propagated": 86,
+            "rate": 0.5512820512820513,
+            "wilsonLower": 0.47293572397126493,
+            "wilsonUpper": 0.6271634625479746
+          },
+          "low": {
+            "n": 176,
+            "propagated": 81,
+            "rate": 0.4602272727272727,
+            "wilsonLower": 0.3882276996884185,
+            "wilsonUpper": 0.5339259566942385
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 27.37674985,
+          "high": {
+            "n": 155,
+            "propagated": 98,
+            "rate": 0.632258064516129,
+            "wilsonLower": 0.5540045004820472,
+            "wilsonUpper": 0.7041145089025383
+          },
+          "low": {
+            "n": 159,
+            "propagated": 57,
+            "rate": 0.3584905660377358,
+            "wilsonLower": 0.28809755273467796,
+            "wilsonUpper": 0.4355600445019704
+          }
+        }
+      }
+    },
+    "CLT": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 1.56509099,
+          "high": {
+            "n": 487,
+            "propagated": 262,
+            "rate": 0.5379876796714579,
+            "wilsonLower": 0.4935841128190743,
+            "wilsonUpper": 0.5817966426877994
+          },
+          "low": {
+            "n": 582,
+            "propagated": 304,
+            "rate": 0.5223367697594502,
+            "wilsonLower": 0.48174230016995045,
+            "wilsonUpper": 0.5626383076012004
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 3.63445378,
+          "high": {
+            "n": 420,
+            "propagated": 216,
+            "rate": 0.5142857142857142,
+            "wilsonLower": 0.46657446046750145,
+            "wilsonUpper": 0.5617380128648363
+          },
+          "low": {
+            "n": 680,
+            "propagated": 325,
+            "rate": 0.47794117647058826,
+            "wilsonLower": 0.4406264825787353,
+            "wilsonUpper": 0.5155036999174591
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 9.01033544,
+          "high": {
+            "n": 476,
+            "propagated": 271,
+            "rate": 0.569327731092437,
+            "wilsonLower": 0.5244641278877399,
+            "wilsonUpper": 0.6130813025596585
+          },
+          "low": {
+            "n": 722,
+            "propagated": 346,
+            "rate": 0.4792243767313019,
+            "wilsonLower": 0.44299106284612455,
+            "wilsonUpper": 0.5156775973200468
+          }
+        }
+      }
+    },
+    "CMH": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 13.97399088,
+          "high": {
+            "n": 191,
+            "propagated": 92,
+            "rate": 0.4816753926701571,
+            "wilsonLower": 0.4118763984393767,
+            "wilsonUpper": 0.552196956162008
+          },
+          "low": {
+            "n": 155,
+            "propagated": 53,
+            "rate": 0.3419354838709677,
+            "wilsonLower": 0.2718904152661786,
+            "wilsonUpper": 0.41962589059126804
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 26.61866359,
+          "high": {
+            "n": 155,
+            "propagated": 98,
+            "rate": 0.632258064516129,
+            "wilsonLower": 0.5540045004820472,
+            "wilsonUpper": 0.7041145089025383
+          },
+          "low": {
+            "n": 224,
+            "propagated": 82,
+            "rate": 0.36607142857142855,
+            "wilsonLower": 0.3057376729938188,
+            "wilsonUpper": 0.4309213165045823
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 43.81920747,
+          "high": {
+            "n": 166,
+            "propagated": 114,
+            "rate": 0.6867469879518072,
+            "wilsonLower": 0.6126408939004646,
+            "wilsonUpper": 0.7524054288908095
+          },
+          "low": {
+            "n": 173,
+            "propagated": 43,
+            "rate": 0.24855491329479767,
+            "wilsonLower": 0.1900866581041888,
+            "wilsonUpper": 0.31794725781022115
+          }
+        }
+      }
+    },
+    "CVG": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 3.72516556,
+          "high": {
+            "n": 104,
+            "propagated": 39,
+            "rate": 0.375,
+            "wilsonLower": 0.28797271960861714,
+            "wilsonUpper": 0.4709326189844958
+          },
+          "low": {
+            "n": 151,
+            "propagated": 51,
+            "rate": 0.33774834437086093,
+            "wilsonLower": 0.2671724563899964,
+            "wilsonUpper": 0.4163748288578013
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 25.40740741,
+          "high": {
+            "n": 135,
+            "propagated": 73,
+            "rate": 0.5407407407407407,
+            "wilsonLower": 0.4567139794723165,
+            "wilsonUpper": 0.6225130762892186
+          },
+          "low": {
+            "n": 150,
+            "propagated": 43,
+            "rate": 0.2866666666666667,
+            "wilsonLower": 0.22033812687205268,
+            "wilsonUpper": 0.36364917739166003
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 29.92666744,
+          "high": {
+            "n": 121,
+            "propagated": 72,
+            "rate": 0.5950413223140496,
+            "wilsonLower": 0.5059583762528783,
+            "wilsonUpper": 0.6782752927323119
+          },
+          "low": {
+            "n": 142,
+            "propagated": 42,
+            "rate": 0.29577464788732394,
+            "wilsonLower": 0.2268885962910116,
+            "wilsonUpper": 0.3754192764565551
+          }
+        }
+      }
+    },
+    "DAL": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 22.5903569,
+          "high": {
+            "n": 290,
+            "propagated": 247,
+            "rate": 0.8517241379310345,
+            "wilsonLower": 0.8062338643093815,
+            "wilsonUpper": 0.8880180660299771
+          },
+          "low": {
+            "n": 457,
+            "propagated": 286,
+            "rate": 0.6258205689277899,
+            "wilsonLower": 0.5805781453995404,
+            "wilsonUpper": 0.6689653750430173
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 42.14696964,
+          "high": {
+            "n": 378,
+            "propagated": 347,
+            "rate": 0.917989417989418,
+            "wilsonLower": 0.8859441299607442,
+            "wilsonUpper": 0.9416244661156392
+          },
+          "low": {
+            "n": 431,
+            "propagated": 214,
+            "rate": 0.4965197215777262,
+            "wilsonLower": 0.4495564904123769,
+            "wilsonUpper": 0.5435444434127092
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 45.42938078,
+          "high": {
+            "n": 409,
+            "propagated": 384,
+            "rate": 0.9388753056234719,
+            "wilsonLower": 0.9113252024058307,
+            "wilsonUpper": 0.9582580052146068
+          },
+          "low": {
+            "n": 454,
+            "propagated": 220,
+            "rate": 0.4845814977973568,
+            "wilsonLower": 0.43893298401287606,
+            "wilsonUpper": 0.5304887454301911
+          }
+        }
+      }
+    },
+    "DCA": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 18.36715833,
+          "high": {
+            "n": 710,
+            "propagated": 450,
+            "rate": 0.6338028169014085,
+            "wilsonLower": 0.5977341969862102,
+            "wilsonUpper": 0.6684313467101319
+          },
+          "low": {
+            "n": 762,
+            "propagated": 343,
+            "rate": 0.45013123359580054,
+            "wilsonLower": 0.4151452050742798,
+            "wilsonUpper": 0.4856175453296602
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 28.87202849,
+          "high": {
+            "n": 721,
+            "propagated": 458,
+            "rate": 0.6352288488210819,
+            "wilsonLower": 0.599461793416655,
+            "wilsonUpper": 0.6695625533932835
+          },
+          "low": {
+            "n": 759,
+            "propagated": 263,
+            "rate": 0.3465085638998682,
+            "wilsonLower": 0.31350446153179296,
+            "wilsonUpper": 0.381058547195861
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 35.27145155,
+          "high": {
+            "n": 682,
+            "propagated": 457,
+            "rate": 0.6700879765395894,
+            "wilsonLower": 0.6339338681126557,
+            "wilsonUpper": 0.7043367292917714
+          },
+          "low": {
+            "n": 731,
+            "propagated": 232,
+            "rate": 0.3173734610123119,
+            "wilsonLower": 0.28466128237432353,
+            "wilsonUpper": 0.35199503744125504
+          }
+        }
+      }
+    },
+    "DEN": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 11.304328,
+          "high": {
+            "n": 1077,
+            "propagated": 708,
+            "rate": 0.6573816155988857,
+            "wilsonLower": 0.6285235875573849,
+            "wilsonUpper": 0.6851209319356799
+          },
+          "low": {
+            "n": 1466,
+            "propagated": 798,
+            "rate": 0.5443383356070941,
+            "wilsonLower": 0.5187615976748613,
+            "wilsonUpper": 0.5696833153597075
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 13.98527219,
+          "high": {
+            "n": 1093,
+            "propagated": 726,
+            "rate": 0.6642268984446478,
+            "wilsonLower": 0.6356973848814749,
+            "wilsonUpper": 0.691606070976212
+          },
+          "low": {
+            "n": 1518,
+            "propagated": 796,
+            "rate": 0.5243741765480896,
+            "wilsonLower": 0.4992216461027753,
+            "wilsonUpper": 0.5494036555481233
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 21.56180285,
+          "high": {
+            "n": 1278,
+            "propagated": 946,
+            "rate": 0.7402190923317684,
+            "wilsonLower": 0.7154826876215475,
+            "wilsonUpper": 0.7635157062710057
+          },
+          "low": {
+            "n": 1504,
+            "propagated": 789,
+            "rate": 0.5246010638297872,
+            "wilsonLower": 0.49933173020514565,
+            "wilsonUpper": 0.5497450474408785
+          }
+        }
+      }
+    },
+    "DFW": {
+      "direction60": "higher",
+      "directionLabel": "mixed",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": -6.46589881,
+          "high": {
+            "n": 1268,
+            "propagated": 668,
+            "rate": 0.526813880126183,
+            "wilsonLower": 0.4992932714660531,
+            "wilsonUpper": 0.5541725119681908
+          },
+          "low": {
+            "n": 1290,
+            "propagated": 763,
+            "rate": 0.5914728682170542,
+            "wilsonLower": 0.5644152892618718,
+            "wilsonUpper": 0.6179872751258148
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 4.05967471,
+          "high": {
+            "n": 1320,
+            "propagated": 769,
+            "rate": 0.5825757575757575,
+            "wilsonLower": 0.5557709605221353,
+            "wilsonUpper": 0.6089013259873073
+          },
+          "low": {
+            "n": 1334,
+            "propagated": 723,
+            "rate": 0.5419790104947526,
+            "wilsonLower": 0.5151601413635455,
+            "wilsonUpper": 0.568556803765908
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 23.33847095,
+          "high": {
+            "n": 1278,
+            "propagated": 877,
+            "rate": 0.6862284820031299,
+            "wilsonLower": 0.6602620143694768,
+            "wilsonUpper": 0.7110787600488544
+          },
+          "low": {
+            "n": 1389,
+            "propagated": 629,
+            "rate": 0.4528437724982001,
+            "wilsonLower": 0.42683220951076123,
+            "wilsonUpper": 0.47911544937719536
+          }
+        }
+      }
+    },
+    "DTW": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 18.44225715,
+          "high": {
+            "n": 344,
+            "propagated": 194,
+            "rate": 0.563953488372093,
+            "wilsonLower": 0.5111294914289007,
+            "wilsonUpper": 0.6153649182633069
+          },
+          "low": {
+            "n": 469,
+            "propagated": 178,
+            "rate": 0.3795309168443497,
+            "wilsonLower": 0.3367591676816782,
+            "wilsonUpper": 0.424260095980541
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 18.82483188,
+          "high": {
+            "n": 364,
+            "propagated": 209,
+            "rate": 0.5741758241758241,
+            "wilsonLower": 0.5228645451098718,
+            "wilsonUpper": 0.6239378304927176
+          },
+          "low": {
+            "n": 469,
+            "propagated": 181,
+            "rate": 0.3859275053304904,
+            "wilsonLower": 0.3429658429116618,
+            "wilsonUpper": 0.4307426633879616
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 20.74850852,
+          "high": {
+            "n": 355,
+            "propagated": 200,
+            "rate": 0.5633802816901409,
+            "wilsonLower": 0.5113817153674017,
+            "wilsonUpper": 0.6140218546322554
+          },
+          "low": {
+            "n": 458,
+            "propagated": 163,
+            "rate": 0.3558951965065502,
+            "wilsonLower": 0.31341161502751924,
+            "wilsonUpper": 0.40077601910766614
+          }
+        }
+      }
+    },
+    "EWR": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 19.82914892,
+          "high": {
+            "n": 187,
+            "propagated": 87,
+            "rate": 0.46524064171123,
+            "wilsonLower": 0.39517002526449546,
+            "wilsonUpper": 0.5367106044459795
+          },
+          "low": {
+            "n": 236,
+            "propagated": 63,
+            "rate": 0.2669491525423729,
+            "wilsonLower": 0.21457311668174917,
+            "wilsonUpper": 0.3267905802334027
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 30.29753266,
+          "high": {
+            "n": 208,
+            "propagated": 116,
+            "rate": 0.5576923076923077,
+            "wilsonLower": 0.4897570420445255,
+            "wilsonUpper": 0.6235352291360369
+          },
+          "low": {
+            "n": 318,
+            "propagated": 81,
+            "rate": 0.25471698113207547,
+            "wilsonLower": 0.20995363725324825,
+            "wilsonUpper": 0.3053356589995646
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 20.81529582,
+          "high": {
+            "n": 252,
+            "propagated": 111,
+            "rate": 0.44047619047619047,
+            "wilsonLower": 0.380531229568261,
+            "wilsonUpper": 0.5022086510660758
+          },
+          "low": {
+            "n": 297,
+            "propagated": 69,
+            "rate": 0.23232323232323232,
+            "wilsonLower": 0.18789738789967153,
+            "wilsonUpper": 0.28358503136765983
+          }
+        }
+      }
+    },
+    "FLL": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 31.82770324,
+          "high": {
+            "n": 346,
+            "propagated": 249,
+            "rate": 0.7196531791907514,
+            "wilsonLower": 0.6701119218938306,
+            "wilsonUpper": 0.7643706020253979
+          },
+          "low": {
+            "n": 436,
+            "propagated": 175,
+            "rate": 0.4013761467889908,
+            "wilsonLower": 0.3564201944726816,
+            "wilsonUpper": 0.4480548083372313
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 48.97408877,
+          "high": {
+            "n": 296,
+            "propagated": 221,
+            "rate": 0.7466216216216216,
+            "wilsonLower": 0.6941298610001361,
+            "wilsonUpper": 0.7927941306794413
+          },
+          "low": {
+            "n": 436,
+            "propagated": 112,
+            "rate": 0.25688073394495414,
+            "wilsonLower": 0.21811742901885448,
+            "wilsonUpper": 0.2998907174427915
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 56.24969439,
+          "high": {
+            "n": 401,
+            "propagated": 315,
+            "rate": 0.7855361596009975,
+            "wilsonLower": 0.742752956594424,
+            "wilsonUpper": 0.8229005727330281
+          },
+          "low": {
+            "n": 408,
+            "propagated": 91,
+            "rate": 0.22303921568627452,
+            "wilsonLower": 0.18533529389963696,
+            "wilsonUpper": 0.26590985114440546
+          }
+        }
+      }
+    },
+    "HNL": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 25.75342466,
+          "high": {
+            "n": 140,
+            "propagated": 84,
+            "rate": 0.6,
+            "wilsonLower": 0.5172255704404097,
+            "wilsonUpper": 0.6774331894857076
+          },
+          "low": {
+            "n": 219,
+            "propagated": 75,
+            "rate": 0.3424657534246575,
+            "wilsonLower": 0.2828179798028193,
+            "wilsonUpper": 0.4075448442194387
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 36.25730994,
+          "high": {
+            "n": 171,
+            "propagated": 116,
+            "rate": 0.6783625730994152,
+            "wilsonLower": 0.6050956401207771,
+            "wilsonUpper": 0.7437918629431134
+          },
+          "low": {
+            "n": 190,
+            "propagated": 60,
+            "rate": 0.3157894736842105,
+            "wilsonLower": 0.25390206137064697,
+            "wilsonUpper": 0.38497808106188125
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 36.77916556,
+          "high": {
+            "n": 159,
+            "propagated": 107,
+            "rate": 0.6729559748427673,
+            "wilsonLower": 0.596705835732357,
+            "wilsonUpper": 0.7410459898672949
+          },
+          "low": {
+            "n": 213,
+            "propagated": 65,
+            "rate": 0.3051643192488263,
+            "wilsonLower": 0.24722949085950152,
+            "wilsonUpper": 0.37000237775362865
+          }
+        }
+      }
+    },
+    "HOU": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 19.63504647,
+          "high": {
+            "n": 248,
+            "propagated": 179,
+            "rate": 0.7217741935483871,
+            "wilsonLower": 0.6629423826976253,
+            "wilsonUpper": 0.773840347656227
+          },
+          "low": {
+            "n": 295,
+            "propagated": 155,
+            "rate": 0.5254237288135594,
+            "wilsonLower": 0.46848045386373366,
+            "wilsonUpper": 0.5817133849001176
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 37.87683494,
+          "high": {
+            "n": 285,
+            "propagated": 233,
+            "rate": 0.8175438596491228,
+            "wilsonLower": 0.7685806086260553,
+            "wilsonUpper": 0.858060735518244
+          },
+          "low": {
+            "n": 294,
+            "propagated": 129,
+            "rate": 0.4387755102040816,
+            "wilsonLower": 0.38320300148094627,
+            "wilsonUpper": 0.4959273246242833
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 42.25901608,
+          "high": {
+            "n": 248,
+            "propagated": 216,
+            "rate": 0.8709677419354839,
+            "wilsonLower": 0.8235210352870775,
+            "wilsonUpper": 0.9070973500320935
+          },
+          "low": {
+            "n": 339,
+            "propagated": 152,
+            "rate": 0.44837758112094395,
+            "wilsonLower": 0.3963093732073276,
+            "wilsonUpper": 0.5016026234327725
+          }
+        }
+      }
+    },
+    "IAD": {
+      "direction60": "higher",
+      "directionLabel": "mixed",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": -5.42635659,
+          "high": {
+            "n": 108,
+            "propagated": 45,
+            "rate": 0.4166666666666667,
+            "wilsonLower": 0.32811500213080924,
+            "wilsonUpper": 0.5109428911602836
+          },
+          "low": {
+            "n": 172,
+            "propagated": 81,
+            "rate": 0.47093023255813954,
+            "wilsonLower": 0.3977853547303402,
+            "wilsonUpper": 0.5453452353644737
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 1.81477101,
+          "high": {
+            "n": 113,
+            "propagated": 51,
+            "rate": 0.45132743362831856,
+            "wilsonLower": 0.36268324217756376,
+            "wilsonUpper": 0.5431720928120422
+          },
+          "low": {
+            "n": 217,
+            "propagated": 94,
+            "rate": 0.43317972350230416,
+            "wilsonLower": 0.3689788526473374,
+            "wilsonUpper": 0.4997052243603875
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 6.79517134,
+          "high": {
+            "n": 144,
+            "propagated": 69,
+            "rate": 0.4791666666666667,
+            "wilsonLower": 0.3991789622770364,
+            "wilsonUpper": 0.5602370226039235
+          },
+          "low": {
+            "n": 214,
+            "propagated": 88,
+            "rate": 0.411214953271028,
+            "wilsonLower": 0.34742011711970583,
+            "wilsonUpper": 0.4781410951228274
+          }
+        }
+      }
+    },
+    "IAH": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 14.70977305,
+          "high": {
+            "n": 496,
+            "propagated": 319,
+            "rate": 0.6431451612903226,
+            "wilsonLower": 0.6000322817128434,
+            "wilsonUpper": 0.6840577982397662
+          },
+          "low": {
+            "n": 506,
+            "propagated": 251,
+            "rate": 0.49604743083003955,
+            "wilsonLower": 0.45267747935153346,
+            "wilsonUpper": 0.5394769444780777
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 23.41506205,
+          "high": {
+            "n": 475,
+            "propagated": 313,
+            "rate": 0.6589473684210526,
+            "wilsonLower": 0.615192275164121,
+            "wilsonUpper": 0.7001521822099075
+          },
+          "low": {
+            "n": 492,
+            "propagated": 209,
+            "rate": 0.4247967479674797,
+            "wilsonLower": 0.3818665906275067,
+            "wilsonUpper": 0.46889215759011693
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 29.65247755,
+          "high": {
+            "n": 485,
+            "propagated": 312,
+            "rate": 0.643298969072165,
+            "wilsonLower": 0.5996937811135025,
+            "wilsonUpper": 0.6846519868075137
+          },
+          "low": {
+            "n": 496,
+            "propagated": 172,
+            "rate": 0.3467741935483871,
+            "wilsonLower": 0.30621107098949873,
+            "wilsonUpper": 0.38969250539925715
+          }
+        }
+      }
+    },
+    "IND": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 8.98264344,
+          "high": {
+            "n": 281,
+            "propagated": 130,
+            "rate": 0.4626334519572954,
+            "wilsonLower": 0.40523229510863534,
+            "wilsonUpper": 0.5210424821413316
+          },
+          "low": {
+            "n": 228,
+            "propagated": 85,
+            "rate": 0.37280701754385964,
+            "wilsonLower": 0.31263518436853244,
+            "wilsonUpper": 0.4371938570159202
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 42.21239396,
+          "high": {
+            "n": 179,
+            "propagated": 146,
+            "rate": 0.8156424581005587,
+            "wilsonLower": 0.7524139267598686,
+            "wilsonUpper": 0.865607832248382
+          },
+          "low": {
+            "n": 216,
+            "propagated": 85,
+            "rate": 0.39351851851851855,
+            "wilsonLower": 0.33077434332035804,
+            "wilsonUpper": 0.45998395929116964
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 57.22117666,
+          "high": {
+            "n": 202,
+            "propagated": 164,
+            "rate": 0.8118811881188119,
+            "wilsonLower": 0.7523564130708715,
+            "wilsonUpper": 0.8597651717734967
+          },
+          "low": {
+            "n": 242,
+            "propagated": 58,
+            "rate": 0.2396694214876033,
+            "wilsonLower": 0.19022095227582697,
+            "wilsonUpper": 0.2972536152587774
+          }
+        }
+      }
+    },
+    "JAX": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 38.15876153,
+          "high": {
+            "n": 132,
+            "propagated": 97,
+            "rate": 0.7348484848484849,
+            "wilsonLower": 0.6536809748547596,
+            "wilsonUpper": 0.8027334404368032
+          },
+          "low": {
+            "n": 184,
+            "propagated": 65,
+            "rate": 0.3532608695652174,
+            "wilsonLower": 0.2878418018254274,
+            "wilsonUpper": 0.4246817255203317
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 54.80443486,
+          "high": {
+            "n": 136,
+            "propagated": 108,
+            "rate": 0.7941176470588235,
+            "wilsonLower": 0.7185363830480942,
+            "wilsonUpper": 0.8535400288733277
+          },
+          "low": {
+            "n": 191,
+            "propagated": 47,
+            "rate": 0.24607329842931938,
+            "wilsonLower": 0.19039386842637135,
+            "wilsonUpper": 0.31176547390710124
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 65.49451433,
+          "high": {
+            "n": 149,
+            "propagated": 119,
+            "rate": 0.7986577181208053,
+            "wilsonLower": 0.727136365527154,
+            "wilsonUpper": 0.8551663727921018
+          },
+          "low": {
+            "n": 167,
+            "propagated": 24,
+            "rate": 0.1437125748502994,
+            "wilsonLower": 0.09851455444256943,
+            "wilsonUpper": 0.20493321039479415
+          }
+        }
+      }
+    },
+    "JFK": {
+      "direction60": "lower",
+      "directionLabel": "sameNegative",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": -16.97191697,
+          "high": {
+            "n": 273,
+            "propagated": 75,
+            "rate": 0.27472527472527475,
+            "wilsonLower": 0.22517684157936824,
+            "wilsonUpper": 0.3305255430130163
+          },
+          "low": {
+            "n": 225,
+            "propagated": 100,
+            "rate": 0.4444444444444444,
+            "wilsonLower": 0.3809899424201255,
+            "wilsonUpper": 0.5097641188027211
+          }
+        },
+        "60": {
+          "gapPercentagePoints": -27.7352011,
+          "high": {
+            "n": 259,
+            "propagated": 44,
+            "rate": 0.16988416988416988,
+            "wilsonLower": 0.12905413492295215,
+            "wilsonUpper": 0.22036356817748137
+          },
+          "low": {
+            "n": 199,
+            "propagated": 89,
+            "rate": 0.4472361809045226,
+            "wilsonLower": 0.379804210973615,
+            "wilsonUpper": 0.5166666578414066
+          }
+        },
+        "90": {
+          "gapPercentagePoints": -22.41474059,
+          "high": {
+            "n": 269,
+            "propagated": 59,
+            "rate": 0.21933085501858737,
+            "wilsonLower": 0.17402434794476096,
+            "wilsonUpper": 0.2725406988312345
+          },
+          "low": {
+            "n": 230,
+            "propagated": 102,
+            "rate": 0.4434782608695652,
+            "wilsonLower": 0.3807256517073374,
+            "wilsonUpper": 0.5080879054303797
+          }
+        }
+      }
+    },
+    "LAS": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 17.1926977,
+          "high": {
+            "n": 728,
+            "propagated": 515,
+            "rate": 0.7074175824175825,
+            "wilsonLower": 0.6733497702990788,
+            "wilsonUpper": 0.7393079117167086
+          },
+          "low": {
+            "n": 958,
+            "propagated": 513,
+            "rate": 0.535490605427975,
+            "wilsonLower": 0.5038297531944216,
+            "wilsonUpper": 0.5668679687392684
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 19.59540754,
+          "high": {
+            "n": 580,
+            "propagated": 402,
+            "rate": 0.6931034482758621,
+            "wilsonLower": 0.6544006456617405,
+            "wilsonUpper": 0.7292651537017706
+          },
+          "low": {
+            "n": 877,
+            "propagated": 436,
+            "rate": 0.49714937286202965,
+            "wilsonLower": 0.4641429357381433,
+            "wilsonUpper": 0.5301806738627329
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 27.68640351,
+          "high": {
+            "n": 608,
+            "propagated": 463,
+            "rate": 0.7615131578947368,
+            "wilsonLower": 0.7260637971121842,
+            "wilsonUpper": 0.793678687506193
+          },
+          "low": {
+            "n": 912,
+            "propagated": 442,
+            "rate": 0.48464912280701755,
+            "wilsonLower": 0.4523463938092,
+            "wilsonUpper": 0.5170806290337548
+          }
+        }
+      }
+    },
+    "LAX": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 16.56319814,
+          "high": {
+            "n": 529,
+            "propagated": 289,
+            "rate": 0.5463137996219282,
+            "wilsonLower": 0.5037070579902724,
+            "wilsonUpper": 0.5882527532985277
+          },
+          "low": {
+            "n": 880,
+            "propagated": 335,
+            "rate": 0.3806818181818182,
+            "wilsonLower": 0.34918523881933333,
+            "wilsonUpper": 0.41321558781737794
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 20.53847557,
+          "high": {
+            "n": 519,
+            "propagated": 275,
+            "rate": 0.5298651252408478,
+            "wilsonLower": 0.4868635390876978,
+            "wilsonUpper": 0.5724278569502576
+          },
+          "low": {
+            "n": 866,
+            "propagated": 281,
+            "rate": 0.3244803695150115,
+            "wilsonLower": 0.2941329044963265,
+            "wilsonUpper": 0.3563781203378376
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 19.17686671,
+          "high": {
+            "n": 459,
+            "propagated": 226,
+            "rate": 0.4923747276688453,
+            "wilsonLower": 0.44689184377632885,
+            "wilsonUpper": 0.5379841869538574
+          },
+          "low": {
+            "n": 825,
+            "propagated": 248,
+            "rate": 0.3006060606060606,
+            "wilsonLower": 0.270300888005012,
+            "wilsonUpper": 0.3327595085295518
+          }
+        }
+      }
+    },
+    "LGA": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 33.70350628,
+          "high": {
+            "n": 603,
+            "propagated": 415,
+            "rate": 0.6882255389718076,
+            "wilsonLower": 0.6501597925694477,
+            "wilsonUpper": 0.7239082555186652
+          },
+          "low": {
+            "n": 672,
+            "propagated": 236,
+            "rate": 0.35119047619047616,
+            "wilsonLower": 0.3160385366970419,
+            "wilsonUpper": 0.3880340717679835
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 43.76608412,
+          "high": {
+            "n": 635,
+            "propagated": 487,
+            "rate": 0.7669291338582677,
+            "wilsonLower": 0.7324999306650793,
+            "wilsonUpper": 0.7981481594350784
+          },
+          "low": {
+            "n": 656,
+            "propagated": 216,
+            "rate": 0.32926829268292684,
+            "wilsonLower": 0.29439117655352975,
+            "wilsonUpper": 0.36613333731932485
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 47.9151437,
+          "high": {
+            "n": 632,
+            "propagated": 493,
+            "rate": 0.7800632911392406,
+            "wilsonLower": 0.7461319198761819,
+            "wilsonUpper": 0.810610637705027
+          },
+          "low": {
+            "n": 658,
+            "propagated": 198,
+            "rate": 0.3009118541033435,
+            "wilsonLower": 0.26710557822276726,
+            "wilsonUpper": 0.33702922398976554
+          }
+        }
+      }
+    },
+    "MCI": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 32.33928712,
+          "high": {
+            "n": 179,
+            "propagated": 131,
+            "rate": 0.7318435754189944,
+            "wilsonLower": 0.6625764325862294,
+            "wilsonUpper": 0.7913687532339898
+          },
+          "low": {
+            "n": 284,
+            "propagated": 116,
+            "rate": 0.4084507042253521,
+            "wilsonLower": 0.3528739522109095,
+            "wilsonUpper": 0.46647104342298046
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 43.28967643,
+          "high": {
+            "n": 220,
+            "propagated": 181,
+            "rate": 0.8227272727272728,
+            "wilsonLower": 0.766853583397916,
+            "wilsonUpper": 0.8675239834215873
+          },
+          "low": {
+            "n": 295,
+            "propagated": 115,
+            "rate": 0.3898305084745763,
+            "wilsonLower": 0.33593291915450496,
+            "wilsonUpper": 0.44656044620213997
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 51.48098771,
+          "high": {
+            "n": 227,
+            "propagated": 199,
+            "rate": 0.8766519823788547,
+            "wilsonLower": 0.8275034854892729,
+            "wilsonUpper": 0.9132646628043319
+          },
+          "low": {
+            "n": 304,
+            "propagated": 110,
+            "rate": 0.3618421052631579,
+            "wilsonLower": 0.30985899403507944,
+            "wilsonUpper": 0.4172732761867598
+          }
+        }
+      }
+    },
+    "MCO": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 24.78999742,
+          "high": {
+            "n": 584,
+            "propagated": 423,
+            "rate": 0.7243150684931506,
+            "wilsonLower": 0.6866961022096422,
+            "wilsonUpper": 0.7590023017879505
+          },
+          "low": {
+            "n": 636,
+            "propagated": 303,
+            "rate": 0.47641509433962265,
+            "wilsonLower": 0.43785756943886833,
+            "wilsonUpper": 0.5152558157811302
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 36.80777286,
+          "high": {
+            "n": 657,
+            "propagated": 474,
+            "rate": 0.7214611872146118,
+            "wilsonLower": 0.6859714322976286,
+            "wilsonUpper": 0.7543762428002755
+          },
+          "low": {
+            "n": 665,
+            "propagated": 235,
+            "rate": 0.3533834586466165,
+            "wilsonLower": 0.3179887045973832,
+            "wilsonUpper": 0.390462382833971
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 38.58379636,
+          "high": {
+            "n": 639,
+            "propagated": 483,
+            "rate": 0.755868544600939,
+            "wilsonLower": 0.7210972400732808,
+            "wilsonUpper": 0.7875818370352309
+          },
+          "low": {
+            "n": 654,
+            "propagated": 242,
+            "rate": 0.37003058103975534,
+            "wilsonLower": 0.3338868584172715,
+            "wilsonUpper": 0.4076922139860437
+          }
+        }
+      }
+    },
+    "MDW": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 13.40570426,
+          "high": {
+            "n": 349,
+            "propagated": 235,
+            "rate": 0.673352435530086,
+            "wilsonLower": 0.6224937720243752,
+            "wilsonUpper": 0.7204364505305921
+          },
+          "low": {
+            "n": 369,
+            "propagated": 199,
+            "rate": 0.5392953929539296,
+            "wilsonLower": 0.48829355260881946,
+            "wilsonUpper": 0.5894874969872412
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 15.57685541,
+          "high": {
+            "n": 326,
+            "propagated": 215,
+            "rate": 0.6595092024539877,
+            "wilsonLower": 0.6064780187008981,
+            "wilsonUpper": 0.708824976780139
+          },
+          "low": {
+            "n": 401,
+            "propagated": 202,
+            "rate": 0.5037406483790524,
+            "wilsonLower": 0.4550012735192654,
+            "wilsonUpper": 0.5524090347251991
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 32.80319754,
+          "high": {
+            "n": 302,
+            "propagated": 231,
+            "rate": 0.7649006622516556,
+            "wilsonLower": 0.7139314484693755,
+            "wilsonUpper": 0.8092154153238793
+          },
+          "low": {
+            "n": 396,
+            "propagated": 173,
+            "rate": 0.43686868686868685,
+            "wilsonLower": 0.3888548467230128,
+            "wilsonUpper": 0.4860955895137104
+          }
+        }
+      }
+    },
+    "MEM": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 16.53706294,
+          "high": {
+            "n": 125,
+            "propagated": 67,
+            "rate": 0.536,
+            "wilsonLower": 0.44880835644487477,
+            "wilsonUpper": 0.6210449352081258
+          },
+          "low": {
+            "n": 143,
+            "propagated": 53,
+            "rate": 0.3706293706293706,
+            "wilsonLower": 0.2958232609233924,
+            "wilsonUpper": 0.4522043036544007
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 21.90831557,
+          "high": {
+            "n": 134,
+            "propagated": 82,
+            "rate": 0.6119402985074627,
+            "wilsonLower": 0.5274100524412393,
+            "wilsonUpper": 0.6902312889713205
+          },
+          "low": {
+            "n": 112,
+            "propagated": 44,
+            "rate": 0.39285714285714285,
+            "wilsonLower": 0.3074029431755071,
+            "wilsonUpper": 0.48541734548169513
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 29.17040862,
+          "high": {
+            "n": 136,
+            "propagated": 103,
+            "rate": 0.7573529411764706,
+            "wilsonLower": 0.6788821453520602,
+            "wilsonUpper": 0.8216847150791842
+          },
+          "low": {
+            "n": 131,
+            "propagated": 61,
+            "rate": 0.46564885496183206,
+            "wilsonLower": 0.38242820059083693,
+            "wilsonUpper": 0.5508267487495749
+          }
+        }
+      }
+    },
+    "MIA": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 7.77279736,
+          "high": {
+            "n": 353,
+            "propagated": 174,
+            "rate": 0.49291784702549574,
+            "wilsonLower": 0.4411215682649209,
+            "wilsonUpper": 0.5448666069417263
+          },
+          "low": {
+            "n": 395,
+            "propagated": 164,
+            "rate": 0.4151898734177215,
+            "wilsonLower": 0.3676406660245653,
+            "wilsonUpper": 0.46437278564089707
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 6.42660387,
+          "high": {
+            "n": 331,
+            "propagated": 160,
+            "rate": 0.48338368580060426,
+            "wilsonLower": 0.43004874787864655,
+            "wilsonUpper": 0.5370998840776775
+          },
+          "low": {
+            "n": 408,
+            "propagated": 171,
+            "rate": 0.41911764705882354,
+            "wilsonLower": 0.3722125719643953,
+            "wilsonUpper": 0.46753158543784723
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 11.83927389,
+          "high": {
+            "n": 368,
+            "propagated": 179,
+            "rate": 0.48641304347826086,
+            "wilsonLower": 0.43575145203703103,
+            "wilsonUpper": 0.5373553660361465
+          },
+          "low": {
+            "n": 394,
+            "propagated": 145,
+            "rate": 0.3680203045685279,
+            "wilsonLower": 0.32188821112360283,
+            "wilsonUpper": 0.41670112466788783
+          }
+        }
+      }
+    },
+    "MKE": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 23.05029995,
+          "high": {
+            "n": 132,
+            "propagated": 78,
+            "rate": 0.5909090909090909,
+            "wilsonLower": 0.5056179912579944,
+            "wilsonUpper": 0.671058556596804
+          },
+          "low": {
+            "n": 197,
+            "propagated": 71,
+            "rate": 0.3604060913705584,
+            "wilsonLower": 0.2966221832927091,
+            "wilsonUpper": 0.42952997511646424
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 40.43209877,
+          "high": {
+            "n": 108,
+            "propagated": 81,
+            "rate": 0.75,
+            "wilsonLower": 0.6607046489100945,
+            "wilsonUpper": 0.822121671216627
+          },
+          "low": {
+            "n": 162,
+            "propagated": 56,
+            "rate": 0.345679012345679,
+            "wilsonLower": 0.27678292383725245,
+            "wilsonUpper": 0.42172431099080443
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 53.14569536,
+          "high": {
+            "n": 151,
+            "propagated": 118,
+            "rate": 0.7814569536423841,
+            "wilsonLower": 0.7090091535744212,
+            "wilsonUpper": 0.8399394332406236
+          },
+          "low": {
+            "n": 144,
+            "propagated": 36,
+            "rate": 0.25,
+            "wilsonLower": 0.18639506191735566,
+            "wilsonUpper": 0.32659675665416266
+          }
+        }
+      }
+    },
+    "MSP": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 6.49190512,
+          "high": {
+            "n": 256,
+            "propagated": 111,
+            "rate": 0.43359375,
+            "wilsonLower": 0.37431161888417475,
+            "wilsonUpper": 0.4948393620473863
+          },
+          "low": {
+            "n": 415,
+            "propagated": 153,
+            "rate": 0.3686746987951807,
+            "wilsonLower": 0.3236603255114231,
+            "wilsonUpper": 0.4160980061807057
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 18.56250497,
+          "high": {
+            "n": 236,
+            "propagated": 133,
+            "rate": 0.5635593220338984,
+            "wilsonLower": 0.49976793472755277,
+            "wilsonUpper": 0.6253146933864968
+          },
+          "low": {
+            "n": 426,
+            "propagated": 161,
+            "rate": 0.3779342723004695,
+            "wilsonLower": 0.33317475926144235,
+            "wilsonUpper": 0.4248755686772988
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 27.5574937,
+          "high": {
+            "n": 261,
+            "propagated": 163,
+            "rate": 0.6245210727969349,
+            "wilsonLower": 0.5643664382865597,
+            "wilsonUpper": 0.6810634135555079
+          },
+          "low": {
+            "n": 427,
+            "propagated": 149,
+            "rate": 0.34894613583138173,
+            "wilsonLower": 0.3052661287933085,
+            "wilsonUpper": 0.3953197889289535
+          }
+        }
+      }
+    },
+    "MSY": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 39.38583716,
+          "high": {
+            "n": 292,
+            "propagated": 245,
+            "rate": 0.839041095890411,
+            "wilsonLower": 0.7925316810719398,
+            "wilsonUpper": 0.8767457109111945
+          },
+          "low": {
+            "n": 301,
+            "propagated": 134,
+            "rate": 0.44518272425249167,
+            "wilsonLower": 0.39007937494227446,
+            "wilsonUpper": 0.5016676330675172
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 47.66317016,
+          "high": {
+            "n": 220,
+            "propagated": 193,
+            "rate": 0.8772727272727273,
+            "wilsonLower": 0.8273283992380697,
+            "wilsonUpper": 0.9142679112692372
+          },
+          "low": {
+            "n": 312,
+            "propagated": 125,
+            "rate": 0.40064102564102566,
+            "wilsonLower": 0.34779356724483845,
+            "wilsonUpper": 0.45590541441672394
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 52.83087527,
+          "high": {
+            "n": 274,
+            "propagated": 246,
+            "rate": 0.8978102189781022,
+            "wilsonLower": 0.8562718368424493,
+            "wilsonUpper": 0.9283482876174032
+          },
+          "low": {
+            "n": 341,
+            "propagated": 126,
+            "rate": 0.36950146627565983,
+            "wilsonLower": 0.31999098934849585,
+            "wilsonUpper": 0.4219193937464875
+          }
+        }
+      }
+    },
+    "OAK": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 12.87934863,
+          "high": {
+            "n": 140,
+            "propagated": 100,
+            "rate": 0.7142857142857143,
+            "wilsonLower": 0.6345157091501404,
+            "wilsonUpper": 0.782610204977254
+          },
+          "low": {
+            "n": 193,
+            "propagated": 113,
+            "rate": 0.5854922279792746,
+            "wilsonLower": 0.5149832602250421,
+            "wilsonUpper": 0.6526643491642998
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 43.25204961,
+          "high": {
+            "n": 142,
+            "propagated": 125,
+            "rate": 0.8802816901408451,
+            "wilsonLower": 0.8166349472995467,
+            "wilsonUpper": 0.9238952206877431
+          },
+          "low": {
+            "n": 201,
+            "propagated": 90,
+            "rate": 0.44776119402985076,
+            "wilsonLower": 0.3806371333510074,
+            "wilsonUpper": 0.516844557509327
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 63.11890838,
+          "high": {
+            "n": 135,
+            "propagated": 125,
+            "rate": 0.9259259259259259,
+            "wilsonLower": 0.8690133972817375,
+            "wilsonUpper": 0.9592694584070376
+          },
+          "low": {
+            "n": 190,
+            "propagated": 56,
+            "rate": 0.29473684210526313,
+            "wilsonLower": 0.23449323517743292,
+            "wilsonUpper": 0.3631160663902414
+          }
+        }
+      }
+    },
+    "ONT": {
+      "direction60": "lower",
+      "directionLabel": "mixed",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": -20.25745257,
+          "high": {
+            "n": 123,
+            "propagated": 40,
+            "rate": 0.3252032520325203,
+            "wilsonLower": 0.24880212688399755,
+            "wilsonUpper": 0.4121919960172082
+          },
+          "low": {
+            "n": 144,
+            "propagated": 76,
+            "rate": 0.5277777777777778,
+            "wilsonLower": 0.4465800439053784,
+            "wilsonUpper": 0.6075319762533418
+          }
+        },
+        "60": {
+          "gapPercentagePoints": -17.45689655,
+          "high": {
+            "n": 116,
+            "propagated": 45,
+            "rate": 0.3879310344827586,
+            "wilsonLower": 0.3042081490942208,
+            "wilsonUpper": 0.4788385506384568
+          },
+          "low": {
+            "n": 144,
+            "propagated": 81,
+            "rate": 0.5625,
+            "wilsonLower": 0.4808944747721227,
+            "wilsonUpper": 0.6408575705849976
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 11.4759887,
+          "high": {
+            "n": 118,
+            "propagated": 75,
+            "rate": 0.635593220338983,
+            "wilsonLower": 0.5457571272952054,
+            "wilsonUpper": 0.7168792553427622
+          },
+          "low": {
+            "n": 144,
+            "propagated": 75,
+            "rate": 0.5208333333333334,
+            "wilsonLower": 0.4397629773960765,
+            "wilsonUpper": 0.6008210377229637
+          }
+        }
+      }
+    },
+    "ORD": {
+      "direction60": "higher",
+      "directionLabel": "mixed",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": -3.00041359,
+          "high": {
+            "n": 1322,
+            "propagated": 657,
+            "rate": 0.4969742813918306,
+            "wilsonLower": 0.4700699081439514,
+            "wilsonUpper": 0.523896187917703
+          },
+          "low": {
+            "n": 1668,
+            "propagated": 879,
+            "rate": 0.5269784172661871,
+            "wilsonLower": 0.5029838822351583,
+            "wilsonUpper": 0.5508489734612697
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 0.91624807,
+          "high": {
+            "n": 1322,
+            "propagated": 665,
+            "rate": 0.5030257186081695,
+            "wilsonLower": 0.476103812082297,
+            "wilsonUpper": 0.5299300918560487
+          },
+          "low": {
+            "n": 1711,
+            "propagated": 845,
+            "rate": 0.4938632378725891,
+            "wilsonLower": 0.4702137853374371,
+            "wilsonUpper": 0.5175401846333835
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 7.58338894,
+          "high": {
+            "n": 1396,
+            "propagated": 766,
+            "rate": 0.5487106017191977,
+            "wilsonLower": 0.5225085752331228,
+            "wilsonUpper": 0.574645283972172
+          },
+          "low": {
+            "n": 1825,
+            "propagated": 863,
+            "rate": 0.4728767123287671,
+            "wilsonLower": 0.4500518166088051,
+            "wilsonUpper": 0.4958155523079958
+          }
+        }
+      }
+    },
+    "PDX": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 9.80769231,
+          "high": {
+            "n": 156,
+            "propagated": 79,
+            "rate": 0.5064102564102564,
+            "wilsonLower": 0.42874962494275415,
+            "wilsonUpper": 0.5837627733721508
+          },
+          "low": {
+            "n": 240,
+            "propagated": 98,
+            "rate": 0.4083333333333333,
+            "wilsonLower": 0.3480669188526184,
+            "wilsonUpper": 0.4714879664700007
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 27.96974385,
+          "high": {
+            "n": 147,
+            "propagated": 91,
+            "rate": 0.6190476190476191,
+            "wilsonLower": 0.5384595311498068,
+            "wilsonUpper": 0.6935721680503757
+          },
+          "low": {
+            "n": 277,
+            "propagated": 94,
+            "rate": 0.33935018050541516,
+            "wilsonLower": 0.2861273155235291,
+            "wilsonUpper": 0.3969679070489227
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 44.82061999,
+          "high": {
+            "n": 165,
+            "propagated": 122,
+            "rate": 0.7393939393939394,
+            "wilsonLower": 0.6675113245528997,
+            "wilsonUpper": 0.8003832349456429
+          },
+          "low": {
+            "n": 261,
+            "propagated": 76,
+            "rate": 0.29118773946360155,
+            "wilsonLower": 0.23941763610451247,
+            "wilsonUpper": 0.34901538157571255
+          }
+        }
+      }
+    },
+    "PHL": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 16.65067924,
+          "high": {
+            "n": 321,
+            "propagated": 173,
+            "rate": 0.5389408099688473,
+            "wilsonLower": 0.48427062135325794,
+            "wilsonUpper": 0.5926899984234173
+          },
+          "low": {
+            "n": 341,
+            "propagated": 127,
+            "rate": 0.3724340175953079,
+            "wilsonLower": 0.3228091500724018,
+            "wilsonUpper": 0.42490099969460443
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 25.79663561,
+          "high": {
+            "n": 334,
+            "propagated": 189,
+            "rate": 0.5658682634730539,
+            "wilsonLower": 0.512262162375228,
+            "wilsonUpper": 0.6179764417131842
+          },
+          "low": {
+            "n": 367,
+            "propagated": 113,
+            "rate": 0.3079019073569482,
+            "wilsonLower": 0.26286633693305594,
+            "wilsonUpper": 0.35691727504929516
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 29.3830582,
+          "high": {
+            "n": 387,
+            "propagated": 225,
+            "rate": 0.5813953488372093,
+            "wilsonLower": 0.5316801576023762,
+            "wilsonUpper": 0.6295105210684413
+          },
+          "low": {
+            "n": 386,
+            "propagated": 111,
+            "rate": 0.28756476683937826,
+            "wilsonLower": 0.2446784978186069,
+            "wilsonUpper": 0.3346376670241092
+          }
+        }
+      }
+    },
+    "PHX": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 15.66398799,
+          "high": {
+            "n": 516,
+            "propagated": 311,
+            "rate": 0.6027131782945736,
+            "wilsonLower": 0.5598823950346486,
+            "wilsonUpper": 0.6440259277845245
+          },
+          "low": {
+            "n": 955,
+            "propagated": 426,
+            "rate": 0.44607329842931936,
+            "wilsonLower": 0.4148253292039515,
+            "wilsonUpper": 0.4777533666247806
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 11.89856703,
+          "high": {
+            "n": 514,
+            "propagated": 297,
+            "rate": 0.5778210116731517,
+            "wilsonLower": 0.5347000790686482,
+            "wilsonUpper": 0.619787358422718
+          },
+          "low": {
+            "n": 996,
+            "propagated": 457,
+            "rate": 0.45883534136546184,
+            "wilsonLower": 0.42810609836557667,
+            "wilsonUpper": 0.4898808991962984
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 12.62136108,
+          "high": {
+            "n": 507,
+            "propagated": 302,
+            "rate": 0.5956607495069034,
+            "wilsonLower": 0.5523776813045023,
+            "wilsonUpper": 0.6375051058598948
+          },
+          "low": {
+            "n": 1031,
+            "propagated": 484,
+            "rate": 0.469447138700291,
+            "wilsonLower": 0.43915367322026017,
+            "wilsonUpper": 0.4999674361409799
+          }
+        }
+      }
+    },
+    "PIT": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 18.25221239,
+          "high": {
+            "n": 226,
+            "propagated": 126,
+            "rate": 0.5575221238938053,
+            "wilsonLower": 0.49234233704151187,
+            "wilsonUpper": 0.6207791169094192
+          },
+          "low": {
+            "n": 128,
+            "propagated": 48,
+            "rate": 0.375,
+            "wilsonLower": 0.29592429097646555,
+            "wilsonUpper": 0.4613599480919116
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 26.68668669,
+          "high": {
+            "n": 185,
+            "propagated": 122,
+            "rate": 0.6594594594594595,
+            "wilsonLower": 0.588548614194395,
+            "wilsonUpper": 0.7238827786176083
+          },
+          "low": {
+            "n": 135,
+            "propagated": 53,
+            "rate": 0.3925925925925926,
+            "wilsonLower": 0.31428314434156,
+            "wilsonUpper": 0.476845526832575
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 44.0,
+          "high": {
+            "n": 210,
+            "propagated": 156,
+            "rate": 0.7428571428571429,
+            "wilsonLower": 0.6797532034046012,
+            "wilsonUpper": 0.7972356862266041
+          },
+          "low": {
+            "n": 175,
+            "propagated": 53,
+            "rate": 0.3028571428571429,
+            "wilsonLower": 0.23961549932780668,
+            "wilsonUpper": 0.37456792069685785
+          }
+        }
+      }
+    },
+    "RDU": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 12.45136187,
+          "high": {
+            "n": 257,
+            "propagated": 151,
+            "rate": 0.5875486381322957,
+            "wilsonLower": 0.5265049902725308,
+            "wilsonUpper": 0.6460135970849091
+          },
+          "low": {
+            "n": 257,
+            "propagated": 119,
+            "rate": 0.46303501945525294,
+            "wilsonLower": 0.40306521499715675,
+            "wilsonUpper": 0.5240936036741464
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 29.37436254,
+          "high": {
+            "n": 203,
+            "propagated": 158,
+            "rate": 0.7783251231527094,
+            "wilsonLower": 0.716313824774592,
+            "wilsonUpper": 0.8299983151816291
+          },
+          "low": {
+            "n": 227,
+            "propagated": 110,
+            "rate": 0.4845814977973568,
+            "wilsonLower": 0.42036802369806653,
+            "wilsonUpper": 0.549308133974125
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 37.97760211,
+          "high": {
+            "n": 231,
+            "propagated": 189,
+            "rate": 0.8181818181818182,
+            "wilsonLower": 0.7633740685126255,
+            "wilsonUpper": 0.8625801422054967
+          },
+          "low": {
+            "n": 276,
+            "propagated": 121,
+            "rate": 0.4384057971014493,
+            "wilsonLower": 0.38110965517599177,
+            "wilsonUpper": 0.49739297933969945
+          }
+        }
+      }
+    },
+    "RSW": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 42.63746505,
+          "high": {
+            "n": 116,
+            "propagated": 91,
+            "rate": 0.7844827586206896,
+            "wilsonLower": 0.701184314827353,
+            "wilsonUpper": 0.8495432935435422
+          },
+          "low": {
+            "n": 148,
+            "propagated": 53,
+            "rate": 0.3581081081081081,
+            "wilsonLower": 0.28535443908439284,
+            "wilsonUpper": 0.4380412637348432
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 61.14163614,
+          "high": {
+            "n": 117,
+            "propagated": 98,
+            "rate": 0.8376068376068376,
+            "wilsonLower": 0.7602472015785341,
+            "wilsonUpper": 0.8935019402389367
+          },
+          "low": {
+            "n": 168,
+            "propagated": 38,
+            "rate": 0.2261904761904762,
+            "wilsonLower": 0.16946104906120718,
+            "wilsonUpper": 0.29516174551133967
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 62.8992629,
+          "high": {
+            "n": 111,
+            "propagated": 90,
+            "rate": 0.8108108108108109,
+            "wilsonLower": 0.7280316720176518,
+            "wilsonUpper": 0.8727966412810504
+          },
+          "low": {
+            "n": 176,
+            "propagated": 32,
+            "rate": 0.18181818181818182,
+            "wilsonLower": 0.13183655100830993,
+            "wilsonUpper": 0.24539270005294594
+          }
+        }
+      }
+    },
+    "SAN": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 1.609773,
+          "high": {
+            "n": 580,
+            "propagated": 362,
+            "rate": 0.6241379310344828,
+            "wilsonLower": 0.5840250906993711,
+            "wilsonUpper": 0.6626172088914575
+          },
+          "low": {
+            "n": 597,
+            "propagated": 363,
+            "rate": 0.6080402010050251,
+            "wilsonLower": 0.5683082602667386,
+            "wilsonUpper": 0.6463906392619252
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 21.28515776,
+          "high": {
+            "n": 497,
+            "propagated": 349,
+            "rate": 0.7022132796780685,
+            "wilsonLower": 0.6605838833026652,
+            "wilsonUpper": 0.7407407204417704
+          },
+          "low": {
+            "n": 517,
+            "propagated": 253,
+            "rate": 0.48936170212765956,
+            "wilsonLower": 0.4465094890496091,
+            "wilsonUpper": 0.5323708404370132
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 33.89607288,
+          "high": {
+            "n": 530,
+            "propagated": 402,
+            "rate": 0.7584905660377359,
+            "wilsonLower": 0.720276407616671,
+            "wilsonUpper": 0.7929845905180408
+          },
+          "low": {
+            "n": 553,
+            "propagated": 232,
+            "rate": 0.41952983725135623,
+            "wilsonLower": 0.37909350114111035,
+            "wilsonUpper": 0.4610764456360413
+          }
+        }
+      }
+    },
+    "SAT": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 29.40353969,
+          "high": {
+            "n": 208,
+            "propagated": 149,
+            "rate": 0.7163461538461539,
+            "wilsonLower": 0.6515950042442531,
+            "wilsonUpper": 0.7732510126828556
+          },
+          "low": {
+            "n": 251,
+            "propagated": 106,
+            "rate": 0.42231075697211157,
+            "wilsonLower": 0.36282814821599096,
+            "wilsonUpper": 0.4841355280222608
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 41.04554865,
+          "high": {
+            "n": 168,
+            "propagated": 142,
+            "rate": 0.8452380952380952,
+            "wilsonLower": 0.7828963194479739,
+            "wilsonUpper": 0.892144504786641
+          },
+          "low": {
+            "n": 230,
+            "propagated": 100,
+            "rate": 0.43478260869565216,
+            "wilsonLower": 0.3723072892721841,
+            "wilsonUpper": 0.4994006612713357
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 52.58714597,
+          "high": {
+            "n": 187,
+            "propagated": 165,
+            "rate": 0.8823529411764706,
+            "wilsonLower": 0.8283018577556154,
+            "wilsonUpper": 0.9210112154291596
+          },
+          "low": {
+            "n": 216,
+            "propagated": 77,
+            "rate": 0.35648148148148145,
+            "wilsonLower": 0.2956267292859022,
+            "wilsonUpper": 0.42235185249485235
+          }
+        }
+      }
+    },
+    "SEA": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 13.25854415,
+          "high": {
+            "n": 438,
+            "propagated": 224,
+            "rate": 0.5114155251141552,
+            "wilsonLower": 0.46470697104534325,
+            "wilsonUpper": 0.5579255814242476
+          },
+          "low": {
+            "n": 718,
+            "propagated": 272,
+            "rate": 0.3788300835654596,
+            "wilsonLower": 0.344081159012657,
+            "wilsonUpper": 0.4148686798006027
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 10.76526566,
+          "high": {
+            "n": 416,
+            "propagated": 204,
+            "rate": 0.49038461538461536,
+            "wilsonLower": 0.4426541051303767,
+            "wilsonUpper": 0.5382910830307174
+          },
+          "low": {
+            "n": 776,
+            "propagated": 297,
+            "rate": 0.38273195876288657,
+            "wilsonLower": 0.34919099594738046,
+            "wilsonUpper": 0.41742823422893327
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 20.52867368,
+          "high": {
+            "n": 391,
+            "propagated": 212,
+            "rate": 0.5421994884910486,
+            "wilsonLower": 0.4926450311366956,
+            "wilsonUpper": 0.5909328183084053
+          },
+          "low": {
+            "n": 745,
+            "propagated": 251,
+            "rate": 0.33691275167785234,
+            "wilsonLower": 0.3038860277439633,
+            "wilsonUpper": 0.37161270815310327
+          }
+        }
+      }
+    },
+    "SFO": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 12.22269847,
+          "high": {
+            "n": 1224,
+            "propagated": 734,
+            "rate": 0.5996732026143791,
+            "wilsonLower": 0.5719538441785599,
+            "wilsonUpper": 0.6267688803614266
+          },
+          "low": {
+            "n": 1441,
+            "propagated": 688,
+            "rate": 0.4774462179042332,
+            "wilsonLower": 0.45175086571504536,
+            "wilsonUpper": 0.5032614994111227
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 23.59474247,
+          "high": {
+            "n": 1121,
+            "propagated": 718,
+            "rate": 0.64049955396967,
+            "wilsonLower": 0.6119734609402236,
+            "wilsonUpper": 0.6680660037593191
+          },
+          "low": {
+            "n": 1362,
+            "propagated": 551,
+            "rate": 0.4045521292217327,
+            "wilsonLower": 0.3787902192631309,
+            "wilsonUpper": 0.4308509376069413
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 32.90591126,
+          "high": {
+            "n": 1077,
+            "propagated": 716,
+            "rate": 0.6648096564531105,
+            "wilsonLower": 0.6360753809964392,
+            "wilsonUpper": 0.6923724196526406
+          },
+          "low": {
+            "n": 1379,
+            "propagated": 463,
+            "rate": 0.3357505438723713,
+            "wilsonLower": 0.3113120098662075,
+            "wilsonUpper": 0.3611016300991979
+          }
+        }
+      }
+    },
+    "SJC": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 15.76340326,
+          "high": {
+            "n": 176,
+            "propagated": 118,
+            "rate": 0.6704545454545454,
+            "wilsonLower": 0.5980189524532822,
+            "wilsonUpper": 0.7356082344781878
+          },
+          "low": {
+            "n": 117,
+            "propagated": 60,
+            "rate": 0.5128205128205128,
+            "wilsonLower": 0.4232936425282181,
+            "wilsonUpper": 0.6015322742496605
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 22.69739447,
+          "high": {
+            "n": 207,
+            "propagated": 142,
+            "rate": 0.6859903381642513,
+            "wilsonLower": 0.6198630306656773,
+            "wilsonUpper": 0.7453402857536192
+          },
+          "low": {
+            "n": 183,
+            "propagated": 84,
+            "rate": 0.45901639344262296,
+            "wilsonLower": 0.3884015168252967,
+            "wilsonUpper": 0.5313165152716642
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 52.13759214,
+          "high": {
+            "n": 165,
+            "propagated": 144,
+            "rate": 0.8727272727272727,
+            "wilsonLower": 0.8132660114816576,
+            "wilsonUpper": 0.9152280495097441
+          },
+          "low": {
+            "n": 185,
+            "propagated": 65,
+            "rate": 0.35135135135135137,
+            "wilsonLower": 0.286219394315797,
+            "wilsonUpper": 0.42253100221538664
+          }
+        }
+      }
+    },
+    "SJU": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 42.63942103,
+          "high": {
+            "n": 81,
+            "propagated": 58,
+            "rate": 0.7160493827160493,
+            "wilsonLower": 0.609821476977911,
+            "wilsonUpper": 0.802712683637712
+          },
+          "low": {
+            "n": 145,
+            "propagated": 42,
+            "rate": 0.2896551724137931,
+            "wilsonLower": 0.22200992166912484,
+            "wilsonUpper": 0.3681580296307527
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 48.54310963,
+          "high": {
+            "n": 106,
+            "propagated": 85,
+            "rate": 0.8018867924528302,
+            "wilsonLower": 0.7160468923505877,
+            "wilsonUpper": 0.8666110647371271
+          },
+          "low": {
+            "n": 158,
+            "propagated": 50,
+            "rate": 0.31645569620253167,
+            "wilsonLower": 0.24902555271263332,
+            "wilsonUpper": 0.3925990320962642
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 51.04024888,
+          "high": {
+            "n": 111,
+            "propagated": 87,
+            "rate": 0.7837837837837838,
+            "wilsonLower": 0.6984044920003547,
+            "wilsonUpper": 0.8501778810115037
+          },
+          "low": {
+            "n": 139,
+            "propagated": 38,
+            "rate": 0.2733812949640288,
+            "wilsonLower": 0.20613202597647923,
+            "wilsonUpper": 0.3528195520868435
+          }
+        }
+      }
+    },
+    "SLC": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 13.34865081,
+          "high": {
+            "n": 197,
+            "propagated": 108,
+            "rate": 0.5482233502538071,
+            "wilsonLower": 0.47846730016313294,
+            "wilsonUpper": 0.6161346814773345
+          },
+          "low": {
+            "n": 475,
+            "propagated": 197,
+            "rate": 0.4147368421052632,
+            "wilsonLower": 0.37128756908267824,
+            "wilsonUpper": 0.45955414583588927
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 40.0180018,
+          "high": {
+            "n": 220,
+            "propagated": 156,
+            "rate": 0.7090909090909091,
+            "wilsonLower": 0.6458957921250545,
+            "wilsonUpper": 0.7651093920115251
+          },
+          "low": {
+            "n": 505,
+            "propagated": 156,
+            "rate": 0.3089108910891089,
+            "wilsonLower": 0.27018175843325476,
+            "wilsonUpper": 0.35052524832813925
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 34.16676885,
+          "high": {
+            "n": 175,
+            "propagated": 118,
+            "rate": 0.6742857142857143,
+            "wilsonLower": 0.6017563557682073,
+            "wilsonUpper": 0.7393278671085384
+          },
+          "low": {
+            "n": 466,
+            "propagated": 155,
+            "rate": 0.33261802575107297,
+            "wilsonLower": 0.29136232678142504,
+            "wilsonUpper": 0.37661077973931223
+          }
+        }
+      }
+    },
+    "SMF": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 36.77514793,
+          "high": {
+            "n": 260,
+            "propagated": 211,
+            "rate": 0.8115384615384615,
+            "wilsonLower": 0.7595958618944896,
+            "wilsonUpper": 0.8544092331504658
+          },
+          "low": {
+            "n": 338,
+            "propagated": 150,
+            "rate": 0.4437869822485207,
+            "wilsonLower": 0.39174728438160666,
+            "wilsonUpper": 0.49709007276315054
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 41.07724179,
+          "high": {
+            "n": 218,
+            "propagated": 188,
+            "rate": 0.8623853211009175,
+            "wilsonLower": 0.8103454012378479,
+            "wilsonUpper": 0.9018749422449512
+          },
+          "low": {
+            "n": 310,
+            "propagated": 140,
+            "rate": 0.45161290322580644,
+            "wilsonLower": 0.3971440722738086,
+            "wilsonUpper": 0.5072662624450986
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 46.5408805,
+          "high": {
+            "n": 212,
+            "propagated": 187,
+            "rate": 0.8820754716981132,
+            "wilsonLower": 0.8317149549827206,
+            "wilsonUpper": 0.9188359395726121
+          },
+          "low": {
+            "n": 312,
+            "propagated": 130,
+            "rate": 0.4166666666666667,
+            "wilsonLower": 0.36329989985513195,
+            "wilsonUpper": 0.47206053637714623
+          }
+        }
+      }
+    },
+    "SNA": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 0.43549265,
+          "high": {
+            "n": 167,
+            "propagated": 107,
+            "rate": 0.6407185628742516,
+            "wilsonLower": 0.565539576271687,
+            "wilsonUpper": 0.7095692897169172
+          },
+          "low": {
+            "n": 187,
+            "propagated": 119,
+            "rate": 0.6363636363636364,
+            "wilsonLower": 0.5653143126179756,
+            "wilsonUpper": 0.7019232169793916
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 16.27828436,
+          "high": {
+            "n": 141,
+            "propagated": 108,
+            "rate": 0.7659574468085106,
+            "wilsonLower": 0.6895912083435539,
+            "wilsonUpper": 0.8282163352330815
+          },
+          "low": {
+            "n": 189,
+            "propagated": 114,
+            "rate": 0.6031746031746031,
+            "wilsonLower": 0.5320378866311093,
+            "wilsonUpper": 0.6702007825767531
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 54.84723854,
+          "high": {
+            "n": 148,
+            "propagated": 123,
+            "rate": 0.831081081081081,
+            "wilsonLower": 0.762523730767187,
+            "wilsonUpper": 0.8828862959879284
+          },
+          "low": {
+            "n": 138,
+            "propagated": 39,
+            "rate": 0.2826086956521739,
+            "wilsonLower": 0.21416287809081452,
+            "wilsonUpper": 0.36282962819856496
+          }
+        }
+      }
+    },
+    "STL": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 42.81559878,
+          "high": {
+            "n": 304,
+            "propagated": 237,
+            "rate": 0.7796052631578947,
+            "wilsonLower": 0.7296804580335032,
+            "wilsonUpper": 0.8225518522318223
+          },
+          "low": {
+            "n": 276,
+            "propagated": 97,
+            "rate": 0.35144927536231885,
+            "wilsonLower": 0.2975148037452641,
+            "wilsonUpper": 0.40946213832199124
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 53.72602857,
+          "high": {
+            "n": 286,
+            "propagated": 237,
+            "rate": 0.8286713286713286,
+            "wilsonLower": 0.7807186107638558,
+            "wilsonUpper": 0.867911853507659
+          },
+          "low": {
+            "n": 326,
+            "propagated": 95,
+            "rate": 0.29141104294478526,
+            "wilsonLower": 0.24474075667820977,
+            "wilsonUpper": 0.34293994153889557
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 55.65300488,
+          "high": {
+            "n": 277,
+            "propagated": 234,
+            "rate": 0.8447653429602888,
+            "wilsonLower": 0.7974351903182963,
+            "wilsonUpper": 0.8826638264082396
+          },
+          "low": {
+            "n": 340,
+            "propagated": 98,
+            "rate": 0.28823529411764703,
+            "wilsonLower": 0.24266752640359912,
+            "wilsonUpper": 0.33853480884157305
+          }
+        }
+      }
+    },
+    "TPA": {
+      "direction60": "higher",
+      "directionLabel": "samePositive",
+      "windows": {
+        "30": {
+          "gapPercentagePoints": 23.02185108,
+          "high": {
+            "n": 375,
+            "propagated": 257,
+            "rate": 0.6853333333333333,
+            "wilsonLower": 0.6366540273500296,
+            "wilsonUpper": 0.7302540730270961
+          },
+          "low": {
+            "n": 479,
+            "propagated": 218,
+            "rate": 0.4551148225469729,
+            "wilsonLower": 0.41105251125500664,
+            "wilsonUpper": 0.4998913416091936
+          }
+        },
+        "60": {
+          "gapPercentagePoints": 50.51765844,
+          "high": {
+            "n": 260,
+            "propagated": 236,
+            "rate": 0.9076923076923077,
+            "wilsonLower": 0.8663283226557347,
+            "wilsonUpper": 0.9371845177734662
+          },
+          "low": {
+            "n": 477,
+            "propagated": 192,
+            "rate": 0.4025157232704403,
+            "wilsonLower": 0.3594545489601762,
+            "wilsonUpper": 0.44713450800656157
+          }
+        },
+        "90": {
+          "gapPercentagePoints": 51.20039966,
+          "high": {
+            "n": 310,
+            "propagated": 276,
+            "rate": 0.8903225806451613,
+            "wilsonLower": 0.850644372006651,
+            "wilsonUpper": 0.9204455945941639
+          },
+          "low": {
+            "n": 452,
+            "propagated": 171,
+            "rate": 0.37831858407079644,
+            "wilsonLower": 0.33481233012428413,
+            "wilsonUpper": 0.42387570083152093
+          }
+        }
+      }
+    }
+  },
+  "counterexamples60": [
+    "JFK",
+    "ONT"
+  ],
+  "defaultAirport": "ATL",
+  "directionCounts60": {
+    "equal": 0,
+    "negative": 2,
+    "positive": 52
+  },
+  "excluded": [
+    {
+      "airport": "OMA",
+      "highN": 82,
+      "lowN": 140,
+      "reason": "60 分钟窗口下低组 140 / 高组 82 条；低于每机场每组至少 100 条的门槛，故不进入合格列表。"
+    }
+  ],
+  "primaryWindowMinutes": 60,
+  "samePositiveAirports": 48,
+  "scope": {
+    "eligibleAirports": 54,
+    "eventCount": 91185,
+    "excludedAirports": 1,
+    "totalAirports": 55
+  },
+  "sources": {
+    "gateDecision": "CONDITIONAL GO",
+    "note": "All rates, n, propagated counts, Wilson intervals and gaps are computed deterministically from the frozen V3-P0 events parquet. No values are hand-written.",
+    "parquet": {
+      "file": "data/processed/v3_p0_congestion_events.parquet",
+      "sha256": "0fec6e8f052599adf8d968e90cb867060650714fa13bd2b4f5cfa5c441543b0e"
+    },
+    "summarySha256": "6102c8326d57c99f491e834d201e4db181e6a5b639d7c67a9b66483e4ea2c08b"
+  },
+  "version": "v3-b-1",
+  "windows": [
+    "30",
+    "60",
+    "90"
+  ]
+}

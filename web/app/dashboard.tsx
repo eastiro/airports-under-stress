@@ -4,9 +4,13 @@ import { useEffect, useMemo, useState, Fragment, type CSSProperties } from "reac
 import rawData from "./v0-data.json";
 import v1aData from "./v1-a-data.json";
 import v1bData from "./v1-b-data.json";
+import v2aData from "./v2-a-data.json";
+import v2bData from "./v2-b-data.json";
+import v3aData from "./v3-a-data.json";
 import NetworkHero from "./NetworkHero";
-import MechanismSection, { type V1AData as MechanismData } from "./MechanismSection";
+import MechanismSection, { type V1AData as MechanismData, type V2BData } from "./MechanismSection";
 import EpisodeExplorer, { type V1BData } from "./EpisodeExplorer";
+import CongestionSection, { type V3AData } from "./CongestionSection";
 import { AIRPORT_ZH, AIRLINE_ZH } from "./airport-names-zh";
 
 type Airport = {
@@ -136,7 +140,7 @@ type AirportSortKey =
 type Language = "zh" | "en";
 
 const data = rawData as SiteData;
-const AIRPORT_CITY_EN: Record<string, string> = Object.fromEntries(
+export const AIRPORT_CITY_EN: Record<string, string> = Object.fromEntries(
   data.airports.map((airport) => [airport.code, airport.city]),
 );
 
@@ -215,13 +219,16 @@ const ui = {
     peakDay: "单日峰值",
     reportedFlights: "611,735 条航班记录",
     nationalSummary: "全美航空网络摘要",
-    metricDelay: "起飞延误 15 分钟及以上",
-    metricPropagation: "上游延误继续传播",
-    metricRecovery: "上游延误被后续航段吸收",
-    metricTails: "观测到的独立飞机数量",
+    metricDelay: "起飞晚点 15 分钟以上",
+    metricPropagation: "晚点继续传到下一班",
+    metricRecovery: "晚点被下一班追回",
+    metricTails: "研究覆盖",
+    metricTailsSub: "架有机尾号的飞机",
     airportSection: "01 / 机场压力榜",
     airportTitle: "哪些机场感受到了更大压力？",
-    airportIntro: "只比较月出发量至少 1,000 班、有效轮转链至少 500 条的 97 个机场。榜单显示当前排序的前 12 名。压力指数由延误率、取消率和传播率的样本内百分位构成（满分 100）。",
+    airportIntro: "这张榜单比较哪些机场在这批数据里同时出现更多晚点、取消，以及晚点继续往下传。分数越高，表示相对压力越集中——只比机场之间的相对位置，不是安全评分。榜单展示前 12 名，下方可选择全部 97 个合格机场中的任意一个。",
+    airportDetailsSummary: "查看研究细节",
+    airportScopeDetails: "97 个机场纳入比较：月出发量至少 1,000 班、有效轮转链至少 500 条。压力指数由延误率、取消率和传播率的样本内百分位合成（满分 100）。榜单按单个机场计算，不合并纽约、芝加哥、休斯顿等都会区的多个机场。",
     sortAria: "机场排序方式",
     rankBy: "排序依据",
     rankedAirports: "机场排名",
@@ -242,14 +249,18 @@ const ui = {
     pressureNote: "压力指数只反映符合条件机场之间的相对位置，不是安全评级，也不代表因果关系。",
     carrierSection: "02 / 航司对比",
     carrierTitle: "规模不等于韧性。",
-    carrierIntro: "比较月计划航班至少 10,000 班的报告航司（共 12 家）。这里展示描述性差异，不把排名解释成运营能力的因果结论。",
+    carrierIntro: "比较大型报告航司在这批数据里的不同表现——只描述差异，不评哪家运营能力更高。",
+    carrierDetailsSummary: "查看研究细节",
+    carrierScopeDetails: "共 12 家航司纳入比较，均为月计划航班至少 10,000 班的报告航司。这些差异是描述性的，不把排名解释成运营能力的因果结论。",
     flightUnit: "班航班",
-    carrierDelay: "延误",
-    carrierPropagate: "传播",
-    carrierRecover: "恢复",
+    carrierDelay: "起飞晚点",
+    carrierPropagate: "晚点继续",
+    carrierRecover: "晚点追回",
     rotationSection: "03 / 飞机轮转故事",
     rotationTitle: "跟踪飞机，而不只是航班。",
-    rotationIntro: "每个故事都来自同一机尾号的连续真实航段。状态用 15 分钟阈值描述传播或恢复，时间统一显示为 UTC。",
+    rotationIntro: "每个故事都来自同一架飞机的连续真实航段，看晚点如何一段段传下去、又在哪里被追回。",
+    rotationDetailsSummary: "查看研究细节",
+    rotationScopeDetails: "这些衔接用 15 分钟统一门槛区分传播或恢复，时间统一按 UTC 显示；只描述相邻两段都晚点的连续性，不构成因果。",
     storyAria: "选择一个飞机轮转故事",
     tail: "机尾号",
     date: "日期",
@@ -273,7 +284,7 @@ const ui = {
     guideTurn: "过站时间 = 飞机实际停场分钟（不是计划）",
     guideThreshold: "15 分钟是描述传播 / 恢复的统一门槛",
     guideCausal: "衔接关系只描述相邻两段都晚点的连续性，不构成因果",
-    methodSection: "07 / 方法与边界",
+    methodSection: "08 / 方法与边界",
     methodTitleFirst: "证据在前。",
     methodTitleSecond: "结论在后。",
     methodOneTitle: "统一到 UTC 时间线",
@@ -281,8 +292,9 @@ const ui = {
     methodTwoTitle: "确保物理连续性",
     methodTwo: "只连接机尾号相同、上一站终点等于下一站起点、且周转时间物理可行的航段。79 条负周转候选已排除。",
     methodThreeTitle: "不做因果断言",
-    methodThree: "“传播”表示相邻两段都超过 15 分钟，并不单独证明前一段造成后一段；天气和机场拥堵将在后续版本控制。",
+    methodThree: "“传播”表示相邻两段都超过 15 分钟，并不单独证明前一段造成后一段。后续章节已分别做了天气与计划拥挤的描述性比较，但那仍然不是因果控制或因果证明。",
     integrity: "数据完整性",
+    integrityNote: "这些完整性数字说明数据处理可靠，不代表研究结论就是因果。",
     tailCoverage: "已执行航班的机尾号覆盖率",
     clockAgreement: "计划时刻一致率",
     airportContinuity: "机场衔接连续率",
@@ -317,12 +329,15 @@ const ui = {
     reportedFlights: "611,735 reported flights",
     nationalSummary: "National summary",
     metricDelay: "departures delayed 15+ min",
-    metricPropagation: "upstream delays propagated",
-    metricRecovery: "upstream delays absorbed",
-    metricTails: "unique aircraft observed",
+    metricPropagation: "delay kept moving to the next flight",
+    metricRecovery: "delay recovered by the next flight",
+    metricTails: "Research coverage",
+    metricTailsSub: "aircraft with tail numbers",
     airportSection: "01 / Airport pressure board",
     airportTitle: "Where the network felt tight.",
-    airportIntro: "We compare airports with at least 1,000 monthly departures and 500 valid rotation links. The pressure score combines within-sample percentiles for delay, cancellation and propagation rates.",
+    airportIntro: "This board compares which airports in this dataset show more delay, cancellation, and delay moving onward at the same time. A higher score means more concentrated relative pressure — it ranks airports only against each other, not a safety rating. It shows the top 12, and you can pick any of the 97 eligible airports below.",
+    airportDetailsSummary: "View research details",
+    airportScopeDetails: "97 airports are compared: at least 1,000 monthly departures and 500 valid rotation links each. The pressure score combines within-sample percentiles for delay, cancellation and propagation rates (out of 100). Airports are ranked individually; metro-area airports (NYC, Chicago, Houston, etc.) are not merged.",
     sortAria: "Sort airports",
     rankBy: "Rank by",
     rankedAirports: "Ranked airports",
@@ -343,14 +358,18 @@ const ui = {
     pressureNote: "Pressure score is relative within eligible airports; it is not a safety rating or causal claim.",
     carrierSection: "02 / Carrier comparison",
     carrierTitle: "Scale is not resilience.",
-    carrierIntro: "Each carrier faces a different route structure and operating constraints. These are descriptive differences, not causal rankings of operating ability.",
+    carrierIntro: "We compare how large reporting carriers performed differently in this dataset — descriptive only, not a ranking of operating ability.",
+    carrierDetailsSummary: "View research details",
+    carrierScopeDetails: "12 carriers are compared, each with at least 10,000 scheduled monthly flights. These are descriptive differences, not causal rankings of operating ability.",
     flightUnit: "flights",
-    carrierDelay: "delay",
-    carrierPropagate: "propagate",
-    carrierRecover: "recover",
+    carrierDelay: "departure delay",
+    carrierPropagate: "delay continued",
+    carrierRecover: "delay recovered",
     rotationSection: "03 / Aircraft rotation stories",
     rotationTitle: "Follow the aircraft, not just the flight.",
-    rotationIntro: "Each story follows consecutive real legs flown by one tail number. A 15-minute threshold describes propagation or recovery, and all times are UTC.",
+    rotationIntro: "Each story follows consecutive real legs flown by one aircraft, showing how delay travels leg to leg and where it gets recovered.",
+    rotationDetailsSummary: "View research details",
+    rotationScopeDetails: "Propagation and recovery are separated by a shared 15-minute threshold, and all times are UTC. The links only describe two adjacent late legs; they are not causal.",
     storyAria: "Choose aircraft rotation story",
     tail: "Tail",
     date: "Date",
@@ -374,7 +393,7 @@ const ui = {
     guideTurn: "turn time = actual minutes on the ground, not the plan",
     guideThreshold: "15 min is the shared threshold for propagation / recovery",
     guideCausal: "link labels describe continuity of two late legs, not causation",
-    methodSection: "07 / Method & boundary",
+    methodSection: "08 / Method & boundary",
     methodTitleFirst: "Evidence first.",
     methodTitleSecond: "Claims second.",
     methodOneTitle: "One UTC timeline",
@@ -382,8 +401,9 @@ const ui = {
     methodTwoTitle: "Physical continuity",
     methodTwo: "We only connect legs with the same tail, a matching arrival and next departure airport, and a physically feasible turn. 79 negative-turn candidates were excluded.",
     methodThreeTitle: "Not a causal claim",
-    methodThree: "Propagation means two adjacent legs both exceed 15 minutes. It does not prove the earlier leg caused the later delay; weather and airport congestion are reserved for later versions.",
+    methodThree: "Propagation means two adjacent legs both exceed 15 minutes. It does not prove the earlier leg caused the later delay. Later chapters do compare weather and scheduled congestion descriptively, but that is still not causal control or proof.",
     integrity: "Data integrity",
+    integrityNote: "These integrity numbers show the data was processed reliably; they do not mean the conclusions are causal.",
     tailCoverage: "operated-flight tail coverage",
     clockAgreement: "scheduled-clock agreement",
     airportContinuity: "airport continuity",
@@ -472,6 +492,7 @@ export default function Dashboard() {
           <a href="#carriers">{text.carriers}</a>
           <a href="#rotations">{text.rotations}</a>
           <a href="#mechanism">{language === "zh" ? "传播机制" : "Mechanism"}</a>
+          <a href="#congestion">{language === "zh" ? "计划拥挤" : "Congestion"}</a>
           <a href="#episodes">{language === "zh" ? "连续延误案例" : "Episodes"}</a>
           <a href="#method">{text.method}</a>
         </nav>
@@ -519,10 +540,11 @@ export default function Dashboard() {
           <strong>{percent(data.national.recoveryRate)}</strong>
           <p>{text.metricRecovery}</p>
         </article>
-        <article>
+        <article className="is-secondary">
           <span className="metric-index">04</span>
           <strong>{integer(data.meta.tails)}</strong>
           <p>{text.metricTails}</p>
+          <small>{text.metricTailsSub}</small>
         </article>
       </section>
 
@@ -553,11 +575,6 @@ export default function Dashboard() {
         </div>
 
         <div className="airport-selector-rail">
-          <p className="airport-scope-note">
-            {language === "zh"
-              ? "榜单按单个机场计算，不合并纽约、芝加哥、休斯顿等都会区的多个机场。"
-              : "Ranked per individual airport; metro-area airports (NYC, Chicago, Houston, etc.) are not merged."}
-          </p>
           <label className="airport-selector">
             <span>{language === "zh" ? "查看其他机场" : "Find another airport"}</span>
             <select
@@ -684,9 +701,16 @@ export default function Dashboard() {
                 </span>
               </div>
             </div>
-            <p className="focus-note">{text.pressureNote}</p>
           </aside>
         </div>
+
+        <details className="clarity-details airport-details">
+          <summary>{text.airportDetailsSummary}</summary>
+          <div className="clarity-details-inner">
+            <p>{text.airportScopeDetails}</p>
+            <p>{text.pressureNote}</p>
+          </div>
+        </details>
       </section>
 
       <section className="analysis-section carrier-section section-shell" id="carriers">
@@ -729,6 +753,13 @@ export default function Dashboard() {
             </article>
           ))}
         </div>
+
+        <details className="clarity-details carrier-details">
+          <summary>{text.carrierDetailsSummary}</summary>
+          <div className="clarity-details-inner">
+            <p>{text.carrierScopeDetails}</p>
+          </div>
+        </details>
       </section>
 
       <section className="analysis-section rotation-section section-shell" id="rotations">
@@ -849,16 +880,22 @@ export default function Dashboard() {
                 <li><i className="guide-chip guide-actual" aria-hidden="true" /> {text.guideActual}</li>
                 <li><i className="guide-chip guide-planned" aria-hidden="true" /> {text.guidePlanned}</li>
                 <li><i className="guide-chip guide-turn" aria-hidden="true" /> {text.guideTurn}</li>
-                <li>{text.guideThreshold}</li>
-                <li>{text.guideCausal}</li>
               </ul>
             </div>
+
+            <details className="clarity-details rotation-details">
+              <summary>{text.rotationDetailsSummary}</summary>
+              <div className="clarity-details-inner">
+                <p>{text.rotationScopeDetails}</p>
+              </div>
+            </details>
           </div>
         </div>
       </section>
 
-      <MechanismSection language={language} data={v1aData as MechanismData} airportCitiesEn={AIRPORT_CITY_EN} />
-      <EpisodeExplorer language={language} data={v1bData as V1BData} />
+      <MechanismSection language={language} data={v1aData as MechanismData} airportCitiesEn={AIRPORT_CITY_EN} weather={v2aData} adjustedWeather={v2bData as V2BData} />
+      <CongestionSection language={language} data={v3aData as unknown as V3AData} airportCityEn={AIRPORT_CITY_EN} />
+      <EpisodeExplorer language={language} data={v1bData as V1BData} weather={v2aData} />
 
       <section className="method-section section-shell" id="method">
         <div className="method-title">
@@ -901,6 +938,7 @@ export default function Dashboard() {
             <small>{text.duplicateKeys}</small>
           </div>
         </div>
+        <p className="integrity-note">{text.integrityNote}</p>
       </section>
 
       <footer className="site-footer section-shell">
