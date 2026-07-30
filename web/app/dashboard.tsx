@@ -303,7 +303,7 @@ const ui = {
     sourceFirst: "数据来源：美国交通部交通统计局",
     sourceSecond: "承运人航班准点表现数据。",
     officialData: "查看官方数据",
-    edition: "V0 / 描述性产品",
+    edition: "V3 / 描述性研究产品",
   },
   en: {
     skip: "Skip to analysis",
@@ -412,7 +412,7 @@ const ui = {
     sourceFirst: "Source: U.S. DOT Bureau of Transportation Statistics,",
     sourceSecond: "Reporting Carrier On-Time Performance.",
     officialData: "Official data",
-    edition: "V0 / Descriptive product",
+    edition: "V3 / Descriptive research product",
   },
 } as const;
 
@@ -516,7 +516,7 @@ export default function Dashboard() {
             </button>
           </div>
           <div className="edition-badge">
-            <span>V1</span>
+            <span>V3</span>
             <span>{text.period}</span>
           </div>
         </div>

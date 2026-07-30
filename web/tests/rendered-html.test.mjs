@@ -12,7 +12,7 @@ async function render() {
   );
 }
 
-test("server-renders the Chinese-first bilingual V0 product", async () => {
+test("server-renders the Chinese-first bilingual V3 product", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);

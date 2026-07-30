@@ -592,11 +592,17 @@ button {
   padding: 5px 10px;
   border: 1px solid var(--line-bright);
   border-radius: 3px;
-  background: var(--bg);
+  background: var(--surface-raised);
   color: var(--ink);
+  color-scheme: dark;
   font: 600 11px/1 var(--mono);
   cursor: pointer;
   max-width: 280px;
+}
+
+.airport-selector select option {
+  background: var(--surface-raised);
+  color: var(--ink);
 }
 .airport-selector select:focus-visible {
   outline: 2px solid var(--mint);

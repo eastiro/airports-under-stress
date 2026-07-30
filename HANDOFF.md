@@ -52,7 +52,7 @@ V1-B 第二版由 Codex 亲自实现，不经过 External Agent。它不是装�
 
 ## 当前稳定状态
 
-工作区最新状态为 **V1-P0.1 + V1-B 第二版 + V2-P0 + V2-A + V2-B + V3-A + V3-B 均验收通过，V3-P0 科学 Gate 为 CONDITIONAL GO；最新版已部署为 Sites version 3（owner-only），并公开部署到 Cloudflare Workers**：
+工作区最新状态为 **V3 已于 2026-07-30 正式冻结；V1-P0.1 + V1-B 第二版 + V2-P0 + V2-A + V2-B + V3-A + V3-B 均验收通过，V3-P0 科学 Gate 为 CONDITIONAL GO；Sites version 3 以 owner-only 保留，临时 Cloudflare 公网预览已下线**：
 
 - 计划停场上限 180 分钟、单个 episode 总时长上限 18 小时；越界统一记作 censored/观察中断，不伪装成 recovered；
 - 15/30/60 分钟三档均使用同一连续运营边界并做真实阈值重分类；
@@ -98,7 +98,7 @@ visibility: owner-only
 
 ## 下一步执行顺序
 
-V3-A 已完成并最终验收通过。下一步优先让用户查看本地中文版第 06 章并收集信息密度、术语和视觉反馈；之后再决定是否规划 V3-B。不要重新执行已完成的 V2-B/V3-P0，也不要默认扩张 347 机场。任何机场级比较仍需高、低组均至少 100 条，传播率差不得包装成因果影响。Mobile Polish 继续集中留到最终阶段。
+V3 已冻结。默认不再执行功能开发、结构改版、科学产物重建或公开部署，只处理用户明确指出的缺陷。不要重新执行已完成的 V2-B/V3-P0，也不要默认扩张 347 机场。任何机场级比较仍需高、低组均至少 100 条，传播率差不得包装成因果影响。若启动 V4，先建立单独 Roadmap、范围、数据 Gate 与任务书；不得直接在 V3 上继续堆功能。
 
 ### 1. 收集用户反馈
 
@@ -299,7 +299,15 @@ V3-P0 已 CONDITIONAL GO。下一步冻结 V3-A 的全国展示与机场纳入�
 ## 2026-07-30 Cloudflare Workers 公开部署交接
 
 - Cloudflare 登录与首次 Workers 子域初始化已经完成，账户子域为 `eastiro-lab`。
-- `web/vite.config.ts` 已固定 Worker 名称 `airports-under-stress` 与兼容日期 `2026-07-30`。
+- `web/vite.config.ts` 已固定 Worker 名称 `airports-under-stress`；兼容日期后修正为本地运行时支持的 `2026-05-22`。
 - 当前公开网址为 <https://airports-under-stress.eastiro-lab.workers.dev>，部署版本 ID 为 `2d158fe1-08ff-4927-a215-a074e57012da`。
 - 已确认完整样式和脚本能够从公开地址加载；该地址不要求访客拥有或登录 ChatGPT 账号，也不依赖本地开发服务器持续运行。
-- 原 Sites 项目和网址继续保留，但仍为 owner-only；对外测试应发送 Cloudflare 地址。
+- 原 Sites 项目和网址继续保留，但仍为 owner-only。
+- 2026-07-30 用户看完临时公开版本后要求取消；Cloudflare Worker `airports-under-stress` 已成功删除，原 `workers.dev` 地址现为历史记录，不得继续作为有效公开链接。此操作未删除本地代码、Git 历史或 Sites 私有版本。
+
+## 2026-07-30 V3 正式冻结交接
+
+- 用户明确决定冻结 V3。后续默认只修复具体缺陷，不主动开启 V4、增加章节、扩充机场范围或重建科学口径。
+- 冻结收口已统一页头/页脚 V3 标识，并修复第 06 章机场下拉框白底浅字问题；根因是 CSS 使用了不存在的 `--bg`，现改为深色 surface，并显式设置 dark color scheme 与 option 配色。
+- 最终验证：Python `104 passed`；SSR `10/10`；ESLint、生产 build 通过。1280×721 浏览器检查无横向溢出、console warning/error 为 0，V3 标识和选择框样式正确。
+- 完整 Mobile Polish 仍是已知非阻塞技术债，本轮不为冻结而扩张范围；如未来需要，单独建立维护任务。Cloudflare Worker 保持已删除，Sites version 3 保持 owner-only，本地冻结版本不重新发布。
