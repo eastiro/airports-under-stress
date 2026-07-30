@@ -23,7 +23,7 @@
 
 ## 一句话状态
 
-P0.1、V2-P0、V2-A、V2-B、V3-A 与 V3-B 均已得到 **GO**；V3-P0 计划拥挤度审计本身为 **CONDITIONAL GO**。V0 至 V3-B 的最新前端已提交并部署为 Sites version 3；由于当前工作区未启用互联网公开发布，访问权限仍为 owner-only。
+P0.1、V2-P0、V2-A、V2-B、V3-A 与 V3-B 均已得到 **GO**；V3-P0 计划拥挤度审计本身为 **CONDITIONAL GO**。V0 至 V3-B 的最新前端已提交并部署为 Sites version 3；Sites 仍为 owner-only，另已将同一最新版公开部署到 Cloudflare Workers：<https://airports-under-stress.eastiro-lab.workers.dev>。
 
 ## 当前阶段
 
@@ -196,3 +196,10 @@ V3-A 已按保守边界完成并验收通过。下一步先由用户查看本地
 - 已保存并部署为原 Sites 项目的 version 3，网址仍为 <https://airports-under-stress.fizzy-elm-9171.chatgpt.site>。
 - 尝试将访问权限改为 `public` 时，Sites 返回“当前工作区未启用发布到互联网”；因此本次只完成最新版部署，访问仍为 `custom` / owner-only。
 - 若要让普通朋友无需登录访问，需要工作区开放 Sites 互联网发布能力，或把同一版本部署到支持公开访问的其他托管平台。
+
+## 2026-07-30 Cloudflare Workers 公开部署记录
+
+- 已在 `web/vite.config.ts` 中配置 Worker 名称 `airports-under-stress` 与兼容日期 `2026-07-30`。
+- 生产构建成功，SSR 回归 10/10 通过；部署版本 ID 为 `2d158fe1-08ff-4927-a215-a074e57012da`。
+- 公开网址：<https://airports-under-stress.eastiro-lab.workers.dev>。无需 ChatGPT 登录，用户电脑关机后仍可访问。
+- 已通过浏览器确认页面样式与静态资源正常加载；原 `chatgpt.site` 地址仍保留为 owner-only。

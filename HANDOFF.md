@@ -52,7 +52,7 @@ V1-B 第二版由 Codex 亲自实现，不经过 External Agent。它不是装�
 
 ## 当前稳定状态
 
-工作区最新状态为 **V1-P0.1 + V1-B 第二版 + V2-P0 + V2-A + V2-B + V3-A + V3-B 均验收通过，V3-P0 科学 Gate 为 CONDITIONAL GO；最新版已提交并部署为 Sites version 3，但访问仍为 owner-only**：
+工作区最新状态为 **V1-P0.1 + V1-B 第二版 + V2-P0 + V2-A + V2-B + V3-A + V3-B 均验收通过，V3-P0 科学 Gate 为 CONDITIONAL GO；最新版已部署为 Sites version 3（owner-only），并公开部署到 Cloudflare Workers**：
 
 - 计划停场上限 180 分钟、单个 episode 总时长上限 18 小时；越界统一记作 censored/观察中断，不伪装成 recovered；
 - 15/30/60 分钟三档均使用同一连续运营边界并做真实阈值重分类；
@@ -295,3 +295,11 @@ V3-P0 已 CONDITIONAL GO。下一步冻结 V3-A 的全国展示与机场纳入�
 - 原项目已成功部署 Sites version 3，网址仍为 <https://airports-under-stress.fizzy-elm-9171.chatgpt.site>。
 - 用户明确要求公开访问，但 Sites 在切换 `public` 时返回“当前工作区未启用发布到互联网”；当前访问策略仍是仅 owner 可访问。
 - 后续公开分享不得误判为已经完成：需要先启用当前工作区的 Sites 互联网发布能力，或选择另一家支持公开网址的托管平台。
+
+## 2026-07-30 Cloudflare Workers 公开部署交接
+
+- Cloudflare 登录与首次 Workers 子域初始化已经完成，账户子域为 `eastiro-lab`。
+- `web/vite.config.ts` 已固定 Worker 名称 `airports-under-stress` 与兼容日期 `2026-07-30`。
+- 当前公开网址为 <https://airports-under-stress.eastiro-lab.workers.dev>，部署版本 ID 为 `2d158fe1-08ff-4927-a215-a074e57012da`。
+- 已确认完整样式和脚本能够从公开地址加载；该地址不要求访客拥有或登录 ChatGPT 账号，也不依赖本地开发服务器持续运行。
+- 原 Sites 项目和网址继续保留，但仍为 owner-only；对外测试应发送 Cloudflare 地址。
