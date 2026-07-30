@@ -1,0 +1,6 @@
+pandas>=2.3,<3
+pyarrow>=20,<25
+plotly>=6,<7
+airportsdata>=20250706
+pytest>=8,<9
+

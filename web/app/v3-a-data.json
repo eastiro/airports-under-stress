@@ -1,0 +1,116 @@
+{
+  "airportGate": {
+    "minHighAirport": "OMA",
+    "minHighN": 82,
+    "minLowN": 112,
+    "passed": false,
+    "threshold": 100
+  },
+  "concentration": {
+    "maxHighAirportShare": 0.06365562403697997,
+    "maxHighDayShare": 0.05975539291217257
+  },
+  "defaultWindowMinutes": 60,
+  "gateDecision": "CONDITIONAL GO",
+  "groups": {
+    "30": {
+      "high": {
+        "n": 21635,
+        "propagationRate": 0.6166859255835452
+      },
+      "low": {
+        "n": 25966,
+        "propagationRate": 0.4657244088423323
+      },
+      "middle": {
+        "n": 43584,
+        "propagationRate": 0.6111187591776799
+      }
+    },
+    "60": {
+      "high": {
+        "n": 20768,
+        "propagationRate": 0.6615466101694916
+      },
+      "low": {
+        "n": 26502,
+        "propagationRate": 0.42272281337257567
+      },
+      "middle": {
+        "n": 43915,
+        "propagationRate": 0.617738813617215
+      }
+    },
+    "90": {
+      "high": {
+        "n": 21314,
+        "propagationRate": 0.6979919301867318
+      },
+      "low": {
+        "n": 26906,
+        "propagationRate": 0.3909165241953468
+      },
+      "middle": {
+        "n": 42965,
+        "propagationRate": 0.6208541836378447
+      }
+    }
+  },
+  "highMinusLow": {
+    "30": {
+      "computedFrom": "high.propagationRate - low.propagationRate (cross-checked vs frozen window_sensitivity)",
+      "percentagePoints": 15.09615167
+    },
+    "60": {
+      "computedFrom": "high.propagationRate - low.propagationRate (primary 60m, direct)",
+      "percentagePoints": 23.88237968
+    },
+    "90": {
+      "computedFrom": "high.propagationRate - low.propagationRate (cross-checked vs frozen window_sensitivity)",
+      "percentagePoints": 30.7075406
+    }
+  },
+  "interpretationBoundary": "Descriptive association only; not a causal congestion effect.",
+  "plannedMovements": {
+    "30": {
+      "median": 22.0,
+      "p90": 61.0
+    },
+    "60": {
+      "median": 41.0,
+      "p90": 115.0
+    },
+    "90": {
+      "median": 60.0,
+      "p90": 168.0
+    }
+  },
+  "scope": {
+    "eventCount": 91185,
+    "mechanismAirports": 55
+  },
+  "sources": {
+    "reference": "reports/V3_P0_CONGESTION_AUDIT.md",
+    "sha256": {
+      "data/processed/v3_p0_congestion_summary.json": "6102c8326d57c99f491e834d201e4db181e6a5b639d7c67a9b66483e4ea2c08b"
+    }
+  },
+  "version": "v3-a-1",
+  "windowSensitivity": {
+    "30": {
+      "highMinusLowPropagationRate": 0.1509615167412129,
+      "quartileAgreementVs60m": 0.5099413280693097,
+      "spearmanVs60m": 0.7173530510902346
+    },
+    "90": {
+      "highMinusLowPropagationRate": 0.307075405991385,
+      "quartileAgreementVs60m": 0.6015024400943138,
+      "spearmanVs60m": 0.8422553443623491
+    }
+  },
+  "windows": [
+    "30",
+    "60",
+    "90"
+  ]
+}
