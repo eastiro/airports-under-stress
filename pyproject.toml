@@ -1,5 +1,57 @@
+[project]
+name = "airports-under-stress"
+version = "0.1.0"
+description = "研究航班延误如何在机场网络中传播"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [
+    {name = "eastiro", email = "eastiro@users.noreply.github.com"}
+]
+dependencies = [
+    "pandas>=2.3,<3",
+    "pyarrow>=20,<25",
+    "plotly>=6,<7",
+    "airportsdata>=20250706",
+    "pytest>=8,<9",
+]
+
+[project.urls]
+Repository = "https://github.com/eastiro/airports-under-stress"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
 addopts = "-q"
 
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "I",   # isort (import sorting)
+    "N",   # pep8-naming
+    "W",   # pycodestyle warnings
+]
+ignore = [
+    "E501",  # line-too-long (handled by line-length)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["F401", "F811"]
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["tests/*", ".venv/*"]
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+skip_covered = false

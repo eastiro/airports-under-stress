@@ -1,5 +1,9 @@
 # Airports Under Stress
 
+![Python](https://img.shields.io/badge/python-3.12+-blue)
+![Status](https://img.shields.io/badge/status-P0%20audit-yellow)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 用美国交通部（BTS）的逐航班数据研究：一架飞机的延误，如何沿着当天的轮转链传播、被吸收，或在机场网络中放大。
 
 这个仓库目前只做 **P0 数据可行性审计**。P0 不搭网站、不训练预测模型，先回答最重要的问题：数据能否支撑一个严谨、可复现、适合写进简历和申请文书的项目。
