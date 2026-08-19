@@ -4,6 +4,8 @@ An interactive data study of how flight delays propagate, recover, and interact 
 
 一个研究美国航空延误如何沿真实飞机轮转链传播、恢复，并与天气和计划拥挤共同出现的交互式数据项目。
 
+![CI](https://github.com/eastiro/airports-under-stress/actions/workflows/test.yml/badge.svg)
+
 ![Airports Under Stress 实际网站首页](web/public/site-preview.png)
 
 ## 项目概览
