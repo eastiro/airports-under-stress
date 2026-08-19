@@ -1,7 +1,7 @@
 # Airports Under Stress
 
 ![Python](https://img.shields.io/badge/python-3.12+-blue)
-![Status](https://img.shields.io/badge/status-P0%20audit-yellow)
+![CI](https://github.com/eastiro/airports-under-stress/actions/workflows/test.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 用美国交通部（BTS）的逐航班数据研究：一架飞机的延误，如何沿着当天的轮转链传播、被吸收，或在机场网络中放大。
