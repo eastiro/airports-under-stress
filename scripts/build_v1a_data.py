@@ -23,7 +23,6 @@ OUT = ROOT / "web" / "app" / "v1-a-data.json"
 
 def main() -> None:
     summary = json.loads((DATA / "v1_p0_summary.json").read_text(encoding="utf-8"))
-    contract = json.loads((DATA / "v1_p0_ui_contract.json").read_text(encoding="utf-8"))
     d_links = pd.read_parquet(DATA / "v1_p0_directed_links.parquet")
     roles = pd.read_parquet(DATA / "v1_p0_airport_roles.parquet")
 

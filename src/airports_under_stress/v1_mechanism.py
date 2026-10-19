@@ -8,13 +8,10 @@ from __future__ import annotations
 
 import hashlib
 import json
-import time
 from pathlib import Path
-from typing import Literal
 
 import numpy as np
 import pandas as pd
-from scipy.stats import binom
 
 EPISODE_MAX_SCHEDULED_TURN_MINUTES = 180
 EPISODE_MAX_DURATION_HOURS = 18
@@ -620,7 +617,7 @@ def conditional_lift_stratified(links: pd.DataFrame, threshold: int = 15) -> dic
     rows = []
     excluded = 0
     excluded_flights = 0
-    for (origin, depBin), g in links.groupby(["Origin", "depBin"], sort=False):
+    for (origin, dep_bin), g in links.groupby(["Origin", "depBin"], sort=False):
         n_total = len(g)
         n_upl = int(g["upstream_late"].sum())
         n_not_upl = n_total - n_upl
@@ -635,7 +632,7 @@ def conditional_lift_stratified(links: pd.DataFrame, threshold: int = 15) -> dic
         lift = p_late - p_not
         rows.append({
             "turnAirport": origin,
-            "depHourBin": depBin,
+            "depHourBin": dep_bin,
             "nTotal": n_total,
             "nUpstreamLate": n_upl,
             "nNotUpstream": n_not_upl,
@@ -704,7 +701,6 @@ def build_airport_roles(links: pd.DataFrame, episodes: pd.DataFrame, threshold: 
             "medianDelayDelta": round(float(delta.median()), 1) if len(delta) > 0 else 0.0,
             "p90DelayDelta": round(float(delta.quantile(0.9)), 1) if len(delta) > 0 else 0.0,
             "nExposed": n_exposed,
-            "nEdges": n_edges,
             "deepEpisodeRate2plus": round(deep2 / total_ep, 4) if total_ep > 0 else 0.0,
             "deepEpisodeRate3plus": round(deep3 / total_ep, 4) if total_ep > 0 else 0.0,
             "outgoingReach": additional_reach,
@@ -713,8 +709,8 @@ def build_airport_roles(links: pd.DataFrame, episodes: pd.DataFrame, threshold: 
 
     result = pd.DataFrame(rows)
     # Only assign role labels to airports with sufficient sample
-    MIN_EXPOSED = 500
-    eligible_mask = result["nExposed"] >= MIN_EXPOSED
+    min_exposed = 500
+    eligible_mask = result["nExposed"] >= min_exposed
     result["roleLabel"] = "insufficient_sample"
 
     if eligible_mask.sum() > 0:
@@ -759,7 +755,6 @@ def sensitivity_by_threshold(
     rows = []
     for t in thresholds:
         eps = build_shockwave_episodes(links, threshold=t)
-        steps = _v1_steps
         d_links = build_directed_links(links, threshold=t)
         l1 = d_links[d_links["level"] == "L1_turn_dest"]
         rows.append({
