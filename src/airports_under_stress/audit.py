@@ -12,7 +12,6 @@ import pandas as pd
 
 from .timeutils import parse_hhmm, scheduled_departure_utc
 
-
 USE_COLUMNS = [
     "FlightDate",
     "Reporting_Airline",

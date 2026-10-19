@@ -8,7 +8,6 @@ from typing import Iterable
 
 import pandas as pd
 
-
 IEM_URL = "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py"
 REQUIRED_RAW_COLUMNS = [
     "station",

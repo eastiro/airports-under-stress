@@ -1,8 +1,8 @@
 """Tests for V1-P0 mechanism audit (v2 — after Codex review fixes).
 
-Covers: episode invariants (recovery stepping, gap censoring), 
-threshold sensitivity, directed links (CI null-safe), 
-conditional lift (comparable strata), airport roles (only eligible), 
+Covers: episode invariants (recovery stepping, gap censoring),
+threshold sensitivity, directed links (CI null-safe),
+conditional lift (comparable strata), airport roles (only eligible),
 concentration (exact links), UI contract, reproducibility.
 """
 
@@ -16,6 +16,7 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 import sys
+
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 

@@ -10,6 +10,9 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
+# Local agent working notes (session logs, scratch handoffs).
+.workbuddy/
+
 web/node_modules/
 web/dist/
 web/.next/

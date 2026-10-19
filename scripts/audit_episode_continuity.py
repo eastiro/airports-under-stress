@@ -9,7 +9,6 @@ it does not overwrite the published V1-P0 products.
 
 from __future__ import annotations
 
-import json
 import sys
 import time
 from pathlib import Path

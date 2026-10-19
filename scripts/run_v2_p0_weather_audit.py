@@ -18,7 +18,6 @@ from airports_under_stress.weather import (
     standardize_observations,
 )
 
-
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw" / "weather"
 PROCESSED = ROOT / "data" / "processed"

@@ -20,7 +20,10 @@ ignore = [
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"tests/*" = ["F401", "F811"]
+# Scripts and tests bootstrap ``sys.path`` before importing project modules,
+# so their imports intentionally follow executable statements.
+"tests/*" = ["F401", "F811", "E402"]
+"scripts/*" = ["E402"]
 
 [tool.coverage.run]
 source = ["src"]

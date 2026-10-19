@@ -14,7 +14,6 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from airports_under_stress.weather import IEM_URL, parse_iem_csv, sha256_bytes, station_query
 
-
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw" / "weather"
 PROCESSED = ROOT / "data" / "processed"
