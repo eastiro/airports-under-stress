@@ -172,7 +172,15 @@ export default function EpisodeExplorer({ language, data, weather }: { language:
     update(); query.addEventListener("change", update); return () => query.removeEventListener("change", update);
   }, []);
   useEffect(() => {
-    stepRefs.current[index]?.scrollIntoView({ inline: "center", block: "nearest", behavior: reducedMotion ? "auto" : "smooth" });
+    // Scroll the tape itself, never the page: scrollIntoView here used to drag the
+    // whole window ~9,000px down as soon as the section mounted.
+    const node = stepRefs.current[index];
+    const rail = node?.closest(".episode-tape") as HTMLElement | null;
+    if (!node || !rail) return;
+    const nodeRect = node.getBoundingClientRect();
+    const railRect = rail.getBoundingClientRect();
+    const delta = nodeRect.left - railRect.left - (railRect.width - nodeRect.width) / 2;
+    rail.scrollTo({ left: rail.scrollLeft + delta, behavior: reducedMotion ? "auto" : "smooth" });
   }, [id, index, reducedMotion, threshold]);
   useEffect(() => {
     const element = sectionRef.current;
