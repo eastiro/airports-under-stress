@@ -455,6 +455,8 @@ export default function Dashboard() {
   const [airportSort, setAirportSort] = useState<AirportSortKey>("pressureScore");
   const [selectedAirportCode, setSelectedAirportCode] = useState(data.airports[0].code);
   const [activeStoryId, setActiveStoryId] = useState(data.stories[0].id);
+  // Shared pointer target between the map and the pressure board.
+  const [linkedAirport, setLinkedAirport] = useState<string | null>(null);
 
   const sortedAirports = useMemo(
     () => [...data.airports].sort((a, b) => b[airportSort] - a[airportSort]).slice(0, 12),
@@ -521,7 +523,12 @@ export default function Dashboard() {
         </div>
       </header>
 
-      <NetworkHero language={language} data={data} />
+      <NetworkHero
+        language={language}
+        data={data}
+        linkedAirport={linkedAirport}
+        onLinkAirport={setLinkedAirport}
+      />
 
       <section className="metric-ribbon section-shell" aria-label={text.nationalSummary}>
         <article>
@@ -616,9 +623,13 @@ export default function Dashboard() {
                 <button
                   type="button"
                   role="listitem"
-                  className={`airport-row ${selectedAirport.code === airport.code ? "selected" : ""}`}
+                  className={`airport-row ${selectedAirport.code === airport.code ? "selected" : ""}${linkedAirport === airport.code ? " is-linked" : ""}`}
                   key={airport.code}
                   onClick={() => setSelectedAirportCode(airport.code)}
+                  onMouseEnter={() => setLinkedAirport(airport.code)}
+                  onMouseLeave={() => setLinkedAirport((prev) => (prev === airport.code ? null : prev))}
+                  onFocus={() => setLinkedAirport(airport.code)}
+                  onBlur={() => setLinkedAirport((prev) => (prev === airport.code ? null : prev))}
                   aria-label={language === "zh"
                     ? `${airport.code}，${airport.city}：${formatSortValue(airportSort, sortValue as number, language)}`
                     : `${airport.code}, ${airport.city}: ${formatSortValue(airportSort, sortValue as number, language)}`}

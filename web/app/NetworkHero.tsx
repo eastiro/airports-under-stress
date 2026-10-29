@@ -37,7 +37,14 @@ type SiteData = {
   stories: Story[];
 };
 
-type Props = { language: Language; data: SiteData };
+type Props = {
+  language: Language;
+  data: SiteData;
+  /** Airport currently linked from another view (e.g. the pressure board). */
+  linkedAirport?: string | null;
+  /** Reports the airport the pointer is over so sibling views can follow it. */
+  onLinkAirport?: (code: string | null) => void;
+};
 type Point = [number, number];
 
 const MAP_BOUNDS = { west: -125, east: -66, south: 24, north: 50, padX: 0.05, padY: 0.07 } as const;
@@ -77,7 +84,7 @@ function hexWithAlpha(hex: string, alpha: number) {
   return `${hex}${a}`;
 }
 
-export default function NetworkHero({ language, data }: Props) {
+export default function NetworkHero({ language, data, linkedAirport = null, onLinkAirport }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const frameRef = useRef<number | null>(null);
   const nodeScreenRef = useRef<{ code: string; x: number; y: number; r: number; clusterCodes?: string[] }[]>([]);
@@ -93,6 +100,15 @@ export default function NetworkHero({ language, data }: Props) {
   const [metric, setMetric] = useState<"delayRate" | "cancelRate" | "propagationRate">("delayRate");
 
   const point = data.daily[dayIndex] ?? data.daily[0];
+
+  // A node is emphasised either because the pointer is on it or because a sibling
+  // view (the pressure board) is pointing at the same airport.
+  const focusCode = hovered && !hovered.includes(",") ? hovered : linkedAirport;
+
+  useEffect(() => {
+    if (!onLinkAirport) return;
+    onLinkAirport(hovered && !hovered.includes(",") ? hovered : null);
+  }, [hovered, onLinkAirport]);
 
   const labels = language === "zh"
     ? {
@@ -428,6 +444,17 @@ export default function NetworkHero({ language, data }: Props) {
         context.stroke();
         context.setLineDash([]);
 
+        // Linked / hovered node gets a hard ring so it survives the dense clusters.
+        const isClusterFocus = isMulti && Boolean(focusCode) && cl.codes.includes(focusCode as string);
+        const isFocus = isClusterFocus || (!isMulti && cl.codes[0] === focusCode);
+        if (isFocus) {
+          context.strokeStyle = "rgba(237,245,241,0.9)";
+          context.lineWidth = 1.5;
+          context.beginPath();
+          context.arc(cl.x, cl.y, drawR + 5, 0, Math.PI * 2);
+          context.stroke();
+        }
+
         // Fill
         context.fillStyle = isMulti ? hexWithAlpha(color, 0.65 + intensity * 0.2) : color;
         context.beginPath();
@@ -443,17 +470,22 @@ export default function NetworkHero({ language, data }: Props) {
           context.font = "700 9px ui-monospace, monospace";
           context.textAlign = "center";
           context.fillText(String(cl.codes.length), cl.x, cl.y - drawR - 7);
+          // A linked airport hiding inside the cluster still names itself.
+          if (isClusterFocus && focusCode) {
+            context.fillStyle = "#edf5f1";
+            context.font = "700 11px ui-monospace, monospace";
+            context.fillText(focusCode, cl.x, cl.y + drawR + 14);
+          }
         } else {
-          // Solo node label
-          if (placed.length < maxLabels) {
-            const tooClose = placed.some((p) => Math.hypot(p.x - cl.x, p.y - cl.y) < labelGap);
-            if (!tooClose) {
-              placed.push({ code: cl.codes[0], x: cl.x, y: cl.y });
-              context.fillStyle = cl.codes[0] === hovered ? "#5fd4b4" : "rgba(237,245,241,0.82)";
-              context.font = "700 10px ui-monospace, monospace";
-              context.textAlign = "center";
-              context.fillText(cl.codes[0], cl.x, cl.y - drawR - 5);
-            }
+          // Solo node label — the focused airport always wins the label slot.
+          const isFocus = cl.codes[0] === focusCode;
+          const tooClose = placed.some((p) => Math.hypot(p.x - cl.x, p.y - cl.y) < labelGap);
+          if (isFocus || (placed.length < maxLabels && !tooClose)) {
+            placed.push({ code: cl.codes[0], x: cl.x, y: cl.y });
+            context.fillStyle = isFocus ? "#edf5f1" : "rgba(237,245,241,0.82)";
+            context.font = isFocus ? "700 11px ui-monospace, monospace" : "700 10px ui-monospace, monospace";
+            context.textAlign = "center";
+            context.fillText(cl.codes[0], cl.x, cl.y - drawR - (isFocus ? 7 : 5));
           }
         }
       }
@@ -476,7 +508,7 @@ export default function NetworkHero({ language, data }: Props) {
       document.removeEventListener("visibilitychange", onVisibility);
       if (frameRef.current !== null) window.cancelAnimationFrame(frameRef.current);
     };
-  }, [baseArcs, storyArcs, nodes, data.daily, hovered, intensity, minRate, maxRate]);
+  }, [baseArcs, storyArcs, nodes, data.daily, hovered, focusCode, intensity, minRate, maxRate]);
 
   const handleDate = (event: ChangeEvent<HTMLInputElement>) => setDayIndex(Number(event.target.value));
   const togglePlaying = () => {
