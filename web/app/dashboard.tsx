@@ -465,7 +465,6 @@ export default function Dashboard() {
     data.airports.find((airport) => airport.code === selectedAirportCode) ?? sortedAirports[0];
   const activeStory =
     data.stories.find((story) => story.id === activeStoryId) ?? data.stories[0];
-  const airlineDelayMax = Math.max(...data.airlines.map((airline) => airline.delayRate));
   const text = ui[language];
   const integer = (value: number) =>
     new Intl.NumberFormat(language === "zh" ? "zh-CN" : "en-US").format(value);
@@ -733,21 +732,27 @@ export default function Dashboard() {
                 <h3>{language === "zh" ? (AIRLINE_ZH[airline.code] ?? airline.name) : airline.name}</h3>
                 {language === "zh" && <small>{airline.name} · {airline.code}</small>}
               </div>
-              <div className="carrier-bar">
-                <span style={{ width: percent(airline.delayRate / airlineDelayMax, 2) }} />
-              </div>
               <div className="carrier-stats">
-                <span>
+                <span className="carrier-stat" data-tone="delay">
+                  <em>{text.carrierDelay}</em>
                   <strong>{percent(airline.delayRate)}</strong>
-                  {text.carrierDelay}
+                  <span className="carrier-meter">
+                    <i style={{ width: percent(airline.delayRate, 1) }} />
+                  </span>
                 </span>
-                <span>
+                <span className="carrier-stat" data-tone="propagate">
+                  <em>{text.carrierPropagate}</em>
                   <strong>{percent(airline.propagationRate)}</strong>
-                  {text.carrierPropagate}
+                  <span className="carrier-meter">
+                    <i style={{ width: percent(airline.propagationRate, 1) }} />
+                  </span>
                 </span>
-                <span>
+                <span className="carrier-stat" data-tone="recover">
+                  <em>{text.carrierRecover}</em>
                   <strong>{percent(airline.recoveryRate)}</strong>
-                  {text.carrierRecover}
+                  <span className="carrier-meter">
+                    <i style={{ width: percent(airline.recoveryRate, 1) }} />
+                  </span>
                 </span>
               </div>
             </article>

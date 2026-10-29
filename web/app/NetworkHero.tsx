@@ -68,7 +68,7 @@ function pct(value: number) {
 function legColor(arrDelay: number) {
   if (arrDelay >= 60) return "#ff6b5f";
   if (arrDelay >= 15) return "#ffbc52";
-  return "#66f0d2";
+  return "#5fd4b4";
 }
 function hexWithAlpha(hex: string, alpha: number) {
   const a = Math.max(0, Math.min(255, Math.round(alpha * 255)))
@@ -297,7 +297,7 @@ export default function NetworkHero({ language, data }: Props) {
         height * 0.42,
         Math.max(width, height) * 0.7,
       );
-      glow.addColorStop(0, hexWithAlpha("#66f0d2", 0.05 + intensity * 0.1));
+      glow.addColorStop(0, hexWithAlpha("#5fd4b4", 0.05 + intensity * 0.1));
       glow.addColorStop(1, "rgba(7,17,19,0)");
       context.fillStyle = glow;
       context.fillRect(0, 0, width, height);
@@ -305,7 +305,7 @@ export default function NetworkHero({ language, data }: Props) {
       const map = (p: Point) => [p[0] * width, p[1] * height] as const;
 
       // Continental U.S. boundary outline, same projection as nodes.
-      context.strokeStyle = "rgba(102,240,210,0.22)";
+      context.strokeStyle = "rgba(95,212,180,0.22)";
       context.lineWidth = 1;
       for (const ring of US_BOUNDARY) {
         context.beginPath();
@@ -325,7 +325,7 @@ export default function NetworkHero({ language, data }: Props) {
         const [x2, y2] = map(arc.to);
         const cx = (x1 + x2) / 2;
         const cy = Math.min(y1, y2) - Math.max(18, Math.abs(x2 - x1) * 0.18);
-        context.strokeStyle = hexWithAlpha("#66f0d2", baseAlpha);
+        context.strokeStyle = hexWithAlpha("#5fd4b4", baseAlpha);
         context.lineWidth = 1;
         context.beginPath();
         context.moveTo(x1, y1);
@@ -335,7 +335,7 @@ export default function NetworkHero({ language, data }: Props) {
         const inv = 1 - progress;
         const px = inv * inv * x1 + 2 * inv * progress * cx + progress * progress * x2;
         const py = inv * inv * y1 + 2 * inv * progress * cy + progress * progress * y2;
-        context.fillStyle = hexWithAlpha("#66f0d2", 0.5 + intensity * 0.3);
+        context.fillStyle = hexWithAlpha("#5fd4b4", 0.5 + intensity * 0.3);
         context.beginPath();
         context.arc(px, py, 1.4, 0, Math.PI * 2);
         context.fill();
@@ -417,7 +417,7 @@ export default function NetworkHero({ language, data }: Props) {
           ? 1
           : 1 + Math.sin(time / 600 + cl.priority) * (0.04 + cl.pressureScore / 1800) * (0.6 + intensity * 0.6);
         const drawR = cl.r * (0.85 + intensity * 0.3) * pulse;
-        const color = cl.pressureScore > 70 ? "#ffbc52" : "#66f0d2";
+        const color = cl.pressureScore > 70 ? "#ffbc52" : "#5fd4b4";
 
         // Halo stroke — uses haloAlpha (previously unused, now fixes low/high pressure visibility).
         context.strokeStyle = hexWithAlpha(color, haloAlpha);
@@ -449,7 +449,7 @@ export default function NetworkHero({ language, data }: Props) {
             const tooClose = placed.some((p) => Math.hypot(p.x - cl.x, p.y - cl.y) < labelGap);
             if (!tooClose) {
               placed.push({ code: cl.codes[0], x: cl.x, y: cl.y });
-              context.fillStyle = cl.codes[0] === hovered ? "#66f0d2" : "rgba(237,245,241,0.82)";
+              context.fillStyle = cl.codes[0] === hovered ? "#5fd4b4" : "rgba(237,245,241,0.82)";
               context.font = "700 10px ui-monospace, monospace";
               context.textAlign = "center";
               context.fillText(cl.codes[0], cl.x, cl.y - drawR - 5);
@@ -788,7 +788,7 @@ export default function NetworkHero({ language, data }: Props) {
                   y={36 - h}
                   width={4.8}
                   height={h}
-                  fill={active ? "#ffbc52" : "#66f0d2"}
+                  fill={active ? "#ffbc52" : "#5fd4b4"}
                   opacity={active ? 1 : 0.55}
                 />
               );

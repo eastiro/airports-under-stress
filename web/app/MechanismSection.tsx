@@ -276,7 +276,7 @@ export default function MechanismSection({ language, data, airportCitiesEn, weat
 
   // SVG scatter: 55 eligible airports
   // X: exposureRate [0, 1], Y: persistenceRate [0, 1]
-  const W = 680, H = 360, PAD = 50;
+  const W = 720, H = 380, PAD = 74, TOP = 46;
   const xs = data.airportMechanismDimensions.map(a => a.exposureRate);
   const ys = data.airportMechanismDimensions.map(a => a.persistenceRate);
   const xRawMin = Math.min(...xs), xRawMax = Math.max(...xs);
@@ -286,7 +286,7 @@ export default function MechanismSection({ language, data, airportCitiesEn, weat
   const xMin = xRawMin - xPad, xMax = xRawMax + xPad;
   const yMin = yRawMin - yPad, yMax = yRawMax + yPad;
   const xScale = (v: number) => PAD + (v - xMin) / (xMax - xMin) * (W - 2 * PAD);
-  const yScale = (v: number) => H - PAD - (v - yMin) / (yMax - yMin) * (H - 2 * PAD);
+  const yScale = (v: number) => H - PAD - (v - yMin) / (yMax - yMin) * (H - PAD - TOP);
   const maxExposed = Math.max(...data.airportMechanismDimensions.map(a => a.nExposed));
   const median = (values: number[]) => {
     const sorted = [...values].sort((a, b) => a - b);
@@ -297,9 +297,29 @@ export default function MechanismSection({ language, data, airportCitiesEn, weat
   const priorityLabels = new Set(
     [...data.airportMechanismDimensions]
       .sort((a, b) => b.nExposed - a.nExposed)
-      .slice(0, 9)
+      .slice(0, 7)
       .map(a => a.code),
   );
+
+  // Greedy vertical de-collision so the labelled cluster stays readable.
+  const labelledPoints = data.airportMechanismDimensions
+    .filter(a => priorityLabels.has(a.code) || selectedAirport === a.code)
+    .map(a => ({
+      code: a.code,
+      cx: xScale(a.exposureRate),
+      top: yScale(a.persistenceRate) - (4 + (a.nExposed / maxExposed) * 12) - 5,
+    }))
+    .sort((a, b) => a.top - b.top);
+  const labelY: Record<string, number> = {};
+  let cursor = -Infinity;
+  for (const point of labelledPoints) {
+    const y = Math.max(point.top, cursor + 13);
+    labelY[point.code] = y;
+    cursor = y;
+  }
+  const ticksFor = (min: number, max: number) => [0.2, 0.4, 0.6, 0.8].map(t => min + (max - min) * t);
+  const xTicks = ticksFor(xMin, xMax);
+  const yTicks = ticksFor(yMin, yMax);
 
   return (
     <section className="analysis-section mechanism-section section-shell" id="mechanism">
@@ -344,21 +364,40 @@ export default function MechanismSection({ language, data, airportCitiesEn, weat
         </div>
         <svg className="mechanism-chart" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={labels.mechanismChart}>
           {/* Axes */}
-          <line x1={PAD} y1={H - PAD} x2={W - PAD} y2={H - PAD} stroke="rgba(102,240,210,.2)" />
-          <line x1={PAD} y1={PAD} x2={PAD} y2={H - PAD} stroke="rgba(102,240,210,.2)" />
-          <text x={W / 2} y={H - 12} textAnchor="middle" fill="var(--muted)" fontSize="12">{labels.chartX}</text>
-          <text x={12} y={H / 2} textAnchor="middle" fill="var(--muted)" fontSize="12" transform={`rotate(-90 12 ${H / 2})`}>{labels.chartY}</text>
+          <line x1={PAD} y1={H - PAD} x2={W - PAD} y2={H - PAD} stroke="var(--line-bright)" />
+          <line x1={PAD} y1={TOP} x2={PAD} y2={H - PAD} stroke="var(--line-bright)" />
+          {xTicks.map((tick) => {
+            const x = xScale(tick);
+            return (
+              <g key={`xt-${tick.toFixed(3)}`}>
+                <line x1={x} y1={TOP} x2={x} y2={H - PAD} stroke="var(--line)" strokeOpacity="0.55" />
+                <text x={x} y={H - PAD + 16} textAnchor="middle" fill="var(--quiet)" fontSize="10" fontFamily="var(--mono)">{pct(tick)}</text>
+              </g>
+            );
+          })}
+          {yTicks.map((tick) => {
+            const y = yScale(tick);
+            return (
+              <g key={`yt-${tick.toFixed(3)}`}>
+                <line x1={PAD} y1={y} x2={W - PAD} y2={y} stroke="var(--line)" strokeOpacity="0.55" />
+                <text x={PAD - 8} y={y + 3} textAnchor="end" fill="var(--quiet)" fontSize="10" fontFamily="var(--mono)">{pct(tick)}</text>
+              </g>
+            );
+          })}
+          <text x={W / 2} y={H - PAD + 40} textAnchor="middle" fill="var(--muted)" fontSize="11">{labels.chartX}</text>
+          <text x={12} y={H / 2} textAnchor="middle" fill="var(--muted)" fontSize="11" transform={`rotate(-90 16 ${H / 2})`}>{labels.chartY}</text>
           {/* Median lines */}
-          <line x1={xScale(medianExposure)} y1={PAD} x2={xScale(medianExposure)} y2={H - PAD} stroke="rgba(102,240,210,.12)" strokeDasharray="3 3" />
-          <line x1={PAD} y1={yScale(medianPersistence)} x2={W - PAD} y2={yScale(medianPersistence)} stroke="rgba(102,240,210,.12)" strokeDasharray="3 3" />
+          <line x1={xScale(medianExposure)} y1={TOP} x2={xScale(medianExposure)} y2={H - PAD} stroke="rgba(95,212,180,.28)" strokeDasharray="4 4" />
+          <line x1={PAD} y1={yScale(medianPersistence)} x2={W - PAD} y2={yScale(medianPersistence)} stroke="rgba(95,212,180,.28)" strokeDasharray="4 4" />
           {/* Nodes */}
           {data.airportMechanismDimensions.map(a => {
             const cx = xScale(a.exposureRate);
             const cy = yScale(a.persistenceRate);
             const r = 4 + (a.nExposed / maxExposed) * 12;
-            // Green = high recovery, red = low recovery
-            const hue = a.recoveryRate * 120; // 0=red, 120=green
-            const color = `hsl(${hue}, 60%, 50%)`;
+            // Continuous ramp from the delay red to the brand mint, keyed on recovery rate.
+            const t = Math.max(0, Math.min(1, (a.recoveryRate - 0.15) / 0.5));
+            const mix = (from: number, to: number) => Math.round(from + (to - from) * t);
+            const color = `rgb(${mix(255, 95)}, ${mix(107, 212)}, ${mix(95, 180)})`;
             return (
               <g
                 key={a.code}
@@ -374,9 +413,9 @@ export default function MechanismSection({ language, data, airportCitiesEn, weat
                 }}
                 style={{ cursor: "pointer" }}
               >
-                <circle cx={cx} cy={cy} r={r} fill={color} fillOpacity={0.35} stroke={selectedAirport === a.code ? "var(--mint)" : color} strokeWidth={selectedAirport === a.code ? 2 : 1} />
+                <circle cx={cx} cy={cy} r={r} fill={color} fillOpacity={0.18} stroke={selectedAirport === a.code ? "var(--ink)" : color} strokeWidth={selectedAirport === a.code ? 2.5 : 1.5} />
                 {(priorityLabels.has(a.code) || selectedAirport === a.code) && (
-                  <text x={cx} y={cy - r - 3} textAnchor="middle" fill="var(--ink)" fontSize="12" fontWeight="700">{a.code}</text>
+                  <text x={cx} y={labelY[a.code] ?? cy - r - 5} textAnchor="middle" fill="var(--ink)" stroke="#060b0d" strokeWidth="3.5" paintOrder="stroke" fontSize="11" fontWeight="700" fontFamily="var(--mono)">{a.code}</text>
                 )}
                 <title>{`${a.code} ${cityOf(a.code)}: ${labels.exposure} ${pct(a.exposureRate)}, ${labels.persistence} ${pct(a.persistenceRate)}`}</title>
               </g>
