@@ -415,7 +415,7 @@ export default function MechanismSection({ language, data, airportCitiesEn, weat
               >
                 <circle cx={cx} cy={cy} r={r} fill={color} fillOpacity={0.18} stroke={selectedAirport === a.code ? "var(--ink)" : color} strokeWidth={selectedAirport === a.code ? 2.5 : 1.5} />
                 {(priorityLabels.has(a.code) || selectedAirport === a.code) && (
-                  <text x={cx} y={labelY[a.code] ?? cy - r - 5} textAnchor="middle" fill="var(--ink)" stroke="#060b0d" strokeWidth="3.5" paintOrder="stroke" fontSize="11" fontWeight="700" fontFamily="var(--mono)">{a.code}</text>
+                  <text x={cx} y={labelY[a.code] ?? cy - r - 5} textAnchor="middle" fill="var(--ink)" stroke="#fbfaf6" strokeWidth="3.5" paintOrder="stroke" fontSize="11" fontWeight="700" fontFamily="var(--mono)">{a.code}</text>
                 )}
                 <title>{`${a.code} ${cityOf(a.code)}: ${labels.exposure} ${pct(a.exposureRate)}, ${labels.persistence} ${pct(a.persistenceRate)}`}</title>
               </g>

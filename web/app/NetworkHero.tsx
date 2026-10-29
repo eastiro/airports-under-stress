@@ -73,9 +73,9 @@ function pct(value: number) {
   return `${(value * 100).toFixed(1)}%`;
 }
 function legColor(arrDelay: number) {
-  if (arrDelay >= 60) return "#ff6b5f";
-  if (arrDelay >= 15) return "#ffbc52";
-  return "#5fd4b4";
+  if (arrDelay >= 60) return "#b83a2d";
+  if (arrDelay >= 15) return "#a4650f";
+  return "#0e7a63";
 }
 function hexWithAlpha(hex: string, alpha: number) {
   const a = Math.max(0, Math.min(255, Math.round(alpha * 255)))
@@ -301,27 +301,13 @@ export default function NetworkHero({ language, data, linkedAirport = null, onLi
       }
       context.setTransform(dpr, 0, 0, dpr, 0, 0);
       context.clearRect(0, 0, width, height);
-      context.fillStyle = "#071113";
-      context.fillRect(0, 0, width, height);
-
-      // Background energy scales with the selected day's pressure.
-      const glow = context.createRadialGradient(
-        width * 0.5,
-        height * 0.42,
-        0,
-        width * 0.5,
-        height * 0.42,
-        Math.max(width, height) * 0.7,
-      );
-      glow.addColorStop(0, hexWithAlpha("#5fd4b4", 0.05 + intensity * 0.1));
-      glow.addColorStop(1, "rgba(7,17,19,0)");
-      context.fillStyle = glow;
+      context.fillStyle = "#f6f4ec";
       context.fillRect(0, 0, width, height);
 
       const map = (p: Point) => [p[0] * width, p[1] * height] as const;
 
       // Continental U.S. boundary outline, same projection as nodes.
-      context.strokeStyle = "rgba(95,212,180,0.22)";
+      context.strokeStyle = "rgba(21,25,27,0.20)";
       context.lineWidth = 1;
       for (const ring of US_BOUNDARY) {
         context.beginPath();
@@ -341,7 +327,7 @@ export default function NetworkHero({ language, data, linkedAirport = null, onLi
         const [x2, y2] = map(arc.to);
         const cx = (x1 + x2) / 2;
         const cy = Math.min(y1, y2) - Math.max(18, Math.abs(x2 - x1) * 0.18);
-        context.strokeStyle = hexWithAlpha("#5fd4b4", baseAlpha);
+        context.strokeStyle = hexWithAlpha("#0e7a63", baseAlpha);
         context.lineWidth = 1;
         context.beginPath();
         context.moveTo(x1, y1);
@@ -351,7 +337,7 @@ export default function NetworkHero({ language, data, linkedAirport = null, onLi
         const inv = 1 - progress;
         const px = inv * inv * x1 + 2 * inv * progress * cx + progress * progress * x2;
         const py = inv * inv * y1 + 2 * inv * progress * cy + progress * progress * y2;
-        context.fillStyle = hexWithAlpha("#5fd4b4", 0.5 + intensity * 0.3);
+        context.fillStyle = hexWithAlpha("#0e7a63", 0.5 + intensity * 0.3);
         context.beginPath();
         context.arc(px, py, 1.4, 0, Math.PI * 2);
         context.fill();
@@ -433,7 +419,7 @@ export default function NetworkHero({ language, data, linkedAirport = null, onLi
           ? 1
           : 1 + Math.sin(time / 600 + cl.priority) * (0.04 + cl.pressureScore / 1800) * (0.6 + intensity * 0.6);
         const drawR = cl.r * (0.85 + intensity * 0.3) * pulse;
-        const color = cl.pressureScore > 70 ? "#ffbc52" : "#5fd4b4";
+        const color = cl.pressureScore > 70 ? "#a4650f" : "#0e7a63";
 
         // Halo stroke — uses haloAlpha (previously unused, now fixes low/high pressure visibility).
         context.strokeStyle = hexWithAlpha(color, haloAlpha);
@@ -448,7 +434,7 @@ export default function NetworkHero({ language, data, linkedAirport = null, onLi
         const isClusterFocus = isMulti && Boolean(focusCode) && cl.codes.includes(focusCode as string);
         const isFocus = isClusterFocus || (!isMulti && cl.codes[0] === focusCode);
         if (isFocus) {
-          context.strokeStyle = "rgba(237,245,241,0.9)";
+          context.strokeStyle = "rgba(21,25,27,0.85)";
           context.lineWidth = 1.5;
           context.beginPath();
           context.arc(cl.x, cl.y, drawR + 5, 0, Math.PI * 2);
@@ -466,13 +452,13 @@ export default function NetworkHero({ language, data, linkedAirport = null, onLi
 
         if (isMulti) {
           // Cluster label: airport count
-          context.fillStyle = "#ffbc52";
+          context.fillStyle = "#a4650f";
           context.font = "700 9px ui-monospace, monospace";
           context.textAlign = "center";
           context.fillText(String(cl.codes.length), cl.x, cl.y - drawR - 7);
           // A linked airport hiding inside the cluster still names itself.
           if (isClusterFocus && focusCode) {
-            context.fillStyle = "#edf5f1";
+            context.fillStyle = "#15191b";
             context.font = "700 11px ui-monospace, monospace";
             context.fillText(focusCode, cl.x, cl.y + drawR + 14);
           }
@@ -482,7 +468,7 @@ export default function NetworkHero({ language, data, linkedAirport = null, onLi
           const tooClose = placed.some((p) => Math.hypot(p.x - cl.x, p.y - cl.y) < labelGap);
           if (isFocus || (placed.length < maxLabels && !tooClose)) {
             placed.push({ code: cl.codes[0], x: cl.x, y: cl.y });
-            context.fillStyle = isFocus ? "#edf5f1" : "rgba(237,245,241,0.82)";
+            context.fillStyle = isFocus ? "#15191b" : "rgba(21,25,27,0.80)";
             context.font = isFocus ? "700 11px ui-monospace, monospace" : "700 10px ui-monospace, monospace";
             context.textAlign = "center";
             context.fillText(cl.codes[0], cl.x, cl.y - drawR - (isFocus ? 7 : 5));
@@ -820,7 +806,7 @@ export default function NetworkHero({ language, data, linkedAirport = null, onLi
                   y={36 - h}
                   width={4.8}
                   height={h}
-                  fill={active ? "#ffbc52" : "#5fd4b4"}
+                  fill={active ? "#a4650f" : "#0e7a63"}
                   opacity={active ? 1 : 0.55}
                 />
               );
