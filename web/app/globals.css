@@ -238,7 +238,7 @@ button {
 
 .hero h1 .outlined {
   color: transparent;
-  -webkit-text-stroke: 1px rgba(21,25,27,0.5);
+  -webkit-text-stroke: 1px rgba(21,25,27,0.6);
 }
 
 .hero-deck {
@@ -1818,7 +1818,7 @@ a:focus-visible {
 .network-copy { position: relative; z-index: 2; grid-row: 1 / 3; align-self: center; padding: 18px 0 18px; }
 .network-copy h1 { margin: 14px 0 16px; font-family: var(--body); font-weight: 800; font-size: clamp(54px, 6vw, 92px); line-height: 0.94; letter-spacing: -0.02em; text-transform: none; }
 .network-copy h1 span { display: block; }
-.network-copy h1 span:last-child { color: transparent; -webkit-text-stroke: 1px rgba(21,25,27,0.5); }
+.network-copy h1 span:last-child { color: transparent; -webkit-text-stroke: 1px rgba(21,25,27,0.6); }
 .network-note { max-width: 340px; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--quiet); font: 600 10px/1.7 var(--mono); }
 .network-legend { position: absolute; left: 20px; bottom: 18px; display: flex; gap: 18px; color: var(--muted); font: 600 9px/1 var(--mono); }
 .legend-line { display: inline-block; width: 20px; margin-right: 5px; border-top: 1px solid var(--amber); vertical-align: middle; }
