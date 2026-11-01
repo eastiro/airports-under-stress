@@ -224,7 +224,7 @@ const ui = {
     metricRecovery: "晚点被下一班追回",
     metricTails: "研究覆盖",
     metricTailsSub: "架有机尾号的飞机",
-    airportSection: "01 / 机场压力榜",
+    airportSection: "机场压力榜",
     airportTitle: "哪些机场感受到了更大压力？",
     airportIntro: "这张榜单比较哪些机场在这批数据里同时出现更多晚点、取消，以及晚点继续往下传。分数越高，表示相对压力越集中——只比机场之间的相对位置，不是安全评分。榜单展示前 12 名，下方可选择全部 97 个合格机场中的任意一个。",
     airportDetailsSummary: "查看研究细节",
@@ -247,7 +247,7 @@ const ui = {
     propagated: "继续传播",
     recovered: "被吸收",
     pressureNote: "压力指数只反映符合条件机场之间的相对位置，不是安全评级，也不代表因果关系。",
-    carrierSection: "02 / 航司对比",
+    carrierSection: "航司对比",
     carrierTitle: "规模不等于韧性。",
     carrierIntro: "比较大型报告航司在这批数据里的不同表现——只描述差异，不评哪家运营能力更高。",
     carrierDetailsSummary: "查看研究细节",
@@ -256,7 +256,7 @@ const ui = {
     carrierDelay: "起飞晚点",
     carrierPropagate: "晚点继续",
     carrierRecover: "晚点追回",
-    rotationSection: "03 / 飞机轮转故事",
+    rotationSection: "飞机轮转故事",
     rotationTitle: "跟踪飞机，而不只是航班。",
     rotationIntro: "每个故事都来自同一架飞机的连续真实航段，看晚点如何一段段传下去、又在哪里被追回。",
     rotationDetailsSummary: "查看研究细节",
@@ -284,7 +284,7 @@ const ui = {
     guideTurn: "过站时间 = 飞机实际停场分钟（不是计划）",
     guideThreshold: "15 分钟是描述传播 / 恢复的统一门槛",
     guideCausal: "衔接关系只描述相邻两段都晚点的连续性，不构成因果",
-    methodSection: "08 / 方法与边界",
+    methodSection: "方法与边界",
     methodTitleFirst: "证据在前。",
     methodTitleSecond: "结论在后。",
     methodOneTitle: "统一到 UTC 时间线",
@@ -333,7 +333,7 @@ const ui = {
     metricRecovery: "delay recovered by the next flight",
     metricTails: "Research coverage",
     metricTailsSub: "aircraft with tail numbers",
-    airportSection: "01 / Airport pressure board",
+    airportSection: "Airport pressure board",
     airportTitle: "Where the network felt tight.",
     airportIntro: "This board compares which airports in this dataset show more delay, cancellation, and delay moving onward at the same time. A higher score means more concentrated relative pressure — it ranks airports only against each other, not a safety rating. It shows the top 12, and you can pick any of the 97 eligible airports below.",
     airportDetailsSummary: "View research details",
@@ -356,7 +356,7 @@ const ui = {
     propagated: "propagated",
     recovered: "recovered",
     pressureNote: "Pressure score is relative within eligible airports; it is not a safety rating or causal claim.",
-    carrierSection: "02 / Carrier comparison",
+    carrierSection: "Carrier comparison",
     carrierTitle: "Scale is not resilience.",
     carrierIntro: "We compare how large reporting carriers performed differently in this dataset — descriptive only, not a ranking of operating ability.",
     carrierDetailsSummary: "View research details",
@@ -365,7 +365,7 @@ const ui = {
     carrierDelay: "departure delay",
     carrierPropagate: "delay continued",
     carrierRecover: "delay recovered",
-    rotationSection: "03 / Aircraft rotation stories",
+    rotationSection: "Aircraft rotation stories",
     rotationTitle: "Follow the aircraft, not just the flight.",
     rotationIntro: "Each story follows consecutive real legs flown by one aircraft, showing how delay travels leg to leg and where it gets recovered.",
     rotationDetailsSummary: "View research details",
@@ -393,7 +393,7 @@ const ui = {
     guideTurn: "turn time = actual minutes on the ground, not the plan",
     guideThreshold: "15 min is the shared threshold for propagation / recovery",
     guideCausal: "link labels describe continuity of two late legs, not causation",
-    methodSection: "08 / Method & boundary",
+    methodSection: "Method & boundary",
     methodTitleFirst: "Evidence first.",
     methodTitleSecond: "Claims second.",
     methodOneTitle: "One UTC timeline",
@@ -532,22 +532,18 @@ export default function Dashboard() {
 
       <section className="metric-ribbon section-shell" aria-label={text.nationalSummary}>
         <article>
-          <span className="metric-index">01</span>
           <strong>{percent(data.national.delayRate)}</strong>
           <p>{text.metricDelay}</p>
         </article>
         <article>
-          <span className="metric-index">02</span>
           <strong>{percent(data.national.propagationRate)}</strong>
           <p>{text.metricPropagation}</p>
         </article>
         <article>
-          <span className="metric-index">03</span>
           <strong>{percent(data.national.recoveryRate)}</strong>
           <p>{text.metricRecovery}</p>
         </article>
         <article className="is-secondary">
-          <span className="metric-index">04</span>
           <strong>{integer(data.meta.tails)}</strong>
           <p>{text.metricTails}</p>
           <small>{text.metricTailsSub}</small>
